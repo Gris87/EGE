@@ -19,6 +19,8 @@ public class MainActivity extends Activity implements OnClickListener
 
     private EditText mNameEditText;
 
+    private Button mLessonButton;
+
     private Button mViewTasksButton;
     private Button mStartTestButton;
     private Button mViewResultsButton;
@@ -32,11 +34,13 @@ public class MainActivity extends Activity implements OnClickListener
 
 		// Get controls
 		mNameEditText = (EditText)findViewById(R.id.nameEditText);
+		mLessonButton = (Button)findViewById(R.id.lessonButton);
 		mViewTasksButton = (Button)findViewById(R.id.viewTasksButton);
 		mStartTestButton = (Button)findViewById(R.id.startTestButton);
 		mViewResultsButton = (Button)findViewById(R.id.viewResultsButton);
 
 		// Set listeners
+		mLessonButton.setOnClickListener(this);
 		mViewTasksButton.setOnClickListener(this);
 		mStartTestButton.setOnClickListener(this);
 		mViewResultsButton.setOnClickListener(this);
@@ -64,11 +68,19 @@ public class MainActivity extends Activity implements OnClickListener
 	    }
 	}
 
+	public void chooseLesson()
+    {
+
+    }
+
     @Override
     public void onClick(View v)
     {
         switch (v.getId())
         {
+            case R.id.lessonButton:
+                chooseLesson();
+            break;
             case R.id.viewTasksButton:
                 makeChoose(CHOOSE_VIEW_TASKS);
             break;

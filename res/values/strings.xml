@@ -7,5 +7,6 @@
     <string name="start_testing">Start testing</string>
     <string name="view_results">View results</string>
     <string name="name_is_empty">Please insert name</string>
+    <string name="choose_lesson">Lesson</string>
 
 </resources>
