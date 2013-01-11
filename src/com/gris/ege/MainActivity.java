@@ -21,16 +21,21 @@ public class MainActivity extends Activity implements OnClickListener
     private static final int CHOOSE_VIEW_RESULTS   = 2;
 
     private static final int REQUEST_LESSON_SELECT = 1;
+    public static final int RESULT_LESSON_SELECT   = 1;
 
-    private ArrayList<Lesson> mLessons;
 
-    private EditText mNameEditText;
 
-    private Button mLessonButton;
+    private static ArrayList<Lesson> mLessons;
 
-    private Button mViewTasksButton;
-    private Button mStartTestButton;
-    private Button mViewResultsButton;
+    private EditText          mNameEditText;
+
+    private Button            mLessonButton;
+
+    private Button            mViewTasksButton;
+    private Button            mStartTestButton;
+    private Button            mViewResultsButton;
+
+
 
 	@Override
     protected void onCreate(Bundle savedInstanceState)
@@ -65,6 +70,14 @@ public class MainActivity extends Activity implements OnClickListener
 	    selectLesson(aSelectedLesson);
 	}
 
+	@Override
+	protected void onDestroy()
+	{
+	    saveUserName();
+
+	    super.onDestroy();
+	}
+
 	public void saveUserName()
 	{
 	    SharedPreferences aSettings = getSharedPreferences(PREFS_NAME, 0);
@@ -79,7 +92,7 @@ public class MainActivity extends Activity implements OnClickListener
 
         for (int i=0; i<mLessons.size(); ++i)
         {
-            if (mLessons.get(i).getId()==aId)
+            if (mLessons.get(i).getId().equals(aId))
             {
                 index=i;
                 break;
@@ -143,4 +156,27 @@ public class MainActivity extends Activity implements OnClickListener
         }
 	}
 
+    @Override
+    protected void onActivityResult(int aRequestCode, int aResultCode, Intent aData)
+    {
+        switch (aRequestCode)
+        {
+            case REQUEST_LESSON_SELECT:
+                switch (aResultCode)
+                {
+                    case RESULT_LESSON_SELECT:
+                    {
+                        String aId=aData.getStringExtra("ID");
+                        selectLesson(aId);
+                    }
+                    break;
+                }
+            break;
+        }
+    }
+
+    public static ArrayList<Lesson> getLessons()
+    {
+        return mLessons;
+    }
 }
