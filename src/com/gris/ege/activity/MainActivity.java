@@ -137,19 +137,25 @@ public class MainActivity extends Activity implements OnClickListener
 	        switch (aChoice)
 	        {
 	            case CHOICE_VIEW_TASKS:
+	            {
 	               Intent aViewTasksIntent=new Intent();
                    aViewTasksIntent.setClass(this, ViewTasksActivity.class);
                    startActivity(aViewTasksIntent);
+	            }
 	            break;
 	            case CHOICE_START_TEST:
-                   Intent aStartTestIntent=new Intent();
+	            {
+	               Intent aStartTestIntent=new Intent();
                    aStartTestIntent.setClass(this, StartTestActivity.class);
                    startActivity(aStartTestIntent);
+	            }
                 break;
                 case CHOICE_VIEW_RESULTS:
+                {
                    Intent aViewResultsIntent=new Intent();
                    aViewResultsIntent.setClass(this, ViewResultsActivity.class);
                    startActivity(aViewResultsIntent);
+                }
                 break;
 	        }
 	    }
@@ -185,6 +191,7 @@ public class MainActivity extends Activity implements OnClickListener
         switch (aRequestCode)
         {
             case REQUEST_LESSON_SELECT:
+            {
                 switch (aResultCode)
                 {
                     case RESULT_LESSON_SELECT:
@@ -194,6 +201,7 @@ public class MainActivity extends Activity implements OnClickListener
                     }
                     break;
                 }
+            }
             break;
         }
     }
