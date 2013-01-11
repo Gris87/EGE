@@ -1,14 +1,14 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:orientation="vertical"
 	tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/nameTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:text="@string/insert_name"
         android:textAppearance="?android:attr/textAppearanceLarge"/>
 
@@ -16,14 +16,17 @@
         android:id="@+id/nameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/nameTextView"
         android:ems="10"
-        android:inputType="textPersonName">
+        android:inputType="textCapWords">
         <requestFocus/>
     </EditText>
 
     <RelativeLayout
     	android:layout_width="match_parent"
-    	android:layout_height="wrap_content">
+    	android:layout_height="wrap_content"
+    	android:layout_below="@+id/nameEditText"
+    	android:layout_marginTop="16dp">
 
     	<TextView
     		android:id="@+id/lessonTextView"
@@ -48,18 +51,21 @@
         android:id="@+id/viewTasksButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/startTestButton"
         android:text="@string/view_tasks"/>
 
     <Button
         android:id="@+id/startTestButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/viewResultsButton"
         android:text="@string/start_testing"/>
 
     <Button
         android:id="@+id/viewResultsButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:text="@string/view_results"/>
 
-</LinearLayout>
+</RelativeLayout>
