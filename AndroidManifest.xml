@@ -14,28 +14,27 @@
 		android:label="@string/app_name"
 		android:theme="@style/AppTheme">
 		<activity
-			android:name="com.gris.ege.MainActivity"
+			android:name="com.gris.ege.activity.MainActivity"
 			android:label="@string/app_name">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN"/>
-
 				<category android:name="android.intent.category.LAUNCHER"/>
 			</intent-filter>
 		</activity>
 		<activity
-			android:name="com.gris.ege.LessonChooseActivity"
+			android:name="com.gris.ege.activity.LessonChooseActivity"
 			android:label="@string/title_activity_lesson_choose">
 		</activity>
 		<activity
-			android:name="com.gris.ege.ViewTasksActivity"
+			android:name="com.gris.ege.activity.ViewTasksActivity"
 			android:label="@string/view_tasks">
 		</activity>
 		<activity
-			android:name="com.gris.ege.ViewResultsActivity"
+			android:name="com.gris.ege.activity.ViewResultsActivity"
 			android:label="@string/view_results">
 		</activity>
 		<activity
-			android:name="com.gris.ege.StartTestActivity"
+			android:name="com.gris.ege.activity.StartTestActivity"
 			android:label="@string/start_testing">
 		</activity>
 	</application>

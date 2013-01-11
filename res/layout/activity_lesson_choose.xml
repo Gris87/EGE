@@ -3,7 +3,7 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical"
-	tools:context=".LessonChooseActivity">
+	tools:context=".activity.LessonChooseActivity">
 
     <ListView
     	android:id="@+id/lessonsListView"

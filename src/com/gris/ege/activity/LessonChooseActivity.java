@@ -1,4 +1,8 @@
-package com.gris.ege;
+package com.gris.ege.activity;
+
+import com.gris.ege.R;
+import com.gris.ege.lists.LessonChooseListAdapter;
+import com.gris.ege.other.Lesson;
 
 import android.os.Bundle;
 import android.util.Log;

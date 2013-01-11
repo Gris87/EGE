@@ -1,6 +1,9 @@
-package com.gris.ege;
+package com.gris.ege.lists;
 
 import java.util.ArrayList;
+
+import com.gris.ege.R;
+import com.gris.ege.other.Lesson;
 
 import android.content.Context;
 import android.os.Environment;

@@ -1,10 +1,12 @@
-package com.gris.ege;
+package com.gris.ege.other;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
+
+import com.gris.ege.R;
 
 import android.content.Context;
 import android.util.Log;

@@ -1,6 +1,10 @@
-package com.gris.ege;
+package com.gris.ege.activity;
 
 import java.util.ArrayList;
+
+import com.gris.ege.R;
+import com.gris.ege.other.Lesson;
+import com.gris.ege.other.LessonsParser;
 
 import android.app.Activity;
 import android.content.Intent;

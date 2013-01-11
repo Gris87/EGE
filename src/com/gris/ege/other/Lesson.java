@@ -1,4 +1,4 @@
-package com.gris.ege;
+package com.gris.ege.other;
 
 public class Lesson
 {
