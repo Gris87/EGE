@@ -21,7 +21,7 @@ public class MainActivity extends Activity implements OnClickListener
     private static final int CHOOSE_VIEW_RESULTS   = 2;
 
     private static final int REQUEST_LESSON_SELECT = 1;
-    public static final int RESULT_LESSON_SELECT   = 1;
+    public  static final int RESULT_LESSON_SELECT  = 1;
 
 
 
