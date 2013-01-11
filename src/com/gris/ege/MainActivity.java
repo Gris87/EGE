@@ -16,9 +16,9 @@ public class MainActivity extends Activity implements OnClickListener
 {
     public static final String PREFS_NAME = "Settings";
 
-    private static final int CHOOSE_VIEW_TASKS     = 0;
-    private static final int CHOOSE_START_TEST     = 1;
-    private static final int CHOOSE_VIEW_RESULTS   = 2;
+    private static final int CHOICE_VIEW_TASKS     = 0;
+    private static final int CHOICE_START_TEST     = 1;
+    private static final int CHOICE_VIEW_RESULTS   = 2;
 
     private static final int REQUEST_LESSON_SELECT = 1;
     public  static final int RESULT_LESSON_SELECT  = 1;
@@ -124,11 +124,30 @@ public class MainActivity extends Activity implements OnClickListener
         startActivityForResult(aLessonSelectIntent, REQUEST_LESSON_SELECT);
     }
 
-	public void makeChoose(int aChoose)
+	public void makeChoose(int aChoice)
 	{
 	    if (mNameEditText.length()>0)
 	    {
 	        saveUserName();
+
+	        switch (aChoice)
+	        {
+	            case CHOICE_VIEW_TASKS:
+	               Intent aViewTasksIntent=new Intent();
+                   aViewTasksIntent.setClass(this, ViewTasksActivity.class);
+                   startActivity(aViewTasksIntent);
+	            break;
+	            case CHOICE_START_TEST:
+                   Intent aStartTestIntent=new Intent();
+                   aStartTestIntent.setClass(this, StartTestActivity.class);
+                   startActivity(aStartTestIntent);
+                break;
+                case CHOICE_VIEW_RESULTS:
+                   Intent aViewResultsIntent=new Intent();
+                   aViewResultsIntent.setClass(this, ViewResultsActivity.class);
+                   startActivity(aViewResultsIntent);
+                break;
+	        }
 	    }
 	    else
 	    {
@@ -145,13 +164,13 @@ public class MainActivity extends Activity implements OnClickListener
                 chooseLesson();
             break;
             case R.id.viewTasksButton:
-                makeChoose(CHOOSE_VIEW_TASKS);
+                makeChoose(CHOICE_VIEW_TASKS);
             break;
             case R.id.startTestButton:
-                makeChoose(CHOOSE_START_TEST);
+                makeChoose(CHOICE_START_TEST);
             break;
             case R.id.viewResultsButton:
-                makeChoose(CHOOSE_VIEW_RESULTS);
+                makeChoose(CHOICE_VIEW_RESULTS);
             break;
         }
 	}

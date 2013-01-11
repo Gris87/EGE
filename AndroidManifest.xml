@@ -26,6 +26,18 @@
 			android:name="com.gris.ege.LessonChooseActivity"
 			android:label="@string/title_activity_lesson_choose">
 		</activity>
+		<activity
+			android:name="com.gris.ege.ViewTasksActivity"
+			android:label="@string/view_tasks">
+		</activity>
+		<activity
+			android:name="com.gris.ege.ViewResultsActivity"
+			android:label="@string/view_results">
+		</activity>
+		<activity
+			android:name="com.gris.ege.StartTestActivity"
+			android:label="@string/start_testing">
+		</activity>
 	</application>
 
 </manifest>
