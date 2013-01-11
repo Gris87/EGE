@@ -2,8 +2,8 @@ package com.gris.ege;
 
 public class Lesson
 {
-    public String mId;
-    public String mName;
+    private String mId;
+    private String mName;
 
     public Lesson()
     {
@@ -15,5 +15,15 @@ public class Lesson
     {
         mId=aId;
         mName=aName;
+    }
+
+    public String getId()
+    {
+        return mId;
+    }
+
+    public String getName()
+    {
+        return mName;
     }
 }

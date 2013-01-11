@@ -1,13 +1,13 @@
 package com.gris.ege;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
+import android.content.Context;
 import android.util.Log;
 import android.util.Xml;
 
@@ -15,19 +15,24 @@ public class LessonsParser
 {
     private static final String TAG="LessonsParser";
 
-    public ArrayList<Lesson> parse()
+    public ArrayList<Lesson> parse(Context context)
     {
         // Open XML file
-        FileInputStream in;
+        InputStream in = context.getResources().openRawResource(R.xml.lessons);
+
+        byte[] aArray=new byte[200];
 
         try
         {
-            in = new FileInputStream("");
-        }
-        catch (FileNotFoundException e)
+            in.read(aArray);
+        } catch (IOException e)
         {
-            Log.e(TAG, "File not found", e);
-            return null;
+            Log.e(TAG, "Error during xml parsing", e);
+        }
+
+        for (int i=0; i<aArray.length; ++i)
+        {
+            Log.e(TAG, String.valueOf(aArray[i]));
         }
 
 
@@ -93,12 +98,12 @@ public class LessonsParser
         return res;
     }
 
-    public Lesson readLesson(XmlPullParser aParser) throws XmlPullParserException, IOException
+    private Lesson readLesson(XmlPullParser aParser) throws XmlPullParserException, IOException
     {
         aParser.require(XmlPullParser.START_TAG, null, "lesson");
         String aId = aParser.getAttributeValue(null, "id");
         String aName = readText(aParser);
-        aParser.require(XmlPullParser.END_TAG, null, "link");
+        aParser.require(XmlPullParser.END_TAG, null, "lesson");
 
         return new Lesson(aId, aName);
     }

@@ -1,5 +1,7 @@
 package com.gris.ege;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -17,6 +19,8 @@ public class MainActivity extends Activity implements OnClickListener
     private static final int CHOOSE_START_TEST   = 1;
     private static final int CHOOSE_VIEW_RESULTS = 2;
 
+    private ArrayList<Lesson> mLessons;
+
     private EditText mNameEditText;
 
     private Button mLessonButton;
@@ -31,6 +35,9 @@ public class MainActivity extends Activity implements OnClickListener
 	    super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.activity_main);
+
+		// Initialize variables
+		mLessons=new LessonsParser().parse(this);
 
 		// Get controls
 		mNameEditText = (EditText)findViewById(R.id.nameEditText);
@@ -47,10 +54,47 @@ public class MainActivity extends Activity implements OnClickListener
 
 		// Restore preferences
 	    SharedPreferences aSettings = getSharedPreferences(PREFS_NAME, 0);
-	    String aUserName = aSettings.getString("userName", "");
+
+	    String aUserName       = aSettings.getString("userName", "");
+	    String aSelectedLesson = aSettings.getString("selectedLesson", "");
 
 	    mNameEditText.setText(aUserName);
+	    selectLesson(aSelectedLesson);
 	}
+
+	public void selectLesson(String aId)
+    {
+	    int index=-1;
+
+        for (int i=0; i<mLessons.size(); ++i)
+        {
+            if (mLessons.get(i).getId()==aId)
+            {
+                index=i;
+                break;
+            }
+        }
+
+        if (index<0)
+        {
+            index=0;
+        }
+
+        mLessonButton.setText(mLessons.get(index).getName());
+
+
+
+        // Save preferences
+        SharedPreferences aSettings = getSharedPreferences(PREFS_NAME, 0);
+        SharedPreferences.Editor aEditor = aSettings.edit();
+        aEditor.putString("selectedLesson", aId);
+        aEditor.commit();
+    }
+
+	public void chooseLesson()
+    {
+
+    }
 
 	public void makeChoose(int aChoose)
 	{
@@ -67,11 +111,6 @@ public class MainActivity extends Activity implements OnClickListener
 	        Toast.makeText(this, R.string.name_is_empty, Toast.LENGTH_SHORT).show();
 	    }
 	}
-
-	public void chooseLesson()
-    {
-
-    }
 
     @Override
     public void onClick(View v)
