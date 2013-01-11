@@ -1,7 +1,6 @@
 package com.gris.ege;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -9,43 +8,20 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import android.content.Context;
 import android.util.Log;
-import android.util.Xml;
 
 public class LessonsParser
 {
     private static final String TAG="LessonsParser";
 
-    public ArrayList<Lesson> parse(Context context)
+    public ArrayList<Lesson> parse(Context aContext)
     {
-        // Open XML file
-        InputStream in = context.getResources().openRawResource(R.xml.lessons);
-
-        byte[] aArray=new byte[200];
-
-        try
-        {
-            in.read(aArray);
-        } catch (IOException e)
-        {
-            Log.e(TAG, "Error during xml parsing", e);
-        }
-
-        for (int i=0; i<aArray.length; ++i)
-        {
-            Log.e(TAG, String.valueOf(aArray[i]));
-        }
-
-
-
-        // Parsing XML file
         ArrayList<Lesson> res=null;
 
         try
         {
-            XmlPullParser aParser = Xml.newPullParser();
+            XmlPullParser aParser = aContext.getResources().getXml(R.xml.lessons);
 
-            aParser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
-            aParser.setInput(in, null);
+            aParser.next();
             aParser.nextTag();
 
             res=readLessons(aParser);
@@ -53,18 +29,6 @@ public class LessonsParser
         catch (Exception e)
         {
             Log.e(TAG, "Error during xml parsing", e);
-        }
-
-
-
-        // Close XML file
-        try
-        {
-            in.close();
-        }
-        catch (IOException e)
-        {
-            Log.w(TAG, "Impossible to close file", e);
         }
 
         return res;

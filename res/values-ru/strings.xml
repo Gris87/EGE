@@ -8,5 +8,6 @@
     <string name="view_results">Просмотр результатов</string>
     <string name="name_is_empty">Пожалуйста, введите имя</string>
     <string name="choose_lesson">Предмет</string>
+    <string name="title_activity_lesson_choose">Выберите предмет</string>
 
 </resources>

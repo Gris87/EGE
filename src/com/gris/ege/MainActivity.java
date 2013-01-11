@@ -3,6 +3,7 @@ package com.gris.ege;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -15,9 +16,11 @@ public class MainActivity extends Activity implements OnClickListener
 {
     public static final String PREFS_NAME = "Settings";
 
-    private static final int CHOOSE_VIEW_TASKS   = 0;
-    private static final int CHOOSE_START_TEST   = 1;
-    private static final int CHOOSE_VIEW_RESULTS = 2;
+    private static final int CHOOSE_VIEW_TASKS     = 0;
+    private static final int CHOOSE_START_TEST     = 1;
+    private static final int CHOOSE_VIEW_RESULTS   = 2;
+
+    private static final int REQUEST_LESSON_SELECT = 1;
 
     private ArrayList<Lesson> mLessons;
 
@@ -62,6 +65,14 @@ public class MainActivity extends Activity implements OnClickListener
 	    selectLesson(aSelectedLesson);
 	}
 
+	public void saveUserName()
+	{
+	    SharedPreferences aSettings = getSharedPreferences(PREFS_NAME, 0);
+        SharedPreferences.Editor aEditor = aSettings.edit();
+        aEditor.putString("userName", mNameEditText.getText().toString());
+        aEditor.commit();
+	}
+
 	public void selectLesson(String aId)
     {
 	    int index=-1;
@@ -93,18 +104,18 @@ public class MainActivity extends Activity implements OnClickListener
 
 	public void chooseLesson()
     {
+	    saveUserName();
 
+	    Intent aLessonSelectIntent=new Intent();
+        aLessonSelectIntent.setClass(this, LessonChooseActivity.class);
+        startActivityForResult(aLessonSelectIntent, REQUEST_LESSON_SELECT);
     }
 
 	public void makeChoose(int aChoose)
 	{
 	    if (mNameEditText.length()>0)
 	    {
-	        // Save preferences
-	        SharedPreferences aSettings = getSharedPreferences(PREFS_NAME, 0);
-	        SharedPreferences.Editor aEditor = aSettings.edit();
-	        aEditor.putString("userName", mNameEditText.getText().toString());
-	        aEditor.commit();
+	        saveUserName();
 	    }
 	    else
 	    {
