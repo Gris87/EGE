@@ -21,7 +21,7 @@ public class ViewResultsActivity extends Activity
         setContentView(R.layout.activity_view_results);
 
         SharedPreferences aSettings = getSharedPreferences(MainActivity.PREFS_NAME, 0);
-        mSelectedLesson = aSettings.getString("selectedLesson", "");
+        mSelectedLesson = aSettings.getString(MainActivity.OPTION_SELECTED_LESSON, "");
 
         Log.v(TAG, "View results for lesson \""+mSelectedLesson+"\"");
     }

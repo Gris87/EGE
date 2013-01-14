@@ -20,6 +20,9 @@ public class MainActivity extends Activity implements OnClickListener
 {
     public static final String PREFS_NAME = "Settings";
 
+    public static final String OPTION_USER_NAME       = "userName";
+    public static final String OPTION_SELECTED_LESSON = "selectedLesson";
+
     private static final int CHOICE_VIEW_TASKS     = 0;
     private static final int CHOICE_START_TEST     = 1;
     private static final int CHOICE_VIEW_RESULTS   = 2;
@@ -67,8 +70,8 @@ public class MainActivity extends Activity implements OnClickListener
 		// Restore preferences
 	    SharedPreferences aSettings = getSharedPreferences(PREFS_NAME, 0);
 
-	    String aUserName       = aSettings.getString("userName", "");
-	    String aSelectedLesson = aSettings.getString("selectedLesson", "");
+	    String aUserName       = aSettings.getString(OPTION_USER_NAME, "");
+	    String aSelectedLesson = aSettings.getString(OPTION_SELECTED_LESSON, "");
 
 	    mNameEditText.setText(aUserName);
 	    selectLesson(aSelectedLesson);
@@ -86,7 +89,7 @@ public class MainActivity extends Activity implements OnClickListener
 	{
 	    SharedPreferences aSettings = getSharedPreferences(PREFS_NAME, 0);
         SharedPreferences.Editor aEditor = aSettings.edit();
-        aEditor.putString("userName", mNameEditText.getText().toString());
+        aEditor.putString(OPTION_USER_NAME, mNameEditText.getText().toString());
         aEditor.commit();
 	}
 
@@ -115,7 +118,7 @@ public class MainActivity extends Activity implements OnClickListener
         // Save preferences
         SharedPreferences aSettings = getSharedPreferences(PREFS_NAME, 0);
         SharedPreferences.Editor aEditor = aSettings.edit();
-        aEditor.putString("selectedLesson", aId);
+        aEditor.putString(OPTION_SELECTED_LESSON, aId);
         aEditor.commit();
     }
 

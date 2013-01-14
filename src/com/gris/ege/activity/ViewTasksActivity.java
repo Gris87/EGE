@@ -30,7 +30,7 @@ public class ViewTasksActivity extends Activity
 
 
         SharedPreferences aSettings = getSharedPreferences(MainActivity.PREFS_NAME, 0);
-        mSelectedLesson = aSettings.getString("selectedLesson", "");
+        mSelectedLesson = aSettings.getString(MainActivity.OPTION_SELECTED_LESSON, "");
 
         Log.v(TAG, "View tasks for lesson \""+mSelectedLesson+"\"");
 
