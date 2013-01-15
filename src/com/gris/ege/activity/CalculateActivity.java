@@ -34,7 +34,7 @@ public class CalculateActivity extends Activity
         if (aExtras.containsKey(TASK_ID))
         {
             int aTaskId=aExtras.getInt(TASK_ID);
-            Log.d(TAG, "Start calculation for task: "+String.valueOf(aTaskId));
+            Log.v(TAG, "Start calculation for task: "+String.valueOf(aTaskId));
         }
     }
 }
