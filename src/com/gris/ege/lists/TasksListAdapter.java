@@ -1,80 +1,104 @@
 package com.gris.ege.lists;
 
+import java.util.ArrayList;
+
 import com.gris.ege.R;
-import com.gris.ege.db.TasksDatabase;
+import com.gris.ege.other.Task;
 
 import android.content.Context;
-import android.database.Cursor;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ResourceCursorAdapter;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-public class TasksListAdapter extends ResourceCursorAdapter
+public class TasksListAdapter extends BaseAdapter
 {
-    private TasksDatabase mDb;
-
-	private int mIDIndex;
-    private int mCategoryIndex;
-
-    private String mSelectedLesson;
+    private ArrayList<Task> mData;
+    private Context mContext;
 
     private static class ViewHolder
     {
-        TextView category;
-        TextView status;
+        TextView mCategory;
+        TextView mStatus;
     }
 
-    public TasksListAdapter(Context context, int layout, Cursor cursor, String[] from, int[] to, String aSelectedLesson)
+    public TasksListAdapter(Context aContext, ArrayList<Task> aData)
     {
-        super(context, layout, cursor, true);
-        mSelectedLesson=aSelectedLesson;
+        super();
 
-        mDb=new TasksDatabase(context, mSelectedLesson);
-
-        getColumnIndices(cursor);
+        mData = aData;
+        mContext = aContext;
     }
 
-    private void getColumnIndices(Cursor cursor)
+    @Override
+    public int getCount()
     {
-        if (cursor != null)
+        return mData.size();
+    }
+
+    @Override
+    public Object getItem(int aPosition)
+    {
+        return aPosition>=0 && aPosition<mData.size() ? mData.get(aPosition) : null;
+    }
+
+    @Override
+    public long getItemId(int aPosition)
+    {
+        return aPosition;
+    }
+
+    private View newView(Context context, ViewGroup parent)
+    {
+        LayoutInflater aLayoutInflater = LayoutInflater.from(context);
+
+        View aView=aLayoutInflater.inflate(R.layout.task_list_item, parent, false);
+
+        ViewHolder aHolder=new ViewHolder();
+
+        aHolder.mCategory=(TextView) aView.findViewById(R.id.categoryTextView);
+        aHolder.mStatus=(TextView) aView.findViewById(R.id.statusTextView);
+
+        aView.setTag(aHolder);
+
+        return aView;
+    }
+
+    private void bindView(int aPosition, View aView)
+    {
+        ViewHolder aHolder=(ViewHolder)aView.getTag();
+
+        Task aBindComp=mData.get(aPosition);
+
+        aHolder.mCategory.setText(String.valueOf(aBindComp.getId()+1)+". "+aBindComp.getCategory());
+
+        if (aBindComp.isFinished())
         {
-            mIDIndex = cursor.getColumnIndexOrThrow(TasksDatabase.COLUMN_ID);
-            mCategoryIndex = cursor.getColumnIndexOrThrow(TasksDatabase.COLUMN_CATEGORY);
+            aHolder.mStatus.setText("");
+        }
+        else
+        {
+            aHolder.mStatus.setText(mContext.getString(R.string.not_finished));
         }
     }
 
     @Override
-    public View newView(Context context, Cursor cursor, ViewGroup parent)
+    public View getView(int aPosition, View aConvertView, ViewGroup aParent)
     {
-        View v=super.newView(context, cursor, parent);
+        View view=null;
 
-        ViewHolder vh=new ViewHolder();
-        vh.category=(TextView) v.findViewById(R.id.categoryTextView);
-        vh.status=(TextView) v.findViewById(R.id.statusTextView);
-        v.setTag(vh);
+        if (aConvertView!=null)
+        {
+            view=aConvertView;
+        }
+        else
+        {
+            view=newView(mContext, aParent);
+        }
 
-        return v;
-    }
+        bindView(aPosition, view);
 
-    @Override
-    public void bindView(View view, Context context, Cursor cursor)
-    {
-        ViewHolder vh=(ViewHolder)view.getTag();
-
-        vh.category.setText(cursor.getString(mIDIndex)+". "+cursor.getString(mCategoryIndex));
-        vh.status.setText("Not finished");
-    }
-
-    @Override
-    public void changeCursor(Cursor cursor)
-    {
-        super.changeCursor(cursor);
-        getColumnIndices(cursor);
-    }
-
-    public void takeTaskCursor()
-    {
-        changeCursor(mDb.tasksCursor());
+        return view;
     }
 }

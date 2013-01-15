@@ -26,6 +26,8 @@ public class LessonChooseListAdapter extends BaseAdapter
 
     public LessonChooseListAdapter(Context aContext, ArrayList<Lesson> aData)
     {
+        super();
+
     	mData = aData;
     	mContext = aContext;
     }
