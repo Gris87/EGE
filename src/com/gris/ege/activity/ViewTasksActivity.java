@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 
 public class ViewTasksActivity extends Activity implements ListView.OnItemClickListener
@@ -62,6 +63,11 @@ public class ViewTasksActivity extends Activity implements ListView.OnItemClickL
             {
                 int aTaskId=((Task)(mTasksAdapter.getItem(aPosition))).getId();
                 Log.d(TAG, "Starting task: "+String.valueOf(aTaskId));
+
+                Intent aCalculateIntent=new Intent();
+                aCalculateIntent.setClass(this, CalculateActivity.class);
+                aCalculateIntent.putExtra(CalculateActivity.TASK_ID, aTaskId);
+                startActivity(aCalculateIntent);
             }
             break;
         }
