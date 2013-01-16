@@ -3,6 +3,7 @@ package com.gris.ege.activity;
 import com.gris.ege.R;
 import com.gris.ege.other.GlobalData;
 import com.gris.ege.other.LessonsParser;
+import com.gris.ege.other.TasksParser;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -131,6 +132,9 @@ public class MainActivity extends Activity implements OnClickListener
 	    if (mNameEditText.length()>0)
 	    {
 	        saveUserName();
+
+	        // Get list of tasks for selectedLesson
+	        GlobalData.tasks=new TasksParser().parse(this);
 
 	        switch (aChoice)
 	        {

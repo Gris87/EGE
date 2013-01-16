@@ -1,12 +1,9 @@
 package com.gris.ege.activity;
 
-import java.util.ArrayList;
-
 import com.gris.ege.R;
 import com.gris.ege.lists.TasksListAdapter;
 import com.gris.ege.other.GlobalData;
 import com.gris.ege.other.Task;
-import com.gris.ege.other.TasksParser;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -23,8 +20,6 @@ public class ViewTasksActivity extends Activity implements ListView.OnItemClickL
     private ListView         mTasksList;
     private TasksListAdapter mTasksAdapter;
 
-    private ArrayList<Task> mTasks;
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -34,11 +29,6 @@ public class ViewTasksActivity extends Activity implements ListView.OnItemClickL
 
         Log.v(TAG, "View tasks for lesson \""+GlobalData.selectedLesson+"\"");
 
-
-
-        // Initialize variables
-        mTasks=new TasksParser().parse(this);
-
         // Get controls
         mTasksList=(ListView)findViewById(R.id.tasksListView);
 
@@ -46,7 +36,7 @@ public class ViewTasksActivity extends Activity implements ListView.OnItemClickL
         mTasksList.setOnItemClickListener(this);
 
         // Initialize controls
-        mTasksAdapter=new TasksListAdapter(this, mTasks);
+        mTasksAdapter=new TasksListAdapter(this, GlobalData.tasks);
         mTasksList.setAdapter(mTasksAdapter);
     }
 
