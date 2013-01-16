@@ -11,5 +11,6 @@
 	<string name="title_activity_lesson_choose">Choose lesson</string>
 	<string name="not_finished">Not finished</string>
 	<string name="title_activity_calculate">Make calculations</string>
+	<string name="task_header">Task № %1$d. %2$s</string>
 
 </resources>
