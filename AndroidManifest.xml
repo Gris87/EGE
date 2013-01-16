@@ -36,7 +36,7 @@
 		</activity>
 		<activity
 			android:name="com.gris.ege.activity.StartTestActivity"
-			android:label="@string/start_testing">
+			android:label="@string/title_activity_start_test">
 		</activity>
 		<activity
 			android:name="com.gris.ege.activity.CalculateActivity"

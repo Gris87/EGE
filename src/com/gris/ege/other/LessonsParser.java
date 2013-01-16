@@ -67,11 +67,16 @@ public class LessonsParser
     private Lesson readLesson(XmlPullParser aParser) throws XmlPullParserException, IOException
     {
         aParser.require(XmlPullParser.START_TAG, null, "lesson");
-        String aId = aParser.getAttributeValue(null, "id");
-        String aName = readText(aParser);
+
+        String aId      = aParser.getAttributeValue(null, "id");
+        String aTimeStr = aParser.getAttributeValue(null, "time");
+        String aName    = readText(aParser);
+
         aParser.require(XmlPullParser.END_TAG, null, "lesson");
 
-        return new Lesson(aId, aName);
+        int aTime=Integer.parseInt(aTimeStr);
+
+        return new Lesson(aId, aName, aTime);
     }
 
     private String readText(XmlPullParser aParser) throws IOException, XmlPullParserException

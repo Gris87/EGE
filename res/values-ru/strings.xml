@@ -8,11 +8,20 @@
     <string name="view_results">Просмотр результатов</string>
     <string name="name_is_empty">Пожалуйста, введите имя</string>
     <string name="choose_lesson">Предмет</string>
-    <string name="title_activity_lesson_choose">Выберите предмет</string>
     <string name="not_finished">Не завершено</string>
     <string name="finished">Завершено</string>
-    <string name="title_activity_calculate">Решение задач</string>
+    <string name="time_left">Осталось = %1$d:%2$d:%3$d</string>
     <string name="task_header">Задача № %1$d. %2$s</string>
     <string name="answer">Ответ</string>
+    <string name="time_for_exam">Времени = %1$d:%2$d:%3$d</string>
+    <string name="A_task_count">Задач A : %1$d</string>
+    <string name="B_task_count">Задач B : %1$d</string>
+    <string name="C_task_count">Задач C : %1$d</string>
+    <string name="total_task_count">Всего задач : %1$d</string>
+    <string name="start">Начать</string>
+    
+    <string name="title_activity_lesson_choose">Выберите предмет</string>
+    <string name="title_activity_start_test">Тестирование</string>
+    <string name="title_activity_calculate">Решение задач</string>
 
 </resources>

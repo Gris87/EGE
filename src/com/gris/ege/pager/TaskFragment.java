@@ -9,14 +9,19 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class TaskFragment extends Fragment
 {
     private Task mTask;
+    private boolean mWithAnswers;
 
     private TextView mTaskHeaderView;
     private TextView mTaskStatusView;
+    private EditText mAnswerEditText;
+    private Button   mAnswerButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -29,11 +34,13 @@ public class TaskFragment extends Fragment
 
         if (aArgs!=null)
         {
-            aTaskId=aArgs.getInt(GlobalData.TASK_ID);
+            aTaskId      = aArgs.getInt(    GlobalData.TASK_ID);
+            mWithAnswers = aArgs.getBoolean(GlobalData.WITH_ANSWERS);
         }
         else
         {
             aTaskId=0;
+            mWithAnswers=false;
         }
 
         mTask=GlobalData.tasks.get(aTaskId);
@@ -44,26 +51,50 @@ public class TaskFragment extends Fragment
     {
         View aView=aInflater.inflate(R.layout.task_page_item, aContainer, false);
 
-        mTaskHeaderView=(TextView)aView.findViewById(R.id.taskHeaderTextView);
-        mTaskStatusView=(TextView)aView.findViewById(R.id.taskStatusTextView);
+
+
+        mTaskHeaderView = (TextView)aView.findViewById(R.id.taskHeaderTextView);
+        mTaskStatusView = (TextView)aView.findViewById(R.id.taskStatusTextView);
+        mAnswerEditText = (EditText)aView.findViewById(R.id.answerEditText);
+        mAnswerButton   = (Button)  aView.findViewById(R.id.answerButton);
+
+
 
         mTaskHeaderView.setText(getString(R.string.task_header, mTask.getId()+1, mTask.getCategory()));
         updateStatus();
+
+        if (mWithAnswers)
+        {
+            mAnswerButton.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            mAnswerButton.setVisibility(View.GONE);
+        }
 
         return aView;
     }
 
     public void updateStatus()
     {
-        if (mTask.isFinished())
+        if (mWithAnswers)
         {
-            mTaskStatusView.setText(getString(R.string.finished));
-            mTaskStatusView.setTextColor(getResources().getColor(R.color.good));
+            mTaskStatusView.setVisibility(View.VISIBLE);
+
+            if (mTask.isFinished())
+            {
+                mTaskStatusView.setText(getString(R.string.finished));
+                mTaskStatusView.setTextColor(getResources().getColor(R.color.good));
+            }
+            else
+            {
+                mTaskStatusView.setText(getString(R.string.not_finished));
+                mTaskStatusView.setTextColor(getResources().getColor(R.color.bad));
+            }
         }
         else
         {
-            mTaskStatusView.setText(getString(R.string.not_finished));
-            mTaskStatusView.setTextColor(getResources().getColor(R.color.bad));
+            mTaskStatusView.setVisibility(View.GONE);
         }
     }
 }

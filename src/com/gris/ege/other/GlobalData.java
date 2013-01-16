@@ -11,6 +11,7 @@ public class GlobalData
 
     public static final String LESSON_ID              = "lessonId";
     public static final String TASK_ID                = "taskId";
+    public static final String WITH_ANSWERS           = "withAnswers";
 
     public static final String PATH_ON_SD_CARD        = "/EGE/";
 

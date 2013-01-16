@@ -38,8 +38,7 @@ public class CalculateActivity extends FragmentActivity
             int aTaskId=aExtras.getInt(GlobalData.TASK_ID);
             Log.v(TAG, "Start calculation for task: "+String.valueOf(aTaskId));
 
-            mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), GlobalData.tasks);
-
+            mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), GlobalData.tasks, true);
 
             mTimeLeftTextView.setVisibility(View.GONE);
         }
