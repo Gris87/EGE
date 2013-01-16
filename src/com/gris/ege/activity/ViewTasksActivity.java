@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.gris.ege.R;
 import com.gris.ege.lists.TasksListAdapter;
+import com.gris.ege.other.GlobalData;
 import com.gris.ege.other.Task;
 import com.gris.ege.other.TasksParser;
 
@@ -14,7 +15,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 
 public class ViewTasksActivity extends Activity implements ListView.OnItemClickListener
 {
@@ -23,7 +23,6 @@ public class ViewTasksActivity extends Activity implements ListView.OnItemClickL
     private ListView         mTasksList;
     private TasksListAdapter mTasksAdapter;
 
-    private String mSelectedLesson;
     private ArrayList<Task> mTasks;
 
     @Override
@@ -33,15 +32,12 @@ public class ViewTasksActivity extends Activity implements ListView.OnItemClickL
 
         setContentView(R.layout.activity_view_tasks);
 
-        SharedPreferences aSettings = getSharedPreferences(MainActivity.PREFS_NAME, 0);
-        mSelectedLesson = aSettings.getString(MainActivity.OPTION_SELECTED_LESSON, "");
-
-        Log.v(TAG, "View tasks for lesson \""+mSelectedLesson+"\"");
+        Log.v(TAG, "View tasks for lesson \""+GlobalData.selectedLesson+"\"");
 
 
 
         // Initialize variables
-        mTasks=new TasksParser().parse(this, mSelectedLesson);
+        mTasks=new TasksParser().parse(this);
 
         // Get controls
         mTasksList=(ListView)findViewById(R.id.tasksListView);
@@ -66,7 +62,7 @@ public class ViewTasksActivity extends Activity implements ListView.OnItemClickL
 
                 Intent aCalculateIntent=new Intent();
                 aCalculateIntent.setClass(this, CalculateActivity.class);
-                aCalculateIntent.putExtra(CalculateActivity.TASK_ID, aTaskId);
+                aCalculateIntent.putExtra(GlobalData.TASK_ID, aTaskId);
                 startActivity(aCalculateIntent);
             }
             break;

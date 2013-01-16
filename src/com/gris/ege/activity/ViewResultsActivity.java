@@ -1,17 +1,15 @@
 package com.gris.ege.activity;
 
 import com.gris.ege.R;
+import com.gris.ege.other.GlobalData;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.app.Activity;
-import android.content.SharedPreferences;
 
 public class ViewResultsActivity extends Activity
 {
     private static final String TAG="ViewResultsActivity";
-
-    private String mSelectedLesson;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -20,9 +18,6 @@ public class ViewResultsActivity extends Activity
 
         setContentView(R.layout.activity_view_results);
 
-        SharedPreferences aSettings = getSharedPreferences(MainActivity.PREFS_NAME, 0);
-        mSelectedLesson = aSettings.getString(MainActivity.OPTION_SELECTED_LESSON, "");
-
-        Log.v(TAG, "View results for lesson \""+mSelectedLesson+"\"");
+        Log.v(TAG, "View results for lesson \""+GlobalData.selectedLesson+"\"");
     }
 }

@@ -15,19 +15,17 @@ public class TasksParser
 {
     private static final String TAG="TasksParser";
 
-    public ArrayList<Task> parse(Context aContext, String aLessonID)
+    public ArrayList<Task> parse(Context aContext)
     {
         ArrayList<Task> res=null;
 
         try
         {
-            InputStream in=aContext.getAssets().open(aLessonID+".xml");
+            InputStream in=aContext.getAssets().open(GlobalData.selectedLesson+".xml");
 
             XmlPullParser aParser=Xml.newPullParser();
             aParser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
             aParser.setInput(in, null);
-
-            //XmlPullParser aParser = aContext.getAssets().openXmlResourceParser(aLessonID+".xml");
 
             aParser.nextTag();
 

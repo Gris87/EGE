@@ -1,8 +1,7 @@
 package com.gris.ege.lists;
 
-import java.util.ArrayList;
-
 import com.gris.ege.R;
+import com.gris.ege.other.GlobalData;
 import com.gris.ege.other.Lesson;
 
 import android.content.Context;
@@ -15,7 +14,6 @@ import android.widget.TextView;
 
 public class LessonChooseListAdapter extends BaseAdapter
 {
-	private ArrayList<Lesson> mData;
     private Context mContext;
 
     private static class ViewHolder
@@ -24,24 +22,23 @@ public class LessonChooseListAdapter extends BaseAdapter
         TextView mId;
     }
 
-    public LessonChooseListAdapter(Context aContext, ArrayList<Lesson> aData)
+    public LessonChooseListAdapter(Context aContext)
     {
         super();
 
-    	mData = aData;
-    	mContext = aContext;
+    	mContext=aContext;
     }
 
     @Override
     public int getCount()
     {
-    	return mData.size();
+    	return GlobalData.lessons.size();
     }
 
     @Override
     public Object getItem(int aPosition)
     {
-    	return aPosition>=0 && aPosition<mData.size() ? mData.get(aPosition) : null;
+    	return aPosition>=0 && aPosition<GlobalData.lessons.size() ? GlobalData.lessons.get(aPosition) : null;
     }
 
     @Override
@@ -70,10 +67,10 @@ public class LessonChooseListAdapter extends BaseAdapter
     {
     	ViewHolder aHolder=(ViewHolder)aView.getTag();
 
-    	Lesson aBindComp=mData.get(aPosition);
+    	Lesson aBindComp=GlobalData.lessons.get(aPosition);
 
     	aHolder.mName.setText(aBindComp.getName());
-    	aHolder.mId.setText(Environment.getExternalStorageDirectory().getPath()+"/EGE/"+aBindComp.getId());
+    	aHolder.mId.setText(Environment.getExternalStorageDirectory().getPath()+GlobalData.PATH_ON_SD_CARD+aBindComp.getId());
     }
 
     @Override

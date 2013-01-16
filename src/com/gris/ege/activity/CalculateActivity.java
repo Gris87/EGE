@@ -1,6 +1,7 @@
 package com.gris.ege.activity;
 
 import com.gris.ege.R;
+import com.gris.ege.other.GlobalData;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -12,8 +13,6 @@ import android.content.Intent;
 public class CalculateActivity extends Activity
 {
     private static final String TAG="CalculateActivity";
-
-    public static final String TASK_ID="task_id";
 
     private ViewFlipper mTasksFlipper;
 
@@ -31,9 +30,9 @@ public class CalculateActivity extends Activity
         Intent aIntent=getIntent();
         Bundle aExtras=aIntent.getExtras();
 
-        if (aExtras.containsKey(TASK_ID))
+        if (aExtras.containsKey(GlobalData.TASK_ID))
         {
-            int aTaskId=aExtras.getInt(TASK_ID);
+            int aTaskId=aExtras.getInt(GlobalData.TASK_ID);
             Log.v(TAG, "Start calculation for task: "+String.valueOf(aTaskId));
         }
     }

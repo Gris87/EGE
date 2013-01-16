@@ -1,9 +1,7 @@
 package com.gris.ege.activity;
 
-import java.util.ArrayList;
-
 import com.gris.ege.R;
-import com.gris.ege.other.Lesson;
+import com.gris.ege.other.GlobalData;
 import com.gris.ege.other.LessonsParser;
 
 import android.app.Activity;
@@ -18,21 +16,14 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener
 {
-    public static final String PREFS_NAME = "Settings";
-
-    public static final String OPTION_USER_NAME       = "userName";
-    public static final String OPTION_SELECTED_LESSON = "selectedLesson";
+    private static final int REQUEST_LESSON_SELECT = 1;
+    public  static final int RESULT_LESSON_SELECT  = 1;
 
     private static final int CHOICE_VIEW_TASKS     = 0;
     private static final int CHOICE_START_TEST     = 1;
     private static final int CHOICE_VIEW_RESULTS   = 2;
 
-    private static final int REQUEST_LESSON_SELECT = 1;
-    public  static final int RESULT_LESSON_SELECT  = 1;
 
-
-
-    private static ArrayList<Lesson> mLessons;
 
     private EditText          mNameEditText;
 
@@ -52,7 +43,7 @@ public class MainActivity extends Activity implements OnClickListener
 		setContentView(R.layout.activity_main);
 
 		// Initialize variables
-		mLessons=new LessonsParser().parse(this);
+		GlobalData.lessons=new LessonsParser().parse(this);
 
 		// Get controls
 		mNameEditText = (EditText)findViewById(R.id.nameEditText);
@@ -68,10 +59,10 @@ public class MainActivity extends Activity implements OnClickListener
 		mViewResultsButton.setOnClickListener(this);
 
 		// Restore preferences
-	    SharedPreferences aSettings = getSharedPreferences(PREFS_NAME, 0);
+	    SharedPreferences aSettings = getSharedPreferences(GlobalData.PREFS_NAME, 0);
 
-	    String aUserName       = aSettings.getString(OPTION_USER_NAME, "");
-	    String aSelectedLesson = aSettings.getString(OPTION_SELECTED_LESSON, "");
+	    String aUserName       = aSettings.getString(GlobalData.OPTION_USER_NAME, "");
+	    String aSelectedLesson = aSettings.getString(GlobalData.OPTION_SELECTED_LESSON, "");
 
 	    mNameEditText.setText(aUserName);
 	    selectLesson(aSelectedLesson);
@@ -87,9 +78,9 @@ public class MainActivity extends Activity implements OnClickListener
 
 	public void saveUserName()
 	{
-	    SharedPreferences aSettings = getSharedPreferences(PREFS_NAME, 0);
+	    SharedPreferences aSettings = getSharedPreferences(GlobalData.PREFS_NAME, 0);
         SharedPreferences.Editor aEditor = aSettings.edit();
-        aEditor.putString(OPTION_USER_NAME, mNameEditText.getText().toString());
+        aEditor.putString(GlobalData.OPTION_USER_NAME, mNameEditText.getText().toString());
         aEditor.commit();
 	}
 
@@ -97,9 +88,9 @@ public class MainActivity extends Activity implements OnClickListener
     {
 	    int index=-1;
 
-        for (int i=0; i<mLessons.size(); ++i)
+        for (int i=0; i<GlobalData.lessons.size(); ++i)
         {
-            if (mLessons.get(i).getId().equals(aId))
+            if (GlobalData.lessons.get(i).getId().equals(aId))
             {
                 index=i;
                 break;
@@ -111,14 +102,18 @@ public class MainActivity extends Activity implements OnClickListener
             index=0;
         }
 
-        mLessonButton.setText(mLessons.get(index).getName());
+        mLessonButton.setText(GlobalData.lessons.get(index).getName());
+
+
+
+        GlobalData.selectedLesson=GlobalData.lessons.get(index).getId();
 
 
 
         // Save preferences
-        SharedPreferences aSettings = getSharedPreferences(PREFS_NAME, 0);
+        SharedPreferences aSettings = getSharedPreferences(GlobalData.PREFS_NAME, 0);
         SharedPreferences.Editor aEditor = aSettings.edit();
-        aEditor.putString(OPTION_SELECTED_LESSON, aId);
+        aEditor.putString(GlobalData.OPTION_SELECTED_LESSON, GlobalData.selectedLesson);
         aEditor.commit();
     }
 
@@ -199,7 +194,7 @@ public class MainActivity extends Activity implements OnClickListener
                 {
                     case RESULT_LESSON_SELECT:
                     {
-                        String aId=aData.getStringExtra("ID");
+                        String aId=aData.getStringExtra(GlobalData.LESSON_ID);
                         selectLesson(aId);
                     }
                     break;
@@ -207,10 +202,5 @@ public class MainActivity extends Activity implements OnClickListener
             }
             break;
         }
-    }
-
-    public static ArrayList<Lesson> getLessons()
-    {
-        return mLessons;
     }
 }

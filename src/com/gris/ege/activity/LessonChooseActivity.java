@@ -2,6 +2,7 @@ package com.gris.ege.activity;
 
 import com.gris.ege.R;
 import com.gris.ege.lists.LessonChooseListAdapter;
+import com.gris.ege.other.GlobalData;
 import com.gris.ege.other.Lesson;
 
 import android.os.Bundle;
@@ -35,7 +36,7 @@ public class LessonChooseActivity extends Activity implements ListView.OnItemCli
         mLessonsList.setOnItemClickListener(this);
 
         // Initialize controls
-        mLessonsAdapter=new LessonChooseListAdapter(this, MainActivity.getLessons());
+        mLessonsAdapter=new LessonChooseListAdapter(this);
         mLessonsList.setAdapter(mLessonsAdapter);
     }
 
@@ -50,7 +51,7 @@ public class LessonChooseActivity extends Activity implements ListView.OnItemCli
                 Log.d(TAG, "Selected lesson: "+aLessonId);
 
                 Intent aRes=new Intent();
-                aRes.putExtra("ID", aLessonId);
+                aRes.putExtra(GlobalData.LESSON_ID, aLessonId);
                 setResult(MainActivity.RESULT_LESSON_SELECT, aRes);
 
                 finish();

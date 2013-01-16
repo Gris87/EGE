@@ -27,8 +27,8 @@ public class TasksListAdapter extends BaseAdapter
     {
         super();
 
-        mData = aData;
-        mContext = aContext;
+        mData=aData;
+        mContext=aContext;
     }
 
     @Override
