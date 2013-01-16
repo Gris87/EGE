@@ -60,7 +60,7 @@ public class TaskFragment extends Fragment
 
 
 
-        mTaskHeaderView.setText(getString(R.string.task_header, mTask.getId()+1, mTask.getCategory()));
+        mTaskHeaderView.setText(getString(R.string.task_header, mTask.getCategory(), mTask.getId()+1));
         updateStatus();
 
         if (mWithAnswers)

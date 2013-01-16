@@ -1,7 +1,10 @@
 package com.gris.ege.activity;
 
+import java.util.ArrayList;
+
 import com.gris.ege.R;
 import com.gris.ege.other.GlobalData;
+import com.gris.ege.other.Task;
 import com.gris.ege.pager.TasksPageAdapter;
 
 import android.os.Bundle;
@@ -44,6 +47,22 @@ public class CalculateActivity extends FragmentActivity
         }
         else
         {
+            int aTaskCount=aExtras.getInt(GlobalData.TASKS_COUNT);
+            Log.v(TAG, "Start calculation for tasks:");
+
+            ArrayList<Task> aSelectedTasks=new ArrayList<Task>();
+
+            for (int i=0; i<aTaskCount; ++i)
+            {
+                int aTaskId=aExtras.getInt(GlobalData.TASK_ID+"_"+String.valueOf(i));
+                Log.v(TAG, "Task № "+String.valueOf(aTaskId));
+
+                Task aTask=GlobalData.tasks.get(aTaskId);
+                aSelectedTasks.add(aTask);
+            }
+
+            mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), aSelectedTasks, false);
+
             mTimeLeftTextView.setVisibility(View.VISIBLE);
         }
 

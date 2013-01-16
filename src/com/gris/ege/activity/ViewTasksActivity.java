@@ -48,7 +48,6 @@ public class ViewTasksActivity extends Activity implements ListView.OnItemClickL
             case R.id.tasksListView:
             {
                 int aTaskId=((Task)(mTasksAdapter.getItem(aPosition))).getId();
-                Log.d(TAG, "Starting task: "+String.valueOf(aTaskId));
 
                 Intent aCalculateIntent=new Intent();
                 aCalculateIntent.setClass(this, CalculateActivity.class);

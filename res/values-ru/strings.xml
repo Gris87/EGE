@@ -10,10 +10,10 @@
     <string name="choose_lesson">Предмет</string>
     <string name="not_finished">Не завершено</string>
     <string name="finished">Завершено</string>
-    <string name="time_left">Осталось = %1$d:%2$d:%3$d</string>
-    <string name="task_header">Задача № %1$d. %2$s</string>
+    <string name="time_left">Осталось = %1$s:%2$s:%3$s</string>
+    <string name="task_header">%1$s. Задача № %2$d</string>
     <string name="answer">Ответ</string>
-    <string name="time_for_exam">Времени = %1$d:%2$d:%3$d</string>
+    <string name="time_for_exam">Время = %1$s:%2$s:%3$s</string>
     <string name="A_task_count">Задач A : %1$d</string>
     <string name="B_task_count">Задач B : %1$d</string>
     <string name="C_task_count">Задач C : %1$d</string>
