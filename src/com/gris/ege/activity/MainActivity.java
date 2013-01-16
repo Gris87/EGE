@@ -62,11 +62,11 @@ public class MainActivity extends Activity implements OnClickListener
 		// Restore preferences
 	    SharedPreferences aSettings = getSharedPreferences(GlobalData.PREFS_NAME, 0);
 
-	    String aUserName       = aSettings.getString(GlobalData.OPTION_USER_NAME, "");
-	    String aSelectedLesson = aSettings.getString(GlobalData.OPTION_SELECTED_LESSON, "");
+	    String aUserName         = aSettings.getString(GlobalData.OPTION_USER_NAME, "");
+	    String aSelectedLessonID = aSettings.getString(GlobalData.OPTION_SELECTED_LESSON, "");
 
 	    mNameEditText.setText(aUserName);
-	    selectLesson(aSelectedLesson);
+	    selectLesson(aSelectedLessonID);
 	}
 
 	@Override
@@ -107,14 +107,14 @@ public class MainActivity extends Activity implements OnClickListener
 
 
 
-        GlobalData.selectedLesson=GlobalData.lessons.get(index).getId();
+        GlobalData.selectedLesson=GlobalData.lessons.get(index);
 
 
 
         // Save preferences
         SharedPreferences aSettings = getSharedPreferences(GlobalData.PREFS_NAME, 0);
         SharedPreferences.Editor aEditor = aSettings.edit();
-        aEditor.putString(GlobalData.OPTION_SELECTED_LESSON, GlobalData.selectedLesson);
+        aEditor.putString(GlobalData.OPTION_SELECTED_LESSON, GlobalData.selectedLesson.getId());
         aEditor.commit();
     }
 

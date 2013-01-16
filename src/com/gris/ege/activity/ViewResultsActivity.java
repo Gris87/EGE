@@ -18,6 +18,6 @@ public class ViewResultsActivity extends Activity
 
         setContentView(R.layout.activity_view_results);
 
-        Log.v(TAG, "View results for lesson \""+GlobalData.selectedLesson+"\"");
+        Log.v(TAG, "View results for lesson \""+GlobalData.selectedLesson.getId()+"\"");
     }
 }

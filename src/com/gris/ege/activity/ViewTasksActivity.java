@@ -27,7 +27,7 @@ public class ViewTasksActivity extends Activity implements ListView.OnItemClickL
 
         setContentView(R.layout.activity_view_tasks);
 
-        Log.v(TAG, "View tasks for lesson \""+GlobalData.selectedLesson+"\"");
+        Log.v(TAG, "View tasks for lesson \""+GlobalData.selectedLesson.getId()+"\"");
 
         // Get controls
         mTasksList=(ListView)findViewById(R.id.tasksListView);

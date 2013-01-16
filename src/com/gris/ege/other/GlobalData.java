@@ -20,5 +20,5 @@ public class GlobalData
     public static ArrayList<Lesson> lessons;
     public static ArrayList<Task>   tasks;      // current opened tasks (full list for selectedLesson)
 
-    public static String selectedLesson = "";
+    public static Lesson            selectedLesson;
 }

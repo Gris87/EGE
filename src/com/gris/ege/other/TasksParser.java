@@ -21,7 +21,7 @@ public class TasksParser
 
         try
         {
-            InputStream in=aContext.getAssets().open(GlobalData.selectedLesson+".xml");
+            InputStream in=aContext.getAssets().open(GlobalData.selectedLesson.getId()+".xml");
 
             XmlPullParser aParser=Xml.newPullParser();
             aParser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
