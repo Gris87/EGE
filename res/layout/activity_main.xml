@@ -9,6 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="4dp"
         android:text="@string/insert_name"
         android:textAppearance="?android:attr/textAppearanceLarge"/>
 
@@ -17,6 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/nameTextView"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
         android:ems="10"
         android:inputType="textCapWords">
         <requestFocus/>
@@ -34,6 +38,7 @@
     		android:layout_height="wrap_content"
     		android:layout_alignParentLeft="true"
     		android:layout_centerVertical="true"
+    		android:layout_marginLeft="4dp"
     		android:text="@string/choose_lesson"
     		android:textAppearance="?android:attr/textAppearanceLarge"/>
     	
@@ -42,8 +47,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_marginLeft="24dp"
-            android:layout_toRightOf="@+id/lessonTextView"/>
+            android:layout_toRightOf="@+id/lessonTextView"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="4dp"/>
 
     </RelativeLayout>
 
@@ -52,6 +58,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/startTestButton"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
         android:text="@string/view_tasks"/>
 
     <Button
@@ -59,6 +68,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/viewResultsButton"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
         android:text="@string/start_testing"/>
 
     <Button
@@ -66,6 +78,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
         android:text="@string/view_results"/>
 
 </RelativeLayout>

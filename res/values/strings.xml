@@ -10,7 +10,9 @@
 	<string name="choose_lesson">Lesson</string>
 	<string name="title_activity_lesson_choose">Choose lesson</string>
 	<string name="not_finished">Not finished</string>
+	<string name="finished">Finished</string>
 	<string name="title_activity_calculate">Make calculations</string>
 	<string name="task_header">Task № %1$d. %2$s</string>
+	<string name="answer">Answer</string>
 
 </resources>

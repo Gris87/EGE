@@ -8,11 +8,15 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 import android.content.Intent;
 
 public class CalculateActivity extends FragmentActivity
 {
     private static final String TAG="CalculateActivity";
+
+    private TextView         mTimeLeftTextView;
 
     private ViewPager        mTasksPager;
     private TasksPageAdapter mTasksAdapter;
@@ -23,7 +27,8 @@ public class CalculateActivity extends FragmentActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculate);
 
-        mTasksPager=(ViewPager)findViewById(R.id.tasksPager);
+        mTimeLeftTextView = (TextView) findViewById(R.id.timeLeftTextView);
+        mTasksPager       = (ViewPager)findViewById(R.id.tasksPager);
 
         Intent aIntent=getIntent();
         Bundle aExtras=aIntent.getExtras();
@@ -34,6 +39,13 @@ public class CalculateActivity extends FragmentActivity
             Log.v(TAG, "Start calculation for task: "+String.valueOf(aTaskId));
 
             mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), GlobalData.tasks);
+
+
+            mTimeLeftTextView.setVisibility(View.GONE);
+        }
+        else
+        {
+            mTimeLeftTextView.setVisibility(View.VISIBLE);
         }
 
         mTasksPager.setAdapter(mTasksAdapter);

@@ -10,7 +10,9 @@
     <string name="choose_lesson">Предмет</string>
     <string name="title_activity_lesson_choose">Выберите предмет</string>
     <string name="not_finished">Не завершено</string>
+    <string name="finished">Завершено</string>
     <string name="title_activity_calculate">Решение задач</string>
     <string name="task_header">Задача № %1$d. %2$s</string>
+    <string name="answer">Ответ</string>
 
 </resources>
