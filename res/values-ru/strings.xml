@@ -24,6 +24,6 @@
     <string name="C_task_count">Задач C : %1$d</string>
     <string name="total_task_count">Всего задач : %1$d</string>
     <string name="start">Начать</string>
-    <string name="do_you_want_to_finish">Вы хотите завершить тестирование?</string>
+    <string name="do_you_want_to_finish">Хотите завершить тестирование?</string>
 
 </resources>

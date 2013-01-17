@@ -138,14 +138,14 @@ public class CalculateActivity extends FragmentActivity
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
                     builder.setMessage(R.string.do_you_want_to_finish)
-                           .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener()
+                           .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener()
                            {
                                public void onClick(DialogInterface dialog, int id)
                                {
                                    completeTest();
                                }
                            })
-                           .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener()
+                           .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener()
                            {
                                public void onClick(DialogInterface dialog, int id)
                                {

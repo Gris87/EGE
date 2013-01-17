@@ -20,6 +20,8 @@ public class StartTestActivity extends Activity implements OnClickListener
 {
     private static final String TAG="StartTestActivity";
 
+    private static final int REQUEST_START_TEST = 1;
+
 
 
     private TextView mTimeTextView;
@@ -158,9 +160,20 @@ public class StartTestActivity extends Activity implements OnClickListener
                     aCalculateIntent.putExtra(GlobalData.TASK_ID+"_"+String.valueOf(i), aSelectedTasks.get(i).getId());
                 }
 
-                startActivity(aCalculateIntent);
+                startActivityForResult(aCalculateIntent, REQUEST_START_TEST);
+            break;
+        }
+    }
 
+    @Override
+    protected void onActivityResult(int aRequestCode, int aResultCode, Intent aData)
+    {
+        switch (aRequestCode)
+        {
+            case REQUEST_START_TEST:
+            {
                 finish();
+            }
             break;
         }
     }
