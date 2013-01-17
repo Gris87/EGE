@@ -21,6 +21,7 @@ public class StartTestActivity extends Activity implements OnClickListener
     private static final String TAG="StartTestActivity";
 
     private static final int REQUEST_START_TEST = 1;
+    public  static final int RESULT_START_TEST  = 1;
 
 
 
@@ -61,17 +62,12 @@ public class StartTestActivity extends Activity implements OnClickListener
         String aHoursStr=String.valueOf(aHours);
         String aMinutesStr=String.valueOf(aMinutes);
 
-        if (aHours<10)
-        {
-            aHoursStr="0"+aHoursStr;
-        }
-
         if (aMinutes<10)
         {
             aMinutesStr="0"+aMinutesStr;
         }
 
-        mTimeTextView.setText(getString(R.string.time_for_exam, aHours, aMinutes, "00"));
+        mTimeTextView.setText(getString(R.string.time_for_exam, aHoursStr, aMinutesStr, "00"));
 
         // Calculate counts
         int aCounts[]={0, 0, 0};
@@ -172,6 +168,15 @@ public class StartTestActivity extends Activity implements OnClickListener
         {
             case REQUEST_START_TEST:
             {
+                switch (aResultCode)
+                {
+                    case RESULT_START_TEST:
+                    {
+
+                    }
+                    break;
+                }
+
                 finish();
             }
             break;
