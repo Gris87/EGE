@@ -2,6 +2,11 @@
 <resources>
 
     <string name="app_name">ЕГЭ</string>
+
+    <string name="title_activity_lesson_choose">Выберите предмет</string>
+    <string name="title_activity_start_test">Тестирование</string>
+    <string name="title_activity_calculate">Решение задач</string>
+
     <string name="insert_name">Введите имя</string>
     <string name="view_tasks">Просмотр задач</string>
     <string name="start_testing">Начать тестирование</string>
@@ -19,9 +24,6 @@
     <string name="C_task_count">Задач C : %1$d</string>
     <string name="total_task_count">Всего задач : %1$d</string>
     <string name="start">Начать</string>
-
-    <string name="title_activity_lesson_choose">Выберите предмет</string>
-    <string name="title_activity_start_test">Тестирование</string>
-    <string name="title_activity_calculate">Решение задач</string>
+    <string name="do_you_want_to_finish">Вы хотите завершить тестирование?</string>
 
 </resources>

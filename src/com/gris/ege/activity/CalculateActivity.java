@@ -11,12 +11,15 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 
 public class CalculateActivity extends FragmentActivity
@@ -128,7 +131,33 @@ public class CalculateActivity extends FragmentActivity
     {
         if (isInTestingMode())
         {
+            DialogFragment aFinishDialog = new DialogFragment()
+            {
+                public Dialog onCreateDialog(Bundle savedInstanceState)
+                {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
+                    builder.setMessage(R.string.do_you_want_to_finish)
+                           .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener()
+                           {
+                               public void onClick(DialogInterface dialog, int id)
+                               {
+                                   completeTest();
+                               }
+                           })
+                           .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener()
+                           {
+                               public void onClick(DialogInterface dialog, int id)
+                               {
+                                   dismiss();
+                               }
+                           });
+
+                    return builder.create();
+                }
+            };
+
+            aFinishDialog.show(getSupportFragmentManager(), "FinishDialog");
         }
         else
         {
@@ -181,7 +210,7 @@ public class CalculateActivity extends FragmentActivity
 
     public void completeTest()
     {
-
+        finish();
     }
 
     public boolean isInTestingMode()

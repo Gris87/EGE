@@ -2,6 +2,11 @@
 <resources>
 
     <string name="app_name">EGE</string>
+
+    <string name="title_activity_lesson_choose">Choose lesson</string>
+    <string name="title_activity_start_test">Testing</string>
+    <string name="title_activity_calculate">Make calculations</string>
+
     <string name="insert_name">Insert name</string>
     <string name="view_tasks">View tasks</string>
     <string name="start_testing">Start testing</string>
@@ -19,9 +24,6 @@
     <string name="C_task_count">C tasks : %1$d</string>
     <string name="total_task_count">Total tasks : %1$d</string>
     <string name="start">Start</string>
-
-    <string name="title_activity_lesson_choose">Choose lesson</string>
-    <string name="title_activity_start_test">Testing</string>
-    <string name="title_activity_calculate">Make calculations</string>
-
+    <string name="do_you_want_to_finish">Do you want to finish?</string>
+    
 </resources>
