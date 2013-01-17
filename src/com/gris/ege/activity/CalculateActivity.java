@@ -34,6 +34,7 @@ public class CalculateActivity extends FragmentActivity
 
 
     private static final int TIMER_TICK=1;
+    private static final int SELECT_PAGE=2;
 
     private static final int TIMER_INTERVAL=1000;
 
@@ -57,6 +58,9 @@ public class CalculateActivity extends FragmentActivity
             {
                 case TIMER_TICK:
                     onTimerTick();
+                break;
+                case SELECT_PAGE:
+                    mTasksPager.setCurrentItem(msg.arg1, false);
                 break;
             }
         }
@@ -82,6 +86,11 @@ public class CalculateActivity extends FragmentActivity
             Log.v(TAG, "Start calculation for task: "+String.valueOf(aTaskId));
 
             mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), GlobalData.tasks, true);
+
+            Message aSelectPageMessage=new Message();
+            aSelectPageMessage.what=SELECT_PAGE;
+            aSelectPageMessage.arg1=aTaskId;
+            mHandler.sendMessage(aSelectPageMessage);
 
             mTimeLeftTextView.setVisibility(View.GONE);
         }
