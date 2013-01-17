@@ -15,13 +15,15 @@ import android.widget.TextView;
 
 public class TaskFragment extends Fragment
 {
-    private Task mTask;
-    private boolean mWithAnswers;
-
     private TextView mTaskHeaderView;
     private TextView mTaskStatusView;
     private EditText mAnswerEditText;
     private Button   mAnswerButton;
+
+    private Task mTask;
+    private boolean mWithAnswers;
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState)

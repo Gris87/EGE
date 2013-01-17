@@ -20,6 +20,8 @@ public class StartTestActivity extends Activity implements OnClickListener
 {
     private static final String TAG="StartTestActivity";
 
+
+
     private TextView mTimeTextView;
     private TextView mTasksATextView;
     private TextView mTasksBTextView;
@@ -27,6 +29,8 @@ public class StartTestActivity extends Activity implements OnClickListener
     private TextView mTotalTasksTextView;
 
     private Button   mStartButton;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

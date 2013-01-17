@@ -17,8 +17,12 @@ public class ViewTasksActivity extends Activity implements ListView.OnItemClickL
 {
     private static final String TAG="ViewTasksActivity";
 
+
+
     private ListView         mTasksList;
     private TasksListAdapter mTasksAdapter;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

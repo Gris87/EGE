@@ -17,8 +17,12 @@ public class LessonChooseActivity extends Activity implements ListView.OnItemCli
 {
     private static final String TAG="LessonChooseActivity";
 
+
+
     private ListView                mLessonsList;
     private LessonChooseListAdapter mLessonsAdapter;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

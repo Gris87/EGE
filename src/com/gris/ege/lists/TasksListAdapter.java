@@ -17,6 +17,8 @@ public class TasksListAdapter extends BaseAdapter
     private ArrayList<Task> mData;
     private Context mContext;
 
+
+
     private static class ViewHolder
     {
         TextView mCategory;

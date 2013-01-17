@@ -36,58 +36,58 @@ public class MainActivity extends Activity implements OnClickListener
 
 
 
-	@Override
+    @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-	    super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
 
-		// Initialize variables
-		GlobalData.lessons=new LessonsParser().parse(this);
+        // Initialize variables
+        GlobalData.lessons=new LessonsParser().parse(this);
 
-		// Get controls
-		mNameEditText = (EditText)findViewById(R.id.nameEditText);
-		mLessonButton = (Button)findViewById(R.id.lessonButton);
-		mViewTasksButton = (Button)findViewById(R.id.viewTasksButton);
-		mStartTestButton = (Button)findViewById(R.id.startTestButton);
-		mViewResultsButton = (Button)findViewById(R.id.viewResultsButton);
+        // Get controls
+        mNameEditText = (EditText)findViewById(R.id.nameEditText);
+        mLessonButton = (Button)findViewById(R.id.lessonButton);
+        mViewTasksButton = (Button)findViewById(R.id.viewTasksButton);
+        mStartTestButton = (Button)findViewById(R.id.startTestButton);
+        mViewResultsButton = (Button)findViewById(R.id.viewResultsButton);
 
-		// Set listeners
-		mLessonButton.setOnClickListener(this);
-		mViewTasksButton.setOnClickListener(this);
-		mStartTestButton.setOnClickListener(this);
-		mViewResultsButton.setOnClickListener(this);
+        // Set listeners
+        mLessonButton.setOnClickListener(this);
+        mViewTasksButton.setOnClickListener(this);
+        mStartTestButton.setOnClickListener(this);
+        mViewResultsButton.setOnClickListener(this);
 
-		// Restore preferences
-	    SharedPreferences aSettings = getSharedPreferences(GlobalData.PREFS_NAME, 0);
+        // Restore preferences
+        SharedPreferences aSettings = getSharedPreferences(GlobalData.PREFS_NAME, 0);
 
-	    String aUserName         = aSettings.getString(GlobalData.OPTION_USER_NAME, "");
-	    String aSelectedLessonID = aSettings.getString(GlobalData.OPTION_SELECTED_LESSON, "");
+        String aUserName         = aSettings.getString(GlobalData.OPTION_USER_NAME, "");
+        String aSelectedLessonID = aSettings.getString(GlobalData.OPTION_SELECTED_LESSON, "");
 
-	    mNameEditText.setText(aUserName);
-	    selectLesson(aSelectedLessonID);
-	}
+        mNameEditText.setText(aUserName);
+        selectLesson(aSelectedLessonID);
+    }
 
-	@Override
-	protected void onDestroy()
-	{
-	    saveUserName();
+    @Override
+    protected void onDestroy()
+    {
+        saveUserName();
 
-	    super.onDestroy();
-	}
+        super.onDestroy();
+    }
 
-	public void saveUserName()
-	{
-	    SharedPreferences aSettings = getSharedPreferences(GlobalData.PREFS_NAME, 0);
+    public void saveUserName()
+    {
+        SharedPreferences aSettings = getSharedPreferences(GlobalData.PREFS_NAME, 0);
         SharedPreferences.Editor aEditor = aSettings.edit();
         aEditor.putString(GlobalData.OPTION_USER_NAME, mNameEditText.getText().toString());
         aEditor.commit();
-	}
+    }
 
-	public void selectLesson(String aId)
+    public void selectLesson(String aId)
     {
-	    int index=-1;
+        int index=-1;
 
         for (int i=0; i<GlobalData.lessons.size(); ++i)
         {
@@ -118,39 +118,39 @@ public class MainActivity extends Activity implements OnClickListener
         aEditor.commit();
     }
 
-	public void chooseLesson()
+    public void chooseLesson()
     {
-	    saveUserName();
+        saveUserName();
 
-	    Intent aLessonSelectIntent=new Intent();
+        Intent aLessonSelectIntent=new Intent();
         aLessonSelectIntent.setClass(this, LessonChooseActivity.class);
         startActivityForResult(aLessonSelectIntent, REQUEST_LESSON_SELECT);
     }
 
-	public void makeChoose(int aChoice)
-	{
-	    if (mNameEditText.length()>0)
-	    {
-	        saveUserName();
+    public void makeChoose(int aChoice)
+    {
+        if (mNameEditText.length()>0)
+        {
+            saveUserName();
 
-	        // Get list of tasks for selectedLesson
-	        GlobalData.tasks=new TasksParser().parse(this);
+            // Get list of tasks for selectedLesson
+            GlobalData.tasks=new TasksParser().parse(this);
 
-	        switch (aChoice)
-	        {
-	            case CHOICE_VIEW_TASKS:
-	            {
-	               Intent aViewTasksIntent=new Intent();
+            switch (aChoice)
+            {
+                case CHOICE_VIEW_TASKS:
+                {
+                   Intent aViewTasksIntent=new Intent();
                    aViewTasksIntent.setClass(this, ViewTasksActivity.class);
                    startActivity(aViewTasksIntent);
-	            }
-	            break;
-	            case CHOICE_START_TEST:
-	            {
-	               Intent aStartTestIntent=new Intent();
+                }
+                break;
+                case CHOICE_START_TEST:
+                {
+                   Intent aStartTestIntent=new Intent();
                    aStartTestIntent.setClass(this, StartTestActivity.class);
                    startActivity(aStartTestIntent);
-	            }
+                }
                 break;
                 case CHOICE_VIEW_RESULTS:
                 {
@@ -159,13 +159,13 @@ public class MainActivity extends Activity implements OnClickListener
                    startActivity(aViewResultsIntent);
                 }
                 break;
-	        }
-	    }
-	    else
-	    {
-	        Toast.makeText(this, R.string.name_is_empty, Toast.LENGTH_SHORT).show();
-	    }
-	}
+            }
+        }
+        else
+        {
+            Toast.makeText(this, R.string.name_is_empty, Toast.LENGTH_SHORT).show();
+        }
+    }
 
     @Override
     public void onClick(View v)
@@ -185,7 +185,7 @@ public class MainActivity extends Activity implements OnClickListener
                 makeChoose(CHOICE_VIEW_RESULTS);
             break;
         }
-	}
+    }
 
     @Override
     protected void onActivityResult(int aRequestCode, int aResultCode, Intent aData)

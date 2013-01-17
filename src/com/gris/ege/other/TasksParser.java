@@ -15,6 +15,8 @@ public class TasksParser
 {
     private static final String TAG="TasksParser";
 
+
+
     public ArrayList<Task> parse(Context aContext)
     {
         ArrayList<Task> res=null;

@@ -15,6 +15,8 @@ public class TasksPageAdapter extends FragmentPagerAdapter
     private ArrayList<Task> mData;
     private boolean         mWithAnswers;
 
+
+
     public TasksPageAdapter(FragmentManager fm, ArrayList<Task> aData, boolean aWithAnswers)
     {
         super(fm);

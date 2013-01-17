@@ -1,8 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	tools:context=".activity.MainActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MainActivity">
 
     <TextView
         android:id="@+id/nameTextView"
@@ -27,22 +27,22 @@
     </EditText>
 
     <RelativeLayout
-    	android:layout_width="match_parent"
-    	android:layout_height="wrap_content"
-    	android:layout_below="@+id/nameEditText"
-    	android:layout_marginTop="16dp">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameEditText"
+        android:layout_marginTop="16dp">
 
-    	<TextView
-    		android:id="@+id/lessonTextView"
-    		android:layout_width="wrap_content"
-    		android:layout_height="wrap_content"
-    		android:layout_alignParentLeft="true"
-    		android:layout_centerVertical="true"
-    		android:layout_marginLeft="4dp"
-    		android:text="@string/choose_lesson"
-    		android:textAppearance="?android:attr/textAppearanceLarge"/>
-    	
-    	<Button
+        <TextView
+            android:id="@+id/lessonTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="4dp"
+            android:text="@string/choose_lesson"
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+        <Button
             android:id="@+id/lessonButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

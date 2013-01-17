@@ -8,21 +8,53 @@ import com.gris.ege.other.Task;
 import com.gris.ege.pager.TasksPageAdapter;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.os.SystemClock;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 
 public class CalculateActivity extends FragmentActivity
 {
     private static final String TAG="CalculateActivity";
 
+
+
+    private static final int TIMER_TICK=1;
+
+    private static final int TIMER_INTERVAL=1000;
+
+
+
     private TextView         mTimeLeftTextView;
 
     private ViewPager        mTasksPager;
     private TasksPageAdapter mTasksAdapter;
+
+    private long             mActivityStart=0;
+
+
+
+    private Handler mHandler = new Handler()
+    {
+        @Override
+        public void handleMessage(Message msg)
+        {
+            switch (msg.what)
+            {
+                case TIMER_TICK:
+                    onTimerTick();
+                break;
+            }
+        }
+    };
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -64,8 +96,96 @@ public class CalculateActivity extends FragmentActivity
             mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), aSelectedTasks, false);
 
             mTimeLeftTextView.setVisibility(View.VISIBLE);
+
+            mActivityStart=SystemClock.uptimeMillis();
+            onTimerTick();
         }
 
         mTasksPager.setAdapter(mTasksAdapter);
+    }
+
+    @Override
+    protected void onPause()
+    {
+        mHandler.removeMessages(TIMER_TICK);
+
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume()
+    {
+        if (isInTestingMode())
+        {
+            onTimerTick();
+        }
+
+        super.onResume();
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        if (isInTestingMode())
+        {
+
+        }
+        else
+        {
+            super.onBackPressed();
+        }
+    }
+
+    public void onTimerTick()
+    {
+        long aCurTime=SystemClock.uptimeMillis();
+        long aTimeLeft=GlobalData.selectedLesson.getTime()*60*1000-(aCurTime-mActivityStart);
+
+        if (aTimeLeft<0)
+        {
+            completeTest();
+        }
+        else
+        {
+            aTimeLeft/=1000;
+
+            int aSeconds=(int)(aTimeLeft % 60);
+
+            aTimeLeft=(aTimeLeft-aSeconds) / 60;
+
+            int aMinutes=(int)(aTimeLeft % 60);
+
+            aTimeLeft=(aTimeLeft-aMinutes) / 60;
+
+            int aHours=(int)aTimeLeft;
+
+            String aHoursStr=String.valueOf(aHours);
+            String aMinutesStr=String.valueOf(aMinutes);
+            String aSecondsStr=String.valueOf(aSeconds);
+
+            if (aMinutes<10)
+            {
+                aMinutesStr="0"+aMinutesStr;
+            }
+
+            if (aSeconds<10)
+            {
+                aSecondsStr="0"+aSecondsStr;
+            }
+
+            mTimeLeftTextView.setText(getString(R.string.time_left, aHoursStr, aMinutesStr, aSecondsStr));
+        }
+
+        mHandler.sendEmptyMessageDelayed(TIMER_TICK, TIMER_INTERVAL);
+    }
+
+    public void completeTest()
+    {
+
+    }
+
+    public boolean isInTestingMode()
+    {
+        return mTimeLeftTextView.getVisibility()==View.VISIBLE;
     }
 }

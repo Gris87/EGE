@@ -7,6 +7,8 @@ public class Task
     private String  mAnswer;
     private boolean mFinished;
 
+
+
     public Task()
     {
         mId=0;

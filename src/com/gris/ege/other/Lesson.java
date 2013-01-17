@@ -6,6 +6,8 @@ public class Lesson
     private String mName;
     private int    mTime;
 
+
+
     public Lesson()
     {
         mId="";

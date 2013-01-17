@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <lessons>
-	<lesson id="mathematics" time="240">Mathematics</lesson>
-	<lesson id="physics"     time="240">Physics</lesson>
+    <lesson id="mathematics" time="240">Mathematics</lesson>
+    <lesson id="physics"     time="240">Physics</lesson>
 </lessons>

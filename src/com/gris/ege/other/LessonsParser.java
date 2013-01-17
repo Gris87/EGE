@@ -15,6 +15,8 @@ public class LessonsParser
 {
     private static final String TAG="LessonsParser";
 
+
+
     public ArrayList<Lesson> parse(Context aContext)
     {
         ArrayList<Lesson> res=null;

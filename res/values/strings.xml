@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<string name="app_name">EGE</string>
-	<string name="insert_name">Insert name</string>
-	<string name="view_tasks">View tasks</string>
-	<string name="start_testing">Start testing</string>
-	<string name="view_results">View results</string>
-	<string name="name_is_empty">Please insert name</string>
-	<string name="choose_lesson">Lesson</string>
-	<string name="not_finished">Not finished</string>
-	<string name="finished">Finished</string>
-	<string name="time_left">Time left = %1$s:%2$s:%3$s</string>
-	<string name="task_header">%1$s. Task № %2$d</string>
-	<string name="answer">Answer</string>
-	<string name="time_for_exam">Time = %1$s:%2$s:%3$s</string>
-	<string name="A_task_count">A tasks : %1$d</string>
-	<string name="B_task_count">B tasks : %1$d</string>
-	<string name="C_task_count">C tasks : %1$d</string>
-	<string name="total_task_count">Total tasks : %1$d</string>
-	<string name="start">Start</string>
-	
-	<string name="title_activity_lesson_choose">Choose lesson</string>
-	<string name="title_activity_start_test">Testing</string>
-	<string name="title_activity_calculate">Make calculations</string>
+    <string name="app_name">EGE</string>
+    <string name="insert_name">Insert name</string>
+    <string name="view_tasks">View tasks</string>
+    <string name="start_testing">Start testing</string>
+    <string name="view_results">View results</string>
+    <string name="name_is_empty">Please insert name</string>
+    <string name="choose_lesson">Lesson</string>
+    <string name="not_finished">Not finished</string>
+    <string name="finished">Finished</string>
+    <string name="time_left">Time left = %1$s:%2$s:%3$s</string>
+    <string name="task_header">%1$s. Task № %2$d</string>
+    <string name="answer">Answer</string>
+    <string name="time_for_exam">Time = %1$s:%2$s:%3$s</string>
+    <string name="A_task_count">A tasks : %1$d</string>
+    <string name="B_task_count">B tasks : %1$d</string>
+    <string name="C_task_count">C tasks : %1$d</string>
+    <string name="total_task_count">Total tasks : %1$d</string>
+    <string name="start">Start</string>
+
+    <string name="title_activity_lesson_choose">Choose lesson</string>
+    <string name="title_activity_start_test">Testing</string>
+    <string name="title_activity_calculate">Make calculations</string>
 
 </resources>
