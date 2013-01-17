@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tasks>
+	<!-- It is a garbage -->
     <task id="0" category="A1" answer="1"/>
     <task id="1" category="A2" answer="2"/>
     <task id="2" category="A3" answer="3"/>
