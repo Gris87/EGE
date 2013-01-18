@@ -94,7 +94,7 @@ public class ViewResultsActivity extends Activity implements ListView.OnItemClic
 
     public Cursor getResults()
     {
-        long aLessonId=mResultsHelper.getLessonId(GlobalData.selectedLesson.getId());
+        long aLessonId=mResultsHelper.getLessonId(mDb, GlobalData.selectedLesson.getId());
 
         Cursor res=null;
 

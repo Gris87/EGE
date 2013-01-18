@@ -114,16 +114,13 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
         // Nothing
     }
 
-    public long getUserId(String aUserName)
+    public long getUserId(SQLiteDatabase aDb, String aUserName)
     {
         long res=-1;
-        SQLiteDatabase aDb=null;
         Cursor aCursor=null;
 
         try
         {
-            aDb=getReadableDatabase();
-
             String[] aSelectionArgs={aUserName};
             aCursor=aDb.query(
                               ResultsOpenHelper.USERS_TABLE_NAME,
@@ -149,6 +146,24 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
         if (aCursor!=null)
         {
             aCursor.close();
+        }
+
+        return res;
+    }
+
+    public long getUserId(String aUserName)
+    {
+        long res=-1;
+        SQLiteDatabase aDb=null;
+
+        try
+        {
+            aDb=getReadableDatabase();
+            res=getUserId(aDb, aUserName);
+        }
+        catch (Exception e)
+        {
+            Log.e(TAG, "Problem occured while getUserId", e);
         }
 
         if (aDb!=null)
@@ -215,16 +230,13 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
         return res;
     }
 
-    public long getLessonId(String aLessonID)
+    public long getLessonId(SQLiteDatabase aDb, String aLessonID)
     {
         long res=-1;
-        SQLiteDatabase aDb=null;
         Cursor aCursor=null;
 
         try
         {
-            aDb=getReadableDatabase();
-
             String[] aSelectionArgs={aLessonID};
             aCursor=aDb.query(
                               ResultsOpenHelper.LESSONS_TABLE_NAME,
@@ -250,6 +262,24 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
         if (aCursor!=null)
         {
             aCursor.close();
+        }
+
+        return res;
+    }
+
+    public long getLessonId(String aLessonID)
+    {
+        long res=-1;
+        SQLiteDatabase aDb=null;
+
+        try
+        {
+            aDb=getReadableDatabase();
+            res=getLessonId(aDb, aLessonID);
+        }
+        catch (Exception e)
+        {
+            Log.e(TAG, "Problem occured while getLessonId", e);
         }
 
         if (aDb!=null)
