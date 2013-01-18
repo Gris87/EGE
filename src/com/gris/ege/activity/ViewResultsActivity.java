@@ -37,6 +37,7 @@ public class ViewResultsActivity extends Activity implements ListView.OnItemClic
         setContentView(R.layout.activity_view_results);
 
         Log.v(TAG, "View results for lesson \""+GlobalData.selectedLesson.getId()+"\"");
+        setTitle(getString(R.string.title_activity_view_results, GlobalData.selectedLesson.getName()));
 
         // Initialize variables
         mResultsHelper=new ResultsOpenHelper(this);

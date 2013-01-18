@@ -44,6 +44,7 @@ public class StartTestActivity extends Activity implements OnClickListener
         setContentView(R.layout.activity_start_test);
 
         Log.v(TAG, "Start testing for lesson \""+GlobalData.selectedLesson.getId()+"\"");
+        setTitle(getString(R.string.title_activity_start_testing, GlobalData.selectedLesson.getName()));
 
         // Get controls
         mTimeTextView       = (TextView)findViewById(R.id.timeTextView);

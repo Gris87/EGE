@@ -83,6 +83,8 @@ public class CalculateActivity extends FragmentActivity
 
         if (aExtras.containsKey(GlobalData.TASK_ID))
         {
+            setTitle(getString(R.string.title_activity_calculate_tasks, GlobalData.selectedLesson.getName()));
+
             int aTaskId=aExtras.getInt(GlobalData.TASK_ID);
             Log.v(TAG, "Start calculation for task: "+String.valueOf(aTaskId));
 
@@ -98,6 +100,8 @@ public class CalculateActivity extends FragmentActivity
         else
         if (aExtras.containsKey(GlobalData.TASKS_COUNT))
         {
+            setTitle(getString(R.string.title_activity_calculate_testing, GlobalData.selectedLesson.getName()));
+
             int aTaskCount=aExtras.getInt(GlobalData.TASKS_COUNT);
             Log.v(TAG, "Start calculation for tasks:");
 
@@ -117,12 +121,19 @@ public class CalculateActivity extends FragmentActivity
             mTimeLeftTextView.setVisibility(View.VISIBLE);
 
             mActivityStart=SystemClock.uptimeMillis();
-            onTimerTick();
         }
         else
         if (aExtras.containsKey(GlobalData.RESULT_ID))
         {
+            setTitle(getString(R.string.title_activity_calculate_results, GlobalData.selectedLesson.getName()));
 
+            int aResultId=aExtras.getInt(GlobalData.RESULT_ID);
+            Log.v(TAG, "View results № "+String.valueOf(aResultId));
+
+            // TODO: Not GlobalData.tasks
+            mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), GlobalData.tasks, false);
+
+            mTimeLeftTextView.setVisibility(View.GONE);
         }
         else
         {

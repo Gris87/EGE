@@ -27,20 +27,16 @@
             android:label="@string/title_activity_lesson_choose">
         </activity>
         <activity
-            android:name="com.gris.ege.activity.ViewTasksActivity"
-            android:label="@string/view_tasks">
+            android:name="com.gris.ege.activity.ViewTasksActivity">
         </activity>
         <activity
-            android:name="com.gris.ege.activity.ViewResultsActivity"
-            android:label="@string/view_results">
+            android:name="com.gris.ege.activity.ViewResultsActivity">
         </activity>
         <activity
-            android:name="com.gris.ege.activity.StartTestActivity"
-            android:label="@string/title_activity_start_test">
+            android:name="com.gris.ege.activity.StartTestActivity">
         </activity>
         <activity
-            android:name="com.gris.ege.activity.CalculateActivity"
-            android:label="@string/title_activity_calculate">
+            android:name="com.gris.ege.activity.CalculateActivity">
         </activity>
     </application>
 
