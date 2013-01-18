@@ -26,4 +26,7 @@
     <string name="start">Start</string>
     <string name="do_you_want_to_finish">Do you want to finish?</string>
     
+    <string name="time" translatable="false">%1$s:%2$s:%3$s</string>
+    <string name="percent" translatable="false">%1$d %%</string>
+    
 </resources>

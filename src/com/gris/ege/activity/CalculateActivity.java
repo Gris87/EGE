@@ -6,6 +6,7 @@ import com.gris.ege.R;
 import com.gris.ege.db.ResultsOpenHelper;
 import com.gris.ege.other.GlobalData;
 import com.gris.ege.other.Task;
+import com.gris.ege.other.Utils;
 import com.gris.ege.pager.TasksPageAdapter;
 
 import android.os.Bundle;
@@ -190,33 +191,7 @@ public class CalculateActivity extends FragmentActivity
         }
         else
         {
-            aTimeLeft/=1000;
-
-            int aSeconds=(int)(aTimeLeft % 60);
-
-            aTimeLeft=(aTimeLeft-aSeconds) / 60;
-
-            int aMinutes=(int)(aTimeLeft % 60);
-
-            aTimeLeft=(aTimeLeft-aMinutes) / 60;
-
-            int aHours=(int)aTimeLeft;
-
-            String aHoursStr=String.valueOf(aHours);
-            String aMinutesStr=String.valueOf(aMinutes);
-            String aSecondsStr=String.valueOf(aSeconds);
-
-            if (aMinutes<10)
-            {
-                aMinutesStr="0"+aMinutesStr;
-            }
-
-            if (aSeconds<10)
-            {
-                aSecondsStr="0"+aSecondsStr;
-            }
-
-            mTimeLeftTextView.setText(getString(R.string.time_left, aHoursStr, aMinutesStr, aSecondsStr));
+            mTimeLeftTextView.setText(Utils.timeToString(getString(R.string.time_left), aTimeLeft));
         }
 
         mHandler.sendEmptyMessageDelayed(TIMER_TICK, TIMER_INTERVAL);

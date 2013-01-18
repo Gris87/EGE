@@ -2,6 +2,8 @@ package com.gris.ege.lists;
 
 import com.gris.ege.R;
 import com.gris.ege.db.ResultsOpenHelper;
+import com.gris.ege.other.GlobalData;
+import com.gris.ege.other.Utils;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -9,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class ResultsListAdapter extends CursorAdapter
@@ -21,9 +24,10 @@ public class ResultsListAdapter extends CursorAdapter
 
     private static class ViewHolder
     {
-        TextView mUserName;
-        TextView mTime;
-        TextView mPercent;
+        TextView    mUserName;
+        TextView    mTime;
+        ProgressBar mPercentProgress;
+        TextView    mPercent;
     }
 
 
@@ -53,9 +57,10 @@ public class ResultsListAdapter extends CursorAdapter
 
         ViewHolder aHolder=new ViewHolder();
 
-        aHolder.mUserName = (TextView)aView.findViewById(R.id.userNameTextView);
-        aHolder.mTime     = (TextView)aView.findViewById(R.id.timeTextView);
-        aHolder.mPercent  = (TextView)aView.findViewById(R.id.percentTextView);
+        aHolder.mUserName        = (TextView)   aView.findViewById(R.id.userNameTextView);
+        aHolder.mTime            = (TextView)   aView.findViewById(R.id.timeTextView);
+        aHolder.mPercentProgress = (ProgressBar)aView.findViewById(R.id.percentProgressBar);
+        aHolder.mPercent         = (TextView)   aView.findViewById(R.id.percentTextView);
 
         aView.setTag(aHolder);
 
@@ -68,7 +73,16 @@ public class ResultsListAdapter extends CursorAdapter
         ViewHolder aHolder=(ViewHolder)aView.getTag();
 
         aHolder.mUserName.setText(aCursor.getString(mUserIndex));
-        aHolder.mPercent.setText(aCursor.getString(mPercentIndex));
+
+        int aTime=Integer.parseInt(aCursor.getString(mTimeIndex));
+        aHolder.mTime.setText(Utils.timeToString(aContext.getString(R.string.time), aTime));
+
+        int aPercent=Integer.parseInt(aCursor.getString(mPercentIndex));
+
+        aHolder.mPercentProgress.setMax(100);
+        aHolder.mPercentProgress.setProgress(aPercent);
+
+        aHolder.mPercent.setText(aContext.getString(R.string.percent, aPercent));
     }
 
     @Override

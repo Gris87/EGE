@@ -6,6 +6,7 @@ import java.util.Random;
 import com.gris.ege.R;
 import com.gris.ege.other.GlobalData;
 import com.gris.ege.other.Task;
+import com.gris.ege.other.Utils;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -56,18 +57,7 @@ public class StartTestActivity extends Activity implements OnClickListener
         mStartButton.setOnClickListener(this);
 
         // Initialize controls
-        int aMinutes = GlobalData.selectedLesson.getTime() % 60;
-        int aHours   = (GlobalData.selectedLesson.getTime()-aMinutes) / 60;
-
-        String aHoursStr=String.valueOf(aHours);
-        String aMinutesStr=String.valueOf(aMinutes);
-
-        if (aMinutes<10)
-        {
-            aMinutesStr="0"+aMinutesStr;
-        }
-
-        mTimeTextView.setText(getString(R.string.time_for_exam, aHoursStr, aMinutesStr, "00"));
+        mTimeTextView.setText(Utils.timeToString(getString(R.string.time_for_exam), GlobalData.selectedLesson.getTime()*60*1000));
 
         // Calculate counts
         int aCounts[]={0, 0, 0};
