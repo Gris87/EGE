@@ -43,8 +43,8 @@ public class MainActivity extends Activity implements OnClickListener
 
         setContentView(R.layout.activity_main);
 
-        // Initialize variables
-        GlobalData.lessons=new LessonsParser().parse(this);
+        // Translate lessons
+        new LessonsParser().parse(this);
 
         // Get controls
         mNameEditText = (EditText)findViewById(R.id.nameEditText);

@@ -1,7 +1,6 @@
 package com.gris.ege.other;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -17,10 +16,8 @@ public class LessonsParser
 
 
 
-    public ArrayList<Lesson> parse(Context aContext)
+    public void parse(Context aContext)
     {
-        ArrayList<Lesson> res=null;
-
         try
         {
             XmlPullParser aParser = aContext.getResources().getXml(R.xml.lessons);
@@ -28,20 +25,16 @@ public class LessonsParser
             aParser.next();
             aParser.nextTag();
 
-            res=readLessons(aParser);
+            readLessons(aParser);
         }
         catch (Exception e)
         {
             Log.e(TAG, "Error during xml parsing", e);
         }
-
-        return res;
     }
 
-    private ArrayList<Lesson> readLessons(XmlPullParser aParser) throws XmlPullParserException, IOException
+    private void readLessons(XmlPullParser aParser) throws XmlPullParserException, IOException
     {
-        ArrayList<Lesson> res=new ArrayList<Lesson>();
-
         aParser.require(XmlPullParser.START_TAG, null, "lessons");
 
         while (aParser.next()!=XmlPullParser.END_TAG)
@@ -55,30 +48,31 @@ public class LessonsParser
 
             if (aTagName.equals("lesson"))
             {
-                res.add(readLesson(aParser));
+                readLesson(aParser);
             }
             else
             {
                 skip(aParser);
             }
         }
-
-        return res;
     }
 
-    private Lesson readLesson(XmlPullParser aParser) throws XmlPullParserException, IOException
+    private void readLesson(XmlPullParser aParser) throws XmlPullParserException, IOException
     {
         aParser.require(XmlPullParser.START_TAG, null, "lesson");
 
         String aId      = aParser.getAttributeValue(null, "id");
-        String aTimeStr = aParser.getAttributeValue(null, "time");
         String aName    = readText(aParser);
 
         aParser.require(XmlPullParser.END_TAG, null, "lesson");
 
-        int aTime=Integer.parseInt(aTimeStr);
-
-        return new Lesson(aId, aName, aTime);
+        for (int i=0; i<GlobalData.lessons.size(); ++i)
+        {
+            if (GlobalData.lessons.get(i).getId().equals(aId))
+            {
+                GlobalData.lessons.get(i).setName(aName);
+            }
+        }
     }
 
     private String readText(XmlPullParser aParser) throws IOException, XmlPullParserException

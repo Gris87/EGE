@@ -23,4 +23,12 @@ public class GlobalData
     public static ArrayList<Task>   tasks;      // current opened tasks (full list for selectedLesson)
 
     public static Lesson            selectedLesson;
+
+    static
+    {
+        lessons=new ArrayList<Lesson>();
+
+        lessons.add(new Lesson("mathematics", (short)240, (byte)0, (byte)1, (byte)2));
+        lessons.add(new Lesson("physics",     (short)240, (byte)1, (byte)2, (byte)3));
+    }
 }
