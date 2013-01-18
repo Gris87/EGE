@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.app.Activity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -25,7 +26,7 @@ public class ViewResultsActivity extends Activity implements ListView.OnItemClic
 
     private ResultsOpenHelper  mResultsHelper;
     private SQLiteDatabase     mDb;
-
+    private Cursor             mCursor;
 
 
     @Override
@@ -50,6 +51,8 @@ public class ViewResultsActivity extends Activity implements ListView.OnItemClic
             Log.e(TAG, "Impossible to get database", e);
         }
 
+        mCursor=getResults();
+
         // Get controls
         mResultsList=(ListView)findViewById(R.id.resultsListView);
 
@@ -57,13 +60,18 @@ public class ViewResultsActivity extends Activity implements ListView.OnItemClic
         mResultsList.setOnItemClickListener(this);
 
         // Initialize controls
-        mResultsAdapter=new ResultsListAdapter(this, getResults());
+        mResultsAdapter=new ResultsListAdapter(this, mCursor);
         mResultsList.setAdapter(mResultsAdapter);
     }
 
     @Override
     protected void onDestroy()
     {
+        if (mCursor!=null)
+        {
+            mCursor.close();
+        }
+
         if (mDb!=null)
         {
             mDb.close();
@@ -79,14 +87,13 @@ public class ViewResultsActivity extends Activity implements ListView.OnItemClic
         {
             case R.id.resultsListView:
             {
-                /*
-                int aTaskId=((Task)(mTasksAdapter.getItem(aPosition))).getId();
+                mCursor.moveToPosition(aPosition);
+                int aResultId=mCursor.getInt(mCursor.getColumnIndexOrThrow(ResultsOpenHelper.COLUMN_ID));
 
                 Intent aCalculateIntent=new Intent();
                 aCalculateIntent.setClass(this, CalculateActivity.class);
-                aCalculateIntent.putExtra(GlobalData.TASK_ID, aTaskId);
+                aCalculateIntent.putExtra(GlobalData.RESULT_ID, aResultId);
                 startActivity(aCalculateIntent);
-                */
             }
             break;
         }

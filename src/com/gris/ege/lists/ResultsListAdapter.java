@@ -2,7 +2,6 @@ package com.gris.ege.lists;
 
 import com.gris.ege.R;
 import com.gris.ege.db.ResultsOpenHelper;
-import com.gris.ege.other.GlobalData;
 import com.gris.ege.other.Utils;
 
 import android.content.Context;
@@ -73,11 +72,9 @@ public class ResultsListAdapter extends CursorAdapter
         ViewHolder aHolder=(ViewHolder)aView.getTag();
 
         aHolder.mUserName.setText(aCursor.getString(mUserIndex));
+        aHolder.mTime.setText(Utils.timeToString(aContext.getString(R.string.time), aCursor.getLong(mTimeIndex)));
 
-        int aTime=Integer.parseInt(aCursor.getString(mTimeIndex));
-        aHolder.mTime.setText(Utils.timeToString(aContext.getString(R.string.time), aTime));
-
-        int aPercent=Integer.parseInt(aCursor.getString(mPercentIndex));
+        int aPercent=aCursor.getInt(mPercentIndex);
 
         aHolder.mPercentProgress.setMax(100);
         aHolder.mPercentProgress.setProgress(aPercent);

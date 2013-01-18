@@ -96,6 +96,7 @@ public class CalculateActivity extends FragmentActivity
             mTimeLeftTextView.setVisibility(View.GONE);
         }
         else
+        if (aExtras.containsKey(GlobalData.TASKS_COUNT))
         {
             int aTaskCount=aExtras.getInt(GlobalData.TASKS_COUNT);
             Log.v(TAG, "Start calculation for tasks:");
@@ -117,6 +118,15 @@ public class CalculateActivity extends FragmentActivity
 
             mActivityStart=SystemClock.uptimeMillis();
             onTimerTick();
+        }
+        else
+        if (aExtras.containsKey(GlobalData.RESULT_ID))
+        {
+
+        }
+        else
+        {
+            Log.e(TAG, "Unknown data received from Intent");
         }
 
         mTasksPager.setAdapter(mTasksAdapter);
