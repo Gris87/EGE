@@ -18,8 +18,8 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
 
     public  static final String COLUMN_LESSON_NAME = "_lessonName";
 
-    public  static final String COLUMN_TASK_ID     = "_taskId";
     public  static final String COLUMN_RESULT_ID   = "_resultId";
+    public  static final String COLUMN_TASK_ID     = "_taskId";
     public  static final String COLUMN_ANSWER      = "_answer";
     public  static final String COLUMN_CORRECT     = "_correct";
 
@@ -42,8 +42,8 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
 
     public static final String[] ANSWERS_COLUMNS = {
                                                         COLUMN_ID,
-                                                        COLUMN_TASK_ID,
                                                         COLUMN_RESULT_ID,
+                                                        COLUMN_TASK_ID,
                                                         COLUMN_ANSWER,
                                                         COLUMN_CORRECT
                                                    };
@@ -76,8 +76,8 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
     private static final String ANSWERS_TABLE_CREATE = "CREATE TABLE " + ANSWERS_TABLE_NAME + " " +
                                                        "(" +
                                                            COLUMN_ID          + " INTEGER PRIMARY KEY, " +
-                                                           COLUMN_TASK_ID     + " INTEGER, "             +
                                                            COLUMN_RESULT_ID   + " INTEGER, "             +
+                                                           COLUMN_TASK_ID     + " INTEGER, "             +
                                                            COLUMN_ANSWER      + " TEXT, "                +
                                                            COLUMN_CORRECT     + " INTEGER"               +
                                                        ");";
@@ -314,10 +314,5 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
         }
 
         return res;
-    }
-
-    public Cursor getResults()
-    {
-        return null;
     }
 }
