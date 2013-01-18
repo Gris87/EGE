@@ -222,89 +222,6 @@ public class CalculateActivity extends FragmentActivity
         mHandler.sendEmptyMessageDelayed(TIMER_TICK, TIMER_INTERVAL);
     }
 
-    public long getOrCreateUser(SQLiteDatabase aDb)
-    {
-        SharedPreferences aSettings=getSharedPreferences(GlobalData.PREFS_NAME, 0);
-        String aUserName=aSettings.getString(GlobalData.OPTION_USER_NAME, "");
-
-        String[] aSelectionArgs={aUserName};
-        Cursor aUsersCursor=aDb.query(
-                                      ResultsOpenHelper.USERS_TABLE_NAME,
-                                      ResultsOpenHelper.USERS_COLUMNS,
-                                      ResultsOpenHelper.COLUMN_NAME+"=?",
-                                      aSelectionArgs,
-                                      null,
-                                      null,
-                                      null
-                                     );
-
-        long res;
-
-        if (aUsersCursor==null || aUsersCursor.getCount()==0)
-        {
-            ContentValues aUserValues=new ContentValues();
-            aUserValues.put(ResultsOpenHelper.COLUMN_NAME, aUserName);
-
-            res=aDb.insertOrThrow(
-                                  ResultsOpenHelper.USERS_TABLE_NAME,
-                                  null,
-                                  aUserValues
-                                 );
-        }
-        else
-        {
-            aUsersCursor.moveToFirst();
-            res=aUsersCursor.getLong(aUsersCursor.getColumnIndexOrThrow(ResultsOpenHelper.COLUMN_ID));
-        }
-
-        if (aUsersCursor!=null)
-        {
-            aUsersCursor.close();
-        }
-
-        return res;
-    }
-
-    public long getOrCreateLesson(SQLiteDatabase aDb)
-    {
-        String[] aSelectionArgs={GlobalData.selectedLesson.getId()};
-        Cursor aLessonsCursor=aDb.query(
-                                        ResultsOpenHelper.LESSONS_TABLE_NAME,
-                                        ResultsOpenHelper.LESSONS_COLUMNS,
-                                        ResultsOpenHelper.COLUMN_NAME+"=?",
-                                        aSelectionArgs,
-                                        null,
-                                        null,
-                                        null
-                                       );
-
-        long res;
-
-        if (aLessonsCursor==null || aLessonsCursor.getCount()==0)
-        {
-            ContentValues aLessonValues=new ContentValues();
-            aLessonValues.put(ResultsOpenHelper.COLUMN_NAME, GlobalData.selectedLesson.getId());
-
-            res=aDb.insertOrThrow(
-                                  ResultsOpenHelper.LESSONS_TABLE_NAME,
-                                  null,
-                                  aLessonValues
-                                 );
-        }
-        else
-        {
-            aLessonsCursor.moveToFirst();
-            res=aLessonsCursor.getLong(aLessonsCursor.getColumnIndexOrThrow(ResultsOpenHelper.COLUMN_ID));
-        }
-
-        if (aLessonsCursor!=null)
-        {
-            aLessonsCursor.close();
-        }
-
-        return res;
-    }
-
     public void completeTest()
     {
         SQLiteDatabase aDb=null;
@@ -312,14 +229,16 @@ public class CalculateActivity extends FragmentActivity
         try
         {
             ResultsOpenHelper aResultsHelper=new ResultsOpenHelper(this);
-            aDb=aResultsHelper.getWritableDatabase();
 
+            SharedPreferences aSettings=getSharedPreferences(GlobalData.PREFS_NAME, 0);
+            String aUserName=aSettings.getString(GlobalData.OPTION_USER_NAME, "");
 
-
-            long aUserId=getOrCreateUser(aDb);
-            long aLessonId=getOrCreateLesson(aDb);
+            long aUserId=aResultsHelper.getOrCreateUserId(aUserName);
+            long aLessonId=aResultsHelper.getOrCreateLessonId(GlobalData.selectedLesson.getId());
 
             // ------------------------------------------------------------
+
+            aDb=aResultsHelper.getWritableDatabase();
 
             long aTimeForExam=SystemClock.uptimeMillis()-mActivityStart;
 
