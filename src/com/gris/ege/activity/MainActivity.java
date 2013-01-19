@@ -18,7 +18,10 @@ import android.widget.Toast;
 public class MainActivity extends Activity implements OnClickListener
 {
     private static final int REQUEST_LESSON_SELECT = 1;
+    private static final int REQUEST_START_TEST    = 2;
+    
     public  static final int RESULT_LESSON_SELECT  = 1;
+    public  static final int RESULT_START_TEST     = 1;
 
     private static final int CHOICE_VIEW_TASKS     = 0;
     private static final int CHOICE_START_TEST     = 1;
@@ -156,7 +159,7 @@ public class MainActivity extends Activity implements OnClickListener
                 {
                    Intent aStartTestIntent=new Intent();
                    aStartTestIntent.setClass(this, StartTestActivity.class);
-                   startActivity(aStartTestIntent);
+                   startActivityForResult(aStartTestIntent, REQUEST_START_TEST);
                 }
                 break;
                 case CHOICE_VIEW_RESULTS:
@@ -207,6 +210,18 @@ public class MainActivity extends Activity implements OnClickListener
                     {
                         String aId=aData.getStringExtra(GlobalData.LESSON_ID);
                         selectLesson(aId);
+                    }
+                    break;
+                }
+            }
+            break;
+            case REQUEST_START_TEST:
+            {
+                switch (aResultCode)
+                {
+                    case RESULT_START_TEST:
+                    {
+                        updateSelectUserButton();
                     }
                     break;
                 }

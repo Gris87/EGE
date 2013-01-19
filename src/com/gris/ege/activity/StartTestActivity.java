@@ -163,11 +163,18 @@ public class StartTestActivity extends Activity implements OnClickListener
                 {
                     case RESULT_START_TEST:
                     {
+                    	int aResultId=aData.getIntExtra(GlobalData.RESULT_ID, -1);
 
+                    	Intent aCalculateIntent=new Intent();
+                        aCalculateIntent.setClass(this, CalculateActivity.class);
+                        aCalculateIntent.putExtra(GlobalData.RESULT_ID, aResultId);
+                        startActivity(aCalculateIntent);
                     }
                     break;
                 }
-
+                
+                setResult(MainActivity.RESULT_START_TEST);
+                
                 finish();
             }
             break;
