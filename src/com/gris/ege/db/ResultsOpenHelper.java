@@ -114,6 +114,60 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
         // Nothing
     }
 
+    public Cursor getUsersList(SQLiteDatabase aDb)
+    {
+        Cursor aCursor=null;
+
+        try
+        {
+            aCursor=aDb.query(
+                              USERS_TABLE_NAME,
+                              USERS_COLUMNS,
+                              null,
+                              null,
+                              null,
+                              null,
+                              null
+                             );
+        }
+        catch (Exception e)
+        {
+            Log.e(TAG, "Problem occured while getUsersList", e);
+        }
+
+        return aCursor;
+    }
+
+    public boolean isUsersListEmpty()
+    {
+    	boolean res=true;
+        SQLiteDatabase aDb=null;
+        Cursor aCursor=null;
+
+        try
+        {
+            aDb=getReadableDatabase();
+            aCursor=getUsersList(aDb);
+            res=(aCursor==null || aCursor.getCount()==0);
+        }
+        catch (Exception e)
+        {
+            Log.e(TAG, "Problem occured while isUsersListEmpty", e);
+        }
+
+        if (aCursor!=null)
+        {
+            aCursor.close();
+        }
+
+        if (aDb!=null)
+        {
+            aDb.close();
+        }
+
+        return res;
+    }
+
     public long getUserId(SQLiteDatabase aDb, String aUserName)
     {
         long res=-1;
@@ -123,9 +177,9 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
         {
             String[] aSelectionArgs={aUserName};
             aCursor=aDb.query(
-                              ResultsOpenHelper.USERS_TABLE_NAME,
-                              ResultsOpenHelper.USERS_COLUMNS,
-                              ResultsOpenHelper.COLUMN_USER_NAME+"=?",
+                              USERS_TABLE_NAME,
+                              USERS_COLUMNS,
+                              COLUMN_USER_NAME+"=?",
                               aSelectionArgs,
                               null,
                               null,
@@ -135,7 +189,7 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
             if (aCursor!=null && aCursor.getCount()>0)
             {
                 aCursor.moveToFirst();
-                res=aCursor.getLong(aCursor.getColumnIndexOrThrow(ResultsOpenHelper.COLUMN_ID));
+                res=aCursor.getLong(aCursor.getColumnIndexOrThrow(COLUMN_ID));
             }
         }
         catch (Exception e)
@@ -146,46 +200,6 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
         if (aCursor!=null)
         {
             aCursor.close();
-        }
-
-        return res;
-    }
-    
-    public boolean isUserListEmpty()
-    {
-    	boolean res=true;
-        SQLiteDatabase aDb=null;
-        Cursor aCursor=null;
-
-        try
-        {
-            aDb=getReadableDatabase();
-                        
-            aCursor=aDb.query(
-                              ResultsOpenHelper.USERS_TABLE_NAME,
-                              ResultsOpenHelper.USERS_COLUMNS,
-                              null,
-                              null,
-                              null,
-                              null,
-                              null
-                             );
-            
-            res=(aCursor==null || aCursor.getCount()==0);
-        }
-        catch (Exception e)
-        {
-            Log.e(TAG, "Problem occured while isUserListEmpty", e);
-        }
-        
-        if (aCursor!=null)
-        {
-            aCursor.close();
-        }
-
-        if (aDb!=null)
-        {
-            aDb.close();
         }
 
         return res;
@@ -226,9 +240,9 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
 
             String[] aSelectionArgs={aUserName};
             aCursor=aDb.query(
-                              ResultsOpenHelper.USERS_TABLE_NAME,
-                              ResultsOpenHelper.USERS_COLUMNS,
-                              ResultsOpenHelper.COLUMN_USER_NAME+"=?",
+                              USERS_TABLE_NAME,
+                              USERS_COLUMNS,
+                              COLUMN_USER_NAME+"=?",
                               aSelectionArgs,
                               null,
                               null,
@@ -238,10 +252,10 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
             if (aCursor==null || aCursor.getCount()==0)
             {
                 ContentValues aValues=new ContentValues();
-                aValues.put(ResultsOpenHelper.COLUMN_USER_NAME, aUserName);
+                aValues.put(COLUMN_USER_NAME, aUserName);
 
                 res=aDb.insertOrThrow(
-                                      ResultsOpenHelper.USERS_TABLE_NAME,
+                                      USERS_TABLE_NAME,
                                       null,
                                       aValues
                                      );
@@ -249,7 +263,7 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
             else
             {
                 aCursor.moveToFirst();
-                res=aCursor.getLong(aCursor.getColumnIndexOrThrow(ResultsOpenHelper.COLUMN_ID));
+                res=aCursor.getLong(aCursor.getColumnIndexOrThrow(COLUMN_ID));
             }
         }
         catch (Exception e)
@@ -279,9 +293,9 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
         {
             String[] aSelectionArgs={aLessonID};
             aCursor=aDb.query(
-                              ResultsOpenHelper.LESSONS_TABLE_NAME,
-                              ResultsOpenHelper.LESSONS_COLUMNS,
-                              ResultsOpenHelper.COLUMN_LESSON_NAME+"=?",
+                              LESSONS_TABLE_NAME,
+                              LESSONS_COLUMNS,
+                              COLUMN_LESSON_NAME+"=?",
                               aSelectionArgs,
                               null,
                               null,
@@ -291,7 +305,7 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
             if (aCursor!=null && aCursor.getCount()>0)
             {
                 aCursor.moveToFirst();
-                res=aCursor.getLong(aCursor.getColumnIndexOrThrow(ResultsOpenHelper.COLUMN_ID));
+                res=aCursor.getLong(aCursor.getColumnIndexOrThrow(COLUMN_ID));
             }
         }
         catch (Exception e)
@@ -342,9 +356,9 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
 
             String[] aSelectionArgs={aLessonID};
             aCursor=aDb.query(
-                              ResultsOpenHelper.LESSONS_TABLE_NAME,
-                              ResultsOpenHelper.LESSONS_COLUMNS,
-                              ResultsOpenHelper.COLUMN_LESSON_NAME+"=?",
+                              LESSONS_TABLE_NAME,
+                              LESSONS_COLUMNS,
+                              COLUMN_LESSON_NAME+"=?",
                               aSelectionArgs,
                               null,
                               null,
@@ -354,10 +368,10 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
             if (aCursor==null || aCursor.getCount()==0)
             {
                 ContentValues aValues=new ContentValues();
-                aValues.put(ResultsOpenHelper.COLUMN_LESSON_NAME, aLessonID);
+                aValues.put(COLUMN_LESSON_NAME, aLessonID);
 
                 res=aDb.insertOrThrow(
-                                      ResultsOpenHelper.LESSONS_TABLE_NAME,
+                                      LESSONS_TABLE_NAME,
                                       null,
                                       aValues
                                      );
@@ -365,7 +379,7 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
             else
             {
                 aCursor.moveToFirst();
-                res=aCursor.getLong(aCursor.getColumnIndexOrThrow(ResultsOpenHelper.COLUMN_ID));
+                res=aCursor.getLong(aCursor.getColumnIndexOrThrow(COLUMN_ID));
             }
         }
         catch (Exception e)
@@ -381,6 +395,36 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
         if (aDb!=null)
         {
             aDb.close();
+        }
+
+        return res;
+    }
+
+    public Cursor getResults(SQLiteDatabase aDb, String aLessonId)
+    {
+        long aLessonNumber=getLessonId(aDb, aLessonId);
+
+        Cursor res=null;
+
+        try
+        {
+            String aSql="SELECT " + RESULTS_TABLE_NAME + "." + COLUMN_ID + ", " +
+                                    COLUMN_USER_NAME + ", " +
+                                    COLUMN_TIME + ", " +
+                                    COLUMN_PERCENT + " " +
+                        "FROM " + RESULTS_TABLE_NAME + " " +
+                        "INNER JOIN " + USERS_TABLE_NAME +
+                                    " ON " + COLUMN_USER_ID +
+                                             "=" +
+                                             USERS_TABLE_NAME + "." + COLUMN_ID + " " +
+                        "WHERE " + COLUMN_LESSON_ID + "=?";
+
+            String[] aSelectionArgs={String.valueOf(aLessonNumber)};
+            res=aDb.rawQuery(aSql, aSelectionArgs);
+        }
+        catch (Exception e)
+        {
+            Log.e(TAG, "Problem occured while getResults", e);
         }
 
         return res;

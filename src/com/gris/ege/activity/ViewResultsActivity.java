@@ -52,7 +52,7 @@ public class ViewResultsActivity extends Activity implements ListView.OnItemClic
             Log.e(TAG, "Impossible to get database", e);
         }
 
-        mCursor=getResults();
+        mCursor=mResultsHelper.getResults(mDb, GlobalData.selectedLesson.getId());
 
         // Get controls
         mResultsList=(ListView)findViewById(R.id.resultsListView);
@@ -98,35 +98,5 @@ public class ViewResultsActivity extends Activity implements ListView.OnItemClic
             }
             break;
         }
-    }
-
-    public Cursor getResults()
-    {
-        long aLessonId=mResultsHelper.getLessonId(mDb, GlobalData.selectedLesson.getId());
-
-        Cursor res=null;
-
-        try
-        {
-            String aSql="SELECT " + ResultsOpenHelper.RESULTS_TABLE_NAME + "." + ResultsOpenHelper.COLUMN_ID + ", " +
-                                    ResultsOpenHelper.COLUMN_USER_NAME + ", " +
-                                    ResultsOpenHelper.COLUMN_TIME + ", " +
-                                    ResultsOpenHelper.COLUMN_PERCENT + " " +
-                        "FROM " + ResultsOpenHelper.RESULTS_TABLE_NAME + " " +
-                        "INNER JOIN " + ResultsOpenHelper.USERS_TABLE_NAME +
-                                    " ON " + ResultsOpenHelper.COLUMN_USER_ID +
-                                             "=" +
-                                             ResultsOpenHelper.USERS_TABLE_NAME + "." + ResultsOpenHelper.COLUMN_ID + " " +
-                        "WHERE " + ResultsOpenHelper.COLUMN_LESSON_ID + "=?";
-
-            String[] aSelectionArgs={String.valueOf(aLessonId)};
-            res=mDb.rawQuery(aSql, aSelectionArgs);
-        }
-        catch (Exception e)
-        {
-            Log.e(TAG, "Problem occured while getResults", e);
-        }
-
-        return res;
     }
 }
