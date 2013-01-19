@@ -14,24 +14,45 @@
         android:layout_marginRight="4dp"
         android:text="@string/insert_name"
         android:textAppearance="?android:attr/textAppearanceLarge"/>
-
-    <EditText
-        android:id="@+id/nameEditText"
+    
+    <RelativeLayout
+        android:id="@+id/nameLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/nameTextView"
-        android:layout_marginTop="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginRight="4dp"
-        android:ems="10"
-        android:inputType="textCapWords">
-        <requestFocus/>
-    </EditText>
+        android:layout_marginTop="4dp">
 
-    <RelativeLayout android:id="@+id/lessonLayout"
+        <EditText
+            android:id="@+id/nameEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/selectUserButton"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:ems="10"
+            android:inputType="textCapWords">
+            <requestFocus/>
+        </EditText>
+
+        <Button
+            android:id="@+id/selectUserButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="4dp"
+            android:text="@string/triplePoint"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/lessonLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/nameEditText"
+        android:layout_below="@+id/nameLayout"
         android:layout_marginTop="16dp">
 
         <TextView

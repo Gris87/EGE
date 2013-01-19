@@ -67,6 +67,8 @@ public class MainActivity extends Activity implements OnClickListener
 
         mNameEditText.setText(aUserName);
         selectLesson(aSelectedLessonID);
+        
+        updateSelectUserButton();
     }
 
     @Override
@@ -83,6 +85,11 @@ public class MainActivity extends Activity implements OnClickListener
         SharedPreferences.Editor aEditor = aSettings.edit();
         aEditor.putString(GlobalData.OPTION_USER_NAME, mNameEditText.getText().toString());
         aEditor.commit();
+    }
+    
+    public void updateSelectUserButton()
+    {
+    	
     }
 
     public void selectLesson(String aId)
