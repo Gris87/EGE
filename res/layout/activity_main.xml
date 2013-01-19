@@ -43,6 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="4dp"
+            android:minWidth="48dp"
             android:text="@string/triplePoint"
             android:visibility="gone"/>
 

@@ -3,6 +3,7 @@
 
     <string name="app_name">EGE</string>
 
+    <string name="title_activity_user_choose">Choose user</string>
     <string name="title_activity_lesson_choose">Choose lesson</string>
     <string name="title_activity_view_tasks">View tasks, %1$s</string>
     <string name="title_activity_start_testing">Start testing, %1$s</string>
@@ -33,6 +34,6 @@
     
     <string name="time" translatable="false">%1$s:%2$s:%3$s</string>
     <string name="percent" translatable="false">%1$d %%</string>
-    <string name="triplePoint" translatable="false">...</string>
+    <string name="triplePoint" translatable="false">&#8230;</string>
     
 </resources>

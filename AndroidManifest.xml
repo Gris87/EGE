@@ -23,20 +23,20 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.gris.ege.activity.UserChooseActivity"
+            android:label="@string/title_activity_user_choose">
+        </activity>
+        <activity
             android:name="com.gris.ege.activity.LessonChooseActivity"
             android:label="@string/title_activity_lesson_choose">
         </activity>
-        <activity
-            android:name="com.gris.ege.activity.ViewTasksActivity">
+        <activity android:name="com.gris.ege.activity.ViewTasksActivity">
+        </activity>        
+        <activity android:name="com.gris.ege.activity.StartTestActivity">
         </activity>
-        <activity
-            android:name="com.gris.ege.activity.ViewResultsActivity">
+        <activity android:name="com.gris.ege.activity.ViewResultsActivity">
         </activity>
-        <activity
-            android:name="com.gris.ege.activity.StartTestActivity">
-        </activity>
-        <activity
-            android:name="com.gris.ege.activity.CalculateActivity">
+        <activity android:name="com.gris.ege.activity.CalculateActivity">
         </activity>
     </application>
 

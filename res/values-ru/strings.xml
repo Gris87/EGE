@@ -3,6 +3,7 @@
 
     <string name="app_name">ЕГЭ</string>
 
+    <string name="title_activity_user_choose">Выберите пользователя</string>
     <string name="title_activity_lesson_choose">Выберите предмет</string>
     <string name="title_activity_view_tasks">Просмотр задач, %1$s</string>
     <string name="title_activity_start_testing">Запуск тестирования, %1$s</string>

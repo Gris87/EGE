@@ -52,7 +52,7 @@ public class StartTestActivity extends Activity implements OnClickListener
         mTasksBTextView     = (TextView)findViewById(R.id.tasksBTextView);
         mTasksCTextView     = (TextView)findViewById(R.id.tasksCTextView);
         mTotalTasksTextView = (TextView)findViewById(R.id.totalTasksTextView);
-        mStartButton        = (Button)findViewById(R.id.startButton);
+        mStartButton        = (Button)  findViewById(R.id.startButton);
 
         // Set listeners
         mStartButton.setOnClickListener(this);

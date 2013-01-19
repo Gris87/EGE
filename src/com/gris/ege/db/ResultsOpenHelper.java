@@ -150,6 +150,46 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
 
         return res;
     }
+    
+    public boolean isUserListEmpty()
+    {
+    	boolean res=true;
+        SQLiteDatabase aDb=null;
+        Cursor aCursor=null;
+
+        try
+        {
+            aDb=getReadableDatabase();
+                        
+            aCursor=aDb.query(
+                              ResultsOpenHelper.USERS_TABLE_NAME,
+                              ResultsOpenHelper.USERS_COLUMNS,
+                              null,
+                              null,
+                              null,
+                              null,
+                              null
+                             );
+            
+            res=(aCursor==null || aCursor.getCount()==0);
+        }
+        catch (Exception e)
+        {
+            Log.e(TAG, "Problem occured while isUserListEmpty", e);
+        }
+        
+        if (aCursor!=null)
+        {
+            aCursor.close();
+        }
+
+        if (aDb!=null)
+        {
+            aDb.close();
+        }
+
+        return res;
+    }
 
     public long getUserId(String aUserName)
     {

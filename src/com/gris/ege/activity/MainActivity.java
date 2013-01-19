@@ -1,6 +1,7 @@
 package com.gris.ege.activity;
 
 import com.gris.ege.R;
+import com.gris.ege.db.ResultsOpenHelper;
 import com.gris.ege.other.GlobalData;
 import com.gris.ege.other.LessonsParser;
 import com.gris.ege.other.TasksParser;
@@ -17,9 +18,11 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener
 {
-    private static final int REQUEST_LESSON_SELECT = 1;
-    private static final int REQUEST_START_TEST    = 2;
-    
+	private static final int REQUEST_USER_SELECT   = 1;
+    private static final int REQUEST_LESSON_SELECT = 2;
+    private static final int REQUEST_START_TEST    = 3;
+
+    public  static final int RESULT_USER_SELECT    = 1;
     public  static final int RESULT_LESSON_SELECT  = 1;
     public  static final int RESULT_START_TEST     = 1;
 
@@ -30,6 +33,7 @@ public class MainActivity extends Activity implements OnClickListener
 
 
     private EditText          mNameEditText;
+    private Button            mSelectUserButton;
 
     private Button            mLessonButton;
 
@@ -50,13 +54,15 @@ public class MainActivity extends Activity implements OnClickListener
         new LessonsParser().parse(this);
 
         // Get controls
-        mNameEditText = (EditText)findViewById(R.id.nameEditText);
-        mLessonButton = (Button)findViewById(R.id.lessonButton);
-        mViewTasksButton = (Button)findViewById(R.id.viewTasksButton);
-        mStartTestButton = (Button)findViewById(R.id.startTestButton);
-        mViewResultsButton = (Button)findViewById(R.id.viewResultsButton);
+        mNameEditText      = (EditText)findViewById(R.id.nameEditText);
+        mSelectUserButton  = (Button)  findViewById(R.id.selectUserButton);
+        mLessonButton      = (Button)  findViewById(R.id.lessonButton);
+        mViewTasksButton   = (Button)  findViewById(R.id.viewTasksButton);
+        mStartTestButton   = (Button)  findViewById(R.id.startTestButton);
+        mViewResultsButton = (Button)  findViewById(R.id.viewResultsButton);
 
         // Set listeners
+        mSelectUserButton.setOnClickListener(this);
         mLessonButton.setOnClickListener(this);
         mViewTasksButton.setOnClickListener(this);
         mStartTestButton.setOnClickListener(this);
@@ -70,7 +76,7 @@ public class MainActivity extends Activity implements OnClickListener
 
         mNameEditText.setText(aUserName);
         selectLesson(aSelectedLessonID);
-        
+
         updateSelectUserButton();
     }
 
@@ -89,10 +95,17 @@ public class MainActivity extends Activity implements OnClickListener
         aEditor.putString(GlobalData.OPTION_USER_NAME, mNameEditText.getText().toString());
         aEditor.commit();
     }
-    
+
     public void updateSelectUserButton()
     {
-    	
+    	if (
+    	    mSelectUserButton.getVisibility()==View.GONE
+    	    &&
+    		!new ResultsOpenHelper(this).isUserListEmpty()
+           )
+    	{
+    		mSelectUserButton.setVisibility(View.VISIBLE);
+    	}
     }
 
     public void selectLesson(String aId)
@@ -126,6 +139,15 @@ public class MainActivity extends Activity implements OnClickListener
         SharedPreferences.Editor aEditor = aSettings.edit();
         aEditor.putString(GlobalData.OPTION_SELECTED_LESSON, GlobalData.selectedLesson.getId());
         aEditor.commit();
+    }
+
+    public void chooseUser()
+    {
+        saveUserName();
+
+        Intent aLessonSelectIntent=new Intent();
+        aLessonSelectIntent.setClass(this, UserChooseActivity.class);
+        startActivityForResult(aLessonSelectIntent, REQUEST_USER_SELECT);
     }
 
     public void chooseLesson()
@@ -182,6 +204,9 @@ public class MainActivity extends Activity implements OnClickListener
     {
         switch (v.getId())
         {
+            case R.id.selectUserButton:
+                chooseUser();
+            break;
             case R.id.lessonButton:
                 chooseLesson();
             break;
@@ -202,6 +227,17 @@ public class MainActivity extends Activity implements OnClickListener
     {
         switch (aRequestCode)
         {
+            case REQUEST_USER_SELECT:
+            {
+                switch (aResultCode)
+                {
+                    case RESULT_USER_SELECT:
+                    {
+                    }
+                    break;
+                }
+            }
+            break;
             case REQUEST_LESSON_SELECT:
             {
                 switch (aResultCode)
