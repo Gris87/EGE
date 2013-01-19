@@ -9,6 +9,7 @@ public class GlobalData
     public static final String OPTION_USER_NAME       = "userName";
     public static final String OPTION_SELECTED_LESSON = "selectedLesson";
 
+    public static final String USER_NAME              = "userName";
     public static final String LESSON_ID              = "lessonId";
     public static final String TASK_ID                = "taskId";
     public static final String RESULT_ID              = "resultId";

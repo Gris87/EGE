@@ -101,7 +101,7 @@ public class MainActivity extends Activity implements OnClickListener
     	if (
     	    mSelectUserButton.getVisibility()==View.GONE
     	    &&
-    		!new ResultsOpenHelper(this).isUserListEmpty()
+    		!new ResultsOpenHelper(this).isUsersListEmpty()
            )
     	{
     		mSelectUserButton.setVisibility(View.VISIBLE);
@@ -233,6 +233,8 @@ public class MainActivity extends Activity implements OnClickListener
                 {
                     case RESULT_USER_SELECT:
                     {
+                    	String aUserName=aData.getStringExtra(GlobalData.USER_NAME);
+                    	mNameEditText.setText(aUserName);
                     }
                     break;
                 }

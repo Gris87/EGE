@@ -29,6 +29,7 @@ public class ViewResultsActivity extends Activity implements ListView.OnItemClic
     private Cursor             mCursor;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {

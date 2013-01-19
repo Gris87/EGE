@@ -27,11 +27,11 @@ public class LessonChooseActivity extends Activity implements ListView.OnItemCli
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-        Log.v(TAG, "Start lesson selection");
-
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_lesson_choose);
+
+        Log.v(TAG, "Start lesson selection");
 
         // Get controls
         mLessonsList=(ListView)findViewById(R.id.lessonsListView);
