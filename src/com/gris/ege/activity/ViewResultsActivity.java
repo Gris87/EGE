@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -41,6 +42,9 @@ public class ViewResultsActivity extends Activity implements ListView.OnItemClic
         setTitle(getString(R.string.title_activity_view_results, GlobalData.selectedLesson.getName()));
 
         // Initialize variables
+        SharedPreferences aSettings=getSharedPreferences(GlobalData.PREFS_NAME, 0);
+        String aUserName=aSettings.getString(GlobalData.OPTION_USER_NAME, "");
+
         mResultsHelper=new ResultsOpenHelper(this);
         mDb=null;
 
@@ -53,7 +57,7 @@ public class ViewResultsActivity extends Activity implements ListView.OnItemClic
             Log.e(TAG, "Impossible to get database", e);
         }
 
-        mCursor=mResultsHelper.getResults(mDb, GlobalData.selectedLesson.getId());
+        mCursor=mResultsHelper.getResults(mDb, aUserName, GlobalData.selectedLesson.getId());
 
         // Get controls
         mResultsList=(ListView)findViewById(R.id.resultsListView);

@@ -400,8 +400,9 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
         return res;
     }
 
-    public Cursor getResults(SQLiteDatabase aDb, String aLessonId)
+    public Cursor getResults(SQLiteDatabase aDb, String aUserName, String aLessonId)
     {
+    	long aUserNumber=getUserId(aDb, aUserName);
         long aLessonNumber=getLessonId(aDb, aLessonId);
 
         Cursor res=null;
@@ -417,9 +418,14 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
                                     " ON " + COLUMN_USER_ID +
                                              "=" +
                                              USERS_TABLE_NAME + "." + COLUMN_ID + " " +
-                        "WHERE " + COLUMN_LESSON_ID + "=?";
+                        "WHERE " + COLUMN_USER_ID + "=?" + " " +
+                        "AND " +   COLUMN_LESSON_ID + "=?";
 
-            String[] aSelectionArgs={String.valueOf(aLessonNumber)};
+            String[] aSelectionArgs={
+            		                 String.valueOf(aUserNumber),
+            		                 String.valueOf(aLessonNumber)
+            		                };
+
             res=aDb.rawQuery(aSql, aSelectionArgs);
         }
         catch (Exception e)
