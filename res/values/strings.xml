@@ -23,6 +23,8 @@
     <string name="finished">Finished</string>
     <string name="time_left">Time left = %1$s:%2$s:%3$s</string>
     <string name="task_header">%1$s. Task № %2$d</string>
+    <string name="download_error">Download error</string>
+    <string name="retry">Retry</string>
     <string name="answer">Answer</string>
     <string name="time_for_exam">Time = %1$s:%2$s:%3$s</string>
     <string name="A_task_count">A tasks : %1$d</string>
@@ -32,8 +34,9 @@
     <string name="start">Start</string>
     <string name="do_you_want_to_finish">Do you want to finish?</string>
     
-    <string name="time" translatable="false">%1$s:%2$s:%3$s</string>
-    <string name="percent" translatable="false">%1$d %%</string>
     <string name="triplePoint" translatable="false">&#8230;</string>
+    <string name="description" translatable="false"></string>
+    <string name="time" translatable="false">%1$s:%2$s:%3$s</string>
+    <string name="percent" translatable="false">%1$d %%</string>    
     
 </resources>

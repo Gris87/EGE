@@ -11,6 +11,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignWithParentIfMissing="true"
         android:layout_marginTop="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
         android:gravity="center"
         android:singleLine="true"
         android:textAppearance="?android:attr/textAppearanceMedium"/>

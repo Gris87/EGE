@@ -23,6 +23,8 @@
     <string name="finished">Завершено</string>
     <string name="time_left">Осталось = %1$s:%2$s:%3$s</string>
     <string name="task_header">%1$s. Задача № %2$d</string>
+    <string name="download_error">Ошибка загрузки</string>
+    <string name="retry">Повторить</string>
     <string name="answer">Ответ</string>
     <string name="time_for_exam">Время = %1$s:%2$s:%3$s</string>
     <string name="A_task_count">Задач A : %1$d</string>
