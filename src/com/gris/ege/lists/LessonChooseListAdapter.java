@@ -72,7 +72,7 @@ public class LessonChooseListAdapter extends BaseAdapter
         Lesson aBindComp=GlobalData.lessons.get(aPosition);
 
         aHolder.mName.setText(aBindComp.getName());
-        aHolder.mId.setText(Environment.getExternalStorageDirectory().getPath()+GlobalData.PATH_ON_SD_CARD+aBindComp.getId());
+        aHolder.mId.setText(GlobalData.PATH_ON_SD_CARD+aBindComp.getId());
     }
 
     @Override

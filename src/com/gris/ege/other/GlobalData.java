@@ -2,6 +2,8 @@ package com.gris.ege.other;
 
 import java.util.ArrayList;
 
+import android.os.Environment;
+
 public class GlobalData
 {
     public static final String PREFS_NAME             = "Settings";
@@ -16,7 +18,8 @@ public class GlobalData
     public static final String TASKS_COUNT            = "tasksCount";
     public static final String MODE                   = "mode";
 
-    public static final String PATH_ON_SD_CARD        = "/EGE/";
+    public static final String PATH_ON_SD_CARD        = Environment.getExternalStorageDirectory().getPath()+"/EGE/";
+    public static final String PATH_ON_NET            = "http://betatest95.narod.ru/";
 
 
 
