@@ -11,17 +11,30 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 public class TaskFragment extends Fragment
 {
-    private TextView mTaskHeaderView;
-    private TextView mTaskStatusView;
-    private EditText mAnswerEditText;
-    private Button   mAnswerButton;
+    public static final int MODE_VIEW_TASK   = 0;
+    public static final int MODE_TEST_TASK   = 1;
+    public static final int MODE_VIEW_RESULT = 2;
+
+
+
+    private TextView    mTaskHeaderView;
+    private TextView    mTaskStatusView;
+    private ViewFlipper mTaskViewFlipper;
+    private ProgressBar mDownloadProgressBar;
+    private Button      mRetryButton;
+    private ImageView   mTaskImageView;
+    private EditText    mAnswerEditText;
+    private Button      mAnswerButton;
 
     private Task mTask;
-    private boolean mWithAnswers;
+    private int  mMode;
 
 
 
@@ -30,22 +43,20 @@ public class TaskFragment extends Fragment
     {
         super.onCreate(savedInstanceState);
 
-        int aTaskId;
-
         Bundle aArgs=getArguments();
 
         if (aArgs!=null)
         {
-            aTaskId      = aArgs.getInt(    GlobalData.TASK_ID);
-            mWithAnswers = aArgs.getBoolean(GlobalData.WITH_ANSWERS);
+            int aTaskId=aArgs.getInt(GlobalData.TASK_ID);
+
+            mTask=GlobalData.tasks.get(aTaskId);
+            mMode=aArgs.getInt(GlobalData.MODE);
         }
         else
         {
-            aTaskId=0;
-            mWithAnswers=false;
+            mTask=GlobalData.tasks.get(0);
+            mMode=MODE_VIEW_TASK;
         }
-
-        mTask=GlobalData.tasks.get(aTaskId);
     }
 
     @Override
@@ -53,19 +64,21 @@ public class TaskFragment extends Fragment
     {
         View aView=aInflater.inflate(R.layout.task_page_item, aContainer, false);
 
+        // Get controls
+        mTaskHeaderView      = (TextView)aView.findViewById(R.id.taskHeaderTextView);
+        mTaskStatusView      = (TextView)aView.findViewById(R.id.taskStatusTextView);
+        mTaskViewFlipper     = (ViewFlipper)aView.findViewById(R.id.taskViewFlipper);
+        mDownloadProgressBar = (ProgressBar)aView.findViewById(R.id.downloadProgressBar);
+        mRetryButton         = (Button)aView.findViewById(R.id.retryButton);
+        mTaskImageView       = (ImageView)aView.findViewById(R.id.taskImageView);
+        mAnswerEditText      = (EditText)aView.findViewById(R.id.answerEditText);
+        mAnswerButton        = (Button)  aView.findViewById(R.id.answerButton);
 
-
-        mTaskHeaderView = (TextView)aView.findViewById(R.id.taskHeaderTextView);
-        mTaskStatusView = (TextView)aView.findViewById(R.id.taskStatusTextView);
-        mAnswerEditText = (EditText)aView.findViewById(R.id.answerEditText);
-        mAnswerButton   = (Button)  aView.findViewById(R.id.answerButton);
-
-
-
+        // Initialize controls
         mTaskHeaderView.setText(getString(R.string.task_header, mTask.getCategory(), mTask.getId()+1));
         updateStatus();
 
-        if (mWithAnswers)
+        if (mMode==MODE_VIEW_TASK)
         {
             mAnswerButton.setVisibility(View.VISIBLE);
         }
@@ -79,7 +92,7 @@ public class TaskFragment extends Fragment
 
     public void updateStatus()
     {
-        if (mWithAnswers)
+        if (mMode==MODE_VIEW_TASK)
         {
             mTaskStatusView.setVisibility(View.VISIBLE);
 

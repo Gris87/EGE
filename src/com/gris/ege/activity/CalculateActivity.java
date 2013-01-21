@@ -7,6 +7,7 @@ import com.gris.ege.db.ResultsOpenHelper;
 import com.gris.ege.other.GlobalData;
 import com.gris.ege.other.Task;
 import com.gris.ege.other.Utils;
+import com.gris.ege.pager.TaskFragment;
 import com.gris.ege.pager.TasksPageAdapter;
 
 import android.os.Bundle;
@@ -25,7 +26,6 @@ import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 public class CalculateActivity extends FragmentActivity
@@ -75,9 +75,11 @@ public class CalculateActivity extends FragmentActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculate);
 
+        // Get controls
         mTimeLeftTextView = (TextView) findViewById(R.id.timeLeftTextView);
         mTasksPager       = (ViewPager)findViewById(R.id.tasksPager);
 
+        // Initialize controls
         Intent aIntent=getIntent();
         Bundle aExtras=aIntent.getExtras();
 
@@ -88,7 +90,7 @@ public class CalculateActivity extends FragmentActivity
             int aTaskId=aExtras.getInt(GlobalData.TASK_ID);
             Log.v(TAG, "Start calculation for task: "+String.valueOf(aTaskId));
 
-            mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), GlobalData.tasks, true);
+            mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), GlobalData.tasks, TaskFragment.MODE_VIEW_TASK);
 
             Message aSelectPageMessage=new Message();
             aSelectPageMessage.what=SELECT_PAGE;
@@ -116,7 +118,7 @@ public class CalculateActivity extends FragmentActivity
                 aSelectedTasks.add(aTask);
             }
 
-            mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), aSelectedTasks, false);
+            mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), aSelectedTasks, TaskFragment.MODE_TEST_TASK);
 
             mTimeLeftTextView.setVisibility(View.VISIBLE);
 
@@ -131,7 +133,7 @@ public class CalculateActivity extends FragmentActivity
             Log.v(TAG, "View results № "+String.valueOf(aResultId));
 
             // TODO: Not GlobalData.tasks
-            mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), GlobalData.tasks, false);
+            mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), GlobalData.tasks, TaskFragment.MODE_VIEW_RESULT);
 
             mTimeLeftTextView.setVisibility(View.GONE);
         }

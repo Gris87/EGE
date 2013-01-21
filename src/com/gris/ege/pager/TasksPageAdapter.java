@@ -13,16 +13,16 @@ import android.support.v4.app.FragmentPagerAdapter;
 public class TasksPageAdapter extends FragmentPagerAdapter
 {
     private ArrayList<Task> mData;
-    private boolean         mWithAnswers;
+    private int             mMode;
 
 
 
-    public TasksPageAdapter(FragmentManager fm, ArrayList<Task> aData, boolean aWithAnswers)
+    public TasksPageAdapter(FragmentManager fm, ArrayList<Task> aData, int aMode)
     {
         super(fm);
 
         mData=aData;
-        mWithAnswers=aWithAnswers;
+        mMode=aMode;
     }
 
     @Override
@@ -37,8 +37,8 @@ public class TasksPageAdapter extends FragmentPagerAdapter
         TaskFragment aFragment = new TaskFragment();
 
         Bundle aArgs = new Bundle();
-        aArgs.putInt(    GlobalData.TASK_ID,      mData.get(aPosition).getId());
-        aArgs.putBoolean(GlobalData.WITH_ANSWERS, mWithAnswers);
+        aArgs.putInt(GlobalData.TASK_ID, mData.get(aPosition).getId());
+        aArgs.putInt(GlobalData.MODE,    mMode);
         aFragment.setArguments(aArgs);
 
         return aFragment;
