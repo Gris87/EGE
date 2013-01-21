@@ -25,7 +25,7 @@
     <string name="task_header">%1$s. Task № %2$d</string>
     <string name="download_error">Download error</string>
     <string name="retry">Retry</string>
-    <string name="answer">Answer</string>
+    <string name="give_answer">Answer</string>
     <string name="time_for_exam">Time = %1$s:%2$s:%3$s</string>
     <string name="A_task_count">A tasks : %1$d</string>
     <string name="B_task_count">B tasks : %1$d</string>
@@ -33,6 +33,9 @@
     <string name="total_task_count">Total tasks : %1$d</string>
     <string name="start">Start</string>
     <string name="do_you_want_to_finish">Do you want to finish?</string>
+    <string name="not_correct">Not correct</string>
+    <string name="correct">Correct</string>
+    <string name="answer">Answer: %1$s</string>
     
     <string name="triplePoint" translatable="false">&#8230;</string>
     <string name="description" translatable="false"></string>

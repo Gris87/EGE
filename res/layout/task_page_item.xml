@@ -35,12 +35,13 @@
     </RelativeLayout>
     
     <ViewFlipper
-            android:id="@+id/taskViewFlipper"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/topLayout"
-            android:layout_above="@+id/bottomLayout"
-            android:layout_margin="4dp">
+        android:id="@+id/taskViewFlipper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/topLayout"
+        android:layout_above="@+id/answerTextView"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_margin="4dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -97,6 +98,19 @@
             android:contentDescription="@string/description"/>
         
     </ViewFlipper>
+    
+    <TextView
+        android:id="@+id/answerTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottomLayout"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_marginBottom="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
 
     <RelativeLayout
         android:id="@+id/bottomLayout"
@@ -126,7 +140,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="4dp"
-            android:text="@string/answer"/>
+            android:text="@string/give_answer"/>
 
     </RelativeLayout>
 
