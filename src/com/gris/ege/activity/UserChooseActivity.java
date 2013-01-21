@@ -37,7 +37,10 @@ public class UserChooseActivity extends Activity implements ListView.OnItemClick
 
 		setContentView(R.layout.activity_user_choose);
 
-		Log.v(TAG, "Start user selection");
+		if (savedInstanceState==null)
+        {
+		    Log.v(TAG, "Start user selection");
+        }
 
 		// Initialize variables
         mResultsHelper=new ResultsOpenHelper(this);

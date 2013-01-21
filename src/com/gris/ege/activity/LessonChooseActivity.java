@@ -31,7 +31,10 @@ public class LessonChooseActivity extends Activity implements ListView.OnItemCli
 
         setContentView(R.layout.activity_lesson_choose);
 
-        Log.v(TAG, "Start lesson selection");
+        if (savedInstanceState==null)
+        {
+            Log.v(TAG, "Start lesson selection");
+        }
 
         // Get controls
         mLessonsList=(ListView)findViewById(R.id.lessonsListView);

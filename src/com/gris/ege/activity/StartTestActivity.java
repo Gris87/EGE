@@ -43,7 +43,11 @@ public class StartTestActivity extends Activity implements OnClickListener
 
         setContentView(R.layout.activity_start_test);
 
-        Log.v(TAG, "Start testing for lesson \""+GlobalData.selectedLesson.getId()+"\"");
+        if (savedInstanceState==null)
+        {
+            Log.v(TAG, "Start testing for lesson \""+GlobalData.selectedLesson.getId()+"\"");
+        }
+
         setTitle(getString(R.string.title_activity_start_testing, GlobalData.selectedLesson.getName()));
 
         // Get controls
@@ -172,9 +176,9 @@ public class StartTestActivity extends Activity implements OnClickListener
                     }
                     break;
                 }
-                
+
                 setResult(MainActivity.RESULT_START_TEST);
-                
+
                 finish();
             }
             break;

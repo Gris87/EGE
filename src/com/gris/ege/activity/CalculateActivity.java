@@ -36,6 +36,8 @@ public class CalculateActivity extends FragmentActivity
 
 
 
+    private static final String START_TIME="startTime";
+
     private static final int TIMER_TICK=1;
     private static final int SELECT_PAGE=2;
 
@@ -110,14 +112,22 @@ public class CalculateActivity extends FragmentActivity
             setTitle(getString(R.string.title_activity_calculate_testing, GlobalData.selectedLesson.getName()));
 
             int aTaskCount=aExtras.getInt(GlobalData.TASKS_COUNT);
-            Log.v(TAG, "Start calculation for tasks:");
+
+            if (savedInstanceState==null)
+            {
+                Log.v(TAG, "Start calculation for tasks:");
+            }
 
             ArrayList<Task> aSelectedTasks=new ArrayList<Task>();
 
             for (int i=0; i<aTaskCount; ++i)
             {
                 int aTaskId=aExtras.getInt(GlobalData.TASK_ID+"_"+String.valueOf(i));
-                Log.v(TAG, "Task № "+String.valueOf(aTaskId));
+
+                if (savedInstanceState==null)
+                {
+                    Log.v(TAG, "Task № "+String.valueOf(aTaskId));
+                }
 
                 Task aTask=GlobalData.tasks.get(aTaskId);
                 aSelectedTasks.add(aTask);
@@ -127,7 +137,14 @@ public class CalculateActivity extends FragmentActivity
 
             mTimeLeftTextView.setVisibility(View.VISIBLE);
 
-            mActivityStart=SystemClock.uptimeMillis();
+            if (savedInstanceState!=null)
+            {
+                mActivityStart=savedInstanceState.getLong(START_TIME, SystemClock.uptimeMillis());
+            }
+            else
+            {
+                mActivityStart=SystemClock.uptimeMillis();
+            }
         }
         else
         if (aExtras.containsKey(GlobalData.RESULT_ID))
@@ -135,7 +152,11 @@ public class CalculateActivity extends FragmentActivity
             setTitle(getString(R.string.title_activity_calculate_results, GlobalData.selectedLesson.getName()));
 
             int aResultId=aExtras.getInt(GlobalData.RESULT_ID);
-            Log.v(TAG, "View results № "+String.valueOf(aResultId));
+
+            if (savedInstanceState==null)
+            {
+                Log.v(TAG, "View results № "+String.valueOf(aResultId));
+            }
 
             // TODO: Not GlobalData.tasks
             mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), GlobalData.tasks, TaskFragment.MODE_VIEW_RESULT);
@@ -163,10 +184,17 @@ public class CalculateActivity extends FragmentActivity
     {
         if (isInTestingMode())
         {
+            mHandler.removeMessages(TIMER_TICK);
             onTimerTick();
         }
 
         super.onResume();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle aOutState)
+    {
+        aOutState.putLong(START_TIME, mActivityStart);
     }
 
     @Override

@@ -196,7 +196,6 @@ public class TaskFragment extends Fragment implements OnClickListener
             return res;
         }
 
-
         private Drawable getImage() throws IOException
         {
             String aFileName=GlobalData.selectedLesson.getId()+"/"+String.valueOf(mTask.getId()+1)+".png";
