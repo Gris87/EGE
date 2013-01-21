@@ -118,6 +118,7 @@ public class TaskFragment extends Fragment implements OnClickListener
             break;
             case MODE_VIEW_RESULT:
                 mBottomLayout.setVisibility(View.GONE);
+                mAnswerTextView.setText(getString(R.string.answer, mTask.getAnswer()));
             break;
         }
 
@@ -211,6 +212,10 @@ public class TaskFragment extends Fragment implements OnClickListener
                 {
                     return aDrawable;
                 }
+                else
+                {
+                    Log.w(TAG, "Invalid file on sdcard: "+GlobalData.PATH_ON_SD_CARD+aFileName);
+                }
             }
 
             // Download file
@@ -237,11 +242,17 @@ public class TaskFragment extends Fragment implements OnClickListener
 
                 FileOutputStream aNewFile=new FileOutputStream(GlobalData.PATH_ON_SD_CARD+aFileName);
 
-                while (in.available()>0)
+                do
                 {
                     int aBytes=in.read(aBuffer);
+
+                    if (aBytes<=0)
+                    {
+                        break;
+                    }
+
                     aNewFile.write(aBuffer, 0, aBytes);
-                }
+                } while(true);
 
                 aNewFile.close();
                 in.close();
@@ -256,7 +267,16 @@ public class TaskFragment extends Fragment implements OnClickListener
             Drawable aDrawable=Drawable.createFromStream(res, null);
             res.close();
 
-            return aDrawable;
+            if (aDrawable!=null)
+            {
+                return aDrawable;
+            }
+            else
+            {
+                Log.w(TAG, "Invalid file on sdcard after downloading: "+GlobalData.PATH_ON_SD_CARD+aFileName);
+            }
+
+            return null;
         }
 
         @Override
