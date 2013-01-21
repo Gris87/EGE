@@ -20,6 +20,7 @@ import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ContentValues;
@@ -28,6 +29,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 
+@SuppressLint("HandlerLeak")
 public class CalculateActivity extends FragmentActivity
 {
     private static final String TAG="CalculateActivity";
@@ -87,15 +89,18 @@ public class CalculateActivity extends FragmentActivity
         {
             setTitle(getString(R.string.title_activity_calculate_tasks, GlobalData.selectedLesson.getName()));
 
-            int aTaskId=aExtras.getInt(GlobalData.TASK_ID);
-            Log.v(TAG, "Start calculation for task: "+String.valueOf(aTaskId));
-
             mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), GlobalData.tasks, TaskFragment.MODE_VIEW_TASK);
 
-            Message aSelectPageMessage=new Message();
-            aSelectPageMessage.what=SELECT_PAGE;
-            aSelectPageMessage.arg1=aTaskId;
-            mHandler.sendMessage(aSelectPageMessage);
+            if (savedInstanceState==null)
+            {
+                int aTaskId=aExtras.getInt(GlobalData.TASK_ID);
+                Log.v(TAG, "Start calculation for task: "+String.valueOf(aTaskId));
+
+                Message aSelectPageMessage=new Message();
+                aSelectPageMessage.what=SELECT_PAGE;
+                aSelectPageMessage.arg1=aTaskId;
+                mHandler.sendMessage(aSelectPageMessage);
+            }
 
             mTimeLeftTextView.setVisibility(View.GONE);
         }

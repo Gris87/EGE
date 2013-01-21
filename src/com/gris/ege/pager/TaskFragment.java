@@ -24,7 +24,6 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.ViewAnimator;
@@ -48,7 +47,6 @@ public class TaskFragment extends Fragment implements OnClickListener
     private TextView       mTaskHeaderView;
     private TextView       mTaskStatusView;
     private ViewAnimator   mTaskViewAnimator;
-    private ProgressBar    mDownloadProgressBar;
     private Button         mRetryButton;
     private ImageView      mTaskImageView;
     private TextView       mAnswerTextView;
@@ -91,7 +89,6 @@ public class TaskFragment extends Fragment implements OnClickListener
         mTaskHeaderView      = (TextView)      aView.findViewById(R.id.taskHeaderTextView);
         mTaskStatusView      = (TextView)      aView.findViewById(R.id.taskStatusTextView);
         mTaskViewAnimator    = (ViewAnimator)  aView.findViewById(R.id.taskViewAnimator);
-        mDownloadProgressBar = (ProgressBar)   aView.findViewById(R.id.downloadProgressBar);
         mRetryButton         = (Button)        aView.findViewById(R.id.retryButton);
         mTaskImageView       = (ImageView)     aView.findViewById(R.id.taskImageView);
         mAnswerTextView      = (TextView)      aView.findViewById(R.id.answerTextView);
