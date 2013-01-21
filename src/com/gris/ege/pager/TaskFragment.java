@@ -2,11 +2,10 @@ package com.gris.ege.pager;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
 
 import com.gris.ege.R;
@@ -29,7 +28,6 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.ViewAnimator;
-import android.widget.ViewFlipper;
 
 public class TaskFragment extends Fragment implements OnClickListener
 {
@@ -153,7 +151,6 @@ public class TaskFragment extends Fragment implements OnClickListener
 
     public void downloadImage()
     {
-        mTaskViewAnimator.setDisplayedChild(PAGE_DOWNLOAD);
         new DownloadImageTask().execute();
     }
 
@@ -176,12 +173,18 @@ public class TaskFragment extends Fragment implements OnClickListener
         }
     }
 
-    private class DownloadImageTask extends AsyncTask<Void, Void, InputStream>
+    private class DownloadImageTask extends AsyncTask<Void, Void, Drawable>
     {
         @Override
-        protected InputStream doInBackground(Void... aNothing)
+        protected void onPreExecute()
         {
-            InputStream res=null;
+            mTaskViewAnimator.setDisplayedChild(PAGE_DOWNLOAD);
+        }
+
+        @Override
+        protected Drawable doInBackground(Void... aNothing)
+        {
+            Drawable res=null;
 
             try
             {
@@ -195,55 +198,74 @@ public class TaskFragment extends Fragment implements OnClickListener
             return res;
         }
 
-        @SuppressWarnings("resource")
-        private InputStream getImage() throws IOException
+
+        private Drawable getImage() throws IOException
         {
-            InputStream res=null;
-
             String aFileName=GlobalData.selectedLesson.getId()+"/"+String.valueOf(mTask.getId()+1)+".png";
-            File aFile=new File(GlobalData.PATH_ON_SD_CARD+aFileName);
 
-            if (aFile.exists())
+            if (new File(GlobalData.PATH_ON_SD_CARD+aFileName).exists())
             {
-                res=new FileInputStream(aFile);
-            }
-            else
-            {
-                URL aUrl=new URL(GlobalData.PATH_ON_NET+aFileName);
+                Drawable aDrawable=Drawable.createFromPath(GlobalData.PATH_ON_SD_CARD+aFileName);
 
-                HttpURLConnection aConnection=(HttpURLConnection)aUrl.openConnection();
-                aConnection.setReadTimeout(10000);
-                aConnection.setConnectTimeout(15000);
-                aConnection.setRequestMethod("GET");
-                aConnection.setDoInput(true);
-
-                // Starts the query
-                aConnection.connect();
-                InputStream in=aConnection.getInputStream();
-
-                res=in;
+                if (aDrawable!=null)
+                {
+                    return aDrawable;
+                }
             }
 
-            return res;
+            // Download file
+            URL aUrl=new URL(GlobalData.PATH_ON_NET+aFileName);
+
+            HttpURLConnection aConnection=(HttpURLConnection)aUrl.openConnection();
+            aConnection.setReadTimeout(10000);
+            aConnection.setConnectTimeout(15000);
+            aConnection.setRequestMethod("GET");
+            aConnection.setDoInput(true);
+
+            // Starts the query
+            aConnection.connect();
+            InputStream in=aConnection.getInputStream();
+
+            InputStream res=in;
+
+            try
+            {
+                byte[] aBuffer=new byte[4096];
+
+                new File(GlobalData.PATH_ON_SD_CARD+GlobalData.selectedLesson.getId()).mkdirs();
+                new File(GlobalData.PATH_ON_SD_CARD+".nomedia").createNewFile();
+
+                FileOutputStream aNewFile=new FileOutputStream(GlobalData.PATH_ON_SD_CARD+aFileName);
+
+                while (in.available()>0)
+                {
+                    int aBytes=in.read(aBuffer);
+                    aNewFile.write(aBuffer, 0, aBytes);
+                }
+
+                aNewFile.close();
+                in.close();
+
+                res=new FileInputStream(GlobalData.PATH_ON_SD_CARD+aFileName);
+            }
+            catch (Exception e)
+            {
+                Log.w(TAG, "Problem while saving image on sd card", e);
+            }
+
+            Drawable aDrawable=Drawable.createFromStream(res, null);
+            res.close();
+
+            return aDrawable;
         }
 
         @Override
-        protected void onPostExecute(InputStream aResult)
+        protected void onPostExecute(Drawable aResult)
         {
             if (aResult!=null)
             {
-                try
-                {
-                    mTaskImageView.setImageDrawable(Drawable.createFromStream(aResult, null));
-
-                    aResult.close();
-                    mTaskViewAnimator.setDisplayedChild(PAGE_IMAGE);
-                }
-                catch (Exception e)
-                {
-                    Log.w(TAG, "Problem while loading image", e);
-                    mTaskViewAnimator.setDisplayedChild(PAGE_RETRY);
-                }
+                mTaskImageView.setImageDrawable(aResult);
+                mTaskViewAnimator.setDisplayedChild(PAGE_IMAGE);
             }
             else
             {
