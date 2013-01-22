@@ -13,15 +13,18 @@ import com.gris.ege.db.ResultsOpenHelper;
 import com.gris.ege.other.GlobalData;
 import com.gris.ege.other.Task;
 
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -127,6 +130,49 @@ public class TaskFragment extends Fragment implements OnClickListener
 
         downloadImage();
 
+        if (mTask.getCategory().charAt(0)=='A')
+        {
+            mAnswerEditText.setRawInputType(
+                                            InputType.TYPE_CLASS_NUMBER
+                                            |
+                                            InputType.TYPE_NUMBER_FLAG_SIGNED
+                                            |
+                                            InputType.TYPE_NUMBER_FLAG_DECIMAL
+                                           );
+
+            mAnswerEditText.setSingleLine(true);
+        }
+        else
+        if (mTask.getCategory().charAt(0)=='B')
+        {
+            mAnswerEditText.setRawInputType(
+                                            InputType.TYPE_CLASS_NUMBER
+                                            |
+                                            InputType.TYPE_NUMBER_FLAG_SIGNED
+                                            |
+                                            InputType.TYPE_NUMBER_FLAG_DECIMAL
+                                           );
+
+            mAnswerEditText.setSingleLine(true);
+        }
+        else
+        if (mTask.getCategory().charAt(0)=='C')
+        {
+            mAnswerEditText.setRawInputType(
+                                            InputType.TYPE_CLASS_TEXT
+                                            |
+                                            InputType.TYPE_TEXT_VARIATION_NORMAL
+                                            |
+                                            InputType.TYPE_TEXT_FLAG_MULTI_LINE
+                                           );
+
+            mAnswerEditText.setSingleLine(false);
+        }
+        else
+        {
+            Log.e(TAG, "Invalid category \""+mTask.getCategory()+"\" for task № "+String.valueOf(mTask.getId()));
+        }
+
         return aView;
     }
 
@@ -178,7 +224,7 @@ public class TaskFragment extends Fragment implements OnClickListener
         }
         else
         {
-            Log.e(TAG, "Invalid category \""+mTask.getCategory()+"\" for task");
+            Log.e(TAG, "Invalid category \""+mTask.getCategory()+"\" for task № "+String.valueOf(mTask.getId()));
         }
 
         if (aShowToast)
@@ -191,6 +237,12 @@ public class TaskFragment extends Fragment implements OnClickListener
             new ResultsOpenHelper(getActivity()).setTaskFinished(mUserId, mLessonId, mTask.getId());
             mTask.setFinished(true);
             updateStatus();
+
+            if (aShowToast)
+            {
+                InputMethodManager imm=(InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(mAnswerEditText.getWindowToken(), 0);
+            }
         }
     }
 
@@ -270,7 +322,7 @@ public class TaskFragment extends Fragment implements OnClickListener
             aConnection.setRequestMethod("GET");
             aConnection.setDoInput(true);
 
-            // Starts the query
+            // Download file
             aConnection.connect();
             InputStream in=aConnection.getInputStream();
 

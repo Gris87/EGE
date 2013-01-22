@@ -1,5 +1,9 @@
 package com.gris.ege.db;
 
+import java.util.ArrayList;
+
+import com.gris.ege.other.Task;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -304,14 +308,14 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
         return res;
     }
 
-    public long getLessonId(SQLiteDatabase aDb, String aLessonID)
+    public long getLessonId(SQLiteDatabase aDb, String aLessonName)
     {
         long res=-1;
         Cursor aCursor=null;
 
         try
         {
-            String[] aSelectionArgs={aLessonID};
+            String[] aSelectionArgs={aLessonName};
             aCursor=aDb.query(
                               LESSONS_TABLE_NAME,
                               LESSONS_COLUMNS,
@@ -341,7 +345,7 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
         return res;
     }
 
-    public long getLessonId(String aLessonID)
+    public long getLessonId(String aLessonName)
     {
         long res=-1;
         SQLiteDatabase aDb=null;
@@ -349,7 +353,7 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
         try
         {
             aDb=getReadableDatabase();
-            res=getLessonId(aDb, aLessonID);
+            res=getLessonId(aDb, aLessonName);
         }
         catch (Exception e)
         {
@@ -364,7 +368,7 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
         return res;
     }
 
-    public long getOrCreateLessonId(String aLessonID)
+    public long getOrCreateLessonId(String aLessonName)
     {
         long res=-1;
         SQLiteDatabase aDb=null;
@@ -374,7 +378,7 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
         {
             aDb=getWritableDatabase();
 
-            String[] aSelectionArgs={aLessonID};
+            String[] aSelectionArgs={aLessonName};
             aCursor=aDb.query(
                               LESSONS_TABLE_NAME,
                               LESSONS_COLUMNS,
@@ -388,7 +392,7 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
             if (aCursor==null || aCursor.getCount()==0)
             {
                 ContentValues aValues=new ContentValues();
-                aValues.put(COLUMN_LESSON_NAME, aLessonID);
+                aValues.put(COLUMN_LESSON_NAME, aLessonName);
 
                 res=aDb.insertOrThrow(
                                       LESSONS_TABLE_NAME,
@@ -505,10 +509,10 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
         }
     }
 
-    public Cursor getResults(SQLiteDatabase aDb, String aUserName, String aLessonId)
+    public Cursor getResults(SQLiteDatabase aDb, String aUserName, String aLessonName)
     {
-    	long aUserNumber=getUserId(aDb, aUserName);
-        long aLessonNumber=getLessonId(aDb, aLessonId);
+    	long aUserId=getUserId(aDb, aUserName);
+        long aLessonId=getLessonId(aDb, aLessonName);
 
         Cursor res=null;
 
@@ -527,8 +531,8 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
                         "AND " +   COLUMN_LESSON_ID + "=?";
 
             String[] aSelectionArgs={
-            		                 String.valueOf(aUserNumber),
-            		                 String.valueOf(aLessonNumber)
+            		                 String.valueOf(aUserId),
+            		                 String.valueOf(aLessonId)
             		                };
 
             res=aDb.rawQuery(aSql, aSelectionArgs);
@@ -561,6 +565,181 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
         catch (Exception e)
         {
             Log.e(TAG, "Problem occured while getAnswers", e);
+        }
+
+        return res;
+    }
+
+    public void updateTasksStatus(String aUserName, String aLessonName, ArrayList<Task> aTasksList)
+    {
+        SQLiteDatabase aDb=null;
+        Cursor aCursor=null;
+
+        try
+        {
+            aDb=getReadableDatabase();
+
+            long aUserId=getUserId(aDb, aUserName);
+            long aLessonId=getLessonId(aDb, aLessonName);
+
+            aCursor=getTasksList(aDb, aUserId, aLessonId);
+
+            if (aCursor!=null)
+            {
+                int aTaskNumberIndex=aCursor.getColumnIndexOrThrow(COLUMN_TASK_NUMBER);
+
+                while (aCursor.moveToNext())
+                {
+                    aTasksList.get(aCursor.getInt(aTaskNumberIndex)).setFinished(true);
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            Log.e(TAG, "Impossible to set finished status for tasks", e);
+        }
+
+        if (aCursor!=null)
+        {
+            aCursor.close();
+        }
+
+        if (aDb!=null)
+        {
+            aDb.close();
+        }
+    }
+
+    public ArrayList<Task> getTasksForResult(long aResultId, ArrayList<Task> aGlobalTasks)
+    {
+        ArrayList<Task> res=new ArrayList<Task>();
+
+        SQLiteDatabase aDb=null;
+        Cursor aCursor=null;
+
+        try
+        {
+            aDb=getReadableDatabase();
+            aCursor=getAnswers(aDb, aResultId);
+
+            if (aCursor!=null)
+            {
+                int aTaskNumberIndex = aCursor.getColumnIndexOrThrow(COLUMN_TASK_NUMBER);
+                int aAnswerIndex     = aCursor.getColumnIndexOrThrow(COLUMN_ANSWER);
+                int aCorrectIndex    = aCursor.getColumnIndexOrThrow(COLUMN_CORRECT);
+
+                while (aCursor.moveToNext())
+                {
+                    Task aTask=aGlobalTasks.get(aCursor.getInt(aTaskNumberIndex));
+                    aTask.setAnswer(aCursor.getString(aAnswerIndex));
+                    aTask.setFinished(aCursor.getInt(aCorrectIndex)!=0);
+                    res.add(aTask);
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            Log.e(TAG, "Impossible to take tasks from result № "+String.valueOf(aResultId), e);
+        }
+
+        if (aCursor!=null)
+        {
+            aCursor.close();
+        }
+
+        if (aDb!=null)
+        {
+            aDb.close();
+        }
+
+        return res;
+    }
+
+    public long getTime(long aResultId)
+    {
+        long res=0;
+
+        SQLiteDatabase aDb=null;
+        Cursor aCursor=null;
+
+        try
+        {
+            aDb=getReadableDatabase();
+            String[] aSelectionArgs={String.valueOf(aResultId)};
+            aCursor=aDb.query(
+                              RESULTS_TABLE_NAME,
+                              RESULTS_COLUMNS,
+                              COLUMN_ID+"=?",
+                              aSelectionArgs,
+                              null,
+                              null,
+                              null
+                             );
+
+            if (aCursor!=null && aCursor.getCount()>0)
+            {
+                aCursor.moveToFirst();
+                res=aCursor.getLong(aCursor.getColumnIndexOrThrow(COLUMN_TIME));
+            }
+        }
+        catch (Exception e)
+        {
+            Log.e(TAG, "Impossible to take time from result № "+String.valueOf(aResultId), e);
+        }
+
+        if (aCursor!=null)
+        {
+            aCursor.close();
+        }
+
+        if (aDb!=null)
+        {
+            aDb.close();
+        }
+
+        return res;
+    }
+
+    public int getPercent(long aResultId)
+    {
+        int res=0;
+
+        SQLiteDatabase aDb=null;
+        Cursor aCursor=null;
+
+        try
+        {
+            aDb=getReadableDatabase();
+            String[] aSelectionArgs={String.valueOf(aResultId)};
+            aCursor=aDb.query(
+                              RESULTS_TABLE_NAME,
+                              RESULTS_COLUMNS,
+                              COLUMN_ID+"=?",
+                              aSelectionArgs,
+                              null,
+                              null,
+                              null
+                             );
+
+            if (aCursor!=null && aCursor.getCount()>0)
+            {
+                aCursor.moveToFirst();
+                res=aCursor.getInt(aCursor.getColumnIndexOrThrow(COLUMN_PERCENT));
+            }
+        }
+        catch (Exception e)
+        {
+            Log.e(TAG, "Impossible to take percent from result № "+String.valueOf(aResultId), e);
+        }
+
+        if (aCursor!=null)
+        {
+            aCursor.close();
+        }
+
+        if (aDb!=null)
+        {
+            aDb.close();
         }
 
         return res;

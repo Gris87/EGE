@@ -19,6 +19,8 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -47,6 +49,11 @@ public class CalculateActivity extends FragmentActivity
 
 
     private TextView         mTimeLeftTextView;
+
+    private RelativeLayout   mResultsLayout;
+    private TextView         mTimeTextView;
+    private ProgressBar      mPercentProgressBar;
+    private TextView         mPercentTextView;
 
     private ViewPager        mTasksPager;
     private TasksPageAdapter mTasksAdapter;
@@ -92,8 +99,12 @@ public class CalculateActivity extends FragmentActivity
         mLessonId=aResultsHelper.getOrCreateLessonId(GlobalData.selectedLesson.getId());
 
         // Get controls
-        mTimeLeftTextView = (TextView) findViewById(R.id.timeLeftTextView);
-        mTasksPager       = (ViewPager)findViewById(R.id.tasksPager);
+        mTimeLeftTextView   = (TextView)      findViewById(R.id.timeLeftTextView);
+        mResultsLayout      = (RelativeLayout)findViewById(R.id.resultsLayout);
+        mTimeTextView       = (TextView)      findViewById(R.id.timeTextView);
+        mPercentProgressBar = (ProgressBar)   findViewById(R.id.percentProgressBar);
+        mPercentTextView    = (TextView)      findViewById(R.id.percentTextView);
+        mTasksPager         = (ViewPager)     findViewById(R.id.tasksPager);
 
         // Initialize controls
         Intent aIntent=getIntent();
@@ -117,6 +128,7 @@ public class CalculateActivity extends FragmentActivity
             }
 
             mTimeLeftTextView.setVisibility(View.GONE);
+            mResultsLayout.setVisibility(View.GONE);
         }
         else
         if (aExtras.containsKey(GlobalData.TASKS_COUNT))
@@ -128,6 +140,11 @@ public class CalculateActivity extends FragmentActivity
             if (savedInstanceState==null)
             {
                 Log.v(TAG, "Start calculation for tasks:");
+                mActivityStart=SystemClock.uptimeMillis();
+            }
+            else
+            {
+                mActivityStart=savedInstanceState.getLong(START_TIME, SystemClock.uptimeMillis());
             }
 
             ArrayList<Task> aSelectedTasks=new ArrayList<Task>();
@@ -148,15 +165,7 @@ public class CalculateActivity extends FragmentActivity
             mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), aSelectedTasks, TaskFragment.MODE_TEST_TASK, mUserId, mLessonId);
 
             mTimeLeftTextView.setVisibility(View.VISIBLE);
-
-            if (savedInstanceState!=null)
-            {
-                mActivityStart=savedInstanceState.getLong(START_TIME, SystemClock.uptimeMillis());
-            }
-            else
-            {
-                mActivityStart=SystemClock.uptimeMillis();
-            }
+            mResultsLayout.setVisibility(View.GONE);
         }
         else
         if (aExtras.containsKey(GlobalData.RESULT_ID))
@@ -170,49 +179,19 @@ public class CalculateActivity extends FragmentActivity
                 Log.v(TAG, "View result № "+String.valueOf(aResultId));
             }
 
-            ArrayList<Task> aSelectedTasks=new ArrayList<Task>();
+            long aTime=aResultsHelper.getTime(aResultId);
+            int aPercent=aResultsHelper.getPercent(aResultId);
 
-            SQLiteDatabase aDb=null;
-            Cursor aCursor=null;
+            mTimeTextView.setText(Utils.timeToString(getString(R.string.time_for_exam), aTime));
+            mPercentProgressBar.setMax(100);
+            mPercentProgressBar.setProgress(aPercent);
+            mPercentTextView.setText(getString(R.string.percent, aPercent));
 
-            try
-            {
-                aDb=aResultsHelper.getReadableDatabase();
-                aCursor=aResultsHelper.getAnswers(aDb, aResultId);
-
-                if (aCursor!=null)
-                {
-                    int aTaskNumberIndex=aCursor.getColumnIndexOrThrow(ResultsOpenHelper.COLUMN_TASK_NUMBER);
-                    int aAnswerIndex=aCursor.getColumnIndexOrThrow(ResultsOpenHelper.COLUMN_ANSWER);
-                    int aCorrectIndex=aCursor.getColumnIndexOrThrow(ResultsOpenHelper.COLUMN_CORRECT);
-
-                    while (aCursor.moveToNext())
-                    {
-                        Task aTask=GlobalData.tasks.get(aCursor.getInt(aTaskNumberIndex));
-                        aTask.setAnswer(aCursor.getString(aAnswerIndex));
-                        aTask.setFinished(aCursor.getInt(aCorrectIndex)!=0);
-                        aSelectedTasks.add(aTask);
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                Log.e(TAG, "Impossible to take tasks from result", e);
-            }
-
-            if (aCursor!=null)
-            {
-                aCursor.close();
-            }
-
-            if (aDb!=null)
-            {
-                aDb.close();
-            }
-
+            ArrayList<Task> aSelectedTasks=aResultsHelper.getTasksForResult(aResultId, GlobalData.tasks);
             mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), aSelectedTasks, TaskFragment.MODE_VIEW_RESULT, mUserId, mLessonId);
 
             mTimeLeftTextView.setVisibility(View.GONE);
+            mResultsLayout.setVisibility(View.VISIBLE);
         }
         else
         {
@@ -313,7 +292,7 @@ public class CalculateActivity extends FragmentActivity
             aTimeForExam=GlobalData.selectedLesson.getTime()*60*1000;
         }
 
-        if (aTimeForExam>0)
+        if (aTimeForExam>180000) //3*60*1000
         {
             SQLiteDatabase aDb=null;
 
@@ -358,7 +337,7 @@ public class CalculateActivity extends FragmentActivity
                     }
                     else
                     {
-                        Log.e(TAG, "Invalid category for task № "+String.valueOf(aTask.getId()));
+                        Log.e(TAG, "Invalid category \""+aTask.getCategory()+"\" for task № "+String.valueOf(aTask.getId()));
                         aCurScore=0;
                     }
 

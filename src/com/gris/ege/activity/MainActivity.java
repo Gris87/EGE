@@ -25,7 +25,6 @@ public class MainActivity extends Activity implements OnClickListener
 
     public  static final int RESULT_USER_SELECT    = 1;
     public  static final int RESULT_LESSON_SELECT  = 1;
-    public  static final int RESULT_START_TEST     = 1;
 
     private static final int CHOICE_VIEW_TASKS     = 0;
     private static final int CHOICE_START_TEST     = 1;
@@ -255,20 +254,9 @@ public class MainActivity extends Activity implements OnClickListener
             }
             break;
             case REQUEST_VIEW_TASKS:
-            {
-                updateSelectUserButton();
-            }
-            break;
             case REQUEST_START_TEST:
             {
-                switch (aResultCode)
-                {
-                    case RESULT_START_TEST:
-                    {
-                        updateSelectUserButton();
-                    }
-                    break;
-                }
+                updateSelectUserButton();
             }
             break;
         }

@@ -16,12 +16,52 @@
         android:gravity="center"
         android:singleLine="true"
         android:textAppearance="?android:attr/textAppearanceMedium"/>
+    
+    <RelativeLayout
+    	android:id="@+id/resultsLayout"
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_below="@+id/timeLeftTextView"
+    	android:layout_alignWithParentIfMissing="true"
+        android:layout_marginTop="4dp">
+        
+    	<TextView
+	        android:id="@+id/timeTextView"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"	        
+	        android:layout_alignParentLeft="true"
+	        android:layout_centerVertical="true"
+	        android:layout_marginLeft="4dp"
+	        android:singleLine="true"
+	        android:textAppearance="?android:attr/textAppearanceMedium"/>
+    	
+    	<ProgressBar
+            android:id="@+id/percentProgressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/timeTextView"
+            android:layout_toLeftOf="@+id/percentTextView"
+            android:layout_marginLeft="4dp"/>
+
+        <TextView
+            android:id="@+id/percentTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:singleLine="true"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+    	
+    </RelativeLayout>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/tasksPager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/timeLeftTextView"
+        android:layout_below="@+id/resultsLayout"
         android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>

@@ -128,9 +128,8 @@
             android:layout_toLeftOf="@+id/answerButton"
             android:layout_alignWithParentIfMissing="true"
             android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp"
-            android:ems="10"
-            android:inputType="text">
+            android:layout_marginRight="4dp"            
+            android:ems="10">
             <requestFocus/>
         </EditText>
 
@@ -139,6 +138,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:layout_marginRight="4dp"
             android:text="@string/give_answer"/>
 

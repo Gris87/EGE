@@ -14,8 +14,6 @@ import android.widget.ListView;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 
 public class ViewTasksActivity extends Activity implements ListView.OnItemClickListener
 {
@@ -47,46 +45,10 @@ public class ViewTasksActivity extends Activity implements ListView.OnItemClickL
         // Initialize variables
         if (savedInstanceState==null)
         {
-            SQLiteDatabase aDb=null;
-            Cursor aCursor=null;
+            SharedPreferences aSettings=getSharedPreferences(GlobalData.PREFS_NAME, 0);
+            String aUserName=aSettings.getString(GlobalData.OPTION_USER_NAME, "");
 
-            try
-            {
-                ResultsOpenHelper aResultsHelper=new ResultsOpenHelper(this);
-                aDb=aResultsHelper.getReadableDatabase();
-
-                SharedPreferences aSettings=getSharedPreferences(GlobalData.PREFS_NAME, 0);
-                String aUserName=aSettings.getString(GlobalData.OPTION_USER_NAME, "");
-
-                long aUserId=aResultsHelper.getUserId(aDb, aUserName);
-                long aLessonId=aResultsHelper.getLessonId(aDb, GlobalData.selectedLesson.getId());
-
-                aCursor=aResultsHelper.getTasksList(aDb, aUserId, aLessonId);
-
-                if (aCursor!=null)
-                {
-                    int aTaskNumberIndex=aCursor.getColumnIndexOrThrow(ResultsOpenHelper.COLUMN_TASK_NUMBER);
-
-                    while (aCursor.moveToNext())
-                    {
-                        GlobalData.tasks.get(aCursor.getInt(aTaskNumberIndex)).setFinished(true);
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                Log.e(TAG, "Impossible to set finished status for tasks", e);
-            }
-
-            if (aCursor!=null)
-            {
-                aCursor.close();
-            }
-
-            if (aDb!=null)
-            {
-                aDb.close();
-            }
+            new ResultsOpenHelper(this).updateTasksStatus(aUserName, GlobalData.selectedLesson.getId(), GlobalData.tasks);
         }
 
         // Get controls

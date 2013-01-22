@@ -177,8 +177,6 @@ public class StartTestActivity extends Activity implements OnClickListener
                     break;
                 }
 
-                setResult(MainActivity.RESULT_START_TEST);
-
                 finish();
             }
             break;
