@@ -51,6 +51,8 @@ public class CalculateActivity extends FragmentActivity
     private TasksPageAdapter mTasksAdapter;
 
     private long             mActivityStart=0;
+    private long             mUserId;
+    private long             mLessonId;
 
 
 
@@ -79,6 +81,15 @@ public class CalculateActivity extends FragmentActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculate);
 
+        // Initialize variables
+        ResultsOpenHelper aResultsHelper=new ResultsOpenHelper(this);
+
+        SharedPreferences aSettings=getSharedPreferences(GlobalData.PREFS_NAME, 0);
+        String aUserName=aSettings.getString(GlobalData.OPTION_USER_NAME, "");
+
+        mUserId=aResultsHelper.getOrCreateUserId(aUserName);
+        mLessonId=aResultsHelper.getOrCreateLessonId(GlobalData.selectedLesson.getId());
+
         // Get controls
         mTimeLeftTextView = (TextView) findViewById(R.id.timeLeftTextView);
         mTasksPager       = (ViewPager)findViewById(R.id.tasksPager);
@@ -91,7 +102,7 @@ public class CalculateActivity extends FragmentActivity
         {
             setTitle(getString(R.string.title_activity_calculate_tasks, GlobalData.selectedLesson.getName()));
 
-            mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), GlobalData.tasks, TaskFragment.MODE_VIEW_TASK);
+            mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), GlobalData.tasks, TaskFragment.MODE_VIEW_TASK, mUserId, mLessonId);
 
             if (savedInstanceState==null)
             {
@@ -133,7 +144,7 @@ public class CalculateActivity extends FragmentActivity
                 aSelectedTasks.add(aTask);
             }
 
-            mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), aSelectedTasks, TaskFragment.MODE_TEST_TASK);
+            mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), aSelectedTasks, TaskFragment.MODE_TEST_TASK, mUserId, mLessonId);
 
             mTimeLeftTextView.setVisibility(View.VISIBLE);
 
@@ -159,7 +170,7 @@ public class CalculateActivity extends FragmentActivity
             }
 
             // TODO: Not GlobalData.tasks
-            mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), GlobalData.tasks, TaskFragment.MODE_VIEW_RESULT);
+            mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), GlobalData.tasks, TaskFragment.MODE_VIEW_RESULT, mUserId, mLessonId);
 
             mTimeLeftTextView.setVisibility(View.GONE);
         }
@@ -261,12 +272,6 @@ public class CalculateActivity extends FragmentActivity
         {
             ResultsOpenHelper aResultsHelper=new ResultsOpenHelper(this);
 
-            SharedPreferences aSettings=getSharedPreferences(GlobalData.PREFS_NAME, 0);
-            String aUserName=aSettings.getString(GlobalData.OPTION_USER_NAME, "");
-
-            long aUserId=aResultsHelper.getOrCreateUserId(aUserName);
-            long aLessonId=aResultsHelper.getOrCreateLessonId(GlobalData.selectedLesson.getId());
-
             // ------------------------------------------------------------
 
             aDb=aResultsHelper.getWritableDatabase();
@@ -279,8 +284,8 @@ public class CalculateActivity extends FragmentActivity
             }
 
             ContentValues aResultValues=new ContentValues();
-            aResultValues.put(ResultsOpenHelper.COLUMN_USER_ID,   aUserId);
-            aResultValues.put(ResultsOpenHelper.COLUMN_LESSON_ID, aLessonId);
+            aResultValues.put(ResultsOpenHelper.COLUMN_USER_ID,   mUserId);
+            aResultValues.put(ResultsOpenHelper.COLUMN_LESSON_ID, mLessonId);
             aResultValues.put(ResultsOpenHelper.COLUMN_TIME,      aTimeForExam);
             aResultValues.put(ResultsOpenHelper.COLUMN_PERCENT,   100); // TODO: Not 100 %
 

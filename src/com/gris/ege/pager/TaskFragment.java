@@ -56,6 +56,8 @@ public class TaskFragment extends Fragment implements OnClickListener
 
     private Task mTask;
     private int  mMode;
+    private long mUserId;
+    private long mLessonId;
 
 
 
@@ -68,15 +70,17 @@ public class TaskFragment extends Fragment implements OnClickListener
 
         if (aArgs!=null)
         {
-            int aTaskId=aArgs.getInt(GlobalData.TASK_ID);
-
-            mTask=GlobalData.tasks.get(aTaskId);
-            mMode=aArgs.getInt(GlobalData.MODE);
+            mTask     = GlobalData.tasks.get(aArgs.getInt( GlobalData.TASK_ID));
+            mMode     =                      aArgs.getInt( GlobalData.MODE);
+            mUserId   =                      aArgs.getLong(GlobalData.USER_ID);
+            mLessonId =                      aArgs.getLong(GlobalData.LESSON_ID);
         }
         else
         {
-            mTask=GlobalData.tasks.get(0);
-            mMode=MODE_VIEW_TASK;
+            mTask     = GlobalData.tasks.get(0);
+            mMode     = MODE_VIEW_TASK;
+            mUserId   = 0;
+            mLessonId = 0;
         }
     }
 

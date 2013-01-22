@@ -14,15 +14,19 @@ public class TasksPageAdapter extends FragmentPagerAdapter
 {
     private ArrayList<Task> mData;
     private int             mMode;
+    private long            mUserId;
+    private long            mLessonId;
 
 
 
-    public TasksPageAdapter(FragmentManager fm, ArrayList<Task> aData, int aMode)
+    public TasksPageAdapter(FragmentManager fm, ArrayList<Task> aData, int aMode, long aUserId, long aLessonId)
     {
         super(fm);
 
-        mData=aData;
-        mMode=aMode;
+        mData     = aData;
+        mMode     = aMode;
+        mUserId   = aUserId;
+        mLessonId = aLessonId;
     }
 
     @Override
@@ -37,8 +41,10 @@ public class TasksPageAdapter extends FragmentPagerAdapter
         TaskFragment aFragment = new TaskFragment();
 
         Bundle aArgs = new Bundle();
-        aArgs.putInt(GlobalData.TASK_ID, mData.get(aPosition).getId());
-        aArgs.putInt(GlobalData.MODE,    mMode);
+        aArgs.putInt(GlobalData.TASK_ID,    mData.get(aPosition).getId());
+        aArgs.putInt(GlobalData.MODE,       mMode);
+        aArgs.putLong(GlobalData.USER_ID,   mUserId);
+        aArgs.putLong(GlobalData.LESSON_ID, mLessonId);
         aFragment.setArguments(aArgs);
 
         return aFragment;

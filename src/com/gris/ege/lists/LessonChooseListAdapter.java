@@ -5,7 +5,6 @@ import com.gris.ege.other.GlobalData;
 import com.gris.ege.other.Lesson;
 
 import android.content.Context;
-import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
