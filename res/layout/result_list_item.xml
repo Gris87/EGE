@@ -16,6 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_toLeftOf="@+id/timeTextView"
+            android:layout_centerVertical="true"
             android:layout_marginRight="8dp"
             android:singleLine="true"
             android:textAppearance="?android:attr/textAppearanceLarge"/>
@@ -44,6 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_toLeftOf="@+id/percentTextView"
+            android:layout_centerVertical="true"
             android:layout_marginRight="8dp"/>
 
         <TextView
