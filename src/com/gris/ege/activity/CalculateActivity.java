@@ -27,6 +27,7 @@ import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 @SuppressLint("HandlerLeak")
@@ -162,15 +163,54 @@ public class CalculateActivity extends FragmentActivity
         {
             setTitle(getString(R.string.title_activity_calculate_results, GlobalData.selectedLesson.getName()));
 
-            int aResultId=aExtras.getInt(GlobalData.RESULT_ID);
+            long aResultId=aExtras.getLong(GlobalData.RESULT_ID);
 
             if (savedInstanceState==null)
             {
-                Log.v(TAG, "View results № "+String.valueOf(aResultId));
+                Log.v(TAG, "View result № "+String.valueOf(aResultId));
             }
 
-            // TODO: Not GlobalData.tasks
-            mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), GlobalData.tasks, TaskFragment.MODE_VIEW_RESULT, mUserId, mLessonId);
+            ArrayList<Task> aSelectedTasks=new ArrayList<Task>();
+
+            SQLiteDatabase aDb=null;
+            Cursor aCursor=null;
+
+            try
+            {
+                aDb=aResultsHelper.getReadableDatabase();
+                aCursor=aResultsHelper.getAnswers(aDb, aResultId);
+
+                if (aCursor!=null)
+                {
+                    int aTaskNumberIndex=aCursor.getColumnIndexOrThrow(ResultsOpenHelper.COLUMN_TASK_NUMBER);
+                    int aAnswerIndex=aCursor.getColumnIndexOrThrow(ResultsOpenHelper.COLUMN_ANSWER);
+                    int aCorrectIndex=aCursor.getColumnIndexOrThrow(ResultsOpenHelper.COLUMN_CORRECT);
+
+                    while (aCursor.moveToNext())
+                    {
+                        Task aTask=GlobalData.tasks.get(aCursor.getInt(aTaskNumberIndex));
+                        aTask.setAnswer(aCursor.getString(aAnswerIndex));
+                        aTask.setFinished(aCursor.getInt(aCorrectIndex)!=0);
+                        aSelectedTasks.add(aTask);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Log.e(TAG, "Impossible to take tasks from result", e);
+            }
+
+            if (aCursor!=null)
+            {
+                aCursor.close();
+            }
+
+            if (aDb!=null)
+            {
+                aDb.close();
+            }
+
+            mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), aSelectedTasks, TaskFragment.MODE_VIEW_RESULT, mUserId, mLessonId);
 
             mTimeLeftTextView.setVisibility(View.GONE);
         }
@@ -266,49 +306,116 @@ public class CalculateActivity extends FragmentActivity
 
     public void completeTest()
     {
-        SQLiteDatabase aDb=null;
+        long aTimeForExam=SystemClock.uptimeMillis()-mActivityStart;
 
-        try
+        if (aTimeForExam>GlobalData.selectedLesson.getTime()*60*1000)
         {
-            ResultsOpenHelper aResultsHelper=new ResultsOpenHelper(this);
+            aTimeForExam=GlobalData.selectedLesson.getTime()*60*1000;
+        }
 
-            // ------------------------------------------------------------
+        if (aTimeForExam>0)
+        {
+            SQLiteDatabase aDb=null;
 
-            aDb=aResultsHelper.getWritableDatabase();
-
-            long aTimeForExam=SystemClock.uptimeMillis()-mActivityStart;
-
-            if (aTimeForExam>GlobalData.selectedLesson.getTime()*60*1000)
+            try
             {
-                aTimeForExam=GlobalData.selectedLesson.getTime()*60*1000;
+                ResultsOpenHelper aResultsHelper=new ResultsOpenHelper(this);
+
+                // ------------------------------------------------------------
+
+                aDb=aResultsHelper.getWritableDatabase();
+
+                int aScore=0;
+                int aTotalScore=0;
+                ArrayList<Task> aTestTasks=new ArrayList<Task>();
+
+                for (int i=0; i<mTasksAdapter.getCount(); ++i)
+                {
+                    mTasksPager.setCurrentItem(i, false);
+                    TaskFragment aFragment=(TaskFragment)mTasksAdapter.getFragment(i);
+
+                    aFragment.checkAnswer(false);
+
+                    Task aTask=aFragment.getTask();
+                    aTask.setAnswer(aFragment.getAnswer());
+                    aTestTasks.add(aTask);
+
+                    int aCurScore;
+
+                    if (aTask.getCategory().charAt(0)=='A')
+                    {
+                        aCurScore=GlobalData.selectedLesson.getScoreA();
+                    }
+                    else
+                    if (aTask.getCategory().charAt(0)=='B')
+                    {
+                        aCurScore=GlobalData.selectedLesson.getScoreB();
+                    }
+                    else
+                    if (aTask.getCategory().charAt(0)=='C')
+                    {
+                        aCurScore=GlobalData.selectedLesson.getScoreC();
+                    }
+                    else
+                    {
+                        Log.e(TAG, "Invalid category for task № "+String.valueOf(aTask.getId()));
+                        aCurScore=0;
+                    }
+
+                    if (aTask.isFinished())
+                    {
+                        aScore+=aCurScore;
+                    }
+
+                    aTotalScore+=aCurScore;
+                }
+
+                // ------------------------------------------------------------
+
+                ContentValues aResultValues=new ContentValues();
+                aResultValues.put(ResultsOpenHelper.COLUMN_USER_ID,   mUserId);
+                aResultValues.put(ResultsOpenHelper.COLUMN_LESSON_ID, mLessonId);
+                aResultValues.put(ResultsOpenHelper.COLUMN_TIME,      aTimeForExam);
+                aResultValues.put(ResultsOpenHelper.COLUMN_PERCENT,   aTotalScore==0? 100 : aScore*100/aTotalScore);
+
+                long aResultId=aDb.insertOrThrow(
+                                                 ResultsOpenHelper.RESULTS_TABLE_NAME,
+                                                 null,
+                                                 aResultValues
+                                                );
+
+                // ------------------------------------------------------------
+
+                for (int i=0; i<aTestTasks.size(); ++i)
+                {
+                    ContentValues aAnswerValues=new ContentValues();
+                    aAnswerValues.put(ResultsOpenHelper.COLUMN_RESULT_ID,   aResultId);
+                    aAnswerValues.put(ResultsOpenHelper.COLUMN_TASK_NUMBER, aTestTasks.get(i).getId());
+                    aAnswerValues.put(ResultsOpenHelper.COLUMN_ANSWER,      aTestTasks.get(i).getAnswer());
+                    aAnswerValues.put(ResultsOpenHelper.COLUMN_CORRECT,     aTestTasks.get(i).isFinished()? 1 : 0);
+
+                    aDb.insertOrThrow(
+                                      ResultsOpenHelper.ANSWERS_TABLE_NAME,
+                                      null,
+                                      aAnswerValues
+                                     );
+                }
+
+                // ------------------------------------------------------------
+
+                Intent aData=new Intent();
+                aData.putExtra(GlobalData.RESULT_ID, aResultId);
+                setResult(StartTestActivity.RESULT_START_TEST, aData);
+            }
+            catch (Exception e)
+            {
+                Log.e(TAG, "Problem occured while saving data to database", e);
             }
 
-            ContentValues aResultValues=new ContentValues();
-            aResultValues.put(ResultsOpenHelper.COLUMN_USER_ID,   mUserId);
-            aResultValues.put(ResultsOpenHelper.COLUMN_LESSON_ID, mLessonId);
-            aResultValues.put(ResultsOpenHelper.COLUMN_TIME,      aTimeForExam);
-            aResultValues.put(ResultsOpenHelper.COLUMN_PERCENT,   100); // TODO: Not 100 %
-
-            long aResultId=aDb.insertOrThrow(
-                                             ResultsOpenHelper.RESULTS_TABLE_NAME,
-                                             null,
-                                             aResultValues
-                                            );
-
-            // ------------------------------------------------------------
-
-            Intent aData=new Intent();
-            aData.putExtra(GlobalData.RESULT_ID, aResultId);
-            setResult(StartTestActivity.RESULT_START_TEST, aData);
-        }
-        catch (Exception e)
-        {
-            Log.e(TAG, "Problem occured while saving data to database", e);
-        }
-
-        if (aDb!=null)
-        {
-            aDb.close();
+            if (aDb!=null)
+            {
+                aDb.close();
+            }
         }
 
         finish();

@@ -164,12 +164,12 @@ public class TaskFragment extends Fragment implements OnClickListener
 
         if (mTask.getCategory().charAt(0)=='A')
         {
-            aCorrect=mTask.getAnswer().equalsIgnoreCase(mAnswerEditText.getText().toString());
+            aCorrect=mTask.getAnswer().equalsIgnoreCase(getAnswer());
         }
         else
         if (mTask.getCategory().charAt(0)=='B')
         {
-            aCorrect=mTask.getAnswer().equalsIgnoreCase(mAnswerEditText.getText().toString());
+            aCorrect=mTask.getAnswer().equalsIgnoreCase(getAnswer());
         }
         else
         if (mTask.getCategory().charAt(0)=='C')
@@ -206,6 +206,16 @@ public class TaskFragment extends Fragment implements OnClickListener
                 checkAnswer(true);
             break;
         }
+    }
+
+    public String getAnswer()
+    {
+        return mAnswerEditText.getText().toString();
+    }
+
+    public Task getTask()
+    {
+        return mTask;
     }
 
     private class DownloadImageTask extends AsyncTask<Void, Void, Drawable>

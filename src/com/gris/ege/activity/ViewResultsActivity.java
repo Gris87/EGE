@@ -98,7 +98,7 @@ public class ViewResultsActivity extends Activity implements ListView.OnItemClic
             case R.id.resultsListView:
             {
                 mCursor.moveToPosition(aPosition);
-                int aResultId=mCursor.getInt(mCursor.getColumnIndexOrThrow(ResultsOpenHelper.COLUMN_ID));
+                long aResultId=mCursor.getLong(mCursor.getColumnIndexOrThrow(ResultsOpenHelper.COLUMN_ID));
 
                 Intent aCalculateIntent=new Intent();
                 aCalculateIntent.setClass(this, CalculateActivity.class);

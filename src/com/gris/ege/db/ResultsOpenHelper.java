@@ -540,4 +540,29 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
 
         return res;
     }
+
+    public Cursor getAnswers(SQLiteDatabase aDb, long aResultId)
+    {
+        Cursor res=null;
+
+        try
+        {
+            String[] aSelectionArgs={String.valueOf(aResultId)};
+            res=aDb.query(
+                          ANSWERS_TABLE_NAME,
+                          ANSWERS_COLUMNS,
+                          COLUMN_RESULT_ID+"=?",
+                          aSelectionArgs,
+                          null,
+                          null,
+                          null
+                         );
+        }
+        catch (Exception e)
+        {
+            Log.e(TAG, "Problem occured while getAnswers", e);
+        }
+
+        return res;
+    }
 }

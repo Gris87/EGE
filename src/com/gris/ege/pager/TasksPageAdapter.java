@@ -9,9 +9,12 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.util.SparseArray;
 
 public class TasksPageAdapter extends FragmentPagerAdapter
 {
+    private SparseArray<TaskFragment> mPageReferenceMap = new SparseArray<TaskFragment>();
+
     private ArrayList<Task> mData;
     private int             mMode;
     private long            mUserId;
@@ -47,6 +50,13 @@ public class TasksPageAdapter extends FragmentPagerAdapter
         aArgs.putLong(GlobalData.LESSON_ID, mLessonId);
         aFragment.setArguments(aArgs);
 
+        mPageReferenceMap.put(aPosition, aFragment);
+
         return aFragment;
+    }
+
+    public TaskFragment getFragment(int aPosition)
+    {
+        return mPageReferenceMap.get(aPosition);
     }
 }
