@@ -20,7 +20,8 @@ public class MainActivity extends Activity implements OnClickListener
 {
 	private static final int REQUEST_USER_SELECT   = 1;
     private static final int REQUEST_LESSON_SELECT = 2;
-    private static final int REQUEST_START_TEST    = 3;
+    private static final int REQUEST_VIEW_TASKS    = 3;
+    private static final int REQUEST_START_TEST    = 4;
 
     public  static final int RESULT_USER_SELECT    = 1;
     public  static final int RESULT_LESSON_SELECT  = 1;
@@ -174,7 +175,7 @@ public class MainActivity extends Activity implements OnClickListener
                 {
                    Intent aViewTasksIntent=new Intent();
                    aViewTasksIntent.setClass(this, ViewTasksActivity.class);
-                   startActivity(aViewTasksIntent);
+                   startActivityForResult(aViewTasksIntent, REQUEST_VIEW_TASKS);
                 }
                 break;
                 case CHOICE_START_TEST:
@@ -251,6 +252,11 @@ public class MainActivity extends Activity implements OnClickListener
                     }
                     break;
                 }
+            }
+            break;
+            case REQUEST_VIEW_TASKS:
+            {
+                updateSelectUserButton();
             }
             break;
             case REQUEST_START_TEST:

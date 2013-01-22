@@ -45,45 +45,48 @@ public class ViewTasksActivity extends Activity implements ListView.OnItemClickL
         setTitle(getString(R.string.title_activity_view_tasks, GlobalData.selectedLesson.getName()));
 
         // Initialize variables
-        SQLiteDatabase aDb=null;
-        Cursor aCursor=null;
-
-        try
+        if (savedInstanceState==null)
         {
-            ResultsOpenHelper aResultsHelper=new ResultsOpenHelper(this);
-            aDb=aResultsHelper.getReadableDatabase();
+            SQLiteDatabase aDb=null;
+            Cursor aCursor=null;
 
-            SharedPreferences aSettings=getSharedPreferences(GlobalData.PREFS_NAME, 0);
-            String aUserName=aSettings.getString(GlobalData.OPTION_USER_NAME, "");
+            try
+            {
+                ResultsOpenHelper aResultsHelper=new ResultsOpenHelper(this);
+                aDb=aResultsHelper.getReadableDatabase();
 
-            long aUserId=aResultsHelper.getUserId(aDb, aUserName);
-            long aLessonId=aResultsHelper.getLessonId(aDb, GlobalData.selectedLesson.getId());
+                SharedPreferences aSettings=getSharedPreferences(GlobalData.PREFS_NAME, 0);
+                String aUserName=aSettings.getString(GlobalData.OPTION_USER_NAME, "");
 
-            aCursor=aResultsHelper.getTasksList(aDb, aUserId, aLessonId);
+                long aUserId=aResultsHelper.getUserId(aDb, aUserName);
+                long aLessonId=aResultsHelper.getLessonId(aDb, GlobalData.selectedLesson.getId());
+
+                aCursor=aResultsHelper.getTasksList(aDb, aUserId, aLessonId);
+
+                if (aCursor!=null)
+                {
+                    int aTaskNumberIndex=aCursor.getColumnIndexOrThrow(ResultsOpenHelper.COLUMN_TASK_NUMBER);
+
+                    while (aCursor.moveToNext())
+                    {
+                        GlobalData.tasks.get(aCursor.getInt(aTaskNumberIndex)).setFinished(true);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Log.e(TAG, "Impossible to set finished status for tasks", e);
+            }
 
             if (aCursor!=null)
             {
-                int aTaskNumberIndex=aCursor.getColumnIndexOrThrow(ResultsOpenHelper.COLUMN_TASK_NUMBER);
-
-                while (aCursor.moveToNext())
-                {
-                    GlobalData.tasks.get(aCursor.getInt(aTaskNumberIndex)).setFinished(true);
-                }
+                aCursor.close();
             }
-        }
-        catch (Exception e)
-        {
-            Log.e(TAG, "Impossible to set finished status for tasks", e);
-        }
 
-        if (aCursor!=null)
-        {
-            aCursor.close();
-        }
-
-        if (aDb!=null)
-        {
-            aDb.close();
+            if (aDb!=null)
+            {
+                aDb.close();
+            }
         }
 
         // Get controls
