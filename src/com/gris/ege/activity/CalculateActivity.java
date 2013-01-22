@@ -29,7 +29,6 @@ import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 @SuppressLint("HandlerLeak")
@@ -182,7 +181,7 @@ public class CalculateActivity extends FragmentActivity
             long aTime=aResultsHelper.getTime(aResultId);
             int aPercent=aResultsHelper.getPercent(aResultId);
 
-            mTimeTextView.setText(Utils.timeToString(getString(R.string.time_for_exam), aTime));
+            mTimeTextView.setText(Utils.timeToString(getString(R.string.time), aTime));
             mPercentProgressBar.setMax(100);
             mPercentProgressBar.setProgress(aPercent);
             mPercentTextView.setText(getString(R.string.percent, aPercent));

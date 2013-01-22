@@ -13,10 +13,14 @@ import com.gris.ege.db.ResultsOpenHelper;
 import com.gris.ege.other.GlobalData;
 import com.gris.ege.other.Task;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.text.InputType;
 import android.util.Log;
@@ -204,29 +208,8 @@ public class TaskFragment extends Fragment implements OnClickListener
         new DownloadImageTask().execute();
     }
 
-    public void checkAnswer(boolean aShowToast)
+    public void checkAnswer(boolean aShowToast, boolean aCorrect)
     {
-        boolean aCorrect=false;
-
-        if (mTask.getCategory().charAt(0)=='A')
-        {
-            aCorrect=mTask.getAnswer().equalsIgnoreCase(getAnswer());
-        }
-        else
-        if (mTask.getCategory().charAt(0)=='B')
-        {
-            aCorrect=mTask.getAnswer().equalsIgnoreCase(getAnswer());
-        }
-        else
-        if (mTask.getCategory().charAt(0)=='C')
-        {
-
-        }
-        else
-        {
-            Log.e(TAG, "Invalid category \""+mTask.getCategory()+"\" for task № "+String.valueOf(mTask.getId()));
-        }
-
         if (aShowToast)
         {
             Toast.makeText(getActivity(), aCorrect? R.string.correct : R.string.not_correct, Toast.LENGTH_SHORT).show();
@@ -243,6 +226,56 @@ public class TaskFragment extends Fragment implements OnClickListener
                 InputMethodManager imm=(InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(mAnswerEditText.getWindowToken(), 0);
             }
+        }
+    }
+
+    public void checkAnswer(final boolean aShowToast)
+    {
+        if (mTask.getCategory().charAt(0)=='A')
+        {
+            checkAnswer(aShowToast, mTask.getAnswer().equalsIgnoreCase(getAnswer()));
+        }
+        else
+        if (mTask.getCategory().charAt(0)=='B')
+        {
+            checkAnswer(aShowToast, mTask.getAnswer().equalsIgnoreCase(getAnswer()));
+        }
+        else
+        if (mTask.getCategory().charAt(0)=='C')
+        {
+            DialogFragment aCheckDialog = new DialogFragment()
+            {
+                private boolean mShowToast=aShowToast;
+
+                public Dialog onCreateDialog(Bundle savedInstanceState)
+                {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+                    builder.setMessage(getString(R.string.is_it_correct, mTask.getAnswer()))
+                           .setPositiveButton(R.string.correct, new DialogInterface.OnClickListener()
+                           {
+                               public void onClick(DialogInterface dialog, int id)
+                               {
+                                   checkAnswer(mShowToast, true);
+                               }
+                           })
+                           .setNegativeButton(R.string.not_correct, new DialogInterface.OnClickListener()
+                           {
+                               public void onClick(DialogInterface dialog, int id)
+                               {
+                                   checkAnswer(mShowToast, false);
+                               }
+                           });
+
+                    return builder.create();
+                }
+            };
+
+            aCheckDialog.show(getFragmentManager(), "CheckDialog");
+        }
+        else
+        {
+            Log.e(TAG, "Invalid category \""+mTask.getCategory()+"\" for task № "+String.valueOf(mTask.getId()));
         }
     }
 
