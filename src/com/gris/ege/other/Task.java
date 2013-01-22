@@ -48,8 +48,18 @@ public class Task
         return mAnswer;
     }
 
+    public void setAnswer(String aAnswer)
+    {
+        mAnswer=aAnswer;
+    }
+
     public boolean isFinished()
     {
         return mFinished;
+    }
+
+    public void setFinished(boolean aFinished)
+    {
+        mFinished=aFinished;
     }
 }

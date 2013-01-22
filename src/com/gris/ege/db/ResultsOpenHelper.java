@@ -420,6 +420,91 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
         return res;
     }
 
+    public Cursor getTasksList(SQLiteDatabase aDb, long aUsedId, long aLessonId)
+    {
+        Cursor aCursor=null;
+
+        try
+        {
+            String[] aSelectionArgs={
+                                     String.valueOf(aUsedId),
+                                     String.valueOf(aLessonId)
+                                    };
+            aCursor=aDb.query(
+                              TASKS_TABLE_NAME,
+                              TASKS_COLUMNS,
+                              COLUMN_USER_ID     + "=?" + " AND " +
+                              COLUMN_LESSON_ID   + "=?",
+                              aSelectionArgs,
+                              null,
+                              null,
+                              null
+                             );
+        }
+        catch (Exception e)
+        {
+            Log.e(TAG, "Problem occured while getTasksList", e);
+        }
+
+        return aCursor;
+    }
+
+    public void setTaskFinished(long aUsedId, long aLessonId, int aTaskNumber)
+    {
+        SQLiteDatabase aDb=null;
+        Cursor aCursor=null;
+
+        try
+        {
+            aDb=getWritableDatabase();
+
+            String[] aSelectionArgs={
+                                     String.valueOf(aUsedId),
+                                     String.valueOf(aLessonId),
+                                     String.valueOf(aTaskNumber)
+                                    };
+            aCursor=aDb.query(
+                              TASKS_TABLE_NAME,
+                              TASKS_COLUMNS,
+                              COLUMN_USER_ID     + "=?" + " AND " +
+                              COLUMN_LESSON_ID   + "=?" + " AND " +
+                              COLUMN_TASK_NUMBER + "=?",
+                              aSelectionArgs,
+                              null,
+                              null,
+                              null
+                             );
+
+            if (aCursor==null || aCursor.getCount()==0)
+            {
+                ContentValues aValues=new ContentValues();
+                aValues.put(COLUMN_USER_ID,     aUsedId);
+                aValues.put(COLUMN_LESSON_ID,   aLessonId);
+                aValues.put(COLUMN_TASK_NUMBER, aTaskNumber);
+
+                aDb.insertOrThrow(
+                                  TASKS_TABLE_NAME,
+                                  null,
+                                  aValues
+                                 );
+            }
+        }
+        catch (Exception e)
+        {
+            Log.e(TAG, "Problem occured while setTaskFinished", e);
+        }
+
+        if (aCursor!=null)
+        {
+            aCursor.close();
+        }
+
+        if (aDb!=null)
+        {
+            aDb.close();
+        }
+    }
+
     public Cursor getResults(SQLiteDatabase aDb, String aUserName, String aLessonId)
     {
     	long aUserNumber=getUserId(aDb, aUserName);

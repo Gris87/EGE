@@ -1,6 +1,7 @@
 package com.gris.ege.activity;
 
 import com.gris.ege.R;
+import com.gris.ege.db.ResultsOpenHelper;
 import com.gris.ege.lists.TasksListAdapter;
 import com.gris.ege.other.GlobalData;
 import com.gris.ege.other.Task;
@@ -12,10 +13,15 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 
 public class ViewTasksActivity extends Activity implements ListView.OnItemClickListener
 {
     private static final String TAG="ViewTasksActivity";
+
+    private static final int REQUEST_VIEW_TASK = 1;
 
 
 
@@ -37,6 +43,48 @@ public class ViewTasksActivity extends Activity implements ListView.OnItemClickL
         }
 
         setTitle(getString(R.string.title_activity_view_tasks, GlobalData.selectedLesson.getName()));
+
+        // Initialize variables
+        SQLiteDatabase aDb=null;
+        Cursor aCursor=null;
+
+        try
+        {
+            ResultsOpenHelper aResultsHelper=new ResultsOpenHelper(this);
+            aDb=aResultsHelper.getReadableDatabase();
+
+            SharedPreferences aSettings=getSharedPreferences(GlobalData.PREFS_NAME, 0);
+            String aUserName=aSettings.getString(GlobalData.OPTION_USER_NAME, "");
+
+            long aUserId=aResultsHelper.getUserId(aDb, aUserName);
+            long aLessonId=aResultsHelper.getLessonId(aDb, GlobalData.selectedLesson.getId());
+
+            aCursor=aResultsHelper.getTasksList(aDb, aUserId, aLessonId);
+
+            if (aCursor!=null)
+            {
+                int aTaskNumberIndex=aCursor.getColumnIndexOrThrow(ResultsOpenHelper.COLUMN_TASK_NUMBER);
+
+                while (aCursor.moveToNext())
+                {
+                    GlobalData.tasks.get(aCursor.getInt(aTaskNumberIndex)).setFinished(true);
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            Log.e(TAG, "Impossible to set finished status for tasks", e);
+        }
+
+        if (aCursor!=null)
+        {
+            aCursor.close();
+        }
+
+        if (aDb!=null)
+        {
+            aDb.close();
+        }
 
         // Get controls
         mTasksList=(ListView)findViewById(R.id.tasksListView);
@@ -61,7 +109,20 @@ public class ViewTasksActivity extends Activity implements ListView.OnItemClickL
                 Intent aCalculateIntent=new Intent();
                 aCalculateIntent.setClass(this, CalculateActivity.class);
                 aCalculateIntent.putExtra(GlobalData.TASK_ID, aTaskId);
-                startActivity(aCalculateIntent);
+                startActivityForResult(aCalculateIntent, REQUEST_VIEW_TASK);
+            }
+            break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int aRequestCode, int aResultCode, Intent aData)
+    {
+        switch (aRequestCode)
+        {
+            case REQUEST_VIEW_TASK:
+            {
+                mTasksList.invalidateViews();
             }
             break;
         }

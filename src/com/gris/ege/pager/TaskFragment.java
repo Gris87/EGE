@@ -9,6 +9,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import com.gris.ege.R;
+import com.gris.ege.db.ResultsOpenHelper;
 import com.gris.ege.other.GlobalData;
 import com.gris.ege.other.Task;
 
@@ -26,6 +27,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewAnimator;
 
 public class TaskFragment extends Fragment implements OnClickListener
@@ -156,9 +158,40 @@ public class TaskFragment extends Fragment implements OnClickListener
         new DownloadImageTask().execute();
     }
 
-    public void checkAnswer()
+    public void checkAnswer(boolean aShowToast)
     {
+        boolean aCorrect=false;
 
+        if (mTask.getCategory().charAt(0)=='A')
+        {
+            aCorrect=mTask.getAnswer().equalsIgnoreCase(mAnswerEditText.getText().toString());
+        }
+        else
+        if (mTask.getCategory().charAt(0)=='B')
+        {
+            aCorrect=mTask.getAnswer().equalsIgnoreCase(mAnswerEditText.getText().toString());
+        }
+        else
+        if (mTask.getCategory().charAt(0)=='C')
+        {
+
+        }
+        else
+        {
+            Log.e(TAG, "Invalid category \""+mTask.getCategory()+"\" for task");
+        }
+
+        if (aShowToast)
+        {
+            Toast.makeText(getActivity(), aCorrect? R.string.correct : R.string.not_correct, Toast.LENGTH_SHORT).show();
+        }
+
+        if (aCorrect)
+        {
+            new ResultsOpenHelper(getActivity()).setTaskFinished(mUserId, mLessonId, mTask.getId());
+            mTask.setFinished(true);
+            updateStatus();
+        }
     }
 
     @Override
@@ -170,7 +203,7 @@ public class TaskFragment extends Fragment implements OnClickListener
                 downloadImage();
             break;
             case R.id.answerButton:
-                checkAnswer();
+                checkAnswer(true);
             break;
         }
     }
