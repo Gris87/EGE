@@ -235,12 +235,12 @@ public class TaskFragment extends Fragment implements OnClickListener
     {
         if (mTask.getCategory().charAt(0)=='A')
         {
-            checkAnswer(mTask.getAnswer().equalsIgnoreCase(getAnswer()));
+            checkAnswer(mTask.getAnswer().equalsIgnoreCase(getAnswer().trim()));
         }
         else
         if (mTask.getCategory().charAt(0)=='B')
         {
-            checkAnswer(mTask.getAnswer().equalsIgnoreCase(getAnswer()));
+            checkAnswer(mTask.getAnswer().equalsIgnoreCase(getAnswer().trim()));
         }
         else
         if (mTask.getCategory().charAt(0)=='C')
@@ -255,7 +255,9 @@ public class TaskFragment extends Fragment implements OnClickListener
             }
             else
             {
-                final String aAnswer=mTask.getAnswer();
+                final String aAnswer=mTask.getAnswer().trim();
+
+                getCalculateActivity().removeProgressDialog();
 
                 DialogFragment aCheckDialog = new DialogFragment()
                 {
@@ -278,7 +280,7 @@ public class TaskFragment extends Fragment implements OnClickListener
                                        checkAnswer(false);
                                    }
                                })
-                               .setCancelable(false);
+                               .setCancelable(getCalculateActivity().getMode()!=CalculateActivity.MODE_VERIFICATION);
 
                         return builder.create();
                     }
@@ -302,7 +304,7 @@ public class TaskFragment extends Fragment implements OnClickListener
                 downloadImage();
             break;
             case R.id.answerButton:
-                checkAnswer(true);
+                checkAnswer();
             break;
         }
     }

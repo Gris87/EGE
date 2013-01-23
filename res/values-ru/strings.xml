@@ -37,5 +37,7 @@
     <string name="correct">Верно</string>
     <string name="answer">Ответ: %1$s</string>
     <string name="is_it_correct">Вы дали такой ответ?\n%1$s</string>
+    <string name="checking">Проверка</string>
+    <string name="please_wait">Подождите&#8230;</string>
 
 </resources>

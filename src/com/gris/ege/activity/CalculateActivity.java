@@ -25,6 +25,7 @@ import android.widget.TextView;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -65,6 +66,8 @@ public class CalculateActivity extends FragmentActivity
 
     private ViewPager        mTasksPager;
     private TasksPageAdapter mTasksAdapter;
+
+    private ProgressDialog   mProgressDialog=null;
 
     private long             mActivityStart=0;
 
@@ -327,6 +330,23 @@ public class CalculateActivity extends FragmentActivity
         }
     }
 
+    public void createProgressDialog()
+    {
+        if (mProgressDialog==null)
+        {
+            mProgressDialog=ProgressDialog.show(this, getString(R.string.checking), getString(R.string.please_wait), true, false);
+        }
+    }
+
+    public void removeProgressDialog()
+    {
+        if (mProgressDialog!=null)
+        {
+            mProgressDialog.dismiss();
+            mProgressDialog=null;
+        }
+    }
+
     public void onTimerTick()
     {
         long aCurTime=SystemClock.uptimeMillis();
@@ -353,6 +373,8 @@ public class CalculateActivity extends FragmentActivity
     {
         if (mVerificationPage<mTasksAdapter.getCount())
         {
+            createProgressDialog();
+
             mTasksPager.setCurrentItem(mVerificationPage, false);
             TaskFragment aFragment=(TaskFragment)mTasksAdapter.getFragment(mVerificationPage);
 
@@ -363,6 +385,8 @@ public class CalculateActivity extends FragmentActivity
         }
         else
         {
+            removeProgressDialog();
+
             SQLiteDatabase aDb=null;
 
             try
