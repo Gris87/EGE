@@ -8,7 +8,6 @@ import org.xmlpull.v1.XmlPullParserException;
 import com.gris.ege.R;
 
 import android.content.Context;
-import android.util.Log;
 
 public class LessonsParser
 {

@@ -4,6 +4,7 @@ import com.gris.ege.R;
 import com.gris.ege.db.ResultsOpenHelper;
 import com.gris.ege.other.GlobalData;
 import com.gris.ege.other.LessonsParser;
+import com.gris.ege.other.Log;
 import com.gris.ege.other.TasksParser;
 
 import android.app.Activity;
@@ -18,6 +19,8 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener
 {
+	private static final String TAG="MainActivity";
+
 	private static final int REQUEST_USER_SELECT   = 1;
     private static final int REQUEST_LESSON_SELECT = 2;
     private static final int REQUEST_VIEW_TASKS    = 3;
@@ -49,6 +52,11 @@ public class MainActivity extends Activity implements OnClickListener
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+
+        if (savedInstanceState==null)
+        {
+        	Log.v(TAG, "Application started");
+        }
 
         // Translate lessons
         new LessonsParser().parse(this);

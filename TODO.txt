@@ -1,5 +1,4 @@
 Log
-Remove empty condition
 XML in internet
 Always save
 webview

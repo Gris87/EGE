@@ -9,7 +9,7 @@ import com.gris.ege.other.Task;
 import com.gris.ege.other.Utils;
 
 import android.os.Bundle;
-import android.util.Log;
+import com.gris.ege.other.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;

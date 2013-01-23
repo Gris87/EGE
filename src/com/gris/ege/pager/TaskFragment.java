@@ -24,7 +24,7 @@ import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.text.InputType;
-import android.util.Log;
+import com.gris.ege.other.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -245,49 +245,38 @@ public class TaskFragment extends Fragment implements OnClickListener
         else
         if (mTask.getCategory().charAt(0)=='C')
         {
-            if (
-                getCalculateActivity().getMode()==CalculateActivity.MODE_VERIFICATION
-                &&
-                getAnswer().trim().equals("")
-               )
-            {
-                checkAnswer(false);
-            }
-            else
-            {
-                final String aAnswer=mTask.getAnswer().trim();
+        	final String aAnswer=mTask.getAnswer().trim();
 
-                getCalculateActivity().removeProgressDialog();
+            getCalculateActivity().removeProgressDialog();
 
-                DialogFragment aCheckDialog = new DialogFragment()
+            DialogFragment aCheckDialog = new DialogFragment()
+            {
+                public Dialog onCreateDialog(Bundle savedInstanceState)
                 {
-                    public Dialog onCreateDialog(Bundle savedInstanceState)
-                    {
-                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-                        builder.setMessage(getString(R.string.is_it_correct, aAnswer))
-                               .setPositiveButton(R.string.correct, new DialogInterface.OnClickListener()
+                    builder.setMessage(getString(R.string.is_it_correct, aAnswer))
+                           .setPositiveButton(R.string.correct, new DialogInterface.OnClickListener()
+                           {
+                               public void onClick(DialogInterface dialog, int id)
                                {
-                                   public void onClick(DialogInterface dialog, int id)
-                                   {
-                                       checkAnswer(true);
-                                   }
-                               })
-                               .setNegativeButton(R.string.not_correct, new DialogInterface.OnClickListener()
+                                   checkAnswer(true);
+                               }
+                           })
+                           .setNegativeButton(R.string.not_correct, new DialogInterface.OnClickListener()
+                           {
+                               public void onClick(DialogInterface dialog, int id)
                                {
-                                   public void onClick(DialogInterface dialog, int id)
-                                   {
-                                       checkAnswer(false);
-                                   }
-                               })
-                               .setCancelable(getCalculateActivity().getMode()!=CalculateActivity.MODE_VERIFICATION);
+                                   checkAnswer(false);
+                               }
+                           })
+                           .setCancelable(getCalculateActivity().getMode()!=CalculateActivity.MODE_VERIFICATION);
 
-                        return builder.create();
-                    }
-                };
+                    return builder.create();
+                }
+            };
 
-                aCheckDialog.show(getFragmentManager(), "CheckDialog");
-            }
+            aCheckDialog.show(getFragmentManager(), "CheckDialog");
         }
         else
         {

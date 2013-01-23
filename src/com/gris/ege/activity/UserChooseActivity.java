@@ -6,7 +6,7 @@ import com.gris.ege.lists.UserChooseListAdapter;
 import com.gris.ege.other.GlobalData;
 
 import android.os.Bundle;
-import android.util.Log;
+import com.gris.ege.other.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
