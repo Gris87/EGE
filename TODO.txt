@@ -1,0 +1,8 @@
+Log
+Remove empty condition
+XML in internet
+Always save
+webview
+Done button in keyboard
+Compress image when keyboard active
+download xml
