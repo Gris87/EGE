@@ -21,6 +21,8 @@ public class StartTestActivity extends Activity implements OnClickListener
 {
     private static final String TAG="StartTestActivity";
 
+    private static final String COUNT = "count";
+
     private static final int REQUEST_START_TEST = 1;
     public  static final int RESULT_START_TEST  = 1;
 
@@ -33,6 +35,8 @@ public class StartTestActivity extends Activity implements OnClickListener
     private TextView mTotalTasksTextView;
 
     private Button   mStartButton;
+
+    private int mCounts[]={0, 0, 0};
 
 
 
@@ -64,43 +68,66 @@ public class StartTestActivity extends Activity implements OnClickListener
         // Initialize controls
         mTimeTextView.setText(Utils.timeToString(getString(R.string.time_for_exam), GlobalData.selectedLesson.getTime()*60*1000));
 
-        // Calculate counts
-        int aCounts[]={0, 0, 0};
-        int aTotalCount=0;
-        String aCategories[]={"A", "B", "C"};
-
-        for (int i=0; i<aCategories.length; ++i)
+        if (savedInstanceState!=null)
         {
-            do
+            for (int i=0; i<mCounts.length; ++i)
             {
-                boolean good=false;
-                ++aCounts[i];
+                mCounts[i]=savedInstanceState.getInt(COUNT+"_"+String.valueOf(i), 0);
+            }
+        }
+        else
+        {
+            // Calculate counts
+            String aCategories[]={"A", "B", "C"};
 
-                for (int j=0; j<GlobalData.tasks.size(); ++j)
+            for (int i=0; i<aCategories.length; ++i)
+            {
+                do
                 {
-                    if (GlobalData.tasks.get(j).getCategory().equals(aCategories[i]+String.valueOf(aCounts[i])))
+                    boolean good=false;
+                    ++mCounts[i];
+
+                    for (int j=0; j<GlobalData.tasks.size(); ++j)
                     {
-                        good=true;
+                        if (GlobalData.tasks.get(j).getCategory().equals(aCategories[i]+String.valueOf(mCounts[i])))
+                        {
+                            good=true;
+                            break;
+                        }
+                    }
+
+                    if (!good)
+                    {
                         break;
                     }
-                }
 
-                if (!good)
-                {
-                    break;
-                }
+                } while(true);
 
-            } while(true);
-
-            --aCounts[i];
-
-            aTotalCount+=aCounts[i];
+                --mCounts[i];
+            }
         }
 
-        mTasksATextView.setText(getString(R.string.A_task_count, aCounts[0]));
-        mTasksBTextView.setText(getString(R.string.B_task_count, aCounts[1]));
-        mTasksCTextView.setText(getString(R.string.C_task_count, aCounts[2]));
+        mTasksATextView.setText(getString(R.string.A_task_count, mCounts[0]));
+        mTasksBTextView.setText(getString(R.string.B_task_count, mCounts[1]));
+        mTasksCTextView.setText(getString(R.string.C_task_count, mCounts[2]));
+
+        int aTotalCount=0;
+
+        for (int i=0; i<mCounts.length; ++i)
+        {
+            aTotalCount+=mCounts[i];
+        }
+
         mTotalTasksTextView.setText(getString(R.string.total_task_count, aTotalCount));
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle aOutState)
+    {
+        for (int i=0; i<mCounts.length; ++i)
+        {
+            aOutState.putInt(COUNT+"_"+String.valueOf(i), mCounts[i]);
+        }
     }
 
     @Override
