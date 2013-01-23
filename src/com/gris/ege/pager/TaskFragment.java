@@ -85,15 +85,15 @@ public class TaskFragment extends Fragment implements OnClickListener
         View aView=aInflater.inflate(R.layout.task_page_item, aContainer, false);
 
         // Get controls
-        mTaskHeaderView      = (TextView)      aView.findViewById(R.id.taskHeaderTextView);
-        mTaskStatusView      = (TextView)      aView.findViewById(R.id.taskStatusTextView);
-        mTaskViewAnimator    = (ViewAnimator)  aView.findViewById(R.id.taskViewAnimator);
-        mRetryButton         = (Button)        aView.findViewById(R.id.retryButton);
-        mTaskImageView       = (ImageView)     aView.findViewById(R.id.taskImageView);
-        mAnswerTextView      = (TextView)      aView.findViewById(R.id.answerTextView);
-        mBottomLayout        = (RelativeLayout)aView.findViewById(R.id.bottomLayout);
-        mAnswerEditText      = (EditText)      aView.findViewById(R.id.answerEditText);
-        mAnswerButton        = (Button)        aView.findViewById(R.id.answerButton);
+        mTaskHeaderView   = (TextView)      aView.findViewById(R.id.taskHeaderTextView);
+        mTaskStatusView   = (TextView)      aView.findViewById(R.id.taskStatusTextView);
+        mTaskViewAnimator = (ViewAnimator)  aView.findViewById(R.id.taskViewAnimator);
+        mRetryButton      = (Button)        aView.findViewById(R.id.retryButton);
+        mTaskImageView    = (ImageView)     aView.findViewById(R.id.taskImageView);
+        mAnswerTextView   = (TextView)      aView.findViewById(R.id.answerTextView);
+        mBottomLayout     = (RelativeLayout)aView.findViewById(R.id.bottomLayout);
+        mAnswerEditText   = (EditText)      aView.findViewById(R.id.answerEditText);
+        mAnswerButton     = (Button)        aView.findViewById(R.id.answerButton);
 
         // Set listeners
         mRetryButton.setOnClickListener(this);
@@ -109,6 +109,7 @@ public class TaskFragment extends Fragment implements OnClickListener
                 mAnswerTextView.setVisibility(View.GONE);
             break;
             case CalculateActivity.MODE_TEST_TASK:
+            case CalculateActivity.MODE_VERIFICATION:
                 mAnswerTextView.setVisibility(View.GONE);
                 mAnswerButton.setVisibility(View.GONE);
             break;
@@ -168,7 +169,11 @@ public class TaskFragment extends Fragment implements OnClickListener
 
     public void updateStatus()
     {
-        if (getCalculateActivity().getMode()==CalculateActivity.MODE_TEST_TASK)
+        if (
+            getCalculateActivity().getMode()==CalculateActivity.MODE_TEST_TASK
+            ||
+            getCalculateActivity().getMode()==CalculateActivity.MODE_VERIFICATION
+           )
         {
             mTaskStatusView.setVisibility(View.GONE);
         }
@@ -194,9 +199,10 @@ public class TaskFragment extends Fragment implements OnClickListener
         new DownloadImageTask().execute();
     }
 
-    public void checkAnswer(boolean aShowToast, boolean aCorrect)
+    // Only allowed in MODE_VIEW_TASK and MODE_VERIFICATION
+    public void checkAnswer(boolean aCorrect)
     {
-        if (aShowToast)
+        if (getCalculateActivity().getMode()==CalculateActivity.MODE_VIEW_TASK)
         {
             Toast.makeText(getActivity(), aCorrect? R.string.correct : R.string.not_correct, Toast.LENGTH_SHORT).show();
         }
@@ -211,57 +217,73 @@ public class TaskFragment extends Fragment implements OnClickListener
             mTask.setFinished(true);
             updateStatus();
 
-            if (aShowToast)
+            if (getCalculateActivity().getMode()==CalculateActivity.MODE_VIEW_TASK)
             {
                 InputMethodManager imm=(InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(mAnswerEditText.getWindowToken(), 0);
             }
         }
+
+        if (getCalculateActivity().getMode()==CalculateActivity.MODE_VERIFICATION)
+        {
+            getCalculateActivity().getHandler().sendEmptyMessage(CalculateActivity.VERIFY_PAGE);
+        }
     }
 
-    public void checkAnswer(final boolean aShowToast)
+    // Only allowed in MODE_VIEW_TASK and MODE_VERIFICATION
+    public void checkAnswer()
     {
         if (mTask.getCategory().charAt(0)=='A')
         {
-            checkAnswer(aShowToast, mTask.getAnswer().equalsIgnoreCase(getAnswer()));
+            checkAnswer(mTask.getAnswer().equalsIgnoreCase(getAnswer()));
         }
         else
         if (mTask.getCategory().charAt(0)=='B')
         {
-            checkAnswer(aShowToast, mTask.getAnswer().equalsIgnoreCase(getAnswer()));
+            checkAnswer(mTask.getAnswer().equalsIgnoreCase(getAnswer()));
         }
         else
         if (mTask.getCategory().charAt(0)=='C')
         {
-            DialogFragment aCheckDialog = new DialogFragment()
+            if (
+                getCalculateActivity().getMode()==CalculateActivity.MODE_VERIFICATION
+                &&
+                getAnswer().trim().equals("")
+               )
             {
-                private boolean mShowToast=aShowToast;
-
-                public Dialog onCreateDialog(Bundle savedInstanceState)
+                checkAnswer(false);
+            }
+            else
+            {
+                DialogFragment aCheckDialog = new DialogFragment()
                 {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    public Dialog onCreateDialog(Bundle savedInstanceState)
+                    {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-                    builder.setMessage(getString(R.string.is_it_correct, mTask.getAnswer()))
-                           .setPositiveButton(R.string.correct, new DialogInterface.OnClickListener()
-                           {
-                               public void onClick(DialogInterface dialog, int id)
+                        builder.setMessage(getString(R.string.is_it_correct, mTask.getAnswer()))
+                               .setPositiveButton(R.string.correct, new DialogInterface.OnClickListener()
                                {
-                                   checkAnswer(mShowToast, true);
-                               }
-                           })
-                           .setNegativeButton(R.string.not_correct, new DialogInterface.OnClickListener()
-                           {
-                               public void onClick(DialogInterface dialog, int id)
+                                   public void onClick(DialogInterface dialog, int id)
+                                   {
+                                       checkAnswer(true);
+                                   }
+                               })
+                               .setNegativeButton(R.string.not_correct, new DialogInterface.OnClickListener()
                                {
-                                   checkAnswer(mShowToast, false);
-                               }
-                           });
+                                   public void onClick(DialogInterface dialog, int id)
+                                   {
+                                       checkAnswer(false);
+                                   }
+                               })
+                               .setCancelable(false);
 
-                    return builder.create();
-                }
-            };
+                        return builder.create();
+                    }
+                };
 
-            aCheckDialog.show(getFragmentManager(), "CheckDialog");
+                aCheckDialog.show(getFragmentManager(), "CheckDialog");
+            }
         }
         else
         {

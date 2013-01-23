@@ -13,6 +13,7 @@ import android.util.SparseArray;
 
 public class TasksPageAdapter extends FragmentPagerAdapter
 {
+    // TODO: UGLY
     private SparseArray<TaskFragment> mPageReferenceMap = new SparseArray<TaskFragment>();
 
     private ArrayList<Task> mData;
@@ -49,6 +50,7 @@ public class TasksPageAdapter extends FragmentPagerAdapter
 
     public TaskFragment getFragment(int aPosition)
     {
+        // TODO: UGLY
         return mPageReferenceMap.get(aPosition);
     }
 }

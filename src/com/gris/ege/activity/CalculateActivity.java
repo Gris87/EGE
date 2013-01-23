@@ -44,9 +44,10 @@ public class CalculateActivity extends FragmentActivity
 
     private static final int TIMER_INTERVAL=1000;
 
-    public  static final int MODE_VIEW_TASK   = 0;
-    public  static final int MODE_TEST_TASK   = 1;
-    public  static final int MODE_VIEW_RESULT = 2;
+    public  static final int MODE_VIEW_TASK    = 0;
+    public  static final int MODE_TEST_TASK    = 1;
+    public  static final int MODE_VIEW_RESULT  = 2;
+    public  static final int MODE_VERIFICATION = 3;
 
 
 
@@ -65,8 +66,6 @@ public class CalculateActivity extends FragmentActivity
     private int              mMode;
     private long             mUserId;
     private long             mLessonId;
-
-    private boolean          mInVerification;
 
 
 
@@ -224,7 +223,7 @@ public class CalculateActivity extends FragmentActivity
     @Override
     protected void onResume()
     {
-        if (isInTestingMode())
+        if (mMode==MODE_TEST_TASK)
         {
             mHandler.removeMessages(TIMER_TICK);
             onTimerTick();
@@ -242,7 +241,7 @@ public class CalculateActivity extends FragmentActivity
     @Override
     public void onBackPressed()
     {
-        if (isInTestingMode())
+        if (mMode==MODE_TEST_TASK)
         {
             DialogFragment aFinishDialog = new DialogFragment()
             {
@@ -273,6 +272,7 @@ public class CalculateActivity extends FragmentActivity
             aFinishDialog.show(getSupportFragmentManager(), "FinishDialog");
         }
         else
+        if (mMode!=MODE_VERIFICATION)
         {
             super.onBackPressed();
         }
@@ -286,6 +286,7 @@ public class CalculateActivity extends FragmentActivity
         if (aTimeLeft<0)
         {
             completeTest();
+            return;
         }
         else
         {
@@ -417,11 +418,6 @@ public class CalculateActivity extends FragmentActivity
         finish();
     }
 
-    public boolean isInTestingMode()
-    {
-        return mMode==MODE_TEST_TASK;
-    }
-
     public int getMode()
     {
         return mMode;
@@ -435,5 +431,10 @@ public class CalculateActivity extends FragmentActivity
     public long getLessonId()
     {
         return mLessonId;
+    }
+
+    public Handler getHandler()
+    {
+        return mHandler;
     }
 }

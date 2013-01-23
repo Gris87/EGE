@@ -71,6 +71,7 @@ public class LessonsParser
             if (GlobalData.lessons.get(i).getId().equals(aId))
             {
                 GlobalData.lessons.get(i).setName(aName);
+                break;
             }
         }
     }

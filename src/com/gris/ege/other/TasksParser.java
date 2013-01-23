@@ -1,5 +1,7 @@
 package com.gris.ege.other;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -20,6 +22,30 @@ public class TasksParser
     public ArrayList<Task> parse(Context aContext)
     {
         ArrayList<Task> res=null;
+
+        try
+        {
+            String aFileName=GlobalData.PATH_ON_SD_CARD+GlobalData.selectedLesson.getId()+".xml";
+
+            if (new File(aFileName).exists())
+            {
+                InputStream in=new FileInputStream(aFileName);
+
+                XmlPullParser aParser=Xml.newPullParser();
+                aParser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
+                aParser.setInput(in, null);
+
+                aParser.nextTag();
+
+                res=readTasks(aParser);
+
+                in.close();
+            }
+        }
+        catch (Exception e)
+        {
+            Log.e(TAG, "Error during xml parsing from SD Card. Using standard list", e);
+        }
 
         try
         {
@@ -64,7 +90,7 @@ public class TasksParser
 
                 if (aTask.getId()!=res.size())
                 {
-                    Log.e(TAG, "Taks with id "+String.valueOf(aTask.getId())+" should have id "+String.valueOf(res.size()));
+                    Log.e(TAG, "Task with id "+String.valueOf(aTask.getId())+" should have id "+String.valueOf(res.size()));
                 }
 
                 res.add(aTask);
