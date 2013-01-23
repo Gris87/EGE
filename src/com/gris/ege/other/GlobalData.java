@@ -17,7 +17,6 @@ public class GlobalData
     public static final String TASK_ID                = "taskId";
     public static final String RESULT_ID              = "resultId";
     public static final String TASKS_COUNT            = "tasksCount";
-    public static final String MODE                   = "mode";
 
     public static final String PATH_ON_SD_CARD        = Environment.getExternalStorageDirectory().getPath()+"/EGE/";
     public static final String PATH_ON_NET            = "http://betatest95.narod.ru/";

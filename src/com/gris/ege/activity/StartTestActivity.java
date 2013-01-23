@@ -19,7 +19,7 @@ import android.content.Intent;
 
 public class StartTestActivity extends Activity implements OnClickListener
 {
-    private static final String TAG="StartTestActivity";
+    private static final String TAG   = "StartTestActivity";
 
     private static final String COUNT = "count";
 
@@ -36,7 +36,7 @@ public class StartTestActivity extends Activity implements OnClickListener
 
     private Button   mStartButton;
 
-    private int mCounts[]={0, 0, 0};
+    private int      mCounts[]={0, 0, 0};
 
 
 

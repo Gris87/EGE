@@ -36,14 +36,17 @@ public class CalculateActivity extends FragmentActivity
 {
     private static final String TAG="CalculateActivity";
 
-
-
     private static final String START_TIME="startTime";
 
-    private static final int TIMER_TICK=1;
-    private static final int SELECT_PAGE=2;
+    private static final int TIMER_TICK  = 1;
+    private static final int SELECT_PAGE = 2;
+    public  static final int VERIFY_PAGE = 3;
 
     private static final int TIMER_INTERVAL=1000;
+
+    public  static final int MODE_VIEW_TASK   = 0;
+    public  static final int MODE_TEST_TASK   = 1;
+    public  static final int MODE_VIEW_RESULT = 2;
 
 
 
@@ -58,8 +61,12 @@ public class CalculateActivity extends FragmentActivity
     private TasksPageAdapter mTasksAdapter;
 
     private long             mActivityStart=0;
+
+    private int              mMode;
     private long             mUserId;
     private long             mLessonId;
+
+    private boolean          mInVerification;
 
 
 
@@ -75,6 +82,9 @@ public class CalculateActivity extends FragmentActivity
                 break;
                 case SELECT_PAGE:
                     mTasksPager.setCurrentItem(msg.arg1, false);
+                break;
+                case VERIFY_PAGE:
+                    onVerifyPage();
                 break;
             }
         }
@@ -111,9 +121,10 @@ public class CalculateActivity extends FragmentActivity
 
         if (aExtras.containsKey(GlobalData.TASK_ID))
         {
+            mMode=MODE_VIEW_TASK;
             setTitle(getString(R.string.title_activity_calculate_tasks, GlobalData.selectedLesson.getName()));
 
-            mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), GlobalData.tasks, TaskFragment.MODE_VIEW_TASK, mUserId, mLessonId);
+            mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), GlobalData.tasks);
 
             if (savedInstanceState==null)
             {
@@ -132,6 +143,7 @@ public class CalculateActivity extends FragmentActivity
         else
         if (aExtras.containsKey(GlobalData.TASKS_COUNT))
         {
+            mMode=MODE_TEST_TASK;
             setTitle(getString(R.string.title_activity_calculate_testing, GlobalData.selectedLesson.getName()));
 
             int aTaskCount=aExtras.getInt(GlobalData.TASKS_COUNT);
@@ -161,7 +173,7 @@ public class CalculateActivity extends FragmentActivity
                 aSelectedTasks.add(aTask);
             }
 
-            mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), aSelectedTasks, TaskFragment.MODE_TEST_TASK, mUserId, mLessonId);
+            mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), aSelectedTasks);
 
             mTimeLeftTextView.setVisibility(View.VISIBLE);
             mResultsLayout.setVisibility(View.GONE);
@@ -169,6 +181,7 @@ public class CalculateActivity extends FragmentActivity
         else
         if (aExtras.containsKey(GlobalData.RESULT_ID))
         {
+            mMode=MODE_VIEW_RESULT;
             setTitle(getString(R.string.title_activity_calculate_results, GlobalData.selectedLesson.getName()));
 
             long aResultId=aExtras.getLong(GlobalData.RESULT_ID);
@@ -187,7 +200,7 @@ public class CalculateActivity extends FragmentActivity
             mPercentTextView.setText(getString(R.string.percent, aPercent));
 
             ArrayList<Task> aSelectedTasks=aResultsHelper.getTasksForResult(aResultId, GlobalData.tasks);
-            mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), aSelectedTasks, TaskFragment.MODE_VIEW_RESULT, mUserId, mLessonId);
+            mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), aSelectedTasks);
 
             mTimeLeftTextView.setVisibility(View.GONE);
             mResultsLayout.setVisibility(View.VISIBLE);
@@ -280,6 +293,11 @@ public class CalculateActivity extends FragmentActivity
         }
 
         mHandler.sendEmptyMessageDelayed(TIMER_TICK, TIMER_INTERVAL);
+    }
+
+    public void onVerifyPage()
+    {
+
     }
 
     public void completeTest()
@@ -401,6 +419,21 @@ public class CalculateActivity extends FragmentActivity
 
     public boolean isInTestingMode()
     {
-        return mTimeLeftTextView.getVisibility()==View.VISIBLE;
+        return mMode==MODE_TEST_TASK;
+    }
+
+    public int getMode()
+    {
+        return mMode;
+    }
+
+    public long getUserId()
+    {
+        return mUserId;
+    }
+
+    public long getLessonId()
+    {
+        return mLessonId;
     }
 }

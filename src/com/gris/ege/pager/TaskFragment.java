@@ -9,6 +9,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import com.gris.ege.R;
+import com.gris.ege.activity.CalculateActivity;
 import com.gris.ege.db.ResultsOpenHelper;
 import com.gris.ege.other.GlobalData;
 import com.gris.ege.other.Task;
@@ -41,12 +42,6 @@ public class TaskFragment extends Fragment implements OnClickListener
 {
     private static final String TAG="TaskFragment";
 
-
-
-    public  static final int MODE_VIEW_TASK   = 0;
-    public  static final int MODE_TEST_TASK   = 1;
-    public  static final int MODE_VIEW_RESULT = 2;
-
     private static final int PAGE_DOWNLOAD    = 0;
     private static final int PAGE_RETRY       = 1;
     private static final int PAGE_IMAGE       = 2;
@@ -64,9 +59,6 @@ public class TaskFragment extends Fragment implements OnClickListener
     private Button         mAnswerButton;
 
     private Task mTask;
-    private int  mMode;
-    private long mUserId;
-    private long mLessonId;
 
 
 
@@ -79,17 +71,11 @@ public class TaskFragment extends Fragment implements OnClickListener
 
         if (aArgs!=null)
         {
-            mTask     = GlobalData.tasks.get(aArgs.getInt( GlobalData.TASK_ID));
-            mMode     =                      aArgs.getInt( GlobalData.MODE);
-            mUserId   =                      aArgs.getLong(GlobalData.USER_ID);
-            mLessonId =                      aArgs.getLong(GlobalData.LESSON_ID);
+            mTask=GlobalData.tasks.get(aArgs.getInt(GlobalData.TASK_ID));
         }
         else
         {
-            mTask     = GlobalData.tasks.get(0);
-            mMode     = MODE_VIEW_TASK;
-            mUserId   = 0;
-            mLessonId = 0;
+            mTask=GlobalData.tasks.get(0);
         }
     }
 
@@ -117,16 +103,16 @@ public class TaskFragment extends Fragment implements OnClickListener
         mTaskHeaderView.setText(getString(R.string.task_header, mTask.getCategory(), mTask.getId()+1));
         updateStatus();
 
-        switch (mMode)
+        switch (getCalculateActivity().getMode())
         {
-            case MODE_VIEW_TASK:
+            case CalculateActivity.MODE_VIEW_TASK:
                 mAnswerTextView.setVisibility(View.GONE);
             break;
-            case MODE_TEST_TASK:
+            case CalculateActivity.MODE_TEST_TASK:
                 mAnswerTextView.setVisibility(View.GONE);
                 mAnswerButton.setVisibility(View.GONE);
             break;
-            case MODE_VIEW_RESULT:
+            case CalculateActivity.MODE_VIEW_RESULT:
                 mBottomLayout.setVisibility(View.GONE);
                 mAnswerTextView.setText(getString(R.string.answer, mTask.getAnswer()));
             break;
@@ -182,7 +168,7 @@ public class TaskFragment extends Fragment implements OnClickListener
 
     public void updateStatus()
     {
-        if (mMode==MODE_TEST_TASK)
+        if (getCalculateActivity().getMode()==CalculateActivity.MODE_TEST_TASK)
         {
             mTaskStatusView.setVisibility(View.GONE);
         }
@@ -192,12 +178,12 @@ public class TaskFragment extends Fragment implements OnClickListener
 
             if (mTask.isFinished())
             {
-                mTaskStatusView.setText(getString(mMode==MODE_VIEW_TASK? R.string.finished : R.string.correct));
+                mTaskStatusView.setText(getString(getCalculateActivity().getMode()==CalculateActivity.MODE_VIEW_TASK? R.string.finished : R.string.correct));
                 mTaskStatusView.setTextColor(getResources().getColor(R.color.good));
             }
             else
             {
-                mTaskStatusView.setText(getString(mMode==MODE_VIEW_TASK? R.string.not_finished : R.string.not_correct));
+                mTaskStatusView.setText(getString(getCalculateActivity().getMode()==CalculateActivity.MODE_VIEW_TASK? R.string.not_finished : R.string.not_correct));
                 mTaskStatusView.setTextColor(getResources().getColor(R.color.bad));
             }
         }
@@ -217,7 +203,11 @@ public class TaskFragment extends Fragment implements OnClickListener
 
         if (aCorrect)
         {
-            new ResultsOpenHelper(getActivity()).setTaskFinished(mUserId, mLessonId, mTask.getId());
+            new ResultsOpenHelper(getActivity()).setTaskFinished(
+                                                                 getCalculateActivity().getUserId(),
+                                                                 getCalculateActivity().getLessonId(),
+                                                                 mTask.getId()
+                                                                );
             mTask.setFinished(true);
             updateStatus();
 
@@ -301,6 +291,11 @@ public class TaskFragment extends Fragment implements OnClickListener
     public Task getTask()
     {
         return mTask;
+    }
+
+    public CalculateActivity getCalculateActivity()
+    {
+        return (CalculateActivity)getActivity();
     }
 
     private class DownloadImageTask extends AsyncTask<Void, Void, Drawable>
