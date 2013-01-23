@@ -255,13 +255,15 @@ public class TaskFragment extends Fragment implements OnClickListener
             }
             else
             {
+                final String aAnswer=mTask.getAnswer();
+
                 DialogFragment aCheckDialog = new DialogFragment()
                 {
                     public Dialog onCreateDialog(Bundle savedInstanceState)
                     {
                         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-                        builder.setMessage(getString(R.string.is_it_correct, mTask.getAnswer()))
+                        builder.setMessage(getString(R.string.is_it_correct, aAnswer))
                                .setPositiveButton(R.string.correct, new DialogInterface.OnClickListener()
                                {
                                    public void onClick(DialogInterface dialog, int id)
