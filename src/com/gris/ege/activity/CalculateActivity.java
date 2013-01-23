@@ -36,7 +36,10 @@ public class CalculateActivity extends FragmentActivity
 {
     private static final String TAG="CalculateActivity";
 
-    private static final String START_TIME="startTime";
+    private static final String USER_ID    = "userId";
+    private static final String LESSON_ID  = "lessonId";
+    private static final String START_TIME = "startTime";
+    private static final String MODE       = "mode";
 
     private static final int TIMER_TICK  = 1;
     private static final int SELECT_PAGE = 2;
@@ -100,11 +103,19 @@ public class CalculateActivity extends FragmentActivity
         // Initialize variables
         ResultsOpenHelper aResultsHelper=new ResultsOpenHelper(this);
 
-        SharedPreferences aSettings=getSharedPreferences(GlobalData.PREFS_NAME, 0);
-        String aUserName=aSettings.getString(GlobalData.OPTION_USER_NAME, "");
+        if (savedInstanceState==null)
+        {
+            SharedPreferences aSettings=getSharedPreferences(GlobalData.PREFS_NAME, 0);
+            String aUserName=aSettings.getString(GlobalData.OPTION_USER_NAME, "");
 
-        mUserId=aResultsHelper.getOrCreateUserId(aUserName);
-        mLessonId=aResultsHelper.getOrCreateLessonId(GlobalData.selectedLesson.getId());
+            mUserId   = aResultsHelper.getOrCreateUserId(aUserName);
+            mLessonId = aResultsHelper.getOrCreateLessonId(GlobalData.selectedLesson.getId());
+        }
+        else
+        {
+            mUserId   = savedInstanceState.getLong(USER_ID, 0);
+            mLessonId = savedInstanceState.getLong(USER_ID, 0);
+        }
 
         // Get controls
         mTimeLeftTextView   = (TextView)      findViewById(R.id.timeLeftTextView);
@@ -136,13 +147,11 @@ public class CalculateActivity extends FragmentActivity
                 mHandler.sendMessage(aSelectPageMessage);
             }
 
-            mTimeLeftTextView.setVisibility(View.GONE);
-            mResultsLayout.setVisibility(View.GONE);
+            updateControlsVisibility();
         }
         else
         if (aExtras.containsKey(GlobalData.TASKS_COUNT))
         {
-            mMode=MODE_TEST_TASK;
             setTitle(getString(R.string.title_activity_calculate_testing, GlobalData.selectedLesson.getName()));
 
             int aTaskCount=aExtras.getInt(GlobalData.TASKS_COUNT);
@@ -150,11 +159,13 @@ public class CalculateActivity extends FragmentActivity
             if (savedInstanceState==null)
             {
                 Log.v(TAG, "Start calculation for tasks:");
-                mActivityStart=SystemClock.uptimeMillis();
+                mActivityStart = SystemClock.uptimeMillis();
+                mMode          = MODE_TEST_TASK;
             }
             else
             {
-                mActivityStart=savedInstanceState.getLong(START_TIME, SystemClock.uptimeMillis());
+                mActivityStart = savedInstanceState.getLong(START_TIME, SystemClock.uptimeMillis());
+                mMode          = savedInstanceState.getInt( MODE, MODE_TEST_TASK);
             }
 
             ArrayList<Task> aSelectedTasks=new ArrayList<Task>();
@@ -174,8 +185,7 @@ public class CalculateActivity extends FragmentActivity
 
             mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), aSelectedTasks);
 
-            mTimeLeftTextView.setVisibility(View.VISIBLE);
-            mResultsLayout.setVisibility(View.GONE);
+            updateControlsVisibility();
         }
         else
         if (aExtras.containsKey(GlobalData.RESULT_ID))
@@ -201,8 +211,7 @@ public class CalculateActivity extends FragmentActivity
             ArrayList<Task> aSelectedTasks=aResultsHelper.getTasksForResult(aResultId, GlobalData.tasks);
             mTasksAdapter=new TasksPageAdapter(getSupportFragmentManager(), aSelectedTasks);
 
-            mTimeLeftTextView.setVisibility(View.GONE);
-            mResultsLayout.setVisibility(View.VISIBLE);
+            updateControlsVisibility();
         }
         else
         {
@@ -235,7 +244,18 @@ public class CalculateActivity extends FragmentActivity
     @Override
     protected void onSaveInstanceState(Bundle aOutState)
     {
-        aOutState.putLong(START_TIME, mActivityStart);
+        aOutState.putLong(USER_ID,   mUserId);
+        aOutState.putLong(LESSON_ID, mLessonId);
+
+        if (
+            mMode==MODE_TEST_TASK
+            ||
+            mMode==MODE_VERIFICATION
+           )
+        {
+            aOutState.putLong(START_TIME, mActivityStart);
+            aOutState.putInt( MODE,       mMode);
+        }
     }
 
     @Override
@@ -278,6 +298,26 @@ public class CalculateActivity extends FragmentActivity
         }
     }
 
+    public void updateControlsVisibility()
+    {
+        switch (mMode)
+        {
+            case MODE_VIEW_TASK:
+                mTimeLeftTextView.setVisibility(View.GONE);
+                mResultsLayout.setVisibility(View.GONE);
+            break;
+            case MODE_TEST_TASK:
+            case MODE_VERIFICATION:
+                mTimeLeftTextView.setVisibility(View.VISIBLE);
+                mResultsLayout.setVisibility(View.GONE);
+            break;
+            case MODE_VIEW_RESULT:
+                mTimeLeftTextView.setVisibility(View.GONE);
+                mResultsLayout.setVisibility(View.VISIBLE);
+            break;
+        }
+    }
+
     public void onTimerTick()
     {
         long aCurTime=SystemClock.uptimeMillis();
@@ -285,15 +325,19 @@ public class CalculateActivity extends FragmentActivity
 
         if (aTimeLeft<0)
         {
+            aTimeLeft=0;
+        }
+
+        mTimeLeftTextView.setText(Utils.timeToString(getString(R.string.time_left), aTimeLeft));
+
+        if (aTimeLeft==0)
+        {
             completeTest();
-            return;
         }
         else
         {
-            mTimeLeftTextView.setText(Utils.timeToString(getString(R.string.time_left), aTimeLeft));
+            mHandler.sendEmptyMessageDelayed(TIMER_TICK, TIMER_INTERVAL);
         }
-
-        mHandler.sendEmptyMessageDelayed(TIMER_TICK, TIMER_INTERVAL);
     }
 
     public void onVerifyPage()
