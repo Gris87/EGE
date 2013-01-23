@@ -1,7 +1,6 @@
 package com.gris.ege.other;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
@@ -21,7 +20,7 @@ public class Log
 
 
 
-	private static String aFileName="";
+	private static String mFileName="";
 
 
 
@@ -34,17 +33,66 @@ public class Log
 				String aCurTimeStr=new SimpleDateFormat("MM-DD kk:mm:ss:SSS", new Locale("en")).format(new Date());
 				String aPrefixText=aCurTimeStr+": "+aLevel+"/"+APP_NAME+"(9999)"+": ";
 
-				if (aFileName.equals(""))
+				if (mFileName.equals(""))
 				{
 					new File(FILE_PATH).mkdirs();
 
-					aFileName=FILE_PATH+"/test.txt";
+					int aCurIndex=1;
+
+					while (new File(FILE_PATH+"/"+String.valueOf(aCurIndex)+".dlv").exists())
+					{
+						aCurIndex++;
+					}
+
+					mFileName=FILE_PATH+"/"+String.valueOf(aCurIndex)+".dlv";
 				}
 
-	            FileOutputStream aFileStream = new FileOutputStream(aFileName, true);
+	            FileOutputStream aFileStream = new FileOutputStream(mFileName, true);
 	            PrintWriter aPrinter         = new PrintWriter(aFileStream, true);
 
 	            aPrinter.println(aPrefixText+aMessage);
+
+
+
+	            if (aException!=null)
+	            {
+	            	String aExceptionMsg=aException.getLocalizedMessage();
+
+	            	if (aExceptionMsg!=null)
+	            	{
+	            		aPrinter.println(aPrefixText+aExceptionMsg);
+	            	}
+
+
+
+	            	StackTraceElement[] aStack=aException.getStackTrace();
+
+	            	for (int i=0; i<aStack.length; ++i)
+	            	{
+	            		String aStackStr="\tat "+aStack[i].getClassName()+"."+aStack[i].getMethodName()+"(";
+	            		int aLineNumber=aStack[i].getLineNumber();
+
+	            		if (aLineNumber==-2)
+	            		{
+	            			aStackStr=aStackStr+"Native Method";
+	            		}
+	            		else
+	            		if (aLineNumber<1)
+	            		{
+	            			aStackStr=aStackStr+"Unknown";
+	            		}
+	            		else
+	            		{
+	            			aStackStr=aStackStr+aStack[i].getFileName()+":"+String.valueOf(aLineNumber);
+	            		}
+
+	            		aStackStr=aStackStr+")";
+
+	            		aPrinter.println(aPrefixText+aStackStr);
+	            	}
+	            }
+
+
 
 	            aPrinter.close();
             }
