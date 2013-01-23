@@ -156,7 +156,7 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
         }
         catch (Exception e)
         {
-            Log.e(TAG, "Problem occured while getUsersList", e);
+            Log.e(TAG, "Problem occurred while getUsersList", e);
         }
 
         return aCursor;
@@ -176,7 +176,7 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
         }
         catch (Exception e)
         {
-            Log.e(TAG, "Problem occured while isUsersListEmpty", e);
+            Log.e(TAG, "Problem occurred while isUsersListEmpty", e);
         }
 
         if (aCursor!=null)
@@ -218,7 +218,7 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
         }
         catch (Exception e)
         {
-            Log.e(TAG, "Problem occured while getUserId", e);
+            Log.e(TAG, "Problem occurred while getUserId", e);
         }
 
         if (aCursor!=null)
@@ -241,7 +241,7 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
         }
         catch (Exception e)
         {
-            Log.e(TAG, "Problem occured while getUserId", e);
+            Log.e(TAG, "Problem occurred while getUserId", e);
         }
 
         if (aDb!=null)
@@ -292,7 +292,7 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
         }
         catch (Exception e)
         {
-            Log.e(TAG, "Problem occured while getOrCreateUserId", e);
+            Log.e(TAG, "Problem occurred while getOrCreateUserId", e);
         }
 
         if (aCursor!=null)
@@ -334,7 +334,7 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
         }
         catch (Exception e)
         {
-            Log.e(TAG, "Problem occured while getLessonId", e);
+            Log.e(TAG, "Problem occurred while getLessonId", e);
         }
 
         if (aCursor!=null)
@@ -357,7 +357,7 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
         }
         catch (Exception e)
         {
-            Log.e(TAG, "Problem occured while getLessonId", e);
+            Log.e(TAG, "Problem occurred while getLessonId", e);
         }
 
         if (aDb!=null)
@@ -408,7 +408,7 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
         }
         catch (Exception e)
         {
-            Log.e(TAG, "Problem occured while getOrCreateLessonId", e);
+            Log.e(TAG, "Problem occurred while getOrCreateLessonId", e);
         }
 
         if (aCursor!=null)
@@ -447,7 +447,7 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
         }
         catch (Exception e)
         {
-            Log.e(TAG, "Problem occured while getTasksList", e);
+            Log.e(TAG, "Problem occurred while getTasksList", e);
         }
 
         return aCursor;
@@ -495,7 +495,7 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
         }
         catch (Exception e)
         {
-            Log.e(TAG, "Problem occured while setTaskFinished", e);
+            Log.e(TAG, "Problem occurred while setTaskFinished", e);
         }
 
         if (aCursor!=null)
@@ -539,7 +539,7 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
         }
         catch (Exception e)
         {
-            Log.e(TAG, "Problem occured while getResults", e);
+            Log.e(TAG, "Problem occurred while getResults", e);
         }
 
         return res;
@@ -564,7 +564,7 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
         }
         catch (Exception e)
         {
-            Log.e(TAG, "Problem occured while getAnswers", e);
+            Log.e(TAG, "Problem occurred while getAnswers", e);
         }
 
         return res;

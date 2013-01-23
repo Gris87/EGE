@@ -36,10 +36,12 @@ public class CalculateActivity extends FragmentActivity
 {
     private static final String TAG="CalculateActivity";
 
-    private static final String USER_ID    = "userId";
-    private static final String LESSON_ID  = "lessonId";
-    private static final String START_TIME = "startTime";
-    private static final String MODE       = "mode";
+    private static final String USER_ID           = "userId";
+    private static final String LESSON_ID         = "lessonId";
+    private static final String START_TIME        = "startTime";
+    private static final String MODE              = "mode";
+    private static final String TIME_FOR_EXAM     = "timeForExam";
+    private static final String VERIFICATION_PAGE = "verificationPage";
 
     private static final int TIMER_TICK  = 1;
     private static final int SELECT_PAGE = 2;
@@ -69,6 +71,9 @@ public class CalculateActivity extends FragmentActivity
     private int              mMode;
     private long             mUserId;
     private long             mLessonId;
+
+    private long             mTimeForExam=0;
+    private int              mVerificationPage=0;
 
 
 
@@ -159,13 +164,15 @@ public class CalculateActivity extends FragmentActivity
             if (savedInstanceState==null)
             {
                 Log.v(TAG, "Start calculation for tasks:");
-                mActivityStart = SystemClock.uptimeMillis();
-                mMode          = MODE_TEST_TASK;
+                mActivityStart    = SystemClock.uptimeMillis();
+                mMode             = MODE_TEST_TASK;
             }
             else
             {
-                mActivityStart = savedInstanceState.getLong(START_TIME, SystemClock.uptimeMillis());
-                mMode          = savedInstanceState.getInt( MODE, MODE_TEST_TASK);
+                mActivityStart    = savedInstanceState.getLong(START_TIME,        SystemClock.uptimeMillis());
+                mMode             = savedInstanceState.getInt( MODE,              MODE_TEST_TASK);
+                mTimeForExam      = savedInstanceState.getLong(TIME_FOR_EXAM,     0);
+                mVerificationPage = savedInstanceState.getInt( VERIFICATION_PAGE, 0);
             }
 
             ArrayList<Task> aSelectedTasks=new ArrayList<Task>();
@@ -253,8 +260,10 @@ public class CalculateActivity extends FragmentActivity
             mMode==MODE_VERIFICATION
            )
         {
-            aOutState.putLong(START_TIME, mActivityStart);
-            aOutState.putInt( MODE,       mMode);
+            aOutState.putLong(START_TIME,        mActivityStart);
+            aOutState.putInt( MODE,              mMode);
+            aOutState.putLong(TIME_FOR_EXAM,     mTimeForExam);
+            aOutState.putInt( VERIFICATION_PAGE, mVerificationPage);
         }
     }
 
@@ -342,44 +351,29 @@ public class CalculateActivity extends FragmentActivity
 
     public void onVerifyPage()
     {
-
-    }
-
-    public void completeTest()
-    {
-        long aTimeForExam=SystemClock.uptimeMillis()-mActivityStart;
-
-        if (aTimeForExam>GlobalData.selectedLesson.getTime()*60*1000)
+        if (mVerificationPage<mTasksAdapter.getCount())
         {
-            aTimeForExam=GlobalData.selectedLesson.getTime()*60*1000;
-        }
+            mTasksPager.setCurrentItem(mVerificationPage, false);
+            TaskFragment aFragment=(TaskFragment)mTasksAdapter.getFragment(mVerificationPage);
 
-        if (aTimeForExam>180000) //3*60*1000
+            aFragment.checkAnswer();
+            aFragment.getTask().setAnswer(aFragment.getAnswer());
+
+            ++mVerificationPage;
+        }
+        else
         {
             SQLiteDatabase aDb=null;
 
             try
             {
-                ResultsOpenHelper aResultsHelper=new ResultsOpenHelper(this);
-
-                // ------------------------------------------------------------
-
-                aDb=aResultsHelper.getWritableDatabase();
-
                 int aScore=0;
                 int aTotalScore=0;
-                ArrayList<Task> aTestTasks=new ArrayList<Task>();
+                ArrayList<Task> aTestTasks=mTasksAdapter.getData();
 
-                for (int i=0; i<mTasksAdapter.getCount(); ++i)
+                for (int i=0; i<aTestTasks.size(); ++i)
                 {
-                    mTasksPager.setCurrentItem(i, false);
-                    TaskFragment aFragment=(TaskFragment)mTasksAdapter.getFragment(i);
-
-                    aFragment.checkAnswer(false);
-
-                    Task aTask=aFragment.getTask();
-                    aTask.setAnswer(aFragment.getAnswer());
-                    aTestTasks.add(aTask);
+                    Task aTask=aTestTasks.get(i);
 
                     int aCurScore;
 
@@ -411,12 +405,16 @@ public class CalculateActivity extends FragmentActivity
                     aTotalScore+=aCurScore;
                 }
 
+                ResultsOpenHelper aResultsHelper=new ResultsOpenHelper(this);
+
                 // ------------------------------------------------------------
+
+                aDb=aResultsHelper.getWritableDatabase();
 
                 ContentValues aResultValues=new ContentValues();
                 aResultValues.put(ResultsOpenHelper.COLUMN_USER_ID,   mUserId);
                 aResultValues.put(ResultsOpenHelper.COLUMN_LESSON_ID, mLessonId);
-                aResultValues.put(ResultsOpenHelper.COLUMN_TIME,      aTimeForExam);
+                aResultValues.put(ResultsOpenHelper.COLUMN_TIME,      mTimeForExam);
                 aResultValues.put(ResultsOpenHelper.COLUMN_PERCENT,   aTotalScore==0? 100 : aScore*100/aTotalScore);
 
                 long aResultId=aDb.insertOrThrow(
@@ -450,16 +448,41 @@ public class CalculateActivity extends FragmentActivity
             }
             catch (Exception e)
             {
-                Log.e(TAG, "Problem occured while saving data to database", e);
+                Log.e(TAG, "Problem occurred while saving data to database", e);
             }
 
             if (aDb!=null)
             {
                 aDb.close();
             }
+
+            finish();
+        }
+    }
+
+    public void completeTest()
+    {
+        mTimeForExam=SystemClock.uptimeMillis()-mActivityStart;
+
+        if (mTimeForExam>GlobalData.selectedLesson.getTime()*60*1000)
+        {
+            mTimeForExam=GlobalData.selectedLesson.getTime()*60*1000;
         }
 
-        finish();
+        // TODO: Remove comment for 0000
+        if (mTimeForExam>18)//0000) //3*60*1000
+        {
+            mMode=MODE_VERIFICATION;
+
+            mVerificationPage=0;
+            mTasksPager.setCurrentItem(mVerificationPage, false);
+
+            mHandler.sendEmptyMessage(VERIFY_PAGE);
+        }
+        else
+        {
+            finish();
+        }
     }
 
     public int getMode()

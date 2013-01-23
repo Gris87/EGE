@@ -53,4 +53,9 @@ public class TasksPageAdapter extends FragmentPagerAdapter
         // TODO: UGLY
         return mPageReferenceMap.get(aPosition);
     }
+
+    public ArrayList<Task> getData()
+    {
+        return mData;
+    }
 }
