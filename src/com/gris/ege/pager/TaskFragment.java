@@ -360,8 +360,8 @@ public class TaskFragment extends Fragment implements OnClickListener
             URL aUrl=new URL(GlobalData.PATH_ON_NET+aFileName);
 
             HttpURLConnection aConnection=(HttpURLConnection)aUrl.openConnection();
-            aConnection.setReadTimeout(10000);
-            aConnection.setConnectTimeout(15000);
+            aConnection.setReadTimeout(300000);
+            aConnection.setConnectTimeout(300000);
             aConnection.setRequestMethod("GET");
             aConnection.setDoInput(true);
 

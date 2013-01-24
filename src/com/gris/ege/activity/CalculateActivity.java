@@ -591,8 +591,8 @@ public class CalculateActivity extends FragmentActivity
             URL aUrl=new URL(GlobalData.PATH_ON_NET+GlobalData.selectedLesson.getId()+".xml");
 
             HttpURLConnection aConnection=(HttpURLConnection)aUrl.openConnection();
-            aConnection.setReadTimeout(10000);
-            aConnection.setConnectTimeout(15000);
+            aConnection.setReadTimeout(300000);
+            aConnection.setConnectTimeout(300000);
             aConnection.setRequestMethod("GET");
             aConnection.setDoInput(true);
 
