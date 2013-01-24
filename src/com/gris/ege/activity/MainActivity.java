@@ -55,6 +55,7 @@ public class MainActivity extends Activity implements OnClickListener
 
         if (savedInstanceState==null)
         {
+        	Log.reset();
         	Log.v(TAG, "Application started");
         }
 

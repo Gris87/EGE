@@ -9,20 +9,27 @@ import java.util.Locale;
 
 public class Log
 {
-	private static final String TAG="Log";
+	private static final String  TAG            = "Log";
 
-	private static final String APP_NAME  = "EGE";
-	private static final String FILE_PATH = GlobalData.PATH_ON_SD_CARD+"Logs";
+	private static final String  APP_NAME       = "EGE";
+	private static final String  FILE_PATH      = GlobalData.PATH_ON_SD_CARD+"Logs";
 
 	private static final boolean DEBUG          = true;
 	private static final boolean OUTPUT_TO_FILE = true;
 	private static final boolean ONLY_APP_TAG   = true;
+
+	private static final int     REMOVE_IF_LESS = 500;
 
 
 
 	private static String mFileName="";
 
 
+
+	public static void reset()
+	{
+		mFileName="";
+	}
 
 	private static void writeToFile(String aLevel, String aTag, String aMessage, Throwable aException)
 	{
@@ -38,6 +45,26 @@ public class Log
 					new File(FILE_PATH).mkdirs();
 
 					int aCurIndex=1;
+
+					do
+					{
+						File aCurFile=new File(FILE_PATH+"/"+String.valueOf(aCurIndex)+".dlv");
+
+						if (aCurFile.exists())
+						{
+							if (aCurFile.length()<REMOVE_IF_LESS)
+							{
+								aCurFile.delete();
+								break;
+							}
+						}
+						else
+						{
+							break;
+						}
+
+						++aCurIndex;
+					} while(true);
 
 					while (new File(FILE_PATH+"/"+String.valueOf(aCurIndex)+".dlv").exists())
 					{
