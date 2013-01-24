@@ -90,6 +90,7 @@ public class TasksParser
                 if (aTask.getId()!=res.size())
                 {
                     Log.e(TAG, "Task with id "+String.valueOf(aTask.getId())+" should have id "+String.valueOf(res.size()));
+                    aTask.setId(res.size());
                 }
 
                 res.add(aTask);

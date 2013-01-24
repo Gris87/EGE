@@ -38,6 +38,11 @@ public class Task
         return mId;
     }
 
+    public void setId(int aId)
+    {
+        mId=aId;
+    }
+
     public String getCategory()
     {
         return mCategory;
