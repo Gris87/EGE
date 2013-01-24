@@ -600,7 +600,6 @@ public class CalculateActivity extends FragmentActivity
                     byte[] aBuffer=new byte[4096];
 
                     new File(GlobalData.PATH_ON_SD_CARD).mkdirs();
-                    new File(GlobalData.PATH_ON_SD_CARD+".nomedia").createNewFile();
 
                     FileOutputStream aNewFile=new FileOutputStream(GlobalData.PATH_ON_SD_CARD+GlobalData.selectedLesson.getId()+".xml");
 
