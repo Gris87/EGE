@@ -12,16 +12,20 @@ public class TouchViewPager extends ViewPager
     public TouchViewPager(Context context)
     {
         super(context);
+
+        mCurrentPage=null;
     }
 
     public TouchViewPager(Context context, AttributeSet attrs)
     {
         super(context, attrs);
+
+        mCurrentPage=null;
     }
 
     public boolean onInterceptTouchEvent(MotionEvent event)
     {
-        if (mCurrentPage!=null)
+        if (mCurrentPage!=null && mCurrentPage.isScaled())
         {
             this.requestDisallowInterceptTouchEvent(true);
         }

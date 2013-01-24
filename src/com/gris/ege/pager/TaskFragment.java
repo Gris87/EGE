@@ -30,7 +30,6 @@ import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebSettings;
-import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -52,7 +51,7 @@ public class TaskFragment extends Fragment implements OnClickListener
     private TextView       mTaskStatusView;
     private ViewAnimator   mTaskViewAnimator;
     private Button         mRetryButton;
-    private WebView        mTaskWebView;
+    private TaskWebView    mTaskWebView;
     private TextView       mAnswerTextView;
     private RelativeLayout mBottomLayout;
     private EditText       mAnswerEditText;
@@ -89,7 +88,7 @@ public class TaskFragment extends Fragment implements OnClickListener
         mTaskStatusView   = (TextView)      aView.findViewById(R.id.taskStatusTextView);
         mTaskViewAnimator = (ViewAnimator)  aView.findViewById(R.id.taskViewAnimator);
         mRetryButton      = (Button)        aView.findViewById(R.id.retryButton);
-        mTaskWebView      = (WebView)       aView.findViewById(R.id.taskWebView);
+        mTaskWebView      = (TaskWebView)   aView.findViewById(R.id.taskWebView);
         mAnswerTextView   = (TextView)      aView.findViewById(R.id.answerTextView);
         mBottomLayout     = (RelativeLayout)aView.findViewById(R.id.bottomLayout);
         mAnswerEditText   = (EditText)      aView.findViewById(R.id.answerEditText);
@@ -305,14 +304,19 @@ public class TaskFragment extends Fragment implements OnClickListener
         }
     }
 
+    public Task getTask()
+    {
+        return mTask;
+    }
+
     public String getAnswer()
     {
         return mAnswerEditText.getText().toString();
     }
 
-    public Task getTask()
+    public boolean isScaled()
     {
-        return mTask;
+        return mTaskWebView.isScaled();
     }
 
     public CalculateActivity getCalculateActivity()

@@ -93,7 +93,7 @@
         
         </RelativeLayout>
                 
-        <WebView
+        <com.gris.ege.pager.TaskWebView
             android:id="@+id/taskWebView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>

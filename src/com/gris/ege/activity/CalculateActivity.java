@@ -575,7 +575,7 @@ public class CalculateActivity extends FragmentActivity
 
         boolean aSame=aUpdateTime.equals(aCurTimeStr);
 
-        Log.d(TAG, "Last time tasks for lesson \""+GlobalData.selectedLesson.getId()+"\" was changed "+aUpdateTime+
+        Log.d(TAG, "Last time tasks for lesson \""+GlobalData.selectedLesson.getId()+"\" updated: "+aUpdateTime+
                    "; Currrent Time: "+aCurTimeStr+
                    "; Same: "+String.valueOf(aSame));
 
