@@ -19,6 +19,7 @@ import com.gris.ege.other.Task;
 import com.gris.ege.other.Utils;
 import com.gris.ege.pager.TaskFragment;
 import com.gris.ege.pager.TasksPageAdapter;
+import com.gris.ege.pager.TouchViewPager;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -74,7 +75,7 @@ public class CalculateActivity extends FragmentActivity
     private ProgressBar      mPercentProgressBar;
     private TextView         mPercentTextView;
 
-    private ViewPager        mTasksPager;
+    private TouchViewPager   mTasksPager;
     private TasksPageAdapter mTasksAdapter;
 
     private ProgressDialog   mProgressDialog=null;
@@ -141,7 +142,7 @@ public class CalculateActivity extends FragmentActivity
         mTimeTextView       = (TextView)      findViewById(R.id.timeTextView);
         mPercentProgressBar = (ProgressBar)   findViewById(R.id.percentProgressBar);
         mPercentTextView    = (TextView)      findViewById(R.id.percentTextView);
-        mTasksPager         = (ViewPager)     findViewById(R.id.tasksPager);
+        mTasksPager         = (TouchViewPager)findViewById(R.id.tasksPager);
 
         // Initialize controls
         Intent aIntent=getIntent();
@@ -239,6 +240,25 @@ public class CalculateActivity extends FragmentActivity
         }
 
         mTasksPager.setAdapter(mTasksAdapter);
+
+        mTasksPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener()
+        {
+            @Override
+            public void onPageSelected(int aPosition)
+            {
+                mTasksPager.setCurrentPage(mTasksAdapter.getFragment(aPosition));
+            }
+
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels)
+            {
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state)
+            {
+            }
+        });
 
         downloadXML();
     }

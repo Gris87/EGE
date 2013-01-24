@@ -1,3 +1,2 @@
 Crash on checking and rotate
 Done button in keyboard
-Compress image when keyboard active
