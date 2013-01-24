@@ -41,7 +41,6 @@
     <string name="please_wait">Please wait&#8230;</string>
     
     <string name="triplePoint" translatable="false">&#8230;</string>
-    <string name="description" translatable="false"></string>
     <string name="time" translatable="false">%1$s:%2$s:%3$s</string>
     <string name="percent" translatable="false">%1$d %%</string>    
     

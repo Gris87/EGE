@@ -1,5 +1,3 @@
-Download xml
 Crash on checking and rotate
-Webview
 Done button in keyboard
 Compress image when keyboard active

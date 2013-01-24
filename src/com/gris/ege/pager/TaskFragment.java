@@ -30,6 +30,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -52,7 +54,7 @@ public class TaskFragment extends Fragment implements OnClickListener
     private TextView       mTaskStatusView;
     private ViewAnimator   mTaskViewAnimator;
     private Button         mRetryButton;
-    private ImageView      mTaskImageView;
+    private WebView        mTaskWebView;
     private TextView       mAnswerTextView;
     private RelativeLayout mBottomLayout;
     private EditText       mAnswerEditText;
@@ -89,7 +91,7 @@ public class TaskFragment extends Fragment implements OnClickListener
         mTaskStatusView   = (TextView)      aView.findViewById(R.id.taskStatusTextView);
         mTaskViewAnimator = (ViewAnimator)  aView.findViewById(R.id.taskViewAnimator);
         mRetryButton      = (Button)        aView.findViewById(R.id.retryButton);
-        mTaskImageView    = (ImageView)     aView.findViewById(R.id.taskImageView);
+        mTaskWebView      = (WebView)       aView.findViewById(R.id.taskWebView);
         mAnswerTextView   = (TextView)      aView.findViewById(R.id.answerTextView);
         mBottomLayout     = (RelativeLayout)aView.findViewById(R.id.bottomLayout);
         mAnswerEditText   = (EditText)      aView.findViewById(R.id.answerEditText);
@@ -102,6 +104,15 @@ public class TaskFragment extends Fragment implements OnClickListener
         // Initialize controls
         mTaskHeaderView.setText(getString(R.string.task_header, mTask.getCategory(), mTask.getId()+1));
         updateStatus();
+
+        mTaskWebView.setInitialScale(30);
+
+        WebSettings aSettings= mTaskWebView.getSettings();
+        aSettings.setBuiltInZoomControls(true);
+        aSettings.setSupportZoom(true);
+        aSettings.setUseWideViewPort(true);
+
+        downloadImage();
 
         switch (getCalculateActivity().getMode())
         {
@@ -118,8 +129,6 @@ public class TaskFragment extends Fragment implements OnClickListener
                 mAnswerTextView.setText(getString(R.string.answer, mTask.getAnswer()));
             break;
         }
-
-        downloadImage();
 
         if (mTask.getCategory().charAt(0)=='A')
         {
@@ -313,7 +322,7 @@ public class TaskFragment extends Fragment implements OnClickListener
         return (CalculateActivity)getActivity();
     }
 
-    private class DownloadImageTask extends AsyncTask<Void, Void, Drawable>
+    private class DownloadImageTask extends AsyncTask<Void, Void, String>
     {
         @Override
         protected void onPreExecute()
@@ -322,9 +331,9 @@ public class TaskFragment extends Fragment implements OnClickListener
         }
 
         @Override
-        protected Drawable doInBackground(Void... aNothing)
+        protected String doInBackground(Void... aNothing)
         {
-            Drawable res=null;
+            String res=null;
 
             try
             {
@@ -338,7 +347,7 @@ public class TaskFragment extends Fragment implements OnClickListener
             return res;
         }
 
-        private Drawable getImage() throws IOException
+        private String getImage() throws IOException
         {
             String aFileName=GlobalData.selectedLesson.getId()+"/"+String.valueOf(mTask.getId()+1)+".png";
 
@@ -348,7 +357,7 @@ public class TaskFragment extends Fragment implements OnClickListener
 
                 if (aDrawable!=null)
                 {
-                    return aDrawable;
+                    return GlobalData.PATH_ON_SD_CARD+aFileName;
                 }
                 else
                 {
@@ -368,7 +377,7 @@ public class TaskFragment extends Fragment implements OnClickListener
             aConnection.connect();
             InputStream in=aConnection.getInputStream();
 
-            InputStream res=in;
+            boolean aFromInternet=true;
 
             try
             {
@@ -392,36 +401,50 @@ public class TaskFragment extends Fragment implements OnClickListener
                 } while(true);
 
                 aNewFile.close();
-                in.close();
 
-                res=new FileInputStream(GlobalData.PATH_ON_SD_CARD+aFileName);
+                aFromInternet=false;
             }
             catch (Exception e)
             {
                 Log.w(TAG, "Problem while saving image on sd card", e);
             }
 
-            Drawable aDrawable=Drawable.createFromStream(res, null);
-            res.close();
-
-            if (aDrawable!=null)
+            try
             {
-                return aDrawable;
+                in.close();
+            }
+            catch (Exception e)
+            {
+                Log.w(TAG, "Problem while saving image on sd card", e);
+            }
+
+            if (aFromInternet)
+            {
+                return GlobalData.PATH_ON_NET+aFileName;
             }
             else
             {
-                Log.w(TAG, "Invalid file on SD card after downloading: "+GlobalData.PATH_ON_SD_CARD+aFileName);
+                Drawable aDrawable=Drawable.createFromPath(GlobalData.PATH_ON_SD_CARD+aFileName);
+
+                if (aDrawable!=null)
+                {
+                    return GlobalData.PATH_ON_SD_CARD+aFileName;
+                }
+                else
+                {
+                    Log.w(TAG, "Invalid file on SD card after downloading: "+GlobalData.PATH_ON_SD_CARD+aFileName);
+                }
             }
 
             return null;
         }
 
         @Override
-        protected void onPostExecute(Drawable aResult)
+        protected void onPostExecute(String aResult)
         {
             if (aResult!=null)
             {
-                mTaskImageView.setImageDrawable(aResult);
+                mTaskWebView.loadUrl("file://"+aResult);
                 mTaskViewAnimator.setDisplayedChild(PAGE_IMAGE);
             }
             else

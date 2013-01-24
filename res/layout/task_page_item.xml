@@ -92,12 +92,11 @@
             </LinearLayout>
         
         </RelativeLayout>
-        
-        <ImageView
-            android:id="@+id/taskImageView"
+                
+        <WebView
+            android:id="@+id/taskWebView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/description"/>
+            android:layout_height="match_parent"/>
         
     </ViewAnimator>
     
