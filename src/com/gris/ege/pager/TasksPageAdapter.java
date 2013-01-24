@@ -8,12 +8,12 @@ import com.gris.ege.other.Task;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.util.SparseArray;
+import android.view.ViewGroup;
 
-public class TasksPageAdapter extends FragmentPagerAdapter
+public class TasksPageAdapter extends FragmentStatePagerAdapter
 {
-    // TODO: UGLY
     private SparseArray<TaskFragment> mPageReferenceMap = new SparseArray<TaskFragment>();
 
     private ArrayList<Task> mData;
@@ -42,15 +42,20 @@ public class TasksPageAdapter extends FragmentPagerAdapter
         aArgs.putInt(GlobalData.TASK_ID, mData.get(aPosition).getId());
         aFragment.setArguments(aArgs);
 
-        // TODO: UGLY
         mPageReferenceMap.put(aPosition, aFragment);
 
         return aFragment;
     }
 
+    @Override
+    public void destroyItem(ViewGroup aContainer, int aPosition, Object aObject)
+    {
+        mPageReferenceMap.remove(aPosition);
+        super.destroyItem(aContainer, aPosition, aObject);
+    }
+
     public TaskFragment getFragment(int aPosition)
     {
-        // TODO: UGLY
         return mPageReferenceMap.get(aPosition);
     }
 
