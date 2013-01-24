@@ -1,7 +1,5 @@
-Log
-XML in internet
-Always save
-webview
+Download xml
+Crash on checking and rotate
+Webview
 Done button in keyboard
 Compress image when keyboard active
-download xml

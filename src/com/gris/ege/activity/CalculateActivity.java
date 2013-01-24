@@ -268,6 +268,8 @@ public class CalculateActivity extends FragmentActivity
             aOutState.putLong(TIME_FOR_EXAM,     mTimeForExam);
             aOutState.putInt( VERIFICATION_PAGE, mVerificationPage);
         }
+
+        super.onSaveInstanceState(aOutState);
     }
 
     @Override

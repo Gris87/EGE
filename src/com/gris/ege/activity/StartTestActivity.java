@@ -128,6 +128,8 @@ public class StartTestActivity extends Activity implements OnClickListener
         {
             aOutState.putInt(COUNT+"_"+String.valueOf(i), mCounts[i]);
         }
+
+        super.onSaveInstanceState(aOutState);
     }
 
     @Override
