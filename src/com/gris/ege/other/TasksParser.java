@@ -46,6 +46,11 @@ public class TasksParser
             Log.i(TAG, "Error during xml parsing from SD Card. Using standard list", e);
         }
 
+        if (res!=null)
+        {
+            return res;
+        }
+
         try
         {
             InputStream in=aContext.getAssets().open(GlobalData.selectedLesson.getId()+".xml");
