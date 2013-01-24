@@ -1,15 +1,26 @@
 package com.gris.ege.activity;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 import com.gris.ege.R;
 import com.gris.ege.db.ResultsOpenHelper;
 import com.gris.ege.other.GlobalData;
+import com.gris.ege.other.Log;
 import com.gris.ege.other.Task;
 import com.gris.ege.other.Utils;
 import com.gris.ege.pager.TaskFragment;
 import com.gris.ege.pager.TasksPageAdapter;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -17,7 +28,6 @@ import android.os.SystemClock;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import com.gris.ege.other.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -229,6 +239,8 @@ public class CalculateActivity extends FragmentActivity
         }
 
         mTasksPager.setAdapter(mTasksAdapter);
+
+        downloadXML();
     }
 
     @Override
@@ -529,5 +541,98 @@ public class CalculateActivity extends FragmentActivity
     public Handler getHandler()
     {
         return mHandler;
+    }
+
+    public void downloadXML()
+    {
+        SharedPreferences aSettings = getSharedPreferences(GlobalData.PREFS_NAME, 0);
+        String aUpdateTime          = aSettings.getString(GlobalData.OPTION_UPDATE_TIME+"_"+GlobalData.selectedLesson.getId(), "");
+
+        String aCurTimeStr=new SimpleDateFormat("DD.MM.yyyy", new Locale("en")).format(new Date());
+
+        if (!aUpdateTime.equals(aCurTimeStr))
+        {
+            new DownloadXMLTask().execute();
+        }
+    }
+
+    private class DownloadXMLTask extends AsyncTask<Void, Void, InputStream>
+    {
+        @Override
+        protected InputStream doInBackground(Void... aNothing)
+        {
+            InputStream res=null;
+
+            try
+            {
+                res=getXml();
+            }
+            catch (Exception e)
+            {
+                Log.i(TAG, "Problem while downloading tasks xml file", e);
+            }
+
+            return res;
+        }
+
+        private InputStream getXml() throws IOException
+        {
+            // Download file
+            URL aUrl=new URL(GlobalData.PATH_ON_NET+GlobalData.selectedLesson.getId()+".xml");
+
+            HttpURLConnection aConnection=(HttpURLConnection)aUrl.openConnection();
+            aConnection.setReadTimeout(10000);
+            aConnection.setConnectTimeout(15000);
+            aConnection.setRequestMethod("GET");
+            aConnection.setDoInput(true);
+
+            aConnection.connect();
+            return aConnection.getInputStream();
+        }
+
+        @Override
+        protected void onPostExecute(InputStream aResult)
+        {
+            try
+            {
+                if (aResult!=null)
+                {
+                    byte[] aBuffer=new byte[4096];
+
+                    new File(GlobalData.PATH_ON_SD_CARD).mkdirs();
+                    new File(GlobalData.PATH_ON_SD_CARD+".nomedia").createNewFile();
+
+                    FileOutputStream aNewFile=new FileOutputStream(GlobalData.PATH_ON_SD_CARD+GlobalData.selectedLesson.getId()+".xml");
+
+                    do
+                    {
+                        int aBytes=aResult.read(aBuffer);
+
+                        if (aBytes<=0)
+                        {
+                            break;
+                        }
+
+                        aNewFile.write(aBuffer, 0, aBytes);
+                    } while(true);
+
+                    aNewFile.close();
+                    aResult.close();
+
+
+
+                    String aCurTimeStr=new SimpleDateFormat("DD.MM.yyyy", new Locale("en")).format(new Date());
+
+                    SharedPreferences aSettings = getSharedPreferences(GlobalData.PREFS_NAME, 0);
+                    SharedPreferences.Editor aEditor = aSettings.edit();
+                    aEditor.putString(GlobalData.OPTION_UPDATE_TIME+"_"+GlobalData.selectedLesson.getId(), aCurTimeStr);
+                    aEditor.commit();
+                }
+            }
+            catch (Exception e)
+            {
+                Log.w(TAG, "Problem while saving tasks xml file", e);
+            }
+        }
     }
 }

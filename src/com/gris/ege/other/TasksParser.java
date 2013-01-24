@@ -43,7 +43,7 @@ public class TasksParser
         }
         catch (Exception e)
         {
-            Log.e(TAG, "Error during xml parsing from SD Card. Using standard list", e);
+            Log.i(TAG, "Error during xml parsing from SD Card. Using standard list", e);
         }
 
         try

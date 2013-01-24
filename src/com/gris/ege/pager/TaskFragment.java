@@ -245,7 +245,7 @@ public class TaskFragment extends Fragment implements OnClickListener
         else
         if (mTask.getCategory().charAt(0)=='C')
         {
-        	final String aAnswer=mTask.getAnswer().trim();
+            final String aAnswer=mTask.getAnswer().trim();
 
             getCalculateActivity().removeProgressDialog();
 
@@ -332,7 +332,7 @@ public class TaskFragment extends Fragment implements OnClickListener
             }
             catch (Exception e)
             {
-                Log.w(TAG, "Problem while loading image", e);
+                Log.i(TAG, "Problem while downloading image", e);
             }
 
             return res;
@@ -352,7 +352,7 @@ public class TaskFragment extends Fragment implements OnClickListener
                 }
                 else
                 {
-                    Log.w(TAG, "Invalid file on sdcard: "+GlobalData.PATH_ON_SD_CARD+aFileName);
+                    Log.i(TAG, "Invalid file on sdcard: "+GlobalData.PATH_ON_SD_CARD+aFileName);
                 }
             }
 
@@ -365,7 +365,6 @@ public class TaskFragment extends Fragment implements OnClickListener
             aConnection.setRequestMethod("GET");
             aConnection.setDoInput(true);
 
-            // Download file
             aConnection.connect();
             InputStream in=aConnection.getInputStream();
 
