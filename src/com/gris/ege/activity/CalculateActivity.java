@@ -511,8 +511,7 @@ public class CalculateActivity extends FragmentActivity
 
         Log.d(TAG, "Complete test for "+String.valueOf(mTimeForExam)+" ms");
 
-        // TODO: Remove comment for 0000
-        if (mTimeForExam>18)//0000) //3*60*1000
+        if (mTimeForExam>180000) //3*60*1000
         {
             mMode=MODE_VERIFICATION;
 
