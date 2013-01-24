@@ -399,6 +399,8 @@ public class CalculateActivity extends FragmentActivity
         }
         else
         {
+            Log.d(TAG, "Saving results to database");
+
             removeProgressDialog();
 
             SQLiteDatabase aDb=null;
@@ -507,6 +509,8 @@ public class CalculateActivity extends FragmentActivity
             mTimeForExam=GlobalData.selectedLesson.getTime()*60*1000;
         }
 
+        Log.d(TAG, "Complete test for "+String.valueOf(mTimeForExam)+" ms");
+
         // TODO: Remove comment for 0000
         if (mTimeForExam>18)//0000) //3*60*1000
         {
@@ -546,12 +550,19 @@ public class CalculateActivity extends FragmentActivity
     public void downloadXML()
     {
         SharedPreferences aSettings = getSharedPreferences(GlobalData.PREFS_NAME, 0);
-        String aUpdateTime          = aSettings.getString(GlobalData.OPTION_UPDATE_TIME+"_"+GlobalData.selectedLesson.getId(), "");
+        String aUpdateTime          = aSettings.getString(GlobalData.OPTION_UPDATE_TIME+"_"+GlobalData.selectedLesson.getId(), "never");
 
         String aCurTimeStr=new SimpleDateFormat("DD.MM.yyyy", new Locale("en")).format(new Date());
 
-        if (!aUpdateTime.equals(aCurTimeStr))
+        boolean aSame=aUpdateTime.equals(aCurTimeStr);
+
+        Log.d(TAG, "Last time tasks for lesson \""+GlobalData.selectedLesson.getId()+"\" was changed "+aUpdateTime+
+                   "; Currrent Time: "+aCurTimeStr+
+                   "; Same: "+String.valueOf(aSame));
+
+        if (!aSame)
         {
+            Log.d(TAG, "Downloading tasks for lesson \""+GlobalData.selectedLesson.getId()+"\"");
             new DownloadXMLTask().execute();
         }
     }
@@ -626,6 +637,8 @@ public class CalculateActivity extends FragmentActivity
                     SharedPreferences.Editor aEditor = aSettings.edit();
                     aEditor.putString(GlobalData.OPTION_UPDATE_TIME+"_"+GlobalData.selectedLesson.getId(), aCurTimeStr);
                     aEditor.commit();
+
+                    Log.d(TAG, "Tasks updated for lesson \""+GlobalData.selectedLesson.getId()+"\"");
                 }
             }
             catch (Exception e)

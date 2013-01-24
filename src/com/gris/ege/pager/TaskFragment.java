@@ -410,7 +410,7 @@ public class TaskFragment extends Fragment implements OnClickListener
             }
             else
             {
-                Log.w(TAG, "Invalid file on sdcard after downloading: "+GlobalData.PATH_ON_SD_CARD+aFileName);
+                Log.w(TAG, "Invalid file on SD card after downloading: "+GlobalData.PATH_ON_SD_CARD+aFileName);
             }
 
             return null;
