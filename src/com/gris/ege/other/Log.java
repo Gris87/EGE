@@ -18,7 +18,7 @@ public class Log
 	private static final boolean OUTPUT_TO_FILE = true;
 	private static final boolean ONLY_APP_TAG   = true;
 
-	private static final int     REMOVE_IF_LESS = 500;
+	private static final int     MAX_COUNT      = 100;
 
 
 
@@ -37,42 +37,51 @@ public class Log
 		{
 			try
             {
-				String aCurTimeStr=new SimpleDateFormat("MM-DD kk:mm:ss:SSS", new Locale("en")).format(new Date());
-				String aPrefixText=aCurTimeStr+": "+aLevel+"/"+APP_NAME+"(9999)"+": ";
-
 				if (mFileName.equals(""))
 				{
-					new File(FILE_PATH).mkdirs();
+					File aLogDir=new File(FILE_PATH);
 
-					int aCurIndex=1;
-
-					do
+					if (aLogDir.exists())
 					{
-						File aCurFile=new File(FILE_PATH+"/"+String.valueOf(aCurIndex)+".dlv");
+						String[] aFiles=aLogDir.list();
 
-						if (aCurFile.exists())
+						int aMaxIndex=0;
+
+						for (int i=0; i<aFiles.length; ++i)
 						{
-							if (aCurFile.length()<REMOVE_IF_LESS)
+							String aNumber=aFiles[i].substring(0, aFiles[i].lastIndexOf('.'));
+							int aIndex=Integer.parseInt(aNumber);
+
+							if (aIndex>aMaxIndex)
 							{
-								aCurFile.delete();
-								break;
+								aMaxIndex=aIndex;
 							}
 						}
-						else
+
+						for (int i=0; i<aFiles.length; ++i)
 						{
-							break;
+							String aNumber=aFiles[i].substring(0, aFiles[i].lastIndexOf('.'));
+							int aIndex=Integer.parseInt(aNumber);
+
+							if (aIndex<=aMaxIndex-MAX_COUNT+1)
+							{
+								new File(FILE_PATH+"/"+String.valueOf(aIndex)+".dlv").delete();
+							}
 						}
 
-						++aCurIndex;
-					} while(true);
+						++aMaxIndex;
 
-					while (new File(FILE_PATH+"/"+String.valueOf(aCurIndex)+".dlv").exists())
-					{
-						aCurIndex++;
+						mFileName=FILE_PATH+"/"+String.valueOf(aMaxIndex)+".dlv";
 					}
-
-					mFileName=FILE_PATH+"/"+String.valueOf(aCurIndex)+".dlv";
+					else
+					{
+						aLogDir.mkdirs();
+						mFileName=FILE_PATH+"/1.dlv";
+					}
 				}
+
+				String aCurTimeStr=new SimpleDateFormat("MM-DD kk:mm:ss:SSS", new Locale("en")).format(new Date());
+				String aPrefixText=aCurTimeStr+": "+aLevel+"/"+APP_NAME+"(9999)"+": ";
 
 	            FileOutputStream aFileStream = new FileOutputStream(mFileName, true);
 	            PrintWriter aPrinter         = new PrintWriter(aFileStream, true);
