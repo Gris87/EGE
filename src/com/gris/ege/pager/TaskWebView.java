@@ -18,8 +18,8 @@ public class TaskWebView extends WebView
 
     public boolean isScaled()
     {
-        return computeHorizontalScrollRange() > computeHorizontalScrollExtent()
+        return computeHorizontalScrollRange() - 10 > computeHorizontalScrollExtent()
                ||
-               computeVerticalScrollRange()   > computeVerticalScrollExtent();
+               computeVerticalScrollRange()   - 10 > computeVerticalScrollExtent();
     }
 }

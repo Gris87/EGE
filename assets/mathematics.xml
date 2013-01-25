@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <tasks>
     <task id="0"    category="B1"  answer="7"/>
     <task id="1"    category="B2"  answer="284"/>
@@ -14,9 +14,9 @@
     <task id="11"   category="B12" answer="9"/>
     <task id="12"   category="B13" answer="20"/>
     <task id="13"   category="B14" answer="17"/>
-    <task id="14"   category="C1"  answer="pi+2*pi*n, -5*pi/6+2*pi*n, n ∈ Z"/>
+    <task id="14"   category="C1"  answer="pi+2*pi*k, -5*pi/6+2*pi*k, k ∈ Z"/>
     <task id="15"   category="C2"  answer="√21"/>
-    <task id="16"   category="C3"  answer="[-7; -5); (4; 15]"/>
+    <task id="16"   category="C3"  answer="[-7 ; -5) ; (4 ; 15]"/>
     <task id="17"   category="C4"  answer="18 или 21"/>
     <task id="18"   category="C5"  answer="11; √193+2"/>
     <task id="19"   category="C6"  answer="а) 36 б) отрицательных в) 16"/>
@@ -58,50 +58,155 @@
     <task id="53"   category="B14" answer="-2"/>
     <task id="54"   category="C1"  answer="arctg 3-pi, -pi/4. arctg 3"/>
     <task id="55"   category="C2"  answer="arctg 5/24"/>
-    <task id="56"   category="C3"  answer="(-∞; -3) ∪ (3; +∞)"/>
+    <task id="56"   category="C3"  answer="(-∞ ; -3) ∪ (3 ; +∞)"/>
     <task id="57"   category="C4"  answer="5 или 3"/>
     <task id="58"   category="C5"  answer="-√2 &lt; a &lt; -1, 1 &lt; a &lt; √2"/>
     <task id="59"   category="C6"  answer="1 и 645"/>
 
-    <task id="60"   category="B1"  answer="N/A"/>
-    <task id="61"   category="B2"  answer="N/A"/>
-    <task id="62"   category="B3"  answer="N/A"/>
-    <task id="63"   category="B4"  answer="N/A"/>
-    <task id="64"   category="B5"  answer="N/A"/>
-    <task id="65"   category="B6"  answer="N/A"/>
-    <task id="66"   category="B7"  answer="N/A"/>
-    <task id="67"   category="B8"  answer="N/A"/>
-    <task id="68"   category="B9"  answer="N/A"/>
-    <task id="69"   category="B10" answer="N/A"/>
-    <task id="70"   category="B11" answer="N/A"/>
-    <task id="71"   category="B12" answer="N/A"/>
-    <task id="72"   category="B13" answer="N/A"/>
-    <task id="73"   category="B14" answer="N/A"/>
-    <task id="74"   category="C1"  answer="N/A"/>
-    <task id="75"   category="C2"  answer="N/A"/>
-    <task id="76"   category="C3"  answer="N/A"/>
-    <task id="77"   category="C4"  answer="N/A"/>
-    <task id="78"   category="C5"  answer="N/A"/>
-    <task id="79"   category="C6"  answer="N/A"/>
+    <task id="60"   category="B1"  answer="7"/>
+    <task id="61"   category="B2"  answer="6"/>
+    <task id="62"   category="B3"  answer="13.5"/>
+    <task id="63"   category="B4"  answer="6600"/>
+    <task id="64"   category="B5"  answer="-1"/>
+    <task id="65"   category="B6"  answer="9"/>
+    <task id="66"   category="B7"  answer="468"/>
+    <task id="67"   category="B8"  answer="8"/>
+    <task id="68"   category="B9"  answer="3"/>
+    <task id="69"   category="B10" answer="0.2"/>
+    <task id="70"   category="B11" answer="2048"/>
+    <task id="71"   category="B12" answer="15"/>
+    <task id="72"   category="B13" answer="17"/>
+    <task id="73"   category="B14" answer="17"/>
+    <task id="74"   category="C1"  answer="9*pi/4, 3*pi-arctg 5, 13*pi/4"/>
+    <task id="75"   category="C2"  answer="arctg 37/20"/>
+    <task id="76"   category="C3"  answer="(0 ; 7]"/>
+    <task id="77"   category="C4"  answer="44, 33/2"/>
+    <task id="78"   category="C5"  answer="(1/6, 4+√14)"/>
+    <task id="79"   category="C6"  answer="1 и 6174"/>
 
-    <task id="80"   category="B1"  answer="N/A"/>
-    <task id="81"   category="B2"  answer="N/A"/>
-    <task id="82"   category="B3"  answer="N/A"/>
-    <task id="83"   category="B4"  answer="N/A"/>
-    <task id="84"   category="B5"  answer="N/A"/>
-    <task id="85"   category="B6"  answer="N/A"/>
-    <task id="86"   category="B7"  answer="N/A"/>
-    <task id="87"   category="B8"  answer="N/A"/>
-    <task id="88"   category="B9"  answer="N/A"/>
-    <task id="89"   category="B10" answer="N/A"/>
-    <task id="90"   category="B11" answer="N/A"/>
-    <task id="91"   category="B12" answer="N/A"/>
-    <task id="92"   category="B13" answer="N/A"/>
-    <task id="93"   category="B14" answer="N/A"/>
-    <task id="94"   category="C1"  answer="N/A"/>
-    <task id="95"   category="C2"  answer="N/A"/>
-    <task id="96"   category="C3"  answer="N/A"/>
-    <task id="97"   category="C4"  answer="N/A"/>
-    <task id="98"   category="C5"  answer="N/A"/>
-    <task id="99"   category="C6"  answer="N/A"/>
+    <task id="80"   category="B1"  answer="12"/>
+    <task id="81"   category="B2"  answer="10"/>
+    <task id="82"   category="B3"  answer="16"/>
+    <task id="83"   category="B4"  answer="150"/>
+    <task id="84"   category="B5"  answer="-2"/>
+    <task id="85"   category="B6"  answer="7.2"/>
+    <task id="86"   category="B7"  answer="2"/>
+    <task id="87"   category="B8"  answer="-3"/>
+    <task id="88"   category="B9"  answer="3"/>
+    <task id="89"   category="B10" answer="0.125"/>
+    <task id="90"   category="B11" answer="100"/>
+    <task id="91"   category="B12" answer="5"/>
+    <task id="92"   category="B13" answer="6"/>
+    <task id="93"   category="B14" answer="-3"/>
+    <task id="94"   category="C1"  answer="-arctg 4/3, -pi, -5*pi/4"/>
+    <task id="95"   category="C2"  answer="√7"/>
+    <task id="96"   category="C3"  answer="[10/9 ; 9) ∪ (10; 11)"/>
+    <task id="97"   category="C4"  answer="√(a^2+b^2-2*a*b*cos α)*|ctg α|"/>
+    <task id="98"   category="C5"  answer="-1/3 ≤ a ≤ 3"/>
+    <task id="99"   category="C6"  answer="а) нет б) да в) 477"/>
+
+    <task id="100"  category="B1"  answer="8"/>
+    <task id="101"  category="B2"  answer="4"/>
+    <task id="102"  category="B3"  answer="6"/>
+    <task id="103"  category="B4"  answer="200"/>
+    <task id="104"  category="B5"  answer="-1"/>
+    <task id="105"  category="B6"  answer="6"/>
+    <task id="106"  category="B7"  answer="2"/>
+    <task id="107"  category="B8"  answer="3"/>
+    <task id="108"  category="B9"  answer="9"/>
+    <task id="109"  category="B10" answer="0.32"/>
+    <task id="110"  category="B11" answer="12"/>
+    <task id="111"  category="B12" answer="7"/>
+    <task id="112"  category="B13" answer="8"/>
+    <task id="113"  category="B14" answer="19"/>
+    <task id="114"  category="C1"  answer="-9*pi/4, -11*pi/4"/>
+    <task id="115"  category="C2"  answer="1/√6"/>
+    <task id="116"  category="C3"  answer="(0 ; (3-√5)/2) ; ((3+√5)/2 ; 1)"/>
+    <task id="117"  category="C4"  answer="90°+α, если α ≤ 45° ; 90°-α, если α &gt; 45°"/>
+    <task id="118"  category="C5"  answer="a=-1/3"/>
+    <task id="119"  category="C6"  answer="19/7"/>
+
+    <task id="120"  category="B1"  answer="500"/>
+    <task id="121"  category="B2"  answer="-24"/>
+    <task id="122"  category="B3"  answer="10.5"/>
+    <task id="123"  category="B4"  answer="48000"/>
+    <task id="124"  category="B5"  answer="4"/>
+    <task id="125"  category="B6"  answer="0.75"/>
+    <task id="126"  category="B7"  answer="12"/>
+    <task id="127"  category="B8"  answer="3"/>
+    <task id="128"  category="B9"  answer="2"/>
+    <task id="129"  category="B10" answer="0.36"/>
+    <task id="130"  category="B11" answer="512"/>
+    <task id="131"  category="B12" answer="10.6"/>
+    <task id="132"  category="B13" answer="22"/>
+    <task id="133"  category="B14" answer="-3"/>
+    <task id="134"  category="C1"  answer="-2*pi/3+2*pi*k, k ∈ Z"/>
+    <task id="135"  category="C2"  answer="cos α=3/4"/>
+    <task id="136"  category="C3"  answer="(log 3 (10) ; +∞)"/>
+    <task id="137"  category="C4"  answer="13 или 2*√67"/>
+    <task id="138"  category="C5"  answer="a=1/4"/>
+    <task id="139"  category="C6"  answer="а) нет б) нет в) да"/>
+
+    <task id="140"  category="B1"  answer="15"/>
+    <task id="141"  category="B2"  answer="10"/>
+    <task id="142"  category="B3"  answer="8"/>
+    <task id="143"  category="B4"  answer="1275"/>
+    <task id="144"  category="B5"  answer="-41"/>
+    <task id="145"  category="B6"  answer="3"/>
+    <task id="146"  category="B7"  answer="4"/>
+    <task id="147"  category="B8"  answer="-1"/>
+    <task id="148"  category="B9"  answer="2"/>
+    <task id="149"  category="B10" answer="0.25"/>
+    <task id="150"  category="B11" answer="45"/>
+    <task id="151"  category="B12" answer="44"/>
+    <task id="152"  category="B13" answer="12"/>
+    <task id="153"  category="B14" answer="6"/>
+    <task id="154"  category="C1"  answer="1, 2*pi/3+2*pi*k, k ∈ Z"/>
+    <task id="155"  category="C2"  answer="√3/2"/>
+    <task id="156"  category="C3"  answer="(log 2 (2/3); 0) ; [1 ; +∞)"/>
+    <task id="157"  category="C4"  answer="60° или 120°"/>
+    <task id="158"  category="C5"  answer="a=√8, b=±1"/>
+    <task id="159"  category="C6"  answer="6, 42, 1806"/>
+
+    <task id="160"  category="B1"  answer="7"/>
+    <task id="161"  category="B2"  answer="4"/>
+    <task id="162"  category="B3"  answer="8"/>
+    <task id="163"  category="B4"  answer="420"/>
+    <task id="164"  category="B5"  answer="41"/>
+    <task id="165"  category="B6"  answer="0.5"/>
+    <task id="166"  category="B7"  answer="21"/>
+    <task id="167"  category="B8"  answer="4"/>
+    <task id="168"  category="B9"  answer="25"/>
+    <task id="169"  category="B10" answer="0.05"/>
+    <task id="170"  category="B11" answer="216"/>
+    <task id="171"  category="B12" answer="27.5"/>
+    <task id="172"  category="B13" answer="20"/>
+    <task id="173"  category="B14" answer="3"/>
+    <task id="174"  category="C1"  answer="pi/4+pi*k, k ∈ Z"/>
+    <task id="175"  category="C2"  answer="4"/>
+    <task id="176"  category="C3"  answer="-2 &lt; x ≤ -1"/>
+    <task id="177"  category="C4"  answer="1/2 или 625/1122"/>
+    <task id="178"  category="C5"  answer="a &gt; 9/6"/>
+    <task id="179"  category="C6"  answer="m = n = 1"/>
+
+    <task id="180"  category="B1"  answer="300"/>
+    <task id="181"  category="B2"  answer="7"/>
+    <task id="182"  category="B3"  answer="6"/>
+    <task id="183"  category="B4"  answer="1260"/>
+    <task id="184"  category="B5"  answer="-30"/>
+    <task id="185"  category="B6"  answer="1"/>
+    <task id="186"  category="B7"  answer="22"/>
+    <task id="187"  category="B8"  answer="3"/>
+    <task id="188"  category="B9"  answer="12"/>
+    <task id="189"  category="B10" answer="0.4"/>
+    <task id="190"  category="B11" answer="270"/>
+    <task id="191"  category="B12" answer="0.75"/>
+    <task id="192"  category="B13" answer="14"/>
+    <task id="193"  category="B14" answer="4"/>
+    <task id="194"  category="C1"  answer="arccos (√2/3)+2*pi*k, k ∈ Z"/>
+    <task id="195"  category="C2"  answer="90°"/>
+    <task id="196"  category="C3"  answer="[(√13-1)/2 ; 2)"/>
+    <task id="197"  category="C4"  answer="36 или 8*√19"/>
+    <task id="198"  category="C5"  answer="1, 8, 2"/>
+    <task id="199"  category="C6"  answer="а) 44 б) отрицательных в) 17"/>
 </tasks>
