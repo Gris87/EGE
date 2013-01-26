@@ -251,6 +251,7 @@ public class Log
 
 	public static String getPreviousFile()
     {
+		// TODO: It is not previousFile. null if absent
 	    return mFileName;
     }
 }
