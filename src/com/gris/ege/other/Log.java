@@ -18,7 +18,7 @@ public class Log
 	private static final boolean OUTPUT_TO_FILE = true;
 	private static final boolean ONLY_APP_TAG   = true;
 
-	private static final int     MAX_COUNT      = 100;
+	private static final int     MAX_COUNT      = 50;
 
 
 
@@ -243,4 +243,14 @@ public class Log
 
 		writeToFile("ERROR", aTag, aMsg, tr);
 	}
+
+	public static String getCurrentFile()
+    {
+	    return mFileName;
+    }
+
+	public static String getPreviousFile()
+    {
+	    return mFileName;
+    }
 }

@@ -15,6 +15,7 @@ import com.gris.ege.R;
 import com.gris.ege.db.ResultsOpenHelper;
 import com.gris.ege.other.GlobalData;
 import com.gris.ege.other.Log;
+import com.gris.ege.other.Mail;
 import com.gris.ege.other.Task;
 import com.gris.ege.other.Utils;
 import com.gris.ege.pager.TaskFragment;
@@ -261,6 +262,7 @@ public class CalculateActivity extends FragmentActivity
         });
 
         downloadXML();
+        sendLogFile();
     }
 
     @Override
@@ -586,6 +588,11 @@ public class CalculateActivity extends FragmentActivity
         }
     }
 
+    public void sendLogFile()
+    {
+    	new SendLogTask().execute();
+    }
+
     private class DownloadXMLTask extends AsyncTask<Void, Void, InputStream>
     {
         @Override
@@ -666,4 +673,37 @@ public class CalculateActivity extends FragmentActivity
             }
         }
     }
+
+    private class SendLogTask extends AsyncTask<Void, Void, Void>
+    {
+        @Override
+        protected Void doInBackground(Void... aNothing)
+        {
+        	Log.e("BLYA", "Mail");
+
+            try
+            {
+            	String aFileName=Log.getPreviousFile();
+
+            	if (aFileName!=null)
+            	{
+                    Mail aMail = new Mail("betatest95@gmail.com", "e567dg9hv4bnGdgfh456");
+
+                    String[] toArr = {"betatest95@yandex.com"};
+                    aMail.setFrom("betatest95@gmail.com");
+                    aMail.setTo(toArr);
+                    aMail.setSubject("Log file for EGE v. "+getPackageManager().getPackageInfo(getPackageName(), 0).versionName);
+                    aMail.setBody("This mail contains logs. Please check.");
+                    aMail.addAttachment(aFileName);
+                    aMail.send();
+            	}
+            }
+            catch (Exception e)
+            {
+                Log.i(TAG, "Problem while sending log file", e);
+            }
+
+            return null;
+        }
+     }
 }
