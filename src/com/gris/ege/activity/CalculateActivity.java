@@ -679,10 +679,9 @@ public class CalculateActivity extends FragmentActivity
         @Override
         protected Void doInBackground(Void... aNothing)
         {
-        	Log.e("BLYA", "Mail");
-
             try
             {
+            	// TODO: Only one sending
             	String aFileName=Log.getPreviousFile();
 
             	if (aFileName!=null)
