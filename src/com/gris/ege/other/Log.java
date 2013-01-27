@@ -251,7 +251,19 @@ public class Log
 
 	public static String getPreviousFile()
     {
-		// TODO: It is not previousFile. null if absent
-	    return mFileName;
+		if (mFileName.equals(""))
+		{
+			return null;
+		}
+
+		String aNumber=mFileName.substring(mFileName.lastIndexOf('/')+1, mFileName.lastIndexOf('.'));
+		int aIndex=Integer.parseInt(aNumber)-1;
+
+		if (new File(FILE_PATH+"/"+String.valueOf(aIndex)+".dlv").exists())
+		{
+			return FILE_PATH+"/"+String.valueOf(aIndex)+".dlv";
+		}
+
+	    return null;
     }
 }

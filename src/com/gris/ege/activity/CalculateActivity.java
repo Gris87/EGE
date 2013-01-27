@@ -90,6 +90,8 @@ public class CalculateActivity extends FragmentActivity
     private long             mTimeForExam=0;
     private int              mVerificationPage=0;
 
+    private static String    mLastSendedFile="";
+
 
 
     private Handler mHandler = new Handler()
@@ -681,10 +683,9 @@ public class CalculateActivity extends FragmentActivity
         {
             try
             {
-            	// TODO: Only one sending
             	String aFileName=Log.getPreviousFile();
 
-            	if (aFileName!=null)
+            	if (aFileName!=null && !mLastSendedFile.equals(aFileName))
             	{
                     Mail aMail = new Mail("betatest95@gmail.com", "e567dg9hv4bnGdgfh456");
 
@@ -695,6 +696,8 @@ public class CalculateActivity extends FragmentActivity
                     aMail.setBody("This mail contains logs. Please check.");
                     aMail.addAttachment(aFileName);
                     aMail.send();
+
+                    mLastSendedFile=aFileName;
             	}
             }
             catch (Exception e)
