@@ -687,6 +687,7 @@ public class CalculateActivity extends FragmentActivity
 
             	if (aFileName!=null && !mLastSendedFile.equals(aFileName))
             	{
+            		// TODO: Verify contents for WARN and ERROR text
                     Mail aMail = new Mail("betatest95@gmail.com", "e567dg9hv4bnGdgfh456");
 
                     String[] toArr = {"betatest95@yandex.com"};
