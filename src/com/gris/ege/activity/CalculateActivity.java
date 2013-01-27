@@ -1,9 +1,12 @@
 package com.gris.ege.activity;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
@@ -681,22 +684,57 @@ public class CalculateActivity extends FragmentActivity
         @Override
         protected Void doInBackground(Void... aNothing)
         {
+        	BufferedReader aReader=null;
+
             try
             {
             	String aFileName=Log.getPreviousFile();
 
             	if (aFileName!=null && !mLastSendedFile.equals(aFileName))
             	{
-            		// TODO: Verify contents for WARN and ERROR text
-                    Mail aMail = new Mail("betatest95@gmail.com", "e567dg9hv4bnGdgfh456");
+            		aReader=new BufferedReader(new InputStreamReader(new FileInputStream(aFileName)));
 
-                    String[] toArr = {"betatest95@yandex.com"};
-                    aMail.setFrom("betatest95@gmail.com");
-                    aMail.setTo(toArr);
-                    aMail.setSubject("Log file for EGE v. "+getPackageManager().getPackageInfo(getPackageName(), 0).versionName);
-                    aMail.setBody("This mail contains logs. Please check.");
-                    aMail.addAttachment(aFileName);
-                    aMail.send();
+
+
+            		boolean good=false;
+
+            		do
+            		{
+            			String aLine=aReader.readLine();
+
+            			if (aLine==null)
+            			{
+            				break;
+            			}
+
+            			if (
+            				aLine.contains("WARN")
+            				||
+            				aLine.contains("ERROR")
+            			   )
+            			{
+            				good=true;
+            				break;
+            			}
+            		} while(true);
+
+            		aReader.close();
+            		aReader=null;
+
+
+
+            		if (good)
+            		{
+            			Mail aMail = new Mail("betatest95@gmail.com", "e567dg9hv4bnGdgfh456");
+
+                        String[] toArr = {"betatest95@yandex.com"};
+                        aMail.setFrom("betatest95@gmail.com");
+                        aMail.setTo(toArr);
+                        aMail.setSubject("Log file for EGE v. "+getPackageManager().getPackageInfo(getPackageName(), 0).versionName);
+                        aMail.setBody("This mail contains logs. Please check.");
+                        aMail.addAttachment(aFileName);
+                        aMail.send();
+            		}
 
                     mLastSendedFile=aFileName;
             	}
@@ -704,6 +742,18 @@ public class CalculateActivity extends FragmentActivity
             catch (Exception e)
             {
                 Log.i(TAG, "Problem while sending log file", e);
+            }
+
+            if (aReader!=null)
+            {
+            	try
+                {
+	                aReader.close();
+                }
+                catch (IOException e)
+                {
+                	Log.i(TAG, "Problem while sending log file", e);
+                }
             }
 
             return null;
