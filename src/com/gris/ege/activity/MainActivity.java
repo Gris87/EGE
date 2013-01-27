@@ -59,8 +59,6 @@ public class MainActivity extends Activity implements OnClickListener
         	Log.v(TAG, "Application started");
         }
 
-        Log.e(TAG, "GOOD");
-
         // Translate lessons
         new LessonsParser().parse(this);
 
