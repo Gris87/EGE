@@ -35,11 +35,11 @@ public class TouchViewPager extends ViewPager
 
         if (aPage!=null && aPage.isScaled())
         {
-            this.requestDisallowInterceptTouchEvent(true);
+            requestDisallowInterceptTouchEvent(true);
         }
         else
         {
-            this.requestDisallowInterceptTouchEvent(false);
+            requestDisallowInterceptTouchEvent(false);
         }
 
         return super.onInterceptTouchEvent(event);

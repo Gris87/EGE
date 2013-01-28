@@ -232,7 +232,7 @@ public class TaskFragment extends Fragment implements OnClickListener
 
         if (getCalculateActivity().getMode()==CalculateActivity.MODE_VERIFICATION)
         {
-            getCalculateActivity().getHandler().sendEmptyMessage(CalculateActivity.VERIFY_PAGE);
+            getCalculateActivity().getHandler().sendEmptyMessage(CalculateActivity.NEXT_AND_VERIFY);
         }
     }
 

@@ -59,9 +59,10 @@ public class CalculateActivity extends FragmentActivity
     private static final String TIME_FOR_EXAM     = "timeForExam";
     private static final String VERIFICATION_PAGE = "verificationPage";
 
-    private static final int TIMER_TICK  = 1;
-    private static final int SELECT_PAGE = 2;
-    public  static final int VERIFY_PAGE = 3;
+    private static final int TIMER_TICK      = 1;
+    private static final int SELECT_PAGE     = 2;
+    public  static final int NEXT_AND_VERIFY = 3;
+    public  static final int VERIFY_PAGE     = 4;
 
     private static final int TIMER_INTERVAL=1000;
 
@@ -109,6 +110,9 @@ public class CalculateActivity extends FragmentActivity
                 break;
                 case SELECT_PAGE:
                     mTasksPager.setCurrentItem(msg.arg1, false);
+                break;
+                case NEXT_AND_VERIFY:
+                    onNextAndVerify();
                 break;
                 case VERIFY_PAGE:
                     onVerifyPage();
@@ -410,19 +414,35 @@ public class CalculateActivity extends FragmentActivity
         }
     }
 
+    public void onNextAndVerify()
+    {
+        createProgressDialog();
+
+        ++mVerificationPage;
+        mTasksPager.setCurrentItem(mVerificationPage, false);
+
+        mHandler.sendEmptyMessage(VERIFY_PAGE);
+    }
+
     public void onVerifyPage()
     {
         if (mVerificationPage<mTasksAdapter.getCount())
         {
-            createProgressDialog();
-
-            mTasksPager.setCurrentItem(mVerificationPage, false);
             TaskFragment aFragment=(TaskFragment)mTasksAdapter.getFragment(mVerificationPage);
 
-            aFragment.checkAnswer();
-            aFragment.getTask().setAnswer(aFragment.getAnswer());
+            Log.e("BLYA", String.valueOf(aFragment)+" ; "+String.valueOf(aFragment.getCalculateActivity()));
 
-            ++mVerificationPage;
+            if (aFragment!=null && aFragment.getCalculateActivity()!=null)
+            {
+                aFragment.checkAnswer();
+                aFragment.getTask().setAnswer(aFragment.getAnswer());
+            }
+            else
+            {
+                --mVerificationPage;
+                mTasksPager.setCurrentItem(mVerificationPage, false);
+                mHandler.sendEmptyMessage(NEXT_AND_VERIFY);
+            }
         }
         else
         {
@@ -538,14 +558,11 @@ public class CalculateActivity extends FragmentActivity
 
         Log.d(TAG, "Complete test for "+String.valueOf(mTimeForExam)+" ms");
 
-        if (mTimeForExam>60000) //60*1000
+        if (mTimeForExam>20000) //20*1000
         {
             mMode=MODE_VERIFICATION;
-
-            mVerificationPage=0;
-            mTasksPager.setCurrentItem(mVerificationPage, false);
-
-            mHandler.sendEmptyMessage(VERIFY_PAGE);
+            mVerificationPage=-1;
+            mHandler.sendEmptyMessage(NEXT_AND_VERIFY);
         }
         else
         {
