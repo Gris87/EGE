@@ -252,7 +252,7 @@ public class CalculateActivity extends FragmentActivity
             @Override
             public void onPageSelected(int aPosition)
             {
-                mTasksPager.setCurrentPage(mTasksAdapter.getFragment(aPosition));
+                mTasksPager.setCurrentPage(aPosition);
             }
 
             @Override
@@ -538,7 +538,7 @@ public class CalculateActivity extends FragmentActivity
 
         Log.d(TAG, "Complete test for "+String.valueOf(mTimeForExam)+" ms");
 
-        if (mTimeForExam>180000) //3*60*1000
+        if (mTimeForExam>60000) //60*1000
         {
             mMode=MODE_VERIFICATION;
 
