@@ -92,11 +92,11 @@ public class Log
 
 	            if (aException!=null)
 	            {
-	            	String aExceptionMsg=aException.getLocalizedMessage();
+	            	String aExceptionMsg=aException.getMessage();
 
 	            	if (aExceptionMsg!=null)
 	            	{
-	            		aPrinter.println(aPrefixText+aExceptionMsg);
+	            		aPrinter.println(aPrefixText+aException.getClass().getCanonicalName()+": "+aExceptionMsg);
 	            	}
 
 
