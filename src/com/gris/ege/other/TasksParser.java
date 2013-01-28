@@ -98,7 +98,7 @@ public class TasksParser
                     aTask.setId(res.size());
                 }
 
-                if (aTask.getAnswer().equals(""))
+                if (aTask.getAnswer().trim().equals(""))
                 {
                     Log.e(TAG, "Task with id "+String.valueOf(aTask.getId())+" doesn't have answer");
                 }

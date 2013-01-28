@@ -1,362 +1,362 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tasks>
-    <task id="0"    category="A1"  answer=""/>
-    <task id="1"    category="A2"  answer=""/>
-    <task id="2"    category="A3"  answer=""/>
-    <task id="3"    category="A4"  answer=""/>
-    <task id="4"    category="A5"  answer=""/>
-    <task id="5"    category="A6"  answer=""/>
-    <task id="6"    category="A7"  answer=""/>
-    <task id="7"    category="A8"  answer=""/>
-    <task id="8"    category="A9"  answer=""/>
-    <task id="9"    category="A10" answer=""/>
-    <task id="10"   category="A11" answer=""/>
-    <task id="11"   category="A12" answer=""/>
-    <task id="12"   category="A13" answer=""/>
-    <task id="13"   category="A14" answer=""/>
-    <task id="14"   category="A15" answer=""/>
-    <task id="15"   category="A16" answer=""/>
-    <task id="16"   category="A17" answer=""/>
-    <task id="17"   category="A18" answer=""/>
-    <task id="18"   category="A19" answer=""/>
-    <task id="19"   category="A20" answer=""/>
-    <task id="20"   category="A21" answer=""/>
-    <task id="21"   category="A22" answer=""/>
-    <task id="22"   category="A23" answer=""/>
-    <task id="23"   category="A24" answer=""/>
-    <task id="24"   category="A25" answer=""/>
-    <task id="25"   category="B1"  answer=""/>
-    <task id="26"   category="B2"  answer=""/>
-    <task id="27"   category="B3"  answer=""/>
-    <task id="28"   category="B4"  answer=""/>
-    <task id="29"   category="C1"  answer=""/>
-    <task id="30"   category="C2"  answer=""/>
-    <task id="31"   category="C3"  answer=""/>
-    <task id="32"   category="C4"  answer=""/>
-    <task id="33"   category="C5"  answer=""/>
-    <task id="34"   category="C6"  answer=""/>
+    <task id="0"    category="A1"  answer="2"/>
+    <task id="1"    category="A2"  answer="2"/>
+    <task id="2"    category="A3"  answer="4"/>
+    <task id="3"    category="A4"  answer="1"/>
+    <task id="4"    category="A5"  answer="1"/>
+    <task id="5"    category="A6"  answer="2"/>
+    <task id="6"    category="A7"  answer="3"/>
+    <task id="7"    category="A8"  answer="1"/>
+    <task id="8"    category="A9"  answer="4"/>
+    <task id="9"    category="A10" answer="1"/>
+    <task id="10"   category="A11" answer="3"/>
+    <task id="11"   category="A12" answer="4"/>
+    <task id="12"   category="A13" answer="2"/>
+    <task id="13"   category="A14" answer="4"/>
+    <task id="14"   category="A15" answer="1"/>
+    <task id="15"   category="A16" answer="3"/>
+    <task id="16"   category="A17" answer="3"/>
+    <task id="17"   category="A18" answer="2"/>
+    <task id="18"   category="A19" answer="1"/>
+    <task id="19"   category="A20" answer="3"/>
+    <task id="20"   category="A21" answer="3"/>
+    <task id="21"   category="A22" answer="4"/>
+    <task id="22"   category="A23" answer="3"/>
+    <task id="23"   category="A24" answer="4"/>
+    <task id="24"   category="A25" answer="2"/>
+    <task id="25"   category="B1"  answer="211"/>
+    <task id="26"   category="B2"  answer="211"/>
+    <task id="27"   category="B3"  answer="13"/>
+    <task id="28"   category="B4"  answer="42"/>
+    <task id="29"   category="C1"  answer="На участке от V0 до 3×V0 график p(V) - горизонтальный отрезок прямой, на участке от 3×V0 до 6×V0 - фрагмент гиперболы"/>
+    <task id="30"   category="C2"  answer="M ≈ 330 г"/>
+    <task id="31"   category="C3"  answer="S = 30 см^2"/>
+    <task id="32"   category="C4"  answer="R = 4 Ом"/>
+    <task id="33"   category="C5"  answer="C ≈ 0.016 мкФ"/>
+    <task id="34"   category="C6"  answer="V0 ≈ 1 см^3"/>
 
-    <task id="35"   category="A1"  answer=""/>
-    <task id="36"   category="A2"  answer=""/>
-    <task id="37"   category="A3"  answer=""/>
-    <task id="38"   category="A4"  answer=""/>
-    <task id="39"   category="A5"  answer=""/>
-    <task id="40"   category="A6"  answer=""/>
-    <task id="41"   category="A7"  answer=""/>
-    <task id="42"   category="A8"  answer=""/>
-    <task id="43"   category="A9"  answer=""/>
-    <task id="44"   category="A10" answer=""/>
-    <task id="45"   category="A11" answer=""/>
-    <task id="46"   category="A12" answer=""/>
-    <task id="47"   category="A13" answer=""/>
-    <task id="48"   category="A14" answer=""/>
-    <task id="49"   category="A15" answer=""/>
-    <task id="50"   category="A16" answer=""/>
-    <task id="51"   category="A17" answer=""/>
-    <task id="52"   category="A18" answer=""/>
-    <task id="53"   category="A19" answer=""/>
-    <task id="54"   category="A20" answer=""/>
-    <task id="55"   category="A21" answer=""/>
-    <task id="56"   category="A22" answer=""/>
-    <task id="57"   category="A23" answer=""/>
-    <task id="58"   category="A24" answer=""/>
-    <task id="59"   category="A25" answer=""/>
-    <task id="60"   category="B1"  answer=""/>
-    <task id="61"   category="B2"  answer=""/>
-    <task id="62"   category="B3"  answer=""/>
-    <task id="63"   category="B4"  answer=""/>
-    <task id="64"   category="C1"  answer=""/>
-    <task id="65"   category="C2"  answer=""/>
-    <task id="66"   category="C3"  answer=""/>
-    <task id="67"   category="C4"  answer=""/>
-    <task id="68"   category="C5"  answer=""/>
-    <task id="69"   category="C6"  answer=""/>
+    <task id="35"   category="A1"  answer="1"/>
+    <task id="36"   category="A2"  answer="3"/>
+    <task id="37"   category="A3"  answer="4"/>
+    <task id="38"   category="A4"  answer="1"/>
+    <task id="39"   category="A5"  answer="4"/>
+    <task id="40"   category="A6"  answer="3"/>
+    <task id="41"   category="A7"  answer="4"/>
+    <task id="42"   category="A8"  answer="4"/>
+    <task id="43"   category="A9"  answer="4"/>
+    <task id="44"   category="A10" answer="2"/>
+    <task id="45"   category="A11" answer="1"/>
+    <task id="46"   category="A12" answer="3"/>
+    <task id="47"   category="A13" answer="3"/>
+    <task id="48"   category="A14" answer="3"/>
+    <task id="49"   category="A15" answer="2"/>
+    <task id="50"   category="A16" answer="1"/>
+    <task id="51"   category="A17" answer="3"/>
+    <task id="52"   category="A18" answer="2"/>
+    <task id="53"   category="A19" answer="2"/>
+    <task id="54"   category="A20" answer="3"/>
+    <task id="55"   category="A21" answer="2"/>
+    <task id="56"   category="A22" answer="2"/>
+    <task id="57"   category="A23" answer="1"/>
+    <task id="58"   category="A24" answer="1"/>
+    <task id="59"   category="A25" answer="2"/>
+    <task id="60"   category="B1"  answer="332"/>
+    <task id="61"   category="B2"  answer="211"/>
+    <task id="62"   category="B3"  answer="21"/>
+    <task id="63"   category="B4"  answer="12"/>
+    <task id="64"   category="C1"  answer="Мощность, выделяемая на нагрузке - квадратичная функция силы тока. ЭДС батареи &#8496; = 2В"/>
+    <task id="65"   category="C2"  answer="H = 2 м"/>
+    <task id="66"   category="C3"  answer="m ≈ 33 г"/>
+    <task id="67"   category="C4"  answer="I0 ≈ 4.1 А"/>
+    <task id="68"   category="C5"  answer="v = 1 м/с"/>
+    <task id="69"   category="C6"  answer="v = 1×10^15 Гц"/>
 
-    <task id="70"   category="A1"  answer=""/>
-    <task id="71"   category="A2"  answer=""/>
-    <task id="72"   category="A3"  answer=""/>
-    <task id="73"   category="A4"  answer=""/>
-    <task id="74"   category="A5"  answer=""/>
-    <task id="75"   category="A6"  answer=""/>
-    <task id="76"   category="A7"  answer=""/>
-    <task id="77"   category="A8"  answer=""/>
-    <task id="78"   category="A9"  answer=""/>
-    <task id="79"   category="A10" answer=""/>
-    <task id="80"   category="A11" answer=""/>
-    <task id="81"   category="A12" answer=""/>
-    <task id="82"   category="A13" answer=""/>
-    <task id="83"   category="A14" answer=""/>
-    <task id="84"   category="A15" answer=""/>
-    <task id="85"   category="A16" answer=""/>
-    <task id="86"   category="A17" answer=""/>
-    <task id="87"   category="A18" answer=""/>
-    <task id="88"   category="A19" answer=""/>
-    <task id="89"   category="A20" answer=""/>
-    <task id="90"   category="A21" answer=""/>
-    <task id="91"   category="A22" answer=""/>
-    <task id="92"   category="A23" answer=""/>
-    <task id="93"   category="A24" answer=""/>
-    <task id="94"   category="A25" answer=""/>
-    <task id="95"   category="B1"  answer=""/>
-    <task id="96"   category="B2"  answer=""/>
-    <task id="97"   category="B3"  answer=""/>
-    <task id="98"   category="B4"  answer=""/>
-    <task id="99"   category="C1"  answer=""/>
-    <task id="100"  category="C2"  answer=""/>
-    <task id="101"  category="C3"  answer=""/>
-    <task id="102"  category="C4"  answer=""/>
-    <task id="103"  category="C5"  answer=""/>
-    <task id="104"  category="C6"  answer=""/>
+    <task id="70"   category="A1"  answer="1"/>
+    <task id="71"   category="A2"  answer="2"/>
+    <task id="72"   category="A3"  answer="3"/>
+    <task id="73"   category="A4"  answer="4"/>
+    <task id="74"   category="A5"  answer="3"/>
+    <task id="75"   category="A6"  answer="2"/>
+    <task id="76"   category="A7"  answer="3"/>
+    <task id="77"   category="A8"  answer="3"/>
+    <task id="78"   category="A9"  answer="4"/>
+    <task id="79"   category="A10" answer="1"/>
+    <task id="80"   category="A11" answer="4"/>
+    <task id="81"   category="A12" answer="3"/>
+    <task id="82"   category="A13" answer="1"/>
+    <task id="83"   category="A14" answer="1"/>
+    <task id="84"   category="A15" answer="2"/>
+    <task id="85"   category="A16" answer="4"/>
+    <task id="86"   category="A17" answer="1"/>
+    <task id="87"   category="A18" answer="3"/>
+    <task id="88"   category="A19" answer="3"/>
+    <task id="89"   category="A20" answer="3"/>
+    <task id="90"   category="A21" answer="1"/>
+    <task id="91"   category="A22" answer="2"/>
+    <task id="92"   category="A23" answer="4"/>
+    <task id="93"   category="A24" answer="4"/>
+    <task id="94"   category="A25" answer="1"/>
+    <task id="95"   category="B1"  answer="213"/>
+    <task id="96"   category="B2"  answer="131"/>
+    <task id="97"   category="B3"  answer="24"/>
+    <task id="98"   category="B4"  answer="12"/>
+    <task id="99"   category="C1"  answer="Чтобы вода закипела при 40 °C давление воздуха под колоколом необходимо снизить до 70 гПа"/>
+    <task id="100"  category="C2"  answer="t2/t1 = pi"/>
+    <task id="101"  category="C3"  answer="M ≈ 2 кг"/>
+    <task id="102"  category="C4"  answer="A = 60 мкДж"/>
+    <task id="103"  category="C5"  answer="Eк = 2×10^-15 Дж"/>
+    <task id="104"  category="C6"  answer="λ43 = 1,5×10^-6 м"/>
 
-    <task id="105"  category="A1"  answer=""/>
-    <task id="106"  category="A2"  answer=""/>
-    <task id="107"  category="A3"  answer=""/>
-    <task id="108"  category="A4"  answer=""/>
-    <task id="109"  category="A5"  answer=""/>
-    <task id="110"  category="A6"  answer=""/>
-    <task id="111"  category="A7"  answer=""/>
-    <task id="112"  category="A8"  answer=""/>
-    <task id="113"  category="A9"  answer=""/>
-    <task id="114"  category="A10" answer=""/>
-    <task id="115"  category="A11" answer=""/>
-    <task id="116"  category="A12" answer=""/>
-    <task id="117"  category="A13" answer=""/>
-    <task id="118"  category="A14" answer=""/>
-    <task id="119"  category="A15" answer=""/>
-    <task id="120"  category="A16" answer=""/>
-    <task id="121"  category="A17" answer=""/>
-    <task id="122"  category="A18" answer=""/>
-    <task id="123"  category="A19" answer=""/>
-    <task id="124"  category="A20" answer=""/>
-    <task id="125"  category="A21" answer=""/>
-    <task id="126"  category="A22" answer=""/>
-    <task id="127"  category="A23" answer=""/>
-    <task id="128"  category="A24" answer=""/>
-    <task id="129"  category="A25" answer=""/>
-    <task id="130"  category="B1"  answer=""/>
-    <task id="131"  category="B2"  answer=""/>
-    <task id="132"  category="B3"  answer=""/>
-    <task id="133"  category="B4"  answer=""/>
-    <task id="134"  category="C1"  answer=""/>
-    <task id="135"  category="C2"  answer=""/>
-    <task id="136"  category="C3"  answer=""/>
-    <task id="137"  category="C4"  answer=""/>
-    <task id="138"  category="C5"  answer=""/>
-    <task id="139"  category="C6"  answer=""/>
+    <task id="105"  category="A1"  answer="1"/>
+    <task id="106"  category="A2"  answer="1"/>
+    <task id="107"  category="A3"  answer="3"/>
+    <task id="108"  category="A4"  answer="1"/>
+    <task id="109"  category="A5"  answer="3"/>
+    <task id="110"  category="A6"  answer="4"/>
+    <task id="111"  category="A7"  answer="2"/>
+    <task id="112"  category="A8"  answer="4"/>
+    <task id="113"  category="A9"  answer="2"/>
+    <task id="114"  category="A10" answer="2"/>
+    <task id="115"  category="A11" answer="2"/>
+    <task id="116"  category="A12" answer="1"/>
+    <task id="117"  category="A13" answer="3"/>
+    <task id="118"  category="A14" answer="1"/>
+    <task id="119"  category="A15" answer="1"/>
+    <task id="120"  category="A16" answer="2"/>
+    <task id="121"  category="A17" answer="2"/>
+    <task id="122"  category="A18" answer="1"/>
+    <task id="123"  category="A19" answer="2"/>
+    <task id="124"  category="A20" answer="4"/>
+    <task id="125"  category="A21" answer="4"/>
+    <task id="126"  category="A22" answer="4"/>
+    <task id="127"  category="A23" answer="4"/>
+    <task id="128"  category="A24" answer="3"/>
+    <task id="129"  category="A25" answer="1"/>
+    <task id="130"  category="B1"  answer="112"/>
+    <task id="131"  category="B2"  answer="213"/>
+    <task id="132"  category="B3"  answer="31"/>
+    <task id="133"  category="B4"  answer="21"/>
+    <task id="134"  category="C1"  answer="Пружина сожмется, ее длина уменьшится"/>
+    <task id="135"  category="C2"  answer="≈ 0.76 кг"/>
+    <task id="136"  category="C3"  answer="≈ 0.63"/>
+    <task id="137"  category="C4"  answer="R1 = 10 Ом, R2 = 20 Ом"/>
+    <task id="138"  category="C5"  answer="10 м/с^2"/>
+    <task id="139"  category="C6"  answer="≈ 811 км/с"/>
 
-    <task id="140"  category="A1"  answer=""/>
-    <task id="141"  category="A2"  answer=""/>
-    <task id="142"  category="A3"  answer=""/>
-    <task id="143"  category="A4"  answer=""/>
-    <task id="144"  category="A5"  answer=""/>
-    <task id="145"  category="A6"  answer=""/>
-    <task id="146"  category="A7"  answer=""/>
-    <task id="147"  category="A8"  answer=""/>
-    <task id="148"  category="A9"  answer=""/>
-    <task id="149"  category="A10" answer=""/>
-    <task id="150"  category="A11" answer=""/>
-    <task id="151"  category="A12" answer=""/>
-    <task id="152"  category="A13" answer=""/>
-    <task id="153"  category="A14" answer=""/>
-    <task id="154"  category="A15" answer=""/>
-    <task id="155"  category="A16" answer=""/>
-    <task id="156"  category="A17" answer=""/>
-    <task id="157"  category="A18" answer=""/>
-    <task id="158"  category="A19" answer=""/>
-    <task id="159"  category="A20" answer=""/>
-    <task id="160"  category="A21" answer=""/>
-    <task id="161"  category="A22" answer=""/>
-    <task id="162"  category="A23" answer=""/>
-    <task id="163"  category="A24" answer=""/>
-    <task id="164"  category="A25" answer=""/>
-    <task id="165"  category="B1"  answer=""/>
-    <task id="166"  category="B2"  answer=""/>
-    <task id="167"  category="B3"  answer=""/>
-    <task id="168"  category="B4"  answer=""/>
-    <task id="169"  category="C1"  answer=""/>
-    <task id="170"  category="C2"  answer=""/>
-    <task id="171"  category="C3"  answer=""/>
-    <task id="172"  category="C4"  answer=""/>
-    <task id="173"  category="C5"  answer=""/>
-    <task id="174"  category="C6"  answer=""/>
+    <task id="140"  category="A1"  answer="1"/>
+    <task id="141"  category="A2"  answer="2"/>
+    <task id="142"  category="A3"  answer="4"/>
+    <task id="143"  category="A4"  answer="3"/>
+    <task id="144"  category="A5"  answer="2"/>
+    <task id="145"  category="A6"  answer="4"/>
+    <task id="146"  category="A7"  answer="4"/>
+    <task id="147"  category="A8"  answer="2"/>
+    <task id="148"  category="A9"  answer="3"/>
+    <task id="149"  category="A10" answer="4"/>
+    <task id="150"  category="A11" answer="4"/>
+    <task id="151"  category="A12" answer="1"/>
+    <task id="152"  category="A13" answer="3"/>
+    <task id="153"  category="A14" answer="4"/>
+    <task id="154"  category="A15" answer="1"/>
+    <task id="155"  category="A16" answer="2"/>
+    <task id="156"  category="A17" answer="3"/>
+    <task id="157"  category="A18" answer="1"/>
+    <task id="158"  category="A19" answer="2"/>
+    <task id="159"  category="A20" answer="4"/>
+    <task id="160"  category="A21" answer="2"/>
+    <task id="161"  category="A22" answer="1"/>
+    <task id="162"  category="A23" answer="3"/>
+    <task id="163"  category="A24" answer="1"/>
+    <task id="164"  category="A25" answer="3"/>
+    <task id="165"  category="B1"  answer="121"/>
+    <task id="166"  category="B2"  answer="311"/>
+    <task id="167"  category="B3"  answer="34"/>
+    <task id="168"  category="B4"  answer="23"/>
+    <task id="169"  category="C1"  answer="Во время передвижения движка реостата показания амперметра будут плавно увеличиваться, а вольтметр будет регистрировать напряжение на концах вторичной обмотки"/>
+    <task id="170"  category="C2"  answer="H/2"/>
+    <task id="171"  category="C3"  answer="≈ 92 кг"/>
+    <task id="172"  category="C4"  answer="500 кВ/м"/>
+    <task id="173"  category="C5"  answer="0.15 м"/>
+    <task id="174"  category="C6"  answer="≈ 200 нм"/>
 
-    <task id="175"  category="A1"  answer=""/>
-    <task id="176"  category="A2"  answer=""/>
-    <task id="177"  category="A3"  answer=""/>
-    <task id="178"  category="A4"  answer=""/>
-    <task id="179"  category="A5"  answer=""/>
-    <task id="180"  category="A6"  answer=""/>
-    <task id="181"  category="A7"  answer=""/>
-    <task id="182"  category="A8"  answer=""/>
-    <task id="183"  category="A9"  answer=""/>
-    <task id="184"  category="A10" answer=""/>
-    <task id="185"  category="A11" answer=""/>
-    <task id="186"  category="A12" answer=""/>
-    <task id="187"  category="A13" answer=""/>
-    <task id="188"  category="A14" answer=""/>
-    <task id="189"  category="A15" answer=""/>
-    <task id="190"  category="A16" answer=""/>
-    <task id="191"  category="A17" answer=""/>
-    <task id="192"  category="A18" answer=""/>
-    <task id="193"  category="A19" answer=""/>
-    <task id="194"  category="A20" answer=""/>
-    <task id="195"  category="A21" answer=""/>
-    <task id="196"  category="A22" answer=""/>
-    <task id="197"  category="A23" answer=""/>
-    <task id="198"  category="A24" answer=""/>
-    <task id="199"  category="A25" answer=""/>
-    <task id="200"  category="B1"  answer=""/>
-    <task id="201"  category="B2"  answer=""/>
-    <task id="202"  category="B3"  answer=""/>
-    <task id="203"  category="B4"  answer=""/>
-    <task id="204"  category="C1"  answer=""/>
-    <task id="205"  category="C2"  answer=""/>
-    <task id="206"  category="C3"  answer=""/>
-    <task id="207"  category="C4"  answer=""/>
-    <task id="208"  category="C5"  answer=""/>
-    <task id="209"  category="C6"  answer=""/>
+    <task id="175"  category="A1"  answer="4"/>
+    <task id="176"  category="A2"  answer="3"/>
+    <task id="177"  category="A3"  answer="3"/>
+    <task id="178"  category="A4"  answer="3"/>
+    <task id="179"  category="A5"  answer="2"/>
+    <task id="180"  category="A6"  answer="1"/>
+    <task id="181"  category="A7"  answer="1"/>
+    <task id="182"  category="A8"  answer="1"/>
+    <task id="183"  category="A9"  answer="2"/>
+    <task id="184"  category="A10" answer="2"/>
+    <task id="185"  category="A11" answer="4"/>
+    <task id="186"  category="A12" answer="3"/>
+    <task id="187"  category="A13" answer="4"/>
+    <task id="188"  category="A14" answer="1"/>
+    <task id="189"  category="A15" answer="3"/>
+    <task id="190"  category="A16" answer="4"/>
+    <task id="191"  category="A17" answer="4"/>
+    <task id="192"  category="A18" answer="4"/>
+    <task id="193"  category="A19" answer="4"/>
+    <task id="194"  category="A20" answer="2"/>
+    <task id="195"  category="A21" answer="2"/>
+    <task id="196"  category="A22" answer="2"/>
+    <task id="197"  category="A23" answer="1"/>
+    <task id="198"  category="A24" answer="1"/>
+    <task id="199"  category="A25" answer="3"/>
+    <task id="200"  category="B1"  answer="121"/>
+    <task id="201"  category="B2"  answer="121"/>
+    <task id="202"  category="B3"  answer="21"/>
+    <task id="203"  category="B4"  answer="23"/>
+    <task id="204"  category="C1"  answer="Рамка повернется по часовой стрелке и встанет перпендикулярно оси магнита так, что контакт '+' окажется внизу"/>
+    <task id="205"  category="C2"  answer="0.1 кг"/>
+    <task id="206"  category="C3"  answer="0.3 м"/>
+    <task id="207"  category="C4"  answer="T1 = T/√2"/>
+    <task id="208"  category="C5"  answer="≈ 4 А"/>
+    <task id="209"  category="C6"  answer="≈ 3×10^6 м/с"/>
 
-    <task id="210"  category="A1"  answer=""/>
-    <task id="211"  category="A2"  answer=""/>
-    <task id="212"  category="A3"  answer=""/>
-    <task id="213"  category="A4"  answer=""/>
-    <task id="214"  category="A5"  answer=""/>
-    <task id="215"  category="A6"  answer=""/>
-    <task id="216"  category="A7"  answer=""/>
-    <task id="217"  category="A8"  answer=""/>
-    <task id="218"  category="A9"  answer=""/>
-    <task id="219"  category="A10" answer=""/>
-    <task id="220"  category="A11" answer=""/>
-    <task id="221"  category="A12" answer=""/>
-    <task id="222"  category="A13" answer=""/>
-    <task id="223"  category="A14" answer=""/>
-    <task id="224"  category="A15" answer=""/>
-    <task id="225"  category="A16" answer=""/>
-    <task id="226"  category="A17" answer=""/>
-    <task id="227"  category="A18" answer=""/>
-    <task id="228"  category="A19" answer=""/>
-    <task id="229"  category="A20" answer=""/>
-    <task id="230"  category="A21" answer=""/>
-    <task id="231"  category="A22" answer=""/>
-    <task id="232"  category="A23" answer=""/>
-    <task id="233"  category="A24" answer=""/>
-    <task id="234"  category="A25" answer=""/>
-    <task id="235"  category="B1"  answer=""/>
-    <task id="236"  category="B2"  answer=""/>
-    <task id="237"  category="B3"  answer=""/>
-    <task id="238"  category="B4"  answer=""/>
-    <task id="239"  category="C1"  answer=""/>
-    <task id="240"  category="C2"  answer=""/>
-    <task id="241"  category="C3"  answer=""/>
-    <task id="242"  category="C4"  answer=""/>
-    <task id="243"  category="C5"  answer=""/>
-    <task id="244"  category="C6"  answer=""/>
+    <task id="210"  category="A1"  answer="4"/>
+    <task id="211"  category="A2"  answer="1"/>
+    <task id="212"  category="A3"  answer="1"/>
+    <task id="213"  category="A4"  answer="3"/>
+    <task id="214"  category="A5"  answer="1"/>
+    <task id="215"  category="A6"  answer="4"/>
+    <task id="216"  category="A7"  answer="2"/>
+    <task id="217"  category="A8"  answer="1"/>
+    <task id="218"  category="A9"  answer="2"/>
+    <task id="219"  category="A10" answer="3"/>
+    <task id="220"  category="A11" answer="3"/>
+    <task id="221"  category="A12" answer="3"/>
+    <task id="222"  category="A13" answer="2"/>
+    <task id="223"  category="A14" answer="3"/>
+    <task id="224"  category="A15" answer="1"/>
+    <task id="225"  category="A16" answer="2"/>
+    <task id="226"  category="A17" answer="4"/>
+    <task id="227"  category="A18" answer="4"/>
+    <task id="228"  category="A19" answer="4"/>
+    <task id="229"  category="A20" answer="3"/>
+    <task id="230"  category="A21" answer="2"/>
+    <task id="231"  category="A22" answer="4"/>
+    <task id="232"  category="A23" answer="4"/>
+    <task id="233"  category="A24" answer="1"/>
+    <task id="234"  category="A25" answer="2"/>
+    <task id="235"  category="B1"  answer="121"/>
+    <task id="236"  category="B2"  answer="222"/>
+    <task id="237"  category="B3"  answer="41"/>
+    <task id="238"  category="B4"  answer="12"/>
+    <task id="239"  category="C1"  answer="Переход газа из состояния 1 в состояние 3 все время сопровождается увеличением его объема"/>
+    <task id="240"  category="C2"  answer="20 м/с"/>
+    <task id="241"  category="C3"  answer="≈ 0.5 м"/>
+    <task id="242"  category="C4"  answer="Вольтметр дает неверные показания"/>
+    <task id="243"  category="C5"  answer="4.0 мА"/>
+    <task id="244"  category="C6"  answer="≈ 4.3×10^-7 м"/>
 
-    <task id="245"  category="A1"  answer=""/>
-    <task id="246"  category="A2"  answer=""/>
-    <task id="247"  category="A3"  answer=""/>
-    <task id="248"  category="A4"  answer=""/>
-    <task id="249"  category="A5"  answer=""/>
-    <task id="250"  category="A6"  answer=""/>
-    <task id="251"  category="A7"  answer=""/>
-    <task id="252"  category="A8"  answer=""/>
-    <task id="253"  category="A9"  answer=""/>
-    <task id="254"  category="A10" answer=""/>
-    <task id="255"  category="A11" answer=""/>
-    <task id="256"  category="A12" answer=""/>
-    <task id="257"  category="A13" answer=""/>
-    <task id="258"  category="A14" answer=""/>
-    <task id="259"  category="A15" answer=""/>
-    <task id="260"  category="A16" answer=""/>
-    <task id="261"  category="A17" answer=""/>
-    <task id="262"  category="A18" answer=""/>
-    <task id="263"  category="A19" answer=""/>
-    <task id="264"  category="A20" answer=""/>
-    <task id="265"  category="A21" answer=""/>
-    <task id="266"  category="A22" answer=""/>
-    <task id="267"  category="A23" answer=""/>
-    <task id="268"  category="A24" answer=""/>
-    <task id="269"  category="A25" answer=""/>
-    <task id="270"  category="B1"  answer=""/>
-    <task id="271"  category="B2"  answer=""/>
-    <task id="272"  category="B3"  answer=""/>
-    <task id="273"  category="B4"  answer=""/>
-    <task id="274"  category="C1"  answer=""/>
-    <task id="275"  category="C2"  answer=""/>
-    <task id="276"  category="C3"  answer=""/>
-    <task id="277"  category="C4"  answer=""/>
-    <task id="278"  category="C5"  answer=""/>
-    <task id="279"  category="C6"  answer=""/>
+    <task id="245"  category="A1"  answer="2"/>
+    <task id="246"  category="A2"  answer="1"/>
+    <task id="247"  category="A3"  answer="2"/>
+    <task id="248"  category="A4"  answer="3"/>
+    <task id="249"  category="A5"  answer="2"/>
+    <task id="250"  category="A6"  answer="2"/>
+    <task id="251"  category="A7"  answer="3"/>
+    <task id="252"  category="A8"  answer="4"/>
+    <task id="253"  category="A9"  answer="2"/>
+    <task id="254"  category="A10" answer="4"/>
+    <task id="255"  category="A11" answer="1"/>
+    <task id="256"  category="A12" answer="3"/>
+    <task id="257"  category="A13" answer="4"/>
+    <task id="258"  category="A14" answer="4"/>
+    <task id="259"  category="A15" answer="1"/>
+    <task id="260"  category="A16" answer="2"/>
+    <task id="261"  category="A17" answer="1"/>
+    <task id="262"  category="A18" answer="3"/>
+    <task id="263"  category="A19" answer="3"/>
+    <task id="264"  category="A20" answer="2"/>
+    <task id="265"  category="A21" answer="3"/>
+    <task id="266"  category="A22" answer="4"/>
+    <task id="267"  category="A23" answer="1"/>
+    <task id="268"  category="A24" answer="1"/>
+    <task id="269"  category="A25" answer="1"/>
+    <task id="270"  category="B1"  answer="321"/>
+    <task id="271"  category="B2"  answer="112"/>
+    <task id="272"  category="B3"  answer="31"/>
+    <task id="273"  category="B4"  answer="13"/>
+    <task id="274"  category="C1"  answer="При температуре кипения уровень воды в трубке и в тазике один и тот же"/>
+    <task id="275"  category="C2"  answer="≈ 0.3 м"/>
+    <task id="276"  category="C3"  answer="≈ -5 °C"/>
+    <task id="277"  category="C4"  answer="30 м/с"/>
+    <task id="278"  category="C5"  answer="0.25 Тл"/>
+    <task id="279"  category="C6"  answer="≈ 39 мин"/>
 
-    <task id="280"  category="A1"  answer=""/>
-    <task id="281"  category="A2"  answer=""/>
-    <task id="282"  category="A3"  answer=""/>
-    <task id="283"  category="A4"  answer=""/>
-    <task id="284"  category="A5"  answer=""/>
-    <task id="285"  category="A6"  answer=""/>
-    <task id="286"  category="A7"  answer=""/>
-    <task id="287"  category="A8"  answer=""/>
-    <task id="288"  category="A9"  answer=""/>
-    <task id="289"  category="A10" answer=""/>
-    <task id="290"  category="A11" answer=""/>
-    <task id="291"  category="A12" answer=""/>
-    <task id="292"  category="A13" answer=""/>
-    <task id="293"  category="A14" answer=""/>
-    <task id="294"  category="A15" answer=""/>
-    <task id="295"  category="A16" answer=""/>
-    <task id="296"  category="A17" answer=""/>
-    <task id="297"  category="A18" answer=""/>
-    <task id="298"  category="A19" answer=""/>
-    <task id="299"  category="A20" answer=""/>
-    <task id="300"  category="A21" answer=""/>
-    <task id="301"  category="A22" answer=""/>
-    <task id="302"  category="A23" answer=""/>
-    <task id="303"  category="A24" answer=""/>
-    <task id="304"  category="A25" answer=""/>
-    <task id="305"  category="B1"  answer=""/>
-    <task id="306"  category="B2"  answer=""/>
-    <task id="307"  category="B3"  answer=""/>
-    <task id="308"  category="B4"  answer=""/>
-    <task id="309"  category="C1"  answer=""/>
-    <task id="310"  category="C2"  answer=""/>
-    <task id="311"  category="C3"  answer=""/>
-    <task id="312"  category="C4"  answer=""/>
-    <task id="313"  category="C5"  answer=""/>
-    <task id="314"  category="C6"  answer=""/>
+    <task id="280"  category="A1"  answer="1"/>
+    <task id="281"  category="A2"  answer="1"/>
+    <task id="282"  category="A3"  answer="3"/>
+    <task id="283"  category="A4"  answer="2"/>
+    <task id="284"  category="A5"  answer="3"/>
+    <task id="285"  category="A6"  answer="4"/>
+    <task id="286"  category="A7"  answer="4"/>
+    <task id="287"  category="A8"  answer="4"/>
+    <task id="288"  category="A9"  answer="3"/>
+    <task id="289"  category="A10" answer="4"/>
+    <task id="290"  category="A11" answer="2"/>
+    <task id="291"  category="A12" answer="3"/>
+    <task id="292"  category="A13" answer="3"/>
+    <task id="293"  category="A14" answer="1"/>
+    <task id="294"  category="A15" answer="4"/>
+    <task id="295"  category="A16" answer="4"/>
+    <task id="296"  category="A17" answer="3"/>
+    <task id="297"  category="A18" answer="2"/>
+    <task id="298"  category="A19" answer="1"/>
+    <task id="299"  category="A20" answer="2"/>
+    <task id="300"  category="A21" answer="4"/>
+    <task id="301"  category="A22" answer="1"/>
+    <task id="302"  category="A23" answer="3"/>
+    <task id="303"  category="A24" answer="2"/>
+    <task id="304"  category="A25" answer="3"/>
+    <task id="305"  category="B1"  answer="121"/>
+    <task id="306"  category="B2"  answer="111"/>
+    <task id="307"  category="B3"  answer="21"/>
+    <task id="308"  category="B4"  answer="43"/>
+    <task id="309"  category="C1"  answer="Теплый насыщенный водяной пар внутри банки, соприкасаясь с более холодной стенкой банки, частично конденсируется - выпадает роса"/>
+    <task id="310"  category="C2"  answer="0.8 с"/>
+    <task id="311"  category="C3"  answer="≈ 0.5"/>
+    <task id="312"  category="C4"  answer="1 мм"/>
+    <task id="313"  category="C5"  answer="B > (2×m×g) / (3×a×I)"/>
+    <task id="314"  category="C6"  answer="≈ 1.9 эВ"/>
 
-    <task id="315"  category="A1"  answer=""/>
-    <task id="316"  category="A2"  answer=""/>
-    <task id="317"  category="A3"  answer=""/>
-    <task id="318"  category="A4"  answer=""/>
-    <task id="319"  category="A5"  answer=""/>
-    <task id="320"  category="A6"  answer=""/>
-    <task id="321"  category="A7"  answer=""/>
-    <task id="322"  category="A8"  answer=""/>
-    <task id="323"  category="A9"  answer=""/>
-    <task id="324"  category="A10" answer=""/>
-    <task id="325"  category="A11" answer=""/>
-    <task id="326"  category="A12" answer=""/>
-    <task id="327"  category="A13" answer=""/>
-    <task id="328"  category="A14" answer=""/>
-    <task id="329"  category="A15" answer=""/>
-    <task id="330"  category="A16" answer=""/>
-    <task id="331"  category="A17" answer=""/>
-    <task id="332"  category="A18" answer=""/>
-    <task id="333"  category="A19" answer=""/>
-    <task id="334"  category="A20" answer=""/>
-    <task id="335"  category="A21" answer=""/>
-    <task id="336"  category="A22" answer=""/>
-    <task id="337"  category="A23" answer=""/>
-    <task id="338"  category="A24" answer=""/>
-    <task id="339"  category="A25" answer=""/>
-    <task id="340"  category="B1"  answer=""/>
-    <task id="341"  category="B2"  answer=""/>
-    <task id="342"  category="B3"  answer=""/>
-    <task id="343"  category="B4"  answer=""/>
-    <task id="344"  category="C1"  answer=""/>
-    <task id="345"  category="C2"  answer=""/>
-    <task id="346"  category="C3"  answer=""/>
-    <task id="347"  category="C4"  answer=""/>
-    <task id="348"  category="C5"  answer=""/>
-    <task id="349"  category="C6"  answer=""/>
+    <task id="315"  category="A1"  answer="3"/>
+    <task id="316"  category="A2"  answer="2"/>
+    <task id="317"  category="A3"  answer="2"/>
+    <task id="318"  category="A4"  answer="1"/>
+    <task id="319"  category="A5"  answer="3"/>
+    <task id="320"  category="A6"  answer="2"/>
+    <task id="321"  category="A7"  answer="3"/>
+    <task id="322"  category="A8"  answer="1"/>
+    <task id="323"  category="A9"  answer="4"/>
+    <task id="324"  category="A10" answer="2"/>
+    <task id="325"  category="A11" answer="4"/>
+    <task id="326"  category="A12" answer="3"/>
+    <task id="327"  category="A13" answer="4"/>
+    <task id="328"  category="A14" answer="4"/>
+    <task id="329"  category="A15" answer="3"/>
+    <task id="330"  category="A16" answer="3"/>
+    <task id="331"  category="A17" answer="4"/>
+    <task id="332"  category="A18" answer="4"/>
+    <task id="333"  category="A19" answer="1"/>
+    <task id="334"  category="A20" answer="3"/>
+    <task id="335"  category="A21" answer="2"/>
+    <task id="336"  category="A22" answer="2"/>
+    <task id="337"  category="A23" answer="4"/>
+    <task id="338"  category="A24" answer="1"/>
+    <task id="339"  category="A25" answer="3"/>
+    <task id="340"  category="B1"  answer="123"/>
+    <task id="341"  category="B2"  answer="123"/>
+    <task id="342"  category="B3"  answer="43"/>
+    <task id="343"  category="B4"  answer="32"/>
+    <task id="344"  category="C1"  answer="Трубочка притянется к шару, и нить подвеса станет наклонной"/>
+    <task id="345"  category="C2"  answer="3"/>
+    <task id="346"  category="C3"  answer="≈ 700 Дж"/>
+    <task id="347"  category="C4"  answer="4.5 Вт"/>
+    <task id="348"  category="C5"  answer="≈ 1.1 Тл/с"/>
+    <task id="349"  category="C6"  answer="1.46×10^6 м/с"/>
 </tasks>
