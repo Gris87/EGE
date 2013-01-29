@@ -2,6 +2,7 @@ package com.gris.ege.activity;
 
 import com.gris.ege.R;
 import com.gris.ege.db.ResultsOpenHelper;
+import com.gris.ege.other.ExceptionHandler;
 import com.gris.ege.other.GlobalData;
 import com.gris.ege.other.LessonsParser;
 import com.gris.ege.other.Log;
@@ -55,6 +56,8 @@ public class MainActivity extends Activity implements OnClickListener
 
         if (savedInstanceState==null)
         {
+            ExceptionHandler.init();
+
         	Log.reset();
         	Log.v(TAG, "Application started");
         }

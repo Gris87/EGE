@@ -31,6 +31,52 @@ public class Log
 		mFileName="";
 	}
 
+	private static void writeException(PrintWriter aPrinter, String aPrefixText, String aCausedText, Throwable aException)
+	{
+	    if (aException!=null)
+        {
+            String aDescription=aPrefixText+aCausedText+aException.getClass().getCanonicalName();
+            String aExceptionMsg=aException.getMessage();
+
+            if (aExceptionMsg!=null)
+            {
+                aDescription=aDescription+": "+aExceptionMsg;
+            }
+
+            aPrinter.println(aDescription);
+
+
+
+            StackTraceElement[] aStack=aException.getStackTrace();
+
+            for (int i=0; i<aStack.length; ++i)
+            {
+                String aStackStr="\tat "+aStack[i].getClassName()+"."+aStack[i].getMethodName()+"(";
+                int aLineNumber=aStack[i].getLineNumber();
+
+                if (aLineNumber==-2)
+                {
+                    aStackStr=aStackStr+"Native Method";
+                }
+                else
+                if (aLineNumber<1)
+                {
+                    aStackStr=aStackStr+"Unknown";
+                }
+                else
+                {
+                    aStackStr=aStackStr+aStack[i].getFileName()+":"+String.valueOf(aLineNumber);
+                }
+
+                aStackStr=aStackStr+")";
+
+                aPrinter.println(aPrefixText+aStackStr);
+            }
+
+            writeException(aPrinter, aPrefixText, "Caused by: ", aException.getCause());
+        }
+	}
+
 	private static void writeToFile(String aLevel, String aTag, String aMessage, Throwable aException)
 	{
 		if (OUTPUT_TO_FILE)
@@ -90,43 +136,7 @@ public class Log
 
 
 
-	            if (aException!=null)
-	            {
-	            	String aExceptionMsg=aException.getMessage();
-
-	            	if (aExceptionMsg!=null)
-	            	{
-	            		aPrinter.println(aPrefixText+aException.getClass().getCanonicalName()+": "+aExceptionMsg);
-	            	}
-
-
-
-	            	StackTraceElement[] aStack=aException.getStackTrace();
-
-	            	for (int i=0; i<aStack.length; ++i)
-	            	{
-	            		String aStackStr="\tat "+aStack[i].getClassName()+"."+aStack[i].getMethodName()+"(";
-	            		int aLineNumber=aStack[i].getLineNumber();
-
-	            		if (aLineNumber==-2)
-	            		{
-	            			aStackStr=aStackStr+"Native Method";
-	            		}
-	            		else
-	            		if (aLineNumber<1)
-	            		{
-	            			aStackStr=aStackStr+"Unknown";
-	            		}
-	            		else
-	            		{
-	            			aStackStr=aStackStr+aStack[i].getFileName()+":"+String.valueOf(aLineNumber);
-	            		}
-
-	            		aStackStr=aStackStr+")";
-
-	            		aPrinter.println(aPrefixText+aStackStr);
-	            	}
-	            }
+	            writeException(aPrinter, aPrefixText, "", aException);
 
 
 
