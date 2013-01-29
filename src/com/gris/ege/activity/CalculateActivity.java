@@ -85,7 +85,7 @@ public class CalculateActivity extends FragmentActivity
     private TouchViewPager   mTasksPager;
     private TasksPageAdapter mTasksAdapter;
 
-    private ProgressDialog   mProgressDialog=null;
+    private static ProgressDialog mProgressDialog;
 
     private long             mActivityStart=0;
 
@@ -294,6 +294,14 @@ public class CalculateActivity extends FragmentActivity
         }
 
         super.onResume();
+    }
+
+    @Override
+    protected void onDestroy()
+    {
+    	removeProgressDialog();
+
+        super.onDestroy();
     }
 
     @Override
@@ -720,7 +728,7 @@ public class CalculateActivity extends FragmentActivity
             	synchronized (mPreferenceMutex)
             	{
             		SharedPreferences aSettings = getSharedPreferences(GlobalData.PREFS_NAME, 0);
-            		aLastSendedFile=aSettings.getString(GlobalData.OPTION_LAST_SENDED_LOG, "");
+            		aLastSendedFile             = aSettings.getString(GlobalData.OPTION_LAST_SENDED_LOG, "");
             	}
 
             	int aLogIndex=Log.getCurrentIndex();
