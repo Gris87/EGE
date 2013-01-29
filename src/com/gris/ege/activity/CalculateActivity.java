@@ -440,8 +440,6 @@ public class CalculateActivity extends FragmentActivity
         {
             TaskFragment aFragment=(TaskFragment)mTasksAdapter.getFragment(mVerificationPage);
 
-            Log.e("BLYA", String.valueOf(aFragment)+" ; "+String.valueOf(aFragment.getCalculateActivity()));
-
             if (aFragment!=null && aFragment.getCalculateActivity()!=null)
             {
                 aFragment.checkAnswer();
