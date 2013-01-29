@@ -74,6 +74,7 @@ public class TaskFragment extends Fragment implements OnClickListener
         }
         else
         {
+            Log.w(TAG, "There is no arguments");
             mTask=GlobalData.tasks.get(0);
         }
     }

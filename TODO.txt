@@ -1,2 +1,2 @@
-Crash on checking and rotate
+AndroidRuntime
 Done button in keyboard
