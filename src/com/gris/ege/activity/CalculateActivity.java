@@ -73,6 +73,8 @@ public class CalculateActivity extends FragmentActivity
 
 
 
+    private Object           mPreferenceMutex;
+
     private TextView         mTimeLeftTextView;
 
     private RelativeLayout   mResultsLayout;
@@ -93,8 +95,6 @@ public class CalculateActivity extends FragmentActivity
 
     private long             mTimeForExam=0;
     private int              mVerificationPage=0;
-
-    private static String    mLastSendedFile="";
 
 
 
@@ -130,6 +130,8 @@ public class CalculateActivity extends FragmentActivity
         setContentView(R.layout.activity_calculate);
 
         // Initialize variables
+        mPreferenceMutex=new Object();
+
         ResultsOpenHelper aResultsHelper=new ResultsOpenHelper(this);
 
         if (savedInstanceState==null)
@@ -592,8 +594,13 @@ public class CalculateActivity extends FragmentActivity
 
     public void downloadXML()
     {
-        SharedPreferences aSettings = getSharedPreferences(GlobalData.PREFS_NAME, 0);
-        String aUpdateTime          = aSettings.getString(GlobalData.OPTION_UPDATE_TIME+"_"+GlobalData.selectedLesson.getId(), "never");
+    	String aUpdateTime="";
+
+    	synchronized (mPreferenceMutex)
+        {
+    		SharedPreferences aSettings = getSharedPreferences(GlobalData.PREFS_NAME, 0);
+            aUpdateTime                 = aSettings.getString(GlobalData.OPTION_UPDATE_TIME+"_"+GlobalData.selectedLesson.getId(), "never");
+        }
 
         String aCurTimeStr=new SimpleDateFormat("DD.MM.yyyy", new Locale("en")).format(new Date());
 
@@ -681,10 +688,13 @@ public class CalculateActivity extends FragmentActivity
 
                     String aCurTimeStr=new SimpleDateFormat("DD.MM.yyyy", new Locale("en")).format(new Date());
 
-                    SharedPreferences aSettings = getSharedPreferences(GlobalData.PREFS_NAME, 0);
-                    SharedPreferences.Editor aEditor = aSettings.edit();
-                    aEditor.putString(GlobalData.OPTION_UPDATE_TIME+"_"+GlobalData.selectedLesson.getId(), aCurTimeStr);
-                    aEditor.commit();
+                    synchronized (mPreferenceMutex)
+                    {
+                    	SharedPreferences aSettings = getSharedPreferences(GlobalData.PREFS_NAME, 0);
+                        SharedPreferences.Editor aEditor = aSettings.edit();
+                        aEditor.putString(GlobalData.OPTION_UPDATE_TIME+"_"+GlobalData.selectedLesson.getId(), aCurTimeStr);
+                        aEditor.commit();
+                    }
 
                     Log.d(TAG, "Tasks updated for lesson \""+GlobalData.selectedLesson.getId()+"\"");
                 }
@@ -705,55 +715,82 @@ public class CalculateActivity extends FragmentActivity
 
             try
             {
-            	String aFileName=Log.getPreviousFile();
+            	String aLastSendedFile="";
 
-            	if (aFileName!=null && !mLastSendedFile.equals(aFileName))
+            	synchronized (mPreferenceMutex)
             	{
-            		aReader=new BufferedReader(new InputStreamReader(new FileInputStream(aFileName)));
+            		SharedPreferences aSettings = getSharedPreferences(GlobalData.PREFS_NAME, 0);
+            		aLastSendedFile=aSettings.getString(GlobalData.OPTION_LAST_SENDED_LOG, "");
+            	}
 
+            	int aLogIndex=Log.getCurrentIndex();
+            	int aCurrentIndex=aLogIndex;
 
+            	do
+            	{
+            		--aCurrentIndex;
 
-            		boolean good=false;
+            		String aFileName=Log.formatFileName(aCurrentIndex);
 
-            		do
+            		if (new File(aFileName).exists() && !aFileName.equals(aLastSendedFile))
             		{
-            			String aLine=aReader.readLine();
-
-            			if (aLine==null)
-            			{
-            				break;
-            			}
-
-            			if (
-            				aLine.contains("WARN")
-            				||
-            				aLine.contains("ERROR")
-            			   )
-            			{
-            				good=true;
-            				break;
-            			}
-            		} while(true);
-
-            		aReader.close();
-            		aReader=null;
+            			aReader=new BufferedReader(new InputStreamReader(new FileInputStream(aFileName)));
 
 
 
-            		if (good)
+                		boolean good=false;
+
+                		do
+                		{
+                			String aLine=aReader.readLine();
+
+                			if (aLine==null)
+                			{
+                				break;
+                			}
+
+                			if (
+                				aLine.contains("WARN")
+                				||
+                				aLine.contains("ERROR")
+                			   )
+                			{
+                				good=true;
+                				break;
+                			}
+                		} while(true);
+
+                		aReader.close();
+                		aReader=null;
+
+
+
+                		if (good)
+                		{
+                			Mail aMail = new Mail("betatest95@gmail.com", "e567dg9hv4bnGdgfh456");
+
+                            String[] toArr = {"betatest95@yandex.com"};
+                            aMail.setFrom("betatest95@gmail.com");
+                            aMail.setTo(toArr);
+                            aMail.setSubject("Log file for EGE v. "+getPackageManager().getPackageInfo(getPackageName(), 0).versionName);
+                            aMail.setBody("This mail contains logs. Please check.");
+                            aMail.addAttachment(aFileName);
+                            aMail.send();
+                		}
+            		}
+            		else
             		{
-            			Mail aMail = new Mail("betatest95@gmail.com", "e567dg9hv4bnGdgfh456");
-
-                        String[] toArr = {"betatest95@yandex.com"};
-                        aMail.setFrom("betatest95@gmail.com");
-                        aMail.setTo(toArr);
-                        aMail.setSubject("Log file for EGE v. "+getPackageManager().getPackageInfo(getPackageName(), 0).versionName);
-                        aMail.setBody("This mail contains logs. Please check.");
-                        aMail.addAttachment(aFileName);
-                        aMail.send();
+            			break;
             		}
 
-                    mLastSendedFile=aFileName;
+            	} while(true);
+
+            	synchronized (mPreferenceMutex)
+            	{
+            		SharedPreferences aSettings = getSharedPreferences(GlobalData.PREFS_NAME, 0);
+            		SharedPreferences.Editor aEditor = aSettings.edit();
+                    aEditor.putString(GlobalData.OPTION_LAST_SENDED_LOG, Log.formatFileName(aLogIndex-1));
+                    aEditor.commit();
             	}
             }
             catch (Exception e)
@@ -769,11 +806,11 @@ public class CalculateActivity extends FragmentActivity
                 }
                 catch (IOException e)
                 {
-                	Log.i(TAG, "Problem while sending log file", e);
+                	Log.w(TAG, "Problem while sending log file", e);
                 }
             }
 
             return null;
         }
-     }
+    }
 }

@@ -111,18 +111,18 @@ public class Log
 
 							if (aIndex<=aMaxIndex-MAX_COUNT+1)
 							{
-								new File(FILE_PATH+"/"+String.valueOf(aIndex)+".dlv").delete();
+								new File(formatFileName(aIndex)).delete();
 							}
 						}
 
 						++aMaxIndex;
 
-						mFileName=FILE_PATH+"/"+String.valueOf(aMaxIndex)+".dlv";
+						mFileName=formatFileName(aMaxIndex);
 					}
 					else
 					{
 						aLogDir.mkdirs();
-						mFileName=FILE_PATH+"/1.dlv";
+						mFileName=formatFileName(1);
 					}
 				}
 
@@ -259,21 +259,19 @@ public class Log
 	    return mFileName;
     }
 
-	public static String getPreviousFile()
+	public static int getCurrentIndex()
     {
 		if (mFileName.equals(""))
 		{
-			return null;
+			return 0;
 		}
 
 		String aNumber=mFileName.substring(mFileName.lastIndexOf('/')+1, mFileName.lastIndexOf('.'));
-		int aIndex=Integer.parseInt(aNumber)-1;
-
-		if (new File(FILE_PATH+"/"+String.valueOf(aIndex)+".dlv").exists())
-		{
-			return FILE_PATH+"/"+String.valueOf(aIndex)+".dlv";
-		}
-
-	    return null;
+	    return Integer.parseInt(aNumber);
     }
+
+	public static String formatFileName(int aIndex)
+	{
+		return FILE_PATH+"/"+String.valueOf(aIndex)+".dlv";
+	}
 }

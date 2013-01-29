@@ -11,6 +11,7 @@ public class GlobalData
     public static final String OPTION_USER_NAME       = "userName";
     public static final String OPTION_SELECTED_LESSON = "selectedLesson";
     public static final String OPTION_UPDATE_TIME     = "updateTime";
+    public static final String OPTION_LAST_SENDED_LOG = "lostSendedLog";
 
     public static final String USER_NAME              = "userName";
     public static final String LESSON_ID              = "lessonId";
