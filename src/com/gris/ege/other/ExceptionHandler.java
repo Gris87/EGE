@@ -1,5 +1,7 @@
 package com.gris.ege.other;
 
+import android.os.Process;
+
 import java.lang.Thread.UncaughtExceptionHandler;
 
 public class ExceptionHandler implements UncaughtExceptionHandler
@@ -17,5 +19,6 @@ public class ExceptionHandler implements UncaughtExceptionHandler
     public void uncaughtException(Thread thread, Throwable e)
     {
         Log.e(TAG, "AndroidRuntime", e);
+        Process.killProcess(Process.myPid());
     }
 }
