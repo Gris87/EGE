@@ -35,5 +35,6 @@ public class GlobalData
 
         lessons.add(new Lesson("mathematics", (short)240, (byte)0, (byte)1, (byte)2));
         lessons.add(new Lesson("physics",     (short)240, (byte)1, (byte)2, (byte)3));
+        lessons.add(new Lesson("russian",     (short)180, (byte)1, (byte)1, (byte)23));
     }
 }
