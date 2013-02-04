@@ -12,6 +12,7 @@ import com.gris.ege.activity.CalculateActivity;
 import com.gris.ege.db.ResultsOpenHelper;
 import com.gris.ege.other.GlobalData;
 import com.gris.ege.other.Task;
+import com.gris.ege.other.Utils;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -368,74 +369,77 @@ public class TaskFragment extends Fragment implements OnClickListener
                 }
             }
 
-            // Download file
-            URL aUrl=new URL(GlobalData.PATH_ON_NET+aFileName);
-
-            HttpURLConnection aConnection=(HttpURLConnection)aUrl.openConnection();
-            aConnection.setReadTimeout(300000);
-            aConnection.setConnectTimeout(300000);
-            aConnection.setRequestMethod("GET");
-            aConnection.setDoInput(true);
-
-            aConnection.connect();
-            InputStream in=aConnection.getInputStream();
-
-            boolean aFromInternet=true;
-
-            try
+            if (Utils.checkWifiOrNet(getCalculateActivity()))
             {
-                byte[] aBuffer=new byte[4096];
+                // Download file
+                URL aUrl=new URL(GlobalData.PATH_ON_NET+aFileName);
 
-                new File(GlobalData.PATH_ON_SD_CARD+GlobalData.selectedLesson.getId()).mkdirs();
-                new File(GlobalData.PATH_ON_SD_CARD+".nomedia").createNewFile();
+                HttpURLConnection aConnection=(HttpURLConnection)aUrl.openConnection();
+                aConnection.setReadTimeout(300000);
+                aConnection.setConnectTimeout(300000);
+                aConnection.setRequestMethod("GET");
+                aConnection.setDoInput(true);
 
-                FileOutputStream aNewFile=new FileOutputStream(GlobalData.PATH_ON_SD_CARD+aFileName);
+                aConnection.connect();
+                InputStream in=aConnection.getInputStream();
 
-                do
+                boolean aFromInternet=true;
+
+                try
                 {
-                    int aBytes=in.read(aBuffer);
+                    byte[] aBuffer=new byte[4096];
 
-                    if (aBytes<=0)
+                    new File(GlobalData.PATH_ON_SD_CARD+GlobalData.selectedLesson.getId()).mkdirs();
+                    new File(GlobalData.PATH_ON_SD_CARD+".nomedia").createNewFile();
+
+                    FileOutputStream aNewFile=new FileOutputStream(GlobalData.PATH_ON_SD_CARD+aFileName);
+
+                    do
                     {
-                        break;
-                    }
+                        int aBytes=in.read(aBuffer);
 
-                    aNewFile.write(aBuffer, 0, aBytes);
-                } while(true);
+                        if (aBytes<=0)
+                        {
+                            break;
+                        }
 
-                aNewFile.close();
+                        aNewFile.write(aBuffer, 0, aBytes);
+                    } while(true);
 
-                aFromInternet=false;
-            }
-            catch (Exception e)
-            {
-                Log.w(TAG, "Problem while saving image on sd card", e);
-            }
+                    aNewFile.close();
 
-            try
-            {
-                in.close();
-            }
-            catch (Exception e)
-            {
-                Log.w(TAG, "Problem while saving image on sd card", e);
-            }
-
-            if (aFromInternet)
-            {
-                return GlobalData.PATH_ON_NET+aFileName;
-            }
-            else
-            {
-                Drawable aDrawable=Drawable.createFromPath(GlobalData.PATH_ON_SD_CARD+aFileName);
-
-                if (aDrawable!=null)
+                    aFromInternet=false;
+                }
+                catch (Exception e)
                 {
-                    return GlobalData.PATH_ON_SD_CARD+aFileName;
+                    Log.w(TAG, "Problem while saving image on sd card", e);
+                }
+
+                try
+                {
+                    in.close();
+                }
+                catch (Exception e)
+                {
+                    Log.w(TAG, "Problem while saving image on sd card", e);
+                }
+
+                if (aFromInternet)
+                {
+                    return GlobalData.PATH_ON_NET+aFileName;
                 }
                 else
                 {
-                    Log.w(TAG, "Invalid file on SD card after downloading: "+GlobalData.PATH_ON_SD_CARD+aFileName);
+                    Drawable aDrawable=Drawable.createFromPath(GlobalData.PATH_ON_SD_CARD+aFileName);
+
+                    if (aDrawable!=null)
+                    {
+                        return GlobalData.PATH_ON_SD_CARD+aFileName;
+                    }
+                    else
+                    {
+                        Log.w(TAG, "Invalid file on SD card after downloading: "+GlobalData.PATH_ON_SD_CARD+aFileName);
+                    }
                 }
             }
 

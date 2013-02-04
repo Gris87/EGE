@@ -42,7 +42,7 @@
     <string name="menu_settings">Настройки</string>
     <string name="title_activity_settings">Настройки</string>
     <string name="pref_header_general">Основные</string>
-    <string name="pref_description_wifi">Только Wi-Fi</string>
-    <string name="pref_title_wifi">Не использовать мобильную передачу данных</string>
+    <string name="pref_title_wifi">Только Wi-Fi</string>
+    <string name="pref_description_wifi">Не использовать мобильную передачу данных</string>
 
 </resources>

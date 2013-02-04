@@ -13,6 +13,8 @@ public class GlobalData
     public static final String OPTION_UPDATE_TIME     = "updateTime";
     public static final String OPTION_LAST_SENDED_LOG = "lostSendedLog";
 
+    public static final String OPTION_WIFI_ONLY       = "wifi_only";
+
     public static final String USER_NAME              = "userName";
     public static final String LESSON_ID              = "lessonId";
     public static final String TASK_ID                = "taskId";

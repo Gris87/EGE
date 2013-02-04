@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -106,6 +107,24 @@ public class MainActivity extends Activity implements OnClickListener
     {
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId())
+        {
+            case R.id.menu_settings:
+            {
+                Intent aSettingsIntent=new Intent();
+                aSettingsIntent.setClass(this, SettingsActivity.class);
+                startActivity(aSettingsIntent);
+
+                return true;
+            }
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     public void saveUserName()

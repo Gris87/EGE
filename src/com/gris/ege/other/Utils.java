@@ -1,5 +1,11 @@
 package com.gris.ege.other;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.preference.PreferenceManager;
+
 public class Utils
 {
     public static String timeToString(String aFormat, long aTime)
@@ -31,5 +37,19 @@ public class Utils
         }
 
         return String.format(aFormat, aHoursStr, aMinutesStr, aSecondsStr);
+    }
+
+    public static boolean checkWifiOrNet(Context aContext)
+    {
+        SharedPreferences aPreferences=PreferenceManager.getDefaultSharedPreferences(aContext);
+
+        if (!aPreferences.getBoolean(GlobalData.OPTION_WIFI_ONLY, false))
+        {
+            return true;
+        }
+
+        ConnectivityManager aManager=(ConnectivityManager) aContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo aNetworkInfo=aManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        return aNetworkInfo.isConnected();
     }
 }

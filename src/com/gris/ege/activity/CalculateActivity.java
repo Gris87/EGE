@@ -34,6 +34,7 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -334,6 +335,24 @@ public class CalculateActivity extends FragmentActivity
     }
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId())
+        {
+            case R.id.menu_settings:
+            {
+                Intent aSettingsIntent=new Intent();
+                aSettingsIntent.setClass(this, SettingsActivity.class);
+                startActivity(aSettingsIntent);
+
+                return true;
+            }
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     public void onBackPressed()
     {
         if (mMode==MODE_TEST_TASK)
@@ -626,14 +645,24 @@ public class CalculateActivity extends FragmentActivity
 
         if (!aSame)
         {
-            Log.d(TAG, "Downloading tasks for lesson \""+GlobalData.selectedLesson.getId()+"\"");
-            new DownloadXMLTask().execute();
+            if (Utils.checkWifiOrNet(this))
+            {
+                Log.d(TAG, "Downloading tasks for lesson \""+GlobalData.selectedLesson.getId()+"\"");
+                new DownloadXMLTask().execute();
+            }
+            else
+            {
+                Log.d(TAG, "Impossible to download tasks for lesson \""+GlobalData.selectedLesson.getId()+"\", because only Wi-Fi is allowed");
+            }
         }
     }
 
     public void sendLogFile()
     {
-    	new SendLogTask().execute();
+        if (Utils.checkWifiOrNet(this))
+        {
+            new SendLogTask().execute();
+        }
     }
 
     private class DownloadXMLTask extends AsyncTask<Void, Void, InputStream>
