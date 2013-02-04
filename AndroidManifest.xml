@@ -1,48 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.gris.ege"
-    android:versionCode="1"
-    android:versionName="1.0">
+	package="com.gris.ege"
+	android:versionCode="1"
+	android:versionName="1.0">
 
-    <uses-sdk
-        android:minSdkVersion="8"
-        android:targetSdkVersion="16"/>
-    
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	<uses-sdk
+		android:minSdkVersion="8"
+		android:targetSdkVersion="16"/>
 
-    <application
-        android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme">
-        <activity
-            android:name="com.gris.ege.activity.MainActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="com.gris.ege.activity.UserChooseActivity"
-            android:label="@string/title_activity_user_choose">
-        </activity>
-        <activity
-            android:name="com.gris.ege.activity.LessonChooseActivity"
-            android:label="@string/title_activity_lesson_choose">
-        </activity>
-        <activity android:name="com.gris.ege.activity.ViewTasksActivity">
-        </activity>        
-        <activity android:name="com.gris.ege.activity.StartTestActivity">
-        </activity>
-        <activity android:name="com.gris.ege.activity.ViewResultsActivity">
-        </activity>
-        <activity android:name="com.gris.ege.activity.CalculateActivity">
-        </activity>
-    </application>
+	<application
+		android:allowBackup="true"
+		android:icon="@drawable/ic_launcher"
+		android:label="@string/app_name"
+		android:theme="@style/AppTheme">
+		<activity
+			android:name="com.gris.ege.activity.MainActivity"
+			android:label="@string/app_name"
+			android:screenOrientation="portrait">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN"/>
+
+				<category android:name="android.intent.category.LAUNCHER"/>
+			</intent-filter>
+		</activity>
+		<activity
+			android:name="com.gris.ege.activity.UserChooseActivity"
+			android:label="@string/title_activity_user_choose">
+		</activity>
+		<activity
+			android:name="com.gris.ege.activity.LessonChooseActivity"
+			android:label="@string/title_activity_lesson_choose">
+		</activity>
+		<activity android:name="com.gris.ege.activity.ViewTasksActivity">
+		</activity>
+		<activity android:name="com.gris.ege.activity.StartTestActivity">
+		</activity>
+		<activity android:name="com.gris.ege.activity.ViewResultsActivity">
+		</activity>
+		<activity android:name="com.gris.ege.activity.CalculateActivity">
+		</activity>
+		<activity
+			android:name="com.gris.ege.activity.SettingsActivity"
+			android:label="@string/title_activity_settings">
+		</activity>
+	</application>
 
 </manifest>

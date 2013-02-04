@@ -39,6 +39,11 @@
     <string name="is_it_correct">Do you give this answer?\n%1$s</string>
     <string name="checking">Checking</string>
     <string name="please_wait">Please wait&#8230;</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="pref_header_general">General</string>
+    <string name="pref_description_wifi">Only Wi-Fi</string>
+    <string name="pref_title_wifi">Do not use Mobile Network</string>
     
     <string name="triplePoint" translatable="false">&#8230;</string>
     <string name="time" translatable="false">%1$s:%2$s:%3$s</string>

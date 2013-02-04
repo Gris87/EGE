@@ -33,6 +33,7 @@ import android.os.SystemClock;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.view.Menu;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -323,6 +324,13 @@ public class CalculateActivity extends FragmentActivity
         }
 
         super.onSaveInstanceState(aOutState);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.calculate_menu, menu);
+        return true;
     }
 
     @Override
