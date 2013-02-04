@@ -495,34 +495,8 @@ public class CalculateActivity extends FragmentActivity
                 {
                     Task aTask=aTestTasks.get(i);
 
-                    int aCurScore;
-
-                    if (aTask.getCategory().charAt(0)=='A')
-                    {
-                        aCurScore=GlobalData.selectedLesson.getScoreA();
-                    }
-                    else
-                    if (aTask.getCategory().charAt(0)=='B')
-                    {
-                        aCurScore=GlobalData.selectedLesson.getScoreB();
-                    }
-                    else
-                    if (aTask.getCategory().charAt(0)=='C')
-                    {
-                        aCurScore=GlobalData.selectedLesson.getScoreC();
-                    }
-                    else
-                    {
-                        Log.e(TAG, "Invalid category \""+aTask.getCategory()+"\" for task № "+String.valueOf(aTask.getId()));
-                        aCurScore=0;
-                    }
-
-                    if (aTask.isFinished())
-                    {
-                        aScore+=aCurScore;
-                    }
-
-                    aTotalScore+=aCurScore;
+                    aScore      += aTask.getScore();
+                    aTotalScore += aTask.getMaxScore();
                 }
 
                 ResultsOpenHelper aResultsHelper=new ResultsOpenHelper(this);
@@ -551,7 +525,7 @@ public class CalculateActivity extends FragmentActivity
                     aAnswerValues.put(ResultsOpenHelper.COLUMN_RESULT_ID,   aResultId);
                     aAnswerValues.put(ResultsOpenHelper.COLUMN_TASK_NUMBER, aTestTasks.get(i).getId());
                     aAnswerValues.put(ResultsOpenHelper.COLUMN_ANSWER,      aTestTasks.get(i).getAnswer());
-                    aAnswerValues.put(ResultsOpenHelper.COLUMN_CORRECT,     aTestTasks.get(i).isFinished()? 1 : 0);
+                    aAnswerValues.put(ResultsOpenHelper.COLUMN_CORRECT,     aTestTasks.get(i).isFinished()? 1 : 0); //TODO: Use getScore
 
                     aDb.insertOrThrow(
                                       ResultsOpenHelper.ANSWERS_TABLE_NAME,

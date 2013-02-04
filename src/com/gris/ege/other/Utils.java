@@ -41,15 +41,21 @@ public class Utils
 
     public static boolean checkWifiOrNet(Context aContext)
     {
-        SharedPreferences aPreferences=PreferenceManager.getDefaultSharedPreferences(aContext);
+        ConnectivityManager aManager=(ConnectivityManager) aContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo aWifiInfo=aManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
 
-        if (!aPreferences.getBoolean(GlobalData.OPTION_WIFI_ONLY, false))
+        if (aWifiInfo.isConnected())
         {
             return true;
         }
 
-        ConnectivityManager aManager=(ConnectivityManager) aContext.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo aNetworkInfo=aManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
-        return aNetworkInfo.isConnected();
+        SharedPreferences aPreferences=PreferenceManager.getDefaultSharedPreferences(aContext);
+        NetworkInfo aMobileInfo=aManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+
+        return (
+                !aPreferences.getBoolean(GlobalData.OPTION_WIFI_ONLY, false)
+                &&
+                aMobileInfo.isConnected()
+               );
     }
 }

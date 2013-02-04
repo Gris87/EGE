@@ -225,7 +225,7 @@ public class TaskFragment extends Fragment implements OnClickListener
                                                                  getCalculateActivity().getLessonId(),
                                                                  mTask.getId()
                                                                 );
-            mTask.setFinished(true);
+            mTask.setFinished(true); // TODO: Use setScore
             updateStatus();
 
             if (getCalculateActivity().getMode()==CalculateActivity.MODE_VIEW_TASK)
@@ -262,7 +262,7 @@ public class TaskFragment extends Fragment implements OnClickListener
 
             DialogFragment aCheckDialog;
 
-            if (true)
+            if (mTask.isSelfRating())
             {
                 aCheckDialog=new DialogFragment()
                 {
@@ -288,6 +288,7 @@ public class TaskFragment extends Fragment implements OnClickListener
                         mResultSeekBar.setProgress(5);
                         mText.setText(getString(R.string.is_it_correct_self, aAnswer));
 
+                        // Set listeners
                         mResultSeekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener()
                         {
                             @Override
@@ -310,7 +311,7 @@ public class TaskFragment extends Fragment implements OnClickListener
                             @Override
                             public void onClick(View v)
                             {
-                                aDialog.dismiss();
+                                checkAnswer(false);
                             }
                         });
 

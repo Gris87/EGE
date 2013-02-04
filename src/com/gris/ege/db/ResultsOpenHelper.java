@@ -632,7 +632,7 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
                 {
                     Task aTask=aGlobalTasks.get(aCursor.getInt(aTaskNumberIndex));
                     aTask.setAnswer(aCursor.getString(aAnswerIndex));
-                    aTask.setFinished(aCursor.getInt(aCorrectIndex)!=0);
+                    aTask.setFinished(aCursor.getInt(aCorrectIndex)!=0); // TODO: NOT SETFINISHED use SETSCORE
                     res.add(aTask);
                 }
             }

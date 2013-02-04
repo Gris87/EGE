@@ -77,11 +77,12 @@ public class TasksListAdapter extends BaseAdapter
 
         if (aBindComp.isFinished())
         {
-            aHolder.mStatus.setText("");
+            aHolder.mStatus.setVisibility(View.GONE);
         }
         else
         {
             aHolder.mStatus.setText(mContext.getString(R.string.not_finished));
+            aHolder.mStatus.setVisibility(View.VISIBLE);
         }
     }
 

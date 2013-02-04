@@ -121,13 +121,47 @@ public class TasksParser
         String aIdStr    = aParser.getAttributeValue(null, "id");
         String aCategory = aParser.getAttributeValue(null, "category");
         String aAnswer   = aParser.getAttributeValue(null, "answer");
+        String aScoreStr = aParser.getAttributeValue(null, "score");
+        String aMistakes = aParser.getAttributeValue(null, "mistakes");
+        String aSelf     = aParser.getAttributeValue(null, "self");
 
         aParser.nextTag();
         aParser.require(XmlPullParser.END_TAG, null, "task");
 
+        // ---------------------------------------------------------------------------
+
         int aId=Integer.parseInt(aIdStr);
 
-        return new Task(aId, aCategory, aAnswer);
+        byte aScore=0;
+
+        if (aScoreStr!=null)
+        {
+            aScore=Byte.parseByte(aScoreStr);
+        }
+
+        if (aScore<=0)
+        {
+            if (aCategory.charAt(0)=='A')
+            {
+                aScore=GlobalData.selectedLesson.getScoreA();
+            }
+            else
+            if (aCategory.charAt(0)=='B')
+            {
+                aScore=GlobalData.selectedLesson.getScoreB();
+            }
+            else
+            if (aCategory.charAt(0)=='C')
+            {
+                aScore=GlobalData.selectedLesson.getScoreC();
+            }
+            else
+            {
+                Log.e(TAG, "Invalid category \""+aCategory+"\" for task № "+aIdStr);
+            }
+        }
+
+        return new Task(aId, aCategory, aAnswer, aScore, aMistakes!=null, aSelf!=null);
     }
 
     private void skip(XmlPullParser aParser) throws XmlPullParserException, IOException
