@@ -14,12 +14,12 @@
     <task id="11"   category="B12" answer="9"/>
     <task id="12"   category="B13" answer="20"/>
     <task id="13"   category="B14" answer="17"/>
-    <task id="14"   category="C1"  answer="pi+2×pi×k, -5×pi/6+2×pi×k, k ∈ Z"/>
+    <task id="14"   category="C1"  answer="pi+2×pi×k, -5×pi/6+2×pi×k, k ∈ Z" self="true"/>
     <task id="15"   category="C2"  answer="√21"/>
-    <task id="16"   category="C3"  answer="[-7 ; -5) ; (4 ; 15]"/>
-    <task id="17"   category="C4"  answer="18 или 21"/>
-    <task id="18"   category="C5"  answer="11; √193+2"/>
-    <task id="19"   category="C6"  answer="а) 36 б) отрицательных в) 16"/>
+    <task id="16"   category="C3"  answer="[-7 ; -5) ; (4 ; 15]"             self="true"/>
+    <task id="17"   category="C4"  answer="18 или 21"                        self="true"/>
+    <task id="18"   category="C5"  answer="11; √193+2"                       self="true"/>
+    <task id="19"   category="C6"  answer="а) 36 б) отрицательных в) 16"     self="true"/>
 
     <task id="20"   category="B1"  answer="6"/>
     <task id="21"   category="B2"  answer="3"/>
@@ -35,10 +35,10 @@
     <task id="31"   category="B12" answer="1.2"/>
     <task id="32"   category="B13" answer="10"/>
     <task id="33"   category="B14" answer="7"/>
-    <task id="34"   category="C1"  answer="pi, 4×pi/3, 8×pi/3, 3×pi"/>
+    <task id="34"   category="C1"  answer="pi, 4×pi/3, 8×pi/3, 3×pi"               self="true"/>
     <task id="35"   category="C2"  answer="30°"/>
     <task id="36"   category="C3"  answer="-5"/>
-    <task id="37"   category="C4"  answer="√(a^2+b^2-2×a×b×k), √(a^2+b^2+2×a×b×k)"/>
+    <task id="37"   category="C4"  answer="√(a^2+b^2-2×a×b×k), √(a^2+b^2+2×a×b×k)" self="true"/>
     <task id="38"   category="C5"  answer="a &lt; -1"/>
     <task id="39"   category="C6"  answer="n=2; k=5"/>
 
@@ -56,12 +56,12 @@
     <task id="51"   category="B12" answer="12"/>
     <task id="52"   category="B13" answer="10"/>
     <task id="53"   category="B14" answer="-2"/>
-    <task id="54"   category="C1"  answer="arctg 3-pi, -pi/4. arctg 3"/>
+    <task id="54"   category="C1"  answer="arctg 3-pi, -pi/4. arctg 3"           self="true"/>
     <task id="55"   category="C2"  answer="arctg 5/24"/>
-    <task id="56"   category="C3"  answer="(-∞ ; -3) ∪ (3 ; +∞)"/>
-    <task id="57"   category="C4"  answer="5 или 3"/>
-    <task id="58"   category="C5"  answer="-√2 &lt; a &lt; -1, 1 &lt; a &lt; √2"/>
-    <task id="59"   category="C6"  answer="1 и 645"/>
+    <task id="56"   category="C3"  answer="(-∞ ; -3) ∪ (3 ; +∞)"                 self="true"/>
+    <task id="57"   category="C4"  answer="5 или 3"                              self="true"/>
+    <task id="58"   category="C5"  answer="-√2 &lt; a &lt; -1, 1 &lt; a &lt; √2" self="true"/>
+    <task id="59"   category="C6"  answer="1 и 645"                              self="true"/>
 
     <task id="60"   category="B1"  answer="7"/>
     <task id="61"   category="B2"  answer="6"/>
@@ -77,12 +77,12 @@
     <task id="71"   category="B12" answer="15"/>
     <task id="72"   category="B13" answer="17"/>
     <task id="73"   category="B14" answer="17"/>
-    <task id="74"   category="C1"  answer="9×pi/4, 3×pi-arctg 5, 13×pi/4"/>
+    <task id="74"   category="C1"  answer="9×pi/4, 3×pi-arctg 5, 13×pi/4" self="true"/>
     <task id="75"   category="C2"  answer="arctg 37/20"/>
     <task id="76"   category="C3"  answer="(0 ; 7]"/>
-    <task id="77"   category="C4"  answer="44, 33/2"/>
+    <task id="77"   category="C4"  answer="44, 33/2"                      self="true"/>
     <task id="78"   category="C5"  answer="(1/6, 4+√14)"/>
-    <task id="79"   category="C6"  answer="1 и 6174"/>
+    <task id="79"   category="C6"  answer="1 и 6174"                      self="true"/>
 
     <task id="80"   category="B1"  answer="12"/>
     <task id="81"   category="B2"  answer="10"/>
@@ -98,12 +98,12 @@
     <task id="91"   category="B12" answer="5"/>
     <task id="92"   category="B13" answer="6"/>
     <task id="93"   category="B14" answer="-3"/>
-    <task id="94"   category="C1"  answer="-arctg 4/3, -pi, -5×pi/4"/>
+    <task id="94"   category="C1"  answer="-arctg 4/3, -pi, -5×pi/4"       self="true"/>
     <task id="95"   category="C2"  answer="√7"/>
-    <task id="96"   category="C3"  answer="[10/9 ; 9) ∪ (10; 11)"/>
-    <task id="97"   category="C4"  answer="√(a^2+b^2-2×a×b×cos α)×|ctg α|"/>
+    <task id="96"   category="C3"  answer="[10/9 ; 9) ∪ (10; 11)"          self="true"/>
+    <task id="97"   category="C4"  answer="√(a^2+b^2-2×a×b×cos α)×|ctg α|" self="true"/>
     <task id="98"   category="C5"  answer="-1/3 ≤ a ≤ 3"/>
-    <task id="99"   category="C6"  answer="а) нет б) да в) 477"/>
+    <task id="99"   category="C6"  answer="а) нет б) да в) 477"            self="true"/>
 
     <task id="100"  category="B1"  answer="8"/>
     <task id="101"  category="B2"  answer="4"/>
@@ -119,10 +119,10 @@
     <task id="111"  category="B12" answer="7"/>
     <task id="112"  category="B13" answer="8"/>
     <task id="113"  category="B14" answer="19"/>
-    <task id="114"  category="C1"  answer="-9×pi/4, -11×pi/4"/>
+    <task id="114"  category="C1"  answer="-9×pi/4, -11×pi/4"                            self="true"/>
     <task id="115"  category="C2"  answer="1/√6"/>
-    <task id="116"  category="C3"  answer="(0 ; (3-√5)/2) ; ((3+√5)/2 ; 1)"/>
-    <task id="117"  category="C4"  answer="90°+α, если α ≤ 45° ; 90°-α, если α &gt; 45°"/>
+    <task id="116"  category="C3"  answer="(0 ; (3-√5)/2) ; ((3+√5)/2 ; 1)"              self="true"/>
+    <task id="117"  category="C4"  answer="90°+α, если α ≤ 45° ; 90°-α, если α &gt; 45°" self="true"/>
     <task id="118"  category="C5"  answer="a=-1/3"/>
     <task id="119"  category="C6"  answer="19/7"/>
 
@@ -140,12 +140,12 @@
     <task id="131"  category="B12" answer="10.6"/>
     <task id="132"  category="B13" answer="22"/>
     <task id="133"  category="B14" answer="-3"/>
-    <task id="134"  category="C1"  answer="-2×pi/3+2×pi×k, k ∈ Z"/>
+    <task id="134"  category="C1"  answer="-2×pi/3+2×pi×k, k ∈ Z" self="true"/>
     <task id="135"  category="C2"  answer="cos α=3/4"/>
     <task id="136"  category="C3"  answer="(log 3 (10) ; +∞)"/>
-    <task id="137"  category="C4"  answer="13 или 2×√67"/>
+    <task id="137"  category="C4"  answer="13 или 2×√67"          self="true"/>
     <task id="138"  category="C5"  answer="a=1/4"/>
-    <task id="139"  category="C6"  answer="а) нет б) нет в) да"/>
+    <task id="139"  category="C6"  answer="а) нет б) нет в) да"   self="true"/>
 
     <task id="140"  category="B1"  answer="15"/>
     <task id="141"  category="B2"  answer="10"/>
@@ -161,12 +161,12 @@
     <task id="151"  category="B12" answer="44"/>
     <task id="152"  category="B13" answer="12"/>
     <task id="153"  category="B14" answer="6"/>
-    <task id="154"  category="C1"  answer="1, 2×pi/3+2×pi×k, k ∈ Z"/>
+    <task id="154"  category="C1"  answer="1, 2×pi/3+2×pi×k, k ∈ Z"     self="true"/>
     <task id="155"  category="C2"  answer="√3/2"/>
-    <task id="156"  category="C3"  answer="(log 2 (2/3); 0) ; [1 ; +∞)"/>
-    <task id="157"  category="C4"  answer="60° или 120°"/>
-    <task id="158"  category="C5"  answer="a=√8, b=±1"/>
-    <task id="159"  category="C6"  answer="6, 42, 1806"/>
+    <task id="156"  category="C3"  answer="(log 2 (2/3); 0) ; [1 ; +∞)" self="true"/>
+    <task id="157"  category="C4"  answer="60° или 120°"                self="true"/>
+    <task id="158"  category="C5"  answer="a=√8, b=±1"                  self="true"/>
+    <task id="159"  category="C6"  answer="6, 42, 1806"                 self="true"/>
 
     <task id="160"  category="B1"  answer="7"/>
     <task id="161"  category="B2"  answer="4"/>
@@ -182,10 +182,10 @@
     <task id="171"  category="B12" answer="27.5"/>
     <task id="172"  category="B13" answer="20"/>
     <task id="173"  category="B14" answer="3"/>
-    <task id="174"  category="C1"  answer="pi/4+pi×k, k ∈ Z"/>
+    <task id="174"  category="C1"  answer="pi/4+pi×k, k ∈ Z" self="true"/>
     <task id="175"  category="C2"  answer="4"/>
     <task id="176"  category="C3"  answer="-2 &lt; x ≤ -1"/>
-    <task id="177"  category="C4"  answer="1/2 или 625/1122"/>
+    <task id="177"  category="C4"  answer="1/2 или 625/1122" self="true"/>
     <task id="178"  category="C5"  answer="a &gt; 9/6"/>
     <task id="179"  category="C6"  answer="m = n = 1"/>
 
@@ -203,10 +203,10 @@
     <task id="191"  category="B12" answer="0.75"/>
     <task id="192"  category="B13" answer="14"/>
     <task id="193"  category="B14" answer="4"/>
-    <task id="194"  category="C1"  answer="arccos (√2/3)+2×pi×k, k ∈ Z"/>
+    <task id="194"  category="C1"  answer="arccos (√2/3)+2×pi×k, k ∈ Z"  self="true"/>
     <task id="195"  category="C2"  answer="90°"/>
     <task id="196"  category="C3"  answer="[(√13-1)/2 ; 2)"/>
-    <task id="197"  category="C4"  answer="36 или 8×√19"/>
-    <task id="198"  category="C5"  answer="1, 8, 2"/>
-    <task id="199"  category="C6"  answer="а) 44 б) отрицательных в) 17"/>
+    <task id="197"  category="C4"  answer="36 или 8×√19"                 self="true"/>
+    <task id="198"  category="C5"  answer="1, 8, 2"                      self="true"/>
+    <task id="199"  category="C6"  answer="а) 44 б) отрицательных в) 17" self="true"/>
 </tasks>

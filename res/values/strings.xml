@@ -37,7 +37,7 @@
     <string name="correct">Correct</string>
     <string name="answer">Answer: %1$s</string>
     <string name="is_it_correct">Do you give this answer?\n\n%1$s</string>
-    <string name="is_it_correct_self">Do you give this answer?\n\n%1$s\n\nPlease set your score</string>
+    <string name="self_rating">Please set your score</string>
     <string name="checking">Checking</string>
     <string name="please_wait">Please wait&#8230;</string>
     <string name="menu_settings">Settings</string>

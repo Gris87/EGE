@@ -29,7 +29,7 @@
     <task id="26"   category="B2"  answer="211"/>
     <task id="27"   category="B3"  answer="13"/>
     <task id="28"   category="B4"  answer="42"/>
-    <task id="29"   category="C1"  answer="На участке от V0 до 3×V0 график p(V) - горизонтальный отрезок прямой, на участке от 3×V0 до 6×V0 - фрагмент гиперболы"/>
+    <task id="29"   category="C1"  answer="На участке от V0 до 3×V0 график p(V) - горизонтальный отрезок прямой, на участке от 3×V0 до 6×V0 - фрагмент гиперболы" self="true"/>
     <task id="30"   category="C2"  answer="M ≈ 330 г"/>
     <task id="31"   category="C3"  answer="S = 30 см^2"/>
     <task id="32"   category="C4"  answer="R = 4 Ом"/>
@@ -65,7 +65,7 @@
     <task id="61"   category="B2"  answer="211"/>
     <task id="62"   category="B3"  answer="21"/>
     <task id="63"   category="B4"  answer="12"/>
-    <task id="64"   category="C1"  answer="Мощность, выделяемая на нагрузке - квадратичная функция силы тока. ЭДС батареи &#8496; = 2В"/>
+    <task id="64"   category="C1"  answer="Мощность, выделяемая на нагрузке - квадратичная функция силы тока. ЭДС батареи &#8496; = 2В" self="true"/>
     <task id="65"   category="C2"  answer="H = 2 м"/>
     <task id="66"   category="C3"  answer="m ≈ 33 г"/>
     <task id="67"   category="C4"  answer="I0 ≈ 4.1 А"/>
@@ -101,7 +101,7 @@
     <task id="96"   category="B2"  answer="131"/>
     <task id="97"   category="B3"  answer="24"/>
     <task id="98"   category="B4"  answer="12"/>
-    <task id="99"   category="C1"  answer="Чтобы вода закипела при 40 °C давление воздуха под колоколом необходимо снизить до 70 гПа"/>
+    <task id="99"   category="C1"  answer="Чтобы вода закипела при 40 °C давление воздуха под колоколом необходимо снизить до 70 гПа" self="true"/>
     <task id="100"  category="C2"  answer="t2/t1 = pi"/>
     <task id="101"  category="C3"  answer="M ≈ 2 кг"/>
     <task id="102"  category="C4"  answer="A = 60 мкДж"/>
@@ -137,7 +137,7 @@
     <task id="131"  category="B2"  answer="213"/>
     <task id="132"  category="B3"  answer="31"/>
     <task id="133"  category="B4"  answer="21"/>
-    <task id="134"  category="C1"  answer="Пружина сожмется, ее длина уменьшится"/>
+    <task id="134"  category="C1"  answer="Пружина сожмется, ее длина уменьшится" self="true"/>
     <task id="135"  category="C2"  answer="≈ 0.76 кг"/>
     <task id="136"  category="C3"  answer="≈ 0.63"/>
     <task id="137"  category="C4"  answer="R1 = 10 Ом, R2 = 20 Ом"/>
@@ -173,7 +173,7 @@
     <task id="166"  category="B2"  answer="311"/>
     <task id="167"  category="B3"  answer="34"/>
     <task id="168"  category="B4"  answer="23"/>
-    <task id="169"  category="C1"  answer="Во время передвижения движка реостата показания амперметра будут плавно увеличиваться, а вольтметр будет регистрировать напряжение на концах вторичной обмотки"/>
+    <task id="169"  category="C1"  answer="Во время передвижения движка реостата показания амперметра будут плавно увеличиваться, а вольтметр будет регистрировать напряжение на концах вторичной обмотки" self="true"/>
     <task id="170"  category="C2"  answer="H/2"/>
     <task id="171"  category="C3"  answer="≈ 92 кг"/>
     <task id="172"  category="C4"  answer="500 кВ/м"/>
@@ -209,7 +209,7 @@
     <task id="201"  category="B2"  answer="121"/>
     <task id="202"  category="B3"  answer="21"/>
     <task id="203"  category="B4"  answer="23"/>
-    <task id="204"  category="C1"  answer="Рамка повернется по часовой стрелке и встанет перпендикулярно оси магнита так, что контакт '+' окажется внизу"/>
+    <task id="204"  category="C1"  answer="Рамка повернется по часовой стрелке и встанет перпендикулярно оси магнита так, что контакт '+' окажется внизу" self="true"/>
     <task id="205"  category="C2"  answer="0.1 кг"/>
     <task id="206"  category="C3"  answer="0.3 м"/>
     <task id="207"  category="C4"  answer="T1 = T/√2"/>
@@ -245,7 +245,7 @@
     <task id="236"  category="B2"  answer="222"/>
     <task id="237"  category="B3"  answer="41"/>
     <task id="238"  category="B4"  answer="12"/>
-    <task id="239"  category="C1"  answer="Переход газа из состояния 1 в состояние 3 все время сопровождается увеличением его объема"/>
+    <task id="239"  category="C1"  answer="Переход газа из состояния 1 в состояние 3 все время сопровождается увеличением его объема" self="true"/>
     <task id="240"  category="C2"  answer="20 м/с"/>
     <task id="241"  category="C3"  answer="≈ 0.5 м"/>
     <task id="242"  category="C4"  answer="Вольтметр дает неверные показания"/>
@@ -281,7 +281,7 @@
     <task id="271"  category="B2"  answer="112"/>
     <task id="272"  category="B3"  answer="31"/>
     <task id="273"  category="B4"  answer="13"/>
-    <task id="274"  category="C1"  answer="При температуре кипения уровень воды в трубке и в тазике один и тот же"/>
+    <task id="274"  category="C1"  answer="При температуре кипения уровень воды в трубке и в тазике один и тот же" self="true"/>
     <task id="275"  category="C2"  answer="≈ 0.3 м"/>
     <task id="276"  category="C3"  answer="≈ -5 °C"/>
     <task id="277"  category="C4"  answer="30 м/с"/>
@@ -317,7 +317,7 @@
     <task id="306"  category="B2"  answer="111"/>
     <task id="307"  category="B3"  answer="21"/>
     <task id="308"  category="B4"  answer="43"/>
-    <task id="309"  category="C1"  answer="Теплый насыщенный водяной пар внутри банки, соприкасаясь с более холодной стенкой банки, частично конденсируется - выпадает роса"/>
+    <task id="309"  category="C1"  answer="Теплый насыщенный водяной пар внутри банки, соприкасаясь с более холодной стенкой банки, частично конденсируется - выпадает роса" self="true"/>
     <task id="310"  category="C2"  answer="0.8 с"/>
     <task id="311"  category="C3"  answer="≈ 0.5"/>
     <task id="312"  category="C4"  answer="1 мм"/>
@@ -353,7 +353,7 @@
     <task id="341"  category="B2"  answer="123"/>
     <task id="342"  category="B3"  answer="43"/>
     <task id="343"  category="B4"  answer="32"/>
-    <task id="344"  category="C1"  answer="Трубочка притянется к шару, и нить подвеса станет наклонной"/>
+    <task id="344"  category="C1"  answer="Трубочка притянется к шару, и нить подвеса станет наклонной" self="true"/>
     <task id="345"  category="C2"  answer="3"/>
     <task id="346"  category="C3"  answer="≈ 700 Дж"/>
     <task id="347"  category="C4"  answer="4.5 Вт"/>

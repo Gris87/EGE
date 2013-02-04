@@ -29,7 +29,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
-import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebSettings;
 import android.widget.Button;
@@ -275,8 +274,9 @@ public class TaskFragment extends Fragment implements OnClickListener
                     public Dialog onCreateDialog(Bundle savedInstanceState)
                     {
                         final Dialog aDialog = new Dialog(getCalculateActivity());
-                        aDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                         aDialog.setContentView(R.layout.self_rating_dialog);
+                        aDialog.setTitle(R.string.self_rating);
+                        aDialog.setCancelable(getCalculateActivity().getMode()!=CalculateActivity.MODE_VERIFICATION);
 
                         // Get controls
                         mResultSeekBar = (SeekBar) aDialog.findViewById(R.id.resultSeekBar);
@@ -287,7 +287,8 @@ public class TaskFragment extends Fragment implements OnClickListener
                         // Initialize controls
                         mResultSeekBar.setMax(mTask.getMaxScore());
                         mResultSeekBar.setProgress(mTask.getMaxScore());
-                        mText.setText(getString(R.string.is_it_correct_self, aAnswer));
+                        mResultScores.setText(String.valueOf(mResultSeekBar.getProgress())+"/"+String.valueOf(mResultSeekBar.getMax()));
+                        mText.setText(getString(R.string.is_it_correct, aAnswer));
 
                         // Set listeners
                         mResultSeekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener()
@@ -303,7 +304,7 @@ public class TaskFragment extends Fragment implements OnClickListener
                             @Override
                             public void onProgressChanged(SeekBar aSeekBar, int aProgress, boolean aFromUser)
                             {
-                                mResultScores.setText(String.valueOf(aSeekBar.getProgress())+"/"+String.valueOf(aSeekBar.getMax()));
+                                mResultScores.setText(String.valueOf(mResultSeekBar.getProgress())+"/"+String.valueOf(mResultSeekBar.getMax()));
                             }
                         });
 
@@ -313,6 +314,7 @@ public class TaskFragment extends Fragment implements OnClickListener
                             public void onClick(View v)
                             {
                                 checkAnswer((byte)mResultSeekBar.getProgress());
+                                dismiss();
                             }
                         });
 
