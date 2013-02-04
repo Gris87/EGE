@@ -198,7 +198,14 @@ public class TaskFragment extends Fragment implements OnClickListener
             }
             else
             {
-                mTaskStatusView.setText(getString(getCalculateActivity().getMode()==CalculateActivity.MODE_VIEW_TASK? R.string.not_finished : R.string.not_correct));
+                String aBadText=getString(getCalculateActivity().getMode()==CalculateActivity.MODE_VIEW_TASK? R.string.not_finished : R.string.not_correct);
+
+                if (mTask.getScore()>0)
+                {
+                    aBadText=aBadText+" ("+String.valueOf(mTask.getScore())+"/"+String.valueOf(mTask.getMaxScore())+")";
+                }
+
+                mTaskStatusView.setText(aBadText);
                 mTaskStatusView.setTextColor(getResources().getColor(R.color.bad));
             }
         }
@@ -212,7 +219,11 @@ public class TaskFragment extends Fragment implements OnClickListener
     // Only allowed in MODE_VIEW_TASK and MODE_VERIFICATION
     public void checkAnswer(byte aScore)
     {
-        mTask.setScore(aScore);
+        if (mTask.getScore()<aScore)
+        {
+            mTask.setScore(aScore);
+            updateStatus();
+        }
 
         if (getCalculateActivity().getMode()==CalculateActivity.MODE_VIEW_TASK)
         {
@@ -226,7 +237,6 @@ public class TaskFragment extends Fragment implements OnClickListener
                                                                  getCalculateActivity().getLessonId(),
                                                                  mTask.getId()
                                                                 );
-            updateStatus();
 
             if (getCalculateActivity().getMode()==CalculateActivity.MODE_VIEW_TASK)
             {
