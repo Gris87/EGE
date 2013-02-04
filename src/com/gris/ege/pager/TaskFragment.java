@@ -29,11 +29,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebSettings;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewAnimator;
@@ -257,32 +260,93 @@ public class TaskFragment extends Fragment implements OnClickListener
 
             getCalculateActivity().removeProgressDialog();
 
-            DialogFragment aCheckDialog = new DialogFragment()
+            DialogFragment aCheckDialog;
+
+            if (true)
             {
-                public Dialog onCreateDialog(Bundle savedInstanceState)
+                aCheckDialog=new DialogFragment()
                 {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    private SeekBar mResultSeekBar;
+                    private TextView mResultScores;
+                    private TextView mText;
+                    private Button mOkButton;
 
-                    builder.setMessage(getString(R.string.is_it_correct, aAnswer))
-                           .setPositiveButton(R.string.correct, new DialogInterface.OnClickListener()
-                           {
-                               public void onClick(DialogInterface dialog, int id)
-                               {
-                                   checkAnswer(true);
-                               }
-                           })
-                           .setNegativeButton(R.string.not_correct, new DialogInterface.OnClickListener()
-                           {
-                               public void onClick(DialogInterface dialog, int id)
-                               {
-                                   checkAnswer(false);
-                               }
-                           })
-                           .setCancelable(getCalculateActivity().getMode()!=CalculateActivity.MODE_VERIFICATION);
+                    public Dialog onCreateDialog(Bundle savedInstanceState)
+                    {
+                        final Dialog aDialog = new Dialog(getCalculateActivity());
+                        aDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                        aDialog.setContentView(R.layout.self_rating_dialog);
 
-                    return builder.create();
-                }
-            };
+                        // Get controls
+                        mResultSeekBar = (SeekBar) aDialog.findViewById(R.id.resultSeekBar);
+                        mResultScores  = (TextView)aDialog.findViewById(R.id.resultScores);
+                        mText          = (TextView)aDialog.findViewById(R.id.dialogText);
+                        mOkButton      = (Button)  aDialog.findViewById(R.id.okButton);
+
+                        // Initialize controls
+                        mResultSeekBar.setMax(5);
+                        mResultSeekBar.setProgress(5);
+                        mText.setText(getString(R.string.is_it_correct_self, aAnswer));
+
+                        mResultSeekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener()
+                        {
+                            @Override
+                            public void onStartTrackingTouch(SeekBar aSeekBar)
+                            {}
+
+                            @Override
+                            public void onStopTrackingTouch(SeekBar aSeekBar)
+                            {}
+
+                            @Override
+                            public void onProgressChanged(SeekBar aSeekBar, int aProgress, boolean aFromUser)
+                            {
+                                mResultScores.setText(String.valueOf(aSeekBar.getProgress())+"/"+String.valueOf(aSeekBar.getMax()));
+                            }
+                        });
+
+                        mOkButton.setOnClickListener(new OnClickListener()
+                        {
+                            @Override
+                            public void onClick(View v)
+                            {
+                                aDialog.dismiss();
+                            }
+                        });
+
+                        return aDialog;
+                    }
+                };
+            }
+            else
+            {
+                aCheckDialog=new DialogFragment()
+                {
+                    public Dialog onCreateDialog(Bundle savedInstanceState)
+                    {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+                        builder.setMessage(getString(R.string.is_it_correct, aAnswer))
+                               .setPositiveButton(R.string.correct, new DialogInterface.OnClickListener()
+                               {
+                                   public void onClick(DialogInterface dialog, int id)
+                                   {
+                                       checkAnswer(true);
+                                   }
+                               })
+                               .setNegativeButton(R.string.not_correct, new DialogInterface.OnClickListener()
+                               {
+                                   public void onClick(DialogInterface dialog, int id)
+                                   {
+                                       checkAnswer(false);
+                                   }
+                               })
+                               .setCancelable(getCalculateActivity().getMode()!=CalculateActivity.MODE_VERIFICATION);
+
+                        return builder.create();
+                    }
+                };
+            }
 
             aCheckDialog.show(getFragmentManager(), "CheckDialog");
         }
