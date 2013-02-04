@@ -1,1 +1,4 @@
+Settings that allow to use network only over Wi-Fi
+Make possible to choose your score
+Check for mistakes and give part of scores
 Done button in keyboard
