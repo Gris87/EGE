@@ -211,21 +211,22 @@ public class TaskFragment extends Fragment implements OnClickListener
     }
 
     // Only allowed in MODE_VIEW_TASK and MODE_VERIFICATION
-    public void checkAnswer(boolean aCorrect)
+    public void checkAnswer(byte aScore)
     {
+        mTask.setScore(aScore);
+
         if (getCalculateActivity().getMode()==CalculateActivity.MODE_VIEW_TASK)
         {
-            Toast.makeText(getActivity(), aCorrect? R.string.correct : R.string.not_correct, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), mTask.isFinished()? R.string.correct : R.string.not_correct, Toast.LENGTH_SHORT).show();
         }
 
-        if (aCorrect)
+        if (mTask.isFinished())
         {
             new ResultsOpenHelper(getActivity()).setTaskFinished(
                                                                  getCalculateActivity().getUserId(),
                                                                  getCalculateActivity().getLessonId(),
                                                                  mTask.getId()
                                                                 );
-            mTask.setFinished(true); // TODO: Use setScore
             updateStatus();
 
             if (getCalculateActivity().getMode()==CalculateActivity.MODE_VIEW_TASK)
@@ -246,12 +247,12 @@ public class TaskFragment extends Fragment implements OnClickListener
     {
         if (mTask.getCategory().charAt(0)=='A')
         {
-            checkAnswer(mTask.getAnswer().equalsIgnoreCase(getAnswer().trim()));
+            checkAnswer(mTask.getAnswer().equalsIgnoreCase(getAnswer().trim()) ? mTask.getMaxScore() : (byte)0);
         }
         else
         if (mTask.getCategory().charAt(0)=='B')
         {
-            checkAnswer(mTask.getAnswer().equalsIgnoreCase(getAnswer().trim()));
+            checkAnswer(mTask.getAnswer().equalsIgnoreCase(getAnswer().trim()) ? mTask.getMaxScore() : (byte)0);
         }
         else
         if (mTask.getCategory().charAt(0)=='C')
@@ -284,8 +285,8 @@ public class TaskFragment extends Fragment implements OnClickListener
                         mOkButton      = (Button)  aDialog.findViewById(R.id.okButton);
 
                         // Initialize controls
-                        mResultSeekBar.setMax(5);
-                        mResultSeekBar.setProgress(5);
+                        mResultSeekBar.setMax(mTask.getMaxScore());
+                        mResultSeekBar.setProgress(mTask.getMaxScore());
                         mText.setText(getString(R.string.is_it_correct_self, aAnswer));
 
                         // Set listeners
@@ -311,7 +312,7 @@ public class TaskFragment extends Fragment implements OnClickListener
                             @Override
                             public void onClick(View v)
                             {
-                                checkAnswer(false);
+                                checkAnswer((byte)mResultSeekBar.getProgress());
                             }
                         });
 
@@ -332,14 +333,14 @@ public class TaskFragment extends Fragment implements OnClickListener
                                {
                                    public void onClick(DialogInterface dialog, int id)
                                    {
-                                       checkAnswer(true);
+                                       checkAnswer(mTask.getMaxScore());
                                    }
                                })
                                .setNegativeButton(R.string.not_correct, new DialogInterface.OnClickListener()
                                {
                                    public void onClick(DialogInterface dialog, int id)
                                    {
-                                       checkAnswer(false);
+                                       checkAnswer((byte)0);
                                    }
                                })
                                .setCancelable(getCalculateActivity().getMode()!=CalculateActivity.MODE_VERIFICATION);

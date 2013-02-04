@@ -15,7 +15,7 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
 {
     private static final String TAG="ResultsOpenHelper";
 
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
 
 
@@ -33,7 +33,7 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
 
     public  static final String COLUMN_RESULT_ID   = "_resultId";
     public  static final String COLUMN_ANSWER      = "_answer";
-    public  static final String COLUMN_CORRECT     = "_correct";
+    public  static final String COLUMN_SCORE       = "_score";
 
 
 
@@ -67,7 +67,7 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
                                                         COLUMN_RESULT_ID,
                                                         COLUMN_TASK_NUMBER,
                                                         COLUMN_ANSWER,
-                                                        COLUMN_CORRECT
+                                                        COLUMN_SCORE
                                                    };
 
 
@@ -112,7 +112,7 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
                                                            COLUMN_RESULT_ID   + " INTEGER, "             +
                                                            COLUMN_TASK_NUMBER + " INTEGER, "             +
                                                            COLUMN_ANSWER      + " TEXT, "                +
-                                                           COLUMN_CORRECT     + " INTEGER"               +
+                                                           COLUMN_SCORE       + " INTEGER"               +
                                                        ");";
 
 
@@ -135,7 +135,38 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
     {
-        // Nothing
+        Log.d(TAG, "Updating database from "+String.valueOf(oldVersion)+" to "+String.valueOf(newVersion));
+
+        for (int i=oldVersion; i<newVersion; ++i)
+        {
+            switch (i)
+            {
+                case 1:
+                {
+                    db.execSQL("CREATE TABLE answers_tmp "           +
+                               "("                                   +
+                                 "_id         INTEGER PRIMARY KEY, " +
+                                 "_resultId   INTEGER, "             +
+                                 "_taskNumber INTEGER, "             +
+                                 "_answer     TEXT, "                +
+                                 "_score      INTEGER"               +
+                               ");");
+
+                    db.execSQL("INSERT INTO answers_tmp " +
+                               "SELECT _id, _resultId, _taskNumber, _answer, (_correct*100) " +
+                               "FROM answers;");
+
+                    db.execSQL("DROP TABLE answers;");
+
+                    db.execSQL("ALTER TABLE answers_tmp RENAME TO answers;");
+                }
+                break;
+                default:
+                {
+                    Log.e(TAG, "No information about update database for version "+String.valueOf(oldVersion));
+                }
+            }
+        }
     }
 
     public Cursor getUsersList(SQLiteDatabase aDb)
@@ -626,13 +657,13 @@ public class ResultsOpenHelper extends SQLiteOpenHelper
             {
                 int aTaskNumberIndex = aCursor.getColumnIndexOrThrow(COLUMN_TASK_NUMBER);
                 int aAnswerIndex     = aCursor.getColumnIndexOrThrow(COLUMN_ANSWER);
-                int aCorrectIndex    = aCursor.getColumnIndexOrThrow(COLUMN_CORRECT);
+                int aScoreIndex      = aCursor.getColumnIndexOrThrow(COLUMN_SCORE);
 
                 while (aCursor.moveToNext())
                 {
                     Task aTask=aGlobalTasks.get(aCursor.getInt(aTaskNumberIndex));
                     aTask.setAnswer(aCursor.getString(aAnswerIndex));
-                    aTask.setFinished(aCursor.getInt(aCorrectIndex)!=0); // TODO: NOT SETFINISHED use SETSCORE
+                    aTask.setScore((byte)aCursor.getInt(aScoreIndex));
                     res.add(aTask);
                 }
             }

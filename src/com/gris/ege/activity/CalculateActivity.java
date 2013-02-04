@@ -525,7 +525,7 @@ public class CalculateActivity extends FragmentActivity
                     aAnswerValues.put(ResultsOpenHelper.COLUMN_RESULT_ID,   aResultId);
                     aAnswerValues.put(ResultsOpenHelper.COLUMN_TASK_NUMBER, aTestTasks.get(i).getId());
                     aAnswerValues.put(ResultsOpenHelper.COLUMN_ANSWER,      aTestTasks.get(i).getAnswer());
-                    aAnswerValues.put(ResultsOpenHelper.COLUMN_CORRECT,     aTestTasks.get(i).isFinished()? 1 : 0); //TODO: Use getScore
+                    aAnswerValues.put(ResultsOpenHelper.COLUMN_SCORE,       aTestTasks.get(i).getScore());
 
                     aDb.insertOrThrow(
                                       ResultsOpenHelper.ANSWERS_TABLE_NAME,
