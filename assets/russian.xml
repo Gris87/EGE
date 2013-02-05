@@ -1,402 +1,402 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <tasks>
-	<task id="0"    category="A1"  answer=""/>
-    <task id="1"    category="A2"  answer=""/>
-    <task id="2"    category="A3"  answer=""/>
-    <task id="3"    category="A4"  answer=""/>
-    <task id="4"    category="A5"  answer=""/>
-    <task id="5"    category="A6"  answer=""/>
-    <task id="6"    category="A7"  answer="" group="1"/>
-    <task id="7"    category="A8"  answer="" group="1"/>
-    <task id="8"    category="A9"  answer="" group="1"/>
-    <task id="9"    category="A10" answer="" group="1"/>
-    <task id="10"   category="A11" answer="" group="1"/>
-    <task id="11"   category="A12" answer="" group="1"/>
-    <task id="12"   category="A13" answer=""/>
-    <task id="13"   category="A14" answer=""/>
-    <task id="14"   category="A15" answer=""/>
-    <task id="15"   category="A16" answer=""/>
-    <task id="16"   category="A17" answer=""/>
-    <task id="17"   category="A18" answer=""/>
-    <task id="18"   category="A19" answer=""/>
-    <task id="19"   category="A20" answer=""/>
-    <task id="20"   category="A21" answer=""/>
-    <task id="21"   category="A22" answer=""/>
-    <task id="22"   category="A23" answer=""/>
-    <task id="23"   category="A24" answer=""/>
-    <task id="24"   category="A25" answer=""/>
-    <task id="25"   category="A26" answer=""/>
-    <task id="26"   category="A27" answer=""/>
-    <task id="27"   category="A28" answer=""          group="2"/>
-    <task id="28"   category="A29" answer=""          group="2"/>
-    <task id="29"   category="A30" answer=""          group="2"/>
-    <task id="30"   category="B1"  answer=""          group="2"/>
-    <task id="31"   category="B2"  answer=""          group="2"/>
-    <task id="32"   category="B3"  answer=""          group="2"/>
-    <task id="33"   category="B4"  answer=""          group="2"/>
-    <task id="34"   category="B5"  answer=""          group="2"/>
-    <task id="35"   category="B6"  answer=""          group="2"/>
-    <task id="36"   category="B7"  answer=""          group="2"/>
-    <task id="37"   category="B8"  answer=""          group="2" score="4" mistakes="true"/>
-    <task id="38"   category="C1"  answer="СОЧИНЕНИЕ" group="2" self="true"/>
+	<task id="0"    category="A1"  answer="4"/>
+    <task id="1"    category="A2"  answer="2"/>
+    <task id="2"    category="A3"  answer="2"/>
+    <task id="3"    category="A4"  answer="1"/>
+    <task id="4"    category="A5"  answer="3"/>
+    <task id="5"    category="A6"  answer="1"/>
+    <task id="6"    category="A7"  answer="2" group="1"/>
+    <task id="7"    category="A8"  answer="2" group="1"/>
+    <task id="8"    category="A9"  answer="3" group="1"/>
+    <task id="9"    category="A10" answer="4" group="1"/>
+    <task id="10"   category="A11" answer="2" group="1"/>
+    <task id="11"   category="A12" answer="3" group="1"/>
+    <task id="12"   category="A13" answer="1"/>
+    <task id="13"   category="A14" answer="3"/>
+    <task id="14"   category="A15" answer="2"/>
+    <task id="15"   category="A16" answer="3"/>
+    <task id="16"   category="A17" answer="1"/>
+    <task id="17"   category="A18" answer="1"/>
+    <task id="18"   category="A19" answer="2"/>
+    <task id="19"   category="A20" answer="2"/>
+    <task id="20"   category="A21" answer="4"/>
+    <task id="21"   category="A22" answer="2"/>
+    <task id="22"   category="A23" answer="4"/>
+    <task id="23"   category="A24" answer="1"/>
+    <task id="24"   category="A25" answer="2"/>
+    <task id="25"   category="A26" answer="2"/>
+    <task id="26"   category="A27" answer="3"/>
+    <task id="27"   category="A28" answer="3"           group="2"/>
+    <task id="28"   category="A29" answer="4"           group="2"/>
+    <task id="29"   category="A30" answer="4"           group="2"/>
+    <task id="30"   category="B1"  answer="По-научному" group="2"/>
+    <task id="31"   category="B2"  answer="Несмотря на" group="2"/>
+    <task id="32"   category="B3"  answer="Примыкание"  group="2"/>
+    <task id="33"   category="B4"  answer="3"           group="2"/>
+    <task id="34"   category="B5"  answer="8"           group="2"/>
+    <task id="35"   category="B6"  answer="4,5"         group="2"/>
+    <task id="36"   category="B7"  answer="15"          group="2"/>
+    <task id="37"   category="B8"  answer="7,6,4,1"     group="2" score="4" mistakes="true"/>
+    <task id="38"   category="C1"  answer="СОЧИНЕНИЕ"   group="2" self="true"/>
     
-    <task id="39"   category="A1"  answer=""/>
-    <task id="40"   category="A2"  answer=""/>
-    <task id="41"   category="A3"  answer=""/>
-    <task id="42"   category="A4"  answer=""/>
-    <task id="43"   category="A5"  answer=""/>
-    <task id="44"   category="A6"  answer=""/>
-    <task id="45"   category="A7"  answer="" group="3"/>
-    <task id="46"   category="A8"  answer="" group="3"/>
-    <task id="47"   category="A9"  answer="" group="3"/>
-    <task id="48"   category="A10" answer="" group="3"/>
-    <task id="49"   category="A11" answer="" group="3"/>
-    <task id="50"   category="A12" answer="" group="3"/>
-    <task id="51"   category="A13" answer=""/>
-    <task id="52"   category="A14" answer=""/>
-    <task id="53"   category="A15" answer=""/>
-    <task id="54"   category="A16" answer=""/>
-    <task id="55"   category="A17" answer=""/>
-    <task id="56"   category="A18" answer=""/>
-    <task id="57"   category="A19" answer=""/>
-    <task id="58"   category="A20" answer=""/>
-    <task id="59"   category="A21" answer=""/>
-    <task id="60"   category="A22" answer=""/>
-    <task id="61"   category="A23" answer=""/>
-    <task id="62"   category="A24" answer=""/>
-    <task id="63"   category="A25" answer=""/>
-    <task id="64"   category="A26" answer=""/>
-    <task id="65"   category="A27" answer=""/>
-    <task id="66"   category="A28" answer=""          group="4"/>
-    <task id="67"   category="A29" answer=""          group="4"/>
-    <task id="68"   category="A30" answer=""          group="4"/>
-    <task id="69"   category="B1"  answer=""          group="4"/>
-    <task id="70"   category="B2"  answer=""          group="4"/>
-    <task id="71"   category="B3"  answer=""          group="4"/>
-    <task id="72"   category="B4"  answer=""          group="4"/>
-    <task id="73"   category="B5"  answer=""          group="4"/>
-    <task id="74"   category="B6"  answer=""          group="4"/>
-    <task id="75"   category="B7"  answer=""          group="4"/>
-    <task id="76"   category="B8"  answer=""          group="4" score="4" mistakes="true"/>
-    <task id="77"   category="C1"  answer="СОЧИНЕНИЕ" group="4" self="true"/>
+    <task id="39"   category="A1"  answer="1"/>
+    <task id="40"   category="A2"  answer="4"/>
+    <task id="41"   category="A3"  answer="1"/>
+    <task id="42"   category="A4"  answer="2"/>
+    <task id="43"   category="A5"  answer="1"/>
+    <task id="44"   category="A6"  answer="1"/>
+    <task id="45"   category="A7"  answer="3" group="3"/>
+    <task id="46"   category="A8"  answer="4" group="3"/>
+    <task id="47"   category="A9"  answer="1" group="3"/>
+    <task id="48"   category="A10" answer="1" group="3"/>
+    <task id="49"   category="A11" answer="3" group="3"/>
+    <task id="50"   category="A12" answer="2" group="3"/>
+    <task id="51"   category="A13" answer="3"/>
+    <task id="52"   category="A14" answer="2"/>
+    <task id="53"   category="A15" answer="4"/>
+    <task id="54"   category="A16" answer="1"/>
+    <task id="55"   category="A17" answer="2"/>
+    <task id="56"   category="A18" answer="3"/>
+    <task id="57"   category="A19" answer="4"/>
+    <task id="58"   category="A20" answer="3"/>
+    <task id="59"   category="A21" answer="1"/>
+    <task id="60"   category="A22" answer="4"/>
+    <task id="61"   category="A23" answer="3"/>
+    <task id="62"   category="A24" answer="4"/>
+    <task id="63"   category="A25" answer="1"/>
+    <task id="64"   category="A26" answer="3"/>
+    <task id="65"   category="A27" answer="2"/>
+    <task id="66"   category="A28" answer="2"            group="4"/>
+    <task id="67"   category="A29" answer="1"            group="4"/>
+    <task id="68"   category="A30" answer="2"            group="4"/>
+    <task id="69"   category="B1"  answer="Прислушаемся" group="4"/>
+    <task id="70"   category="B2"  answer="Как, ежели"   group="4"/>
+    <task id="71"   category="B3"  answer="Примыкание"   group="4"/>
+    <task id="72"   category="B4"  answer="25"           group="4"/>
+    <task id="73"   category="B5"  answer="25,26"        group="4"/>
+    <task id="74"   category="B6"  answer="11"           group="4"/>
+    <task id="75"   category="B7"  answer="3"            group="4"/>
+    <task id="76"   category="B8"  answer="7,5,3,4"      group="4" score="4" mistakes="true"/>
+    <task id="77"   category="C1"  answer="СОЧИНЕНИЕ"    group="4" self="true"/>
     
-    <task id="78"   category="A1"  answer=""/>
-    <task id="79"   category="A2"  answer=""/>
-    <task id="80"   category="A3"  answer=""/>
-    <task id="81"   category="A4"  answer=""/>
-    <task id="82"   category="A5"  answer=""/>
-    <task id="83"   category="A6"  answer=""/>
-    <task id="84"   category="A7"  answer="" group="5"/>
-    <task id="85"   category="A8"  answer="" group="5"/>
-    <task id="86"   category="A9"  answer="" group="5"/>
-    <task id="87"   category="A10" answer="" group="5"/>
-    <task id="88"   category="A11" answer="" group="5"/>
-    <task id="89"   category="A12" answer="" group="5"/>
-    <task id="90"   category="A13" answer=""/>
-    <task id="91"   category="A14" answer=""/>
-    <task id="92"   category="A15" answer=""/>
-    <task id="93"   category="A16" answer=""/>
-    <task id="94"   category="A17" answer=""/>
-    <task id="95"   category="A18" answer=""/>
-    <task id="96"   category="A19" answer=""/>
-    <task id="97"   category="A20" answer=""/>
-    <task id="98"   category="A21" answer=""/>
-    <task id="99"   category="A22" answer=""/>
-    <task id="100"  category="A23" answer=""/>
-    <task id="101"  category="A24" answer=""/>
-    <task id="102"  category="A25" answer=""/>
-    <task id="103"  category="A26" answer=""/>
-    <task id="104"  category="A27" answer=""/>
-    <task id="105"  category="A28" answer=""          group="6"/>
-    <task id="106"  category="A29" answer=""          group="6"/>
-    <task id="107"  category="A30" answer=""          group="6"/>
-    <task id="108"  category="B1"  answer=""          group="6"/>
-    <task id="109"  category="B2"  answer=""          group="6"/>
-    <task id="110"  category="B3"  answer=""          group="6"/>
-    <task id="111"  category="B4"  answer=""          group="6"/>
-    <task id="112"  category="B5"  answer=""          group="6"/>
-    <task id="113"  category="B6"  answer=""          group="6"/>
-    <task id="114"  category="B7"  answer=""          group="6"/>
-    <task id="115"  category="B8"  answer=""          group="6" score="4" mistakes="true"/>
-    <task id="116"  category="C1"  answer="СОЧИНЕНИЕ" group="6" self="true"/>
+    <task id="78"   category="A1"  answer="3"/>
+    <task id="79"   category="A2"  answer="2"/>
+    <task id="80"   category="A3"  answer="3"/>
+    <task id="81"   category="A4"  answer="1"/>
+    <task id="82"   category="A5"  answer="4"/>
+    <task id="83"   category="A6"  answer="3"/>
+    <task id="84"   category="A7"  answer="2" group="5"/>
+    <task id="85"   category="A8"  answer="2" group="5"/>
+    <task id="86"   category="A9"  answer="3" group="5"/>
+    <task id="87"   category="A10" answer="1" group="5"/>
+    <task id="88"   category="A11" answer="3" group="5"/>
+    <task id="89"   category="A12" answer="4" group="5"/>
+    <task id="90"   category="A13" answer="2"/>
+    <task id="91"   category="A14" answer="1"/>
+    <task id="92"   category="A15" answer="1"/>
+    <task id="93"   category="A16" answer="2"/>
+    <task id="94"   category="A17" answer="3"/>
+    <task id="95"   category="A18" answer="2"/>
+    <task id="96"   category="A19" answer="3"/>
+    <task id="97"   category="A20" answer="2"/>
+    <task id="98"   category="A21" answer="2"/>
+    <task id="99"   category="A22" answer="4"/>
+    <task id="100"  category="A23" answer="1"/>
+    <task id="101"  category="A24" answer="3"/>
+    <task id="102"  category="A25" answer="2"/>
+    <task id="103"  category="A26" answer="1"/>
+    <task id="104"  category="A27" answer="4"/>
+    <task id="105"  category="A28" answer="1"            group="6"/>
+    <task id="106"  category="A29" answer="3"            group="6"/>
+    <task id="107"  category="A30" answer="2"            group="6"/>
+    <task id="108"  category="B1"  answer="Обнародовала" group="6"/>
+    <task id="109"  category="B2"  answer="Этой, тот"    group="6"/>
+    <task id="110"  category="B3"  answer="Согласование" group="6"/>
+    <task id="111"  category="B4"  answer="24"           group="6"/>
+    <task id="112"  category="B5"  answer="6"            group="6"/>
+    <task id="113"  category="B6"  answer="3"            group="6"/>
+    <task id="114"  category="B7"  answer="2"            group="6"/>
+    <task id="115"  category="B8"  answer="9,2,7,4"      group="6" score="4" mistakes="true"/>
+    <task id="116"  category="C1"  answer="СОЧИНЕНИЕ"    group="6" self="true"/>
     
-    <task id="117"  category="A1"  answer=""/>
-    <task id="118"  category="A2"  answer=""/>
-    <task id="119"  category="A3"  answer=""/>
-    <task id="120"  category="A4"  answer=""/>
-    <task id="121"  category="A5"  answer=""/>
-    <task id="122"  category="A6"  answer=""/>
-    <task id="123"  category="A7"  answer="" group="7"/>
-    <task id="124"  category="A8"  answer="" group="7"/>
-    <task id="125"  category="A9"  answer="" group="7"/>
-    <task id="126"  category="A10" answer="" group="7"/>
-    <task id="127"  category="A11" answer="" group="7"/>
-    <task id="128"  category="A12" answer="" group="7"/>
-    <task id="129"  category="A13" answer=""/>
-    <task id="130"  category="A14" answer=""/>
-    <task id="131"  category="A15" answer=""/>
-    <task id="132"  category="A16" answer=""/>
-    <task id="133"  category="A17" answer=""/>
-    <task id="134"  category="A18" answer=""/>
-    <task id="135"  category="A19" answer=""/>
-    <task id="136"  category="A20" answer=""/>
-    <task id="137"  category="A21" answer=""/>
-    <task id="138"  category="A22" answer=""/>
-    <task id="139"  category="A23" answer=""/>
-    <task id="140"  category="A24" answer=""/>
-    <task id="141"  category="A25" answer=""/>
-    <task id="142"  category="A26" answer=""/>
-    <task id="143"  category="A27" answer=""/>
-    <task id="144"  category="A28" answer=""          group="8"/>
-    <task id="145"  category="A29" answer=""          group="8"/>
-    <task id="146"  category="A30" answer=""          group="8"/>
-    <task id="147"  category="B1"  answer=""          group="8"/>
-    <task id="148"  category="B2"  answer=""          group="8"/>
-    <task id="149"  category="B3"  answer=""          group="8"/>
-    <task id="150"  category="B4"  answer=""          group="8"/>
-    <task id="151"  category="B5"  answer=""          group="8"/>
-    <task id="152"  category="B6"  answer=""          group="8"/>
-    <task id="153"  category="B7"  answer=""          group="8"/>
-    <task id="154"  category="B8"  answer=""          group="8" score="4" mistakes="true"/>
-    <task id="155"  category="C1"  answer="СОЧИНЕНИЕ" group="8" self="true"/>
+    <task id="117"  category="A1"  answer="1"/>
+    <task id="118"  category="A2"  answer="3"/>
+    <task id="119"  category="A3"  answer="3"/>
+    <task id="120"  category="A4"  answer="4"/>
+    <task id="121"  category="A5"  answer="1"/>
+    <task id="122"  category="A6"  answer="1"/>
+    <task id="123"  category="A7"  answer="3" group="7"/>
+    <task id="124"  category="A8"  answer="2" group="7"/>
+    <task id="125"  category="A9"  answer="1" group="7"/>
+    <task id="126"  category="A10" answer="3" group="7"/>
+    <task id="127"  category="A11" answer="4" group="7"/>
+    <task id="128"  category="A12" answer="1" group="7"/>
+    <task id="129"  category="A13" answer="2"/>
+    <task id="130"  category="A14" answer="4"/>
+    <task id="131"  category="A15" answer="1"/>
+    <task id="132"  category="A16" answer="3"/>
+    <task id="133"  category="A17" answer="4"/>
+    <task id="134"  category="A18" answer="3"/>
+    <task id="135"  category="A19" answer="1"/>
+    <task id="136"  category="A20" answer="1"/>
+    <task id="137"  category="A21" answer="4"/>
+    <task id="138"  category="A22" answer="3"/>
+    <task id="139"  category="A23" answer="2"/>
+    <task id="140"  category="A24" answer="2"/>
+    <task id="141"  category="A25" answer="1"/>
+    <task id="142"  category="A26" answer="3"/>
+    <task id="143"  category="A27" answer="3"/>
+    <task id="144"  category="A28" answer="3"          group="8"/>
+    <task id="145"  category="A29" answer="2"          group="8"/>
+    <task id="146"  category="A30" answer="1"          group="8"/>
+    <task id="147"  category="B1"  answer="Работу"     group="8"/>
+    <task id="148"  category="B2"  answer="Связано"    group="8"/>
+    <task id="149"  category="B3"  answer="Примыкание" group="8"/>
+    <task id="150"  category="B4"  answer="12"         group="8"/>
+    <task id="151"  category="B5"  answer="4"          group="8"/>
+    <task id="152"  category="B6"  answer="36"         group="8"/>
+    <task id="153"  category="B7"  answer="35"         group="8"/>
+    <task id="154"  category="B8"  answer="5,2,9,6"    group="8" score="4" mistakes="true"/>
+    <task id="155"  category="C1"  answer="СОЧИНЕНИЕ"  group="8" self="true"/>
     
-    <task id="156"  category="A1"  answer=""/>
-    <task id="157"  category="A2"  answer=""/>
-    <task id="158"  category="A3"  answer=""/>
-    <task id="159"  category="A4"  answer=""/>
-    <task id="160"  category="A5"  answer=""/>
-    <task id="161"  category="A6"  answer=""/>
-    <task id="162"  category="A7"  answer="" group="9"/>
-    <task id="163"  category="A8"  answer="" group="9"/>
-    <task id="164"  category="A9"  answer="" group="9"/>
-    <task id="165"  category="A10" answer="" group="9"/>
-    <task id="166"  category="A11" answer="" group="9"/>
-    <task id="167"  category="A12" answer="" group="9"/>
-    <task id="168"  category="A13" answer=""/>
-    <task id="169"  category="A14" answer=""/>
-    <task id="170"  category="A15" answer=""/>
-    <task id="171"  category="A16" answer=""/>
-    <task id="172"  category="A17" answer=""/>
-    <task id="173"  category="A18" answer=""/>
-    <task id="174"  category="A19" answer=""/>
-    <task id="175"  category="A20" answer=""/>
-    <task id="176"  category="A21" answer=""/>
-    <task id="177"  category="A22" answer=""/>
-    <task id="178"  category="A23" answer=""/>
-    <task id="179"  category="A24" answer=""/>
-    <task id="180"  category="A25" answer=""/>
-    <task id="181"  category="A26" answer=""/>
-    <task id="182"  category="A27" answer=""/>
-    <task id="183"  category="A28" answer=""          group="10"/>
-    <task id="184"  category="A29" answer=""          group="10"/>
-    <task id="185"  category="A30" answer=""          group="10"/>
-    <task id="186"  category="B1"  answer=""          group="10"/>
-    <task id="187"  category="B2"  answer=""          group="10"/>
-    <task id="188"  category="B3"  answer=""          group="10"/>
-    <task id="189"  category="B4"  answer=""          group="10"/>
-    <task id="190"  category="B5"  answer=""          group="10"/>
-    <task id="191"  category="B6"  answer=""          group="10"/>
-    <task id="192"  category="B7"  answer=""          group="10"/>
-    <task id="193"  category="B8"  answer=""          group="10" score="4" mistakes="true"/>
-    <task id="194"  category="C1"  answer="СОЧИНЕНИЕ" group="10" self="true"/>
+    <task id="156"  category="A1"  answer="4"/>
+    <task id="157"  category="A2"  answer="3"/>
+    <task id="158"  category="A3"  answer="3"/>
+    <task id="159"  category="A4"  answer="2"/>
+    <task id="160"  category="A5"  answer="1"/>
+    <task id="161"  category="A6"  answer="4"/>
+    <task id="162"  category="A7"  answer="4" group="9"/>
+    <task id="163"  category="A8"  answer="1" group="9"/>
+    <task id="164"  category="A9"  answer="3" group="9"/>
+    <task id="165"  category="A10" answer="2" group="9"/>
+    <task id="166"  category="A11" answer="2" group="9"/>
+    <task id="167"  category="A12" answer="1" group="9"/>
+    <task id="168"  category="A13" answer="4"/>
+    <task id="169"  category="A14" answer="3"/>
+    <task id="170"  category="A15" answer="1"/>
+    <task id="171"  category="A16" answer="2"/>
+    <task id="172"  category="A17" answer="1"/>
+    <task id="173"  category="A18" answer="3"/>
+    <task id="174"  category="A19" answer="2"/>
+    <task id="175"  category="A20" answer="4"/>
+    <task id="176"  category="A21" answer="2"/>
+    <task id="177"  category="A22" answer="1"/>
+    <task id="178"  category="A23" answer="3"/>
+    <task id="179"  category="A24" answer="4"/>
+    <task id="180"  category="A25" answer="3"/>
+    <task id="181"  category="A26" answer="3"/>
+    <task id="182"  category="A27" answer="2"/>
+    <task id="183"  category="A28" answer="1"             group="10"/>
+    <task id="184"  category="A29" answer="3"             group="10"/>
+    <task id="185"  category="A30" answer="1"             group="10"/>
+    <task id="186"  category="B1"  answer="Суффиксальный" group="10"/>
+    <task id="187"  category="B2"  answer="Несмотря на"   group="10"/>
+    <task id="188"  category="B3"  answer="Управление"    group="10"/>
+    <task id="189"  category="B4"  answer="7"             group="10"/>
+    <task id="190"  category="B5"  answer="11"            group="10"/>
+    <task id="191"  category="B6"  answer="27"            group="10"/>
+    <task id="192"  category="B7"  answer="43"            group="10"/>
+    <task id="193"  category="B8"  answer="1,2,7,3"       group="10" score="4" mistakes="true"/>
+    <task id="194"  category="C1"  answer="СОЧИНЕНИЕ"     group="10" self="true"/>
     
-    <task id="195"  category="A1"  answer=""/>
-    <task id="196"  category="A2"  answer=""/>
-    <task id="197"  category="A3"  answer=""/>
-    <task id="198"  category="A4"  answer=""/>
-    <task id="199"  category="A5"  answer=""/>
-    <task id="200"  category="A6"  answer=""/>
-    <task id="201"  category="A7"  answer="" group="11"/>
-    <task id="202"  category="A8"  answer="" group="11"/>
-    <task id="203"  category="A9"  answer="" group="11"/>
-    <task id="204"  category="A10" answer="" group="11"/>
-    <task id="205"  category="A11" answer="" group="11"/>
-    <task id="206"  category="A12" answer="" group="11"/>
-    <task id="207"  category="A13" answer=""/>
-    <task id="208"  category="A14" answer=""/>
-    <task id="209"  category="A15" answer=""/>
-    <task id="210"  category="A16" answer=""/>
-    <task id="211"  category="A17" answer=""/>
-    <task id="212"  category="A18" answer=""/>
-    <task id="213"  category="A19" answer=""/>
-    <task id="214"  category="A20" answer=""/>
-    <task id="215"  category="A21" answer=""/>
-    <task id="216"  category="A22" answer=""/>
-    <task id="217"  category="A23" answer=""/>
-    <task id="218"  category="A24" answer=""/>
-    <task id="219"  category="A25" answer=""/>
-    <task id="220"  category="A26" answer=""/>
-    <task id="221"  category="A27" answer=""/>
-    <task id="222"  category="A28" answer=""          group="12"/>
-    <task id="223"  category="A29" answer=""          group="12"/>
-    <task id="224"  category="A30" answer=""          group="12"/>
-    <task id="225"  category="B1"  answer=""          group="12"/>
-    <task id="226"  category="B2"  answer=""          group="12"/>
-    <task id="227"  category="B3"  answer=""          group="12"/>
-    <task id="228"  category="B4"  answer=""          group="12"/>
-    <task id="229"  category="B5"  answer=""          group="12"/>
-    <task id="230"  category="B6"  answer=""          group="12"/>
-    <task id="231"  category="B7"  answer=""          group="12"/>
-    <task id="232"  category="B8"  answer=""          group="12" score="4" mistakes="true"/>
-    <task id="233"  category="C1"  answer="СОЧИНЕНИЕ" group="12" self="true"/>
+    <task id="195"  category="A1"  answer="3"/>
+    <task id="196"  category="A2"  answer="1"/>
+    <task id="197"  category="A3"  answer="1"/>
+    <task id="198"  category="A4"  answer="3"/>
+    <task id="199"  category="A5"  answer="1"/>
+    <task id="200"  category="A6"  answer="3"/>
+    <task id="201"  category="A7"  answer="3" group="11"/>
+    <task id="202"  category="A8"  answer="4" group="11"/>
+    <task id="203"  category="A9"  answer="2" group="11"/>
+    <task id="204"  category="A10" answer="3" group="11"/>
+    <task id="205"  category="A11" answer="2" group="11"/>
+    <task id="206"  category="A12" answer="3" group="11"/>
+    <task id="207"  category="A13" answer="2"/>
+    <task id="208"  category="A14" answer="4"/>
+    <task id="209"  category="A15" answer="2"/>
+    <task id="210"  category="A16" answer="1"/>
+    <task id="211"  category="A17" answer="4"/>
+    <task id="212"  category="A18" answer="4"/>
+    <task id="213"  category="A19" answer="2"/>
+    <task id="214"  category="A20" answer="3"/>
+    <task id="215"  category="A21" answer="3"/>
+    <task id="216"  category="A22" answer="3"/>
+    <task id="217"  category="A23" answer="4"/>
+    <task id="218"  category="A24" answer="4"/>
+    <task id="219"  category="A25" answer="2"/>
+    <task id="220"  category="A26" answer="2"/>
+    <task id="221"  category="A27" answer="1"/>
+    <task id="222"  category="A28" answer="1"             group="12"/>
+    <task id="223"  category="A29" answer="3"             group="12"/>
+    <task id="224"  category="A30" answer="4"             group="12"/>
+    <task id="225"  category="B1"  answer="Суффиксальный" group="12"/>
+    <task id="226"  category="B2"  answer="Припоминая"    group="12"/>
+    <task id="227"  category="B3"  answer="Примыкание"    group="12"/>
+    <task id="228"  category="B4"  answer="8"             group="12"/>
+    <task id="229"  category="B5"  answer="12"            group="12"/>
+    <task id="230"  category="B6"  answer="5"             group="12"/>
+    <task id="231"  category="B7"  answer="16"            group="12"/>
+    <task id="232"  category="B8"  answer="4,8,5,1"       group="12" score="4" mistakes="true"/>
+    <task id="233"  category="C1"  answer="СОЧИНЕНИЕ"     group="12" self="true"/>
     
-    <task id="234"  category="A1"  answer=""/>
-    <task id="235"  category="A2"  answer=""/>
-    <task id="236"  category="A3"  answer=""/>
-    <task id="237"  category="A4"  answer=""/>
-    <task id="238"  category="A5"  answer=""/>
-    <task id="239"  category="A6"  answer=""/>
-    <task id="240"  category="A7"  answer="" group="13"/>
-    <task id="241"  category="A8"  answer="" group="13"/>
-    <task id="242"  category="A9"  answer="" group="13"/>
-    <task id="243"  category="A10" answer="" group="13"/>
-    <task id="244"  category="A11" answer="" group="13"/>
-    <task id="245"  category="A12" answer="" group="13"/>
-    <task id="246"  category="A13" answer=""/>
-    <task id="247"  category="A14" answer=""/>
-    <task id="248"  category="A15" answer=""/>
-    <task id="249"  category="A16" answer=""/>
-    <task id="250"  category="A17" answer=""/>
-    <task id="251"  category="A18" answer=""/>
-    <task id="252"  category="A19" answer=""/>
-    <task id="253"  category="A20" answer=""/>
-    <task id="254"  category="A21" answer=""/>
-    <task id="255"  category="A22" answer=""/>
-    <task id="256"  category="A23" answer=""/>
-    <task id="257"  category="A24" answer=""/>
-    <task id="258"  category="A25" answer=""/>
-    <task id="259"  category="A26" answer=""/>
-    <task id="260"  category="A27" answer=""/>
-    <task id="261"  category="A28" answer=""          group="14"/>
-    <task id="262"  category="A29" answer=""          group="14"/>
-    <task id="263"  category="A30" answer=""          group="14"/>
-    <task id="264"  category="B1"  answer=""          group="14"/>
-    <task id="265"  category="B2"  answer=""          group="14"/>
-    <task id="266"  category="B3"  answer=""          group="14"/>
-    <task id="267"  category="B4"  answer=""          group="14"/>
-    <task id="268"  category="B5"  answer=""          group="14"/>
-    <task id="269"  category="B6"  answer=""          group="14"/>
-    <task id="270"  category="B7"  answer=""          group="14"/>
-    <task id="271"  category="B8"  answer=""          group="14" score="4" mistakes="true"/>
-    <task id="272"  category="C1"  answer="СОЧИНЕНИЕ" group="14" self="true"/>
+    <task id="234"  category="A1"  answer="3"/>
+    <task id="235"  category="A2"  answer="4"/>
+    <task id="236"  category="A3"  answer="1"/>
+    <task id="237"  category="A4"  answer="2"/>
+    <task id="238"  category="A5"  answer="2"/>
+    <task id="239"  category="A6"  answer="3"/>
+    <task id="240"  category="A7"  answer="3" group="13"/>
+    <task id="241"  category="A8"  answer="4" group="13"/>
+    <task id="242"  category="A9"  answer="1" group="13"/>
+    <task id="243"  category="A10" answer="1" group="13"/>
+    <task id="244"  category="A11" answer="4" group="13"/>
+    <task id="245"  category="A12" answer="2" group="13"/>
+    <task id="246"  category="A13" answer="3"/>
+    <task id="247"  category="A14" answer="2"/>
+    <task id="248"  category="A15" answer="1"/>
+    <task id="249"  category="A16" answer="4"/>
+    <task id="250"  category="A17" answer="1"/>
+    <task id="251"  category="A18" answer="4"/>
+    <task id="252"  category="A19" answer="2"/>
+    <task id="253"  category="A20" answer="2"/>
+    <task id="254"  category="A21" answer="3"/>
+    <task id="255"  category="A22" answer="2"/>
+    <task id="256"  category="A23" answer="1"/>
+    <task id="257"  category="A24" answer="4"/>
+    <task id="258"  category="A25" answer="2"/>
+    <task id="259"  category="A26" answer="4"/>
+    <task id="260"  category="A27" answer="3"/>
+    <task id="261"  category="A28" answer="2"             group="14"/>
+    <task id="262"  category="A29" answer="3"             group="14"/>
+    <task id="263"  category="A30" answer="4"             group="14"/>
+    <task id="264"  category="B1"  answer="По-моему"      group="14"/>
+    <task id="265"  category="B2"  answer="Держа"         group="14"/>
+    <task id="266"  category="B3"  answer="Согласование"  group="14"/>
+    <task id="267"  category="B4"  answer="9"             group="14"/>
+    <task id="268"  category="B5"  answer="27"            group="14"/>
+    <task id="269"  category="B6"  answer="30"            group="14"/>
+    <task id="270"  category="B7"  answer="20"            group="14"/>
+    <task id="271"  category="B8"  answer="4,8,9,2"       group="14" score="4" mistakes="true"/>
+    <task id="272"  category="C1"  answer="СОЧИНЕНИЕ"     group="14" self="true"/>
     
-    <task id="273"  category="A1"  answer=""/>
-    <task id="274"  category="A2"  answer=""/>
-    <task id="275"  category="A3"  answer=""/>
-    <task id="276"  category="A4"  answer=""/>
-    <task id="277"  category="A5"  answer=""/>
-    <task id="278"  category="A6"  answer=""/>
-    <task id="279"  category="A7"  answer="" group="15"/>
-    <task id="280"  category="A8"  answer="" group="15"/>
-    <task id="281"  category="A9"  answer="" group="15"/>
-    <task id="282"  category="A10" answer="" group="15"/>
-    <task id="283"  category="A11" answer="" group="15"/>
-    <task id="284"  category="A12" answer="" group="15"/>
-    <task id="285"  category="A13" answer=""/>
-    <task id="286"  category="A14" answer=""/>
-    <task id="287"  category="A15" answer=""/>
-    <task id="288"  category="A16" answer=""/>
-    <task id="289"  category="A17" answer=""/>
-    <task id="290"  category="A18" answer=""/>
-    <task id="291"  category="A19" answer=""/>
-    <task id="292"  category="A20" answer=""/>
-    <task id="293"  category="A21" answer=""/>
-    <task id="294"  category="A22" answer=""/>
-    <task id="295"  category="A23" answer=""/>
-    <task id="296"  category="A24" answer=""/>
-    <task id="297"  category="A25" answer=""/>
-    <task id="298"  category="A26" answer=""/>
-    <task id="299"  category="A27" answer=""/>
-    <task id="300"  category="A28" answer=""          group="16"/>
-    <task id="301"  category="A29" answer=""          group="16"/>
-    <task id="302"  category="A30" answer=""          group="16"/>
-    <task id="303"  category="B1"  answer=""          group="16"/>
-    <task id="304"  category="B2"  answer=""          group="16"/>
-    <task id="305"  category="B3"  answer=""          group="16"/>
-    <task id="306"  category="B4"  answer=""          group="16"/>
-    <task id="307"  category="B5"  answer=""          group="16"/>
-    <task id="308"  category="B6"  answer=""          group="16"/>
-    <task id="309"  category="B7"  answer=""          group="16"/>
-    <task id="310"  category="B8"  answer=""          group="16" score="4" mistakes="true"/>
-    <task id="311"  category="C1"  answer="СОЧИНЕНИЕ" group="16" self="true"/>
+    <task id="273"  category="A1"  answer="2"/>
+    <task id="274"  category="A2"  answer="3"/>
+    <task id="275"  category="A3"  answer="3"/>
+    <task id="276"  category="A4"  answer="4"/>
+    <task id="277"  category="A5"  answer="1"/>
+    <task id="278"  category="A6"  answer="1"/>
+    <task id="279"  category="A7"  answer="2" group="15"/>
+    <task id="280"  category="A8"  answer="3" group="15"/>
+    <task id="281"  category="A9"  answer="3" group="15"/>
+    <task id="282"  category="A10" answer="2" group="15"/>
+    <task id="283"  category="A11" answer="1" group="15"/>
+    <task id="284"  category="A12" answer="4" group="15"/>
+    <task id="285"  category="A13" answer="3"/>
+    <task id="286"  category="A14" answer="1"/>
+    <task id="287"  category="A15" answer="1"/>
+    <task id="288"  category="A16" answer="4"/>
+    <task id="289"  category="A17" answer="3"/>
+    <task id="290"  category="A18" answer="2"/>
+    <task id="291"  category="A19" answer="3"/>
+    <task id="292"  category="A20" answer="1"/>
+    <task id="293"  category="A21" answer="4"/>
+    <task id="294"  category="A22" answer="4"/>
+    <task id="295"  category="A23" answer="1"/>
+    <task id="296"  category="A24" answer="1"/>
+    <task id="297"  category="A25" answer="3"/>
+    <task id="298"  category="A26" answer="4"/>
+    <task id="299"  category="A27" answer="4"/>
+    <task id="300"  category="A28" answer="1"              group="16"/>
+    <task id="301"  category="A29" answer="3"              group="16"/>
+    <task id="302"  category="A30" answer="4"              group="16"/>
+    <task id="303"  category="B1"  answer="Приставочный"   group="16"/>
+    <task id="304"  category="B2"  answer="Перегруженные"  group="16"/>
+    <task id="305"  category="B3"  answer="Примыкание"     group="16"/>
+    <task id="306"  category="B4"  answer="24"             group="16"/>
+    <task id="307"  category="B5"  answer="12"             group="16"/>
+    <task id="308"  category="B6"  answer="6"              group="16"/>
+    <task id="309"  category="B7"  answer="10"             group="16"/>
+    <task id="310"  category="B8"  answer="4,2,9,1"        group="16" score="4" mistakes="true"/>
+    <task id="311"  category="C1"  answer="СОЧИНЕНИЕ"      group="16" self="true"/>
     
-    <task id="312"  category="A1"  answer=""/>
-    <task id="313"  category="A2"  answer=""/>
-    <task id="314"  category="A3"  answer=""/>
-    <task id="315"  category="A4"  answer=""/>
-    <task id="316"  category="A5"  answer=""/>
-    <task id="317"  category="A6"  answer=""/>
-    <task id="318"  category="A7"  answer="" group="17"/>
-    <task id="319"  category="A8"  answer="" group="17"/>
-    <task id="320"  category="A9"  answer="" group="17"/>
-    <task id="321"  category="A10" answer="" group="17"/>
-    <task id="322"  category="A11" answer="" group="17"/>
-    <task id="323"  category="A12" answer="" group="17"/>
-    <task id="324"  category="A13" answer=""/>
-    <task id="325"  category="A14" answer=""/>
-    <task id="326"  category="A15" answer=""/>
-    <task id="327"  category="A16" answer=""/>
-    <task id="328"  category="A17" answer=""/>
-    <task id="329"  category="A18" answer=""/>
-    <task id="330"  category="A19" answer=""/>
-    <task id="331"  category="A20" answer=""/>
-    <task id="332"  category="A21" answer=""/>
-    <task id="333"  category="A22" answer=""/>
-    <task id="334"  category="A23" answer=""/>
-    <task id="335"  category="A24" answer=""/>
-    <task id="336"  category="A25" answer=""/>
-    <task id="337"  category="A26" answer=""/>
-    <task id="338"  category="A27" answer=""/>
-    <task id="339"  category="A28" answer=""          group="18"/>
-    <task id="340"  category="A29" answer=""          group="18"/>
-    <task id="341"  category="A30" answer=""          group="18"/>
-    <task id="342"  category="B1"  answer=""          group="18"/>
-    <task id="343"  category="B2"  answer=""          group="18"/>
-    <task id="344"  category="B3"  answer=""          group="18"/>
-    <task id="345"  category="B4"  answer=""          group="18"/>
-    <task id="346"  category="B5"  answer=""          group="18"/>
-    <task id="347"  category="B6"  answer=""          group="18"/>
-    <task id="348"  category="B7"  answer=""          group="18"/>
-    <task id="349"  category="B8"  answer=""          group="18" score="4" mistakes="true"/>
-    <task id="350"  category="C1"  answer="СОЧИНЕНИЕ" group="18" self="true"/>
+    <task id="312"  category="A1"  answer="1"/>
+    <task id="313"  category="A2"  answer="1"/>
+    <task id="314"  category="A3"  answer="3"/>
+    <task id="315"  category="A4"  answer="4"/>
+    <task id="316"  category="A5"  answer="2"/>
+    <task id="317"  category="A6"  answer="4"/>
+    <task id="318"  category="A7"  answer="3" group="17"/>
+    <task id="319"  category="A8"  answer="1" group="17"/>
+    <task id="320"  category="A9"  answer="4" group="17"/>
+    <task id="321"  category="A10" answer="2" group="17"/>
+    <task id="322"  category="A11" answer="2" group="17"/>
+    <task id="323"  category="A12" answer="1" group="17"/>
+    <task id="324"  category="A13" answer="3"/>
+    <task id="325"  category="A14" answer="2"/>
+    <task id="326"  category="A15" answer="4"/>
+    <task id="327"  category="A16" answer="1"/>
+    <task id="328"  category="A17" answer="3"/>
+    <task id="329"  category="A18" answer="1"/>
+    <task id="330"  category="A19" answer="3"/>
+    <task id="331"  category="A20" answer="3"/>
+    <task id="332"  category="A21" answer="3"/>
+    <task id="333"  category="A22" answer="4"/>
+    <task id="334"  category="A23" answer="2"/>
+    <task id="335"  category="A24" answer="2"/>
+    <task id="336"  category="A25" answer="1"/>
+    <task id="337"  category="A26" answer="3"/>
+    <task id="338"  category="A27" answer="2"/>
+    <task id="339"  category="A28" answer="2"              group="18"/>
+    <task id="340"  category="A29" answer="1"              group="18"/>
+    <task id="341"  category="A30" answer="4"              group="18"/>
+    <task id="342"  category="B1"  answer="По-особеннному" group="18"/>
+    <task id="343"  category="B2"  answer="Такого, этого"  group="18"/>
+    <task id="344"  category="B3"  answer="Примыкание"     group="18"/>
+    <task id="345"  category="B4"  answer="43"             group="18"/>
+    <task id="346"  category="B5"  answer="51"             group="18"/>
+    <task id="347"  category="B6"  answer="33"             group="18"/>
+    <task id="348"  category="B7"  answer="35"             group="18"/>
+    <task id="349"  category="B8"  answer="2,4,1,5"        group="18" score="4" mistakes="true"/>
+    <task id="350"  category="C1"  answer="СОЧИНЕНИЕ"      group="18" self="true"/>
     
-    <task id="351"  category="A1"  answer=""/>
-    <task id="352"  category="A2"  answer=""/>
-    <task id="353"  category="A3"  answer=""/>
-    <task id="354"  category="A4"  answer=""/>
-    <task id="355"  category="A5"  answer=""/>
-    <task id="356"  category="A6"  answer=""/>
-    <task id="357"  category="A7"  answer="" group="19"/>
-    <task id="358"  category="A8"  answer="" group="19"/>
-    <task id="359"  category="A9"  answer="" group="19"/>
-    <task id="360"  category="A10" answer="" group="19"/>
-    <task id="361"  category="A11" answer="" group="19"/>
-    <task id="362"  category="A12" answer="" group="19"/>
-    <task id="363"  category="A13" answer=""/>
-    <task id="364"  category="A14" answer=""/>
-    <task id="365"  category="A15" answer=""/>
-    <task id="366"  category="A16" answer=""/>
-    <task id="367"  category="A17" answer=""/>
-    <task id="368"  category="A18" answer=""/>
-    <task id="369"  category="A19" answer=""/>
-    <task id="370"  category="A20" answer=""/>
-    <task id="371"  category="A21" answer=""/>
-    <task id="372"  category="A22" answer=""/>
-    <task id="373"  category="A23" answer=""/>
-    <task id="374"  category="A24" answer=""/>
-    <task id="375"  category="A25" answer=""/>
-    <task id="376"  category="A26" answer=""/>
-    <task id="377"  category="A27" answer=""/>
-    <task id="378"  category="A28" answer=""          group="19"/>
-    <task id="379"  category="A29" answer=""          group="19"/>
-    <task id="380"  category="A30" answer=""          group="19"/>
-    <task id="381"  category="B1"  answer=""          group="19"/>
-    <task id="382"  category="B2"  answer=""          group="19"/>
-    <task id="383"  category="B3"  answer=""          group="19"/>
-    <task id="384"  category="B4"  answer=""          group="19"/>
-    <task id="385"  category="B5"  answer=""          group="19"/>
-    <task id="386"  category="B6"  answer=""          group="19"/>
-    <task id="387"  category="B7"  answer=""          group="19"/>
-    <task id="388"  category="B8"  answer=""          group="19" score="4" mistakes="true"/>
-    <task id="389"  category="C1"  answer="СОЧИНЕНИЕ" group="19" self="true"/>
+    <task id="351"  category="A1"  answer="4"/>
+    <task id="352"  category="A2"  answer="2"/>
+    <task id="353"  category="A3"  answer="1"/>
+    <task id="354"  category="A4"  answer="3"/>
+    <task id="355"  category="A5"  answer="2"/>
+    <task id="356"  category="A6"  answer="1"/>
+    <task id="357"  category="A7"  answer="4" group="19"/>
+    <task id="358"  category="A8"  answer="3" group="19"/>
+    <task id="359"  category="A9"  answer="2" group="19"/>
+    <task id="360"  category="A10" answer="4" group="19"/>
+    <task id="361"  category="A11" answer="1" group="19"/>
+    <task id="362"  category="A12" answer="3" group="19"/>
+    <task id="363"  category="A13" answer="2"/>
+    <task id="364"  category="A14" answer="1"/>
+    <task id="365"  category="A15" answer="3"/>
+    <task id="366"  category="A16" answer="3"/>
+    <task id="367"  category="A17" answer="4"/>
+    <task id="368"  category="A18" answer="2"/>
+    <task id="369"  category="A19" answer="3"/>
+    <task id="370"  category="A20" answer="1"/>
+    <task id="371"  category="A21" answer="3"/>
+    <task id="372"  category="A22" answer="1"/>
+    <task id="373"  category="A23" answer="1"/>
+    <task id="374"  category="A24" answer="4"/>
+    <task id="375"  category="A25" answer="3"/>
+    <task id="376"  category="A26" answer="4"/>
+    <task id="377"  category="A27" answer="4"/>
+    <task id="378"  category="A28" answer="2"               group="20"/>
+    <task id="379"  category="A29" answer="3"               group="20"/>
+    <task id="380"  category="A30" answer="2"               group="20"/>
+    <task id="381"  category="B1"  answer="Суффиксальный"   group="20"/>
+    <task id="382"  category="B2"  answer="Характеризующих" group="20"/>
+    <task id="383"  category="B3"  answer="Примыкание"      group="20"/>
+    <task id="384"  category="B4"  answer="7"               group="20"/>
+    <task id="385"  category="B5"  answer="22,23"           group="20"/>
+    <task id="386"  category="B6"  answer="25"              group="20"/>
+    <task id="387"  category="B7"  answer="9"               group="20"/>
+    <task id="388"  category="B8"  answer="5,4,6,1"         group="20" score="4" mistakes="true"/>
+    <task id="389"  category="C1"  answer="СОЧИНЕНИЕ"       group="20" self="true"/>
 </tasks>
