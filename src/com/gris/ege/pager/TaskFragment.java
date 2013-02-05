@@ -276,10 +276,10 @@ public class TaskFragment extends Fragment implements OnClickListener
             {
                 aCheckDialog=new DialogFragment()
                 {
-                    private SeekBar mResultSeekBar;
+                    private SeekBar  mResultSeekBar;
                     private TextView mResultScores;
                     private TextView mText;
-                    private Button mOkButton;
+                    private Button   mOkButton;
 
                     public Dialog onCreateDialog(Bundle savedInstanceState)
                     {

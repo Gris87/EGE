@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tasks>
+	<task id="0"    category="A1"  answer=""/>
+    <task id="1"    category="A2"  answer=""/>
+    <task id="2"    category="A3"  answer=""/>
+    <task id="3"    category="A4"  answer=""/>
+    <task id="4"    category="A5"  answer=""/>
+    <task id="5"    category="A6"  answer=""/>
+    <task id="6"    category="A7"  answer="" group="1"/>
+    <task id="7"    category="A8"  answer="" group="1"/>
+    <task id="8"    category="A9"  answer="" group="1"/>
+    <task id="9"    category="A10" answer="" group="1"/>
+    <task id="10"   category="A11" answer="" group="1"/>
+    <task id="11"   category="A12" answer="" group="1"/>
+    <task id="12"   category="A13" answer=""/>
+    <task id="13"   category="A14" answer=""/>
+    <task id="14"   category="A15" answer=""/>
+    <task id="15"   category="A16" answer=""/>
+    <task id="16"   category="A17" answer=""/>
+    <task id="17"   category="A18" answer=""/>
+    <task id="18"   category="A19" answer=""/>
+    <task id="19"   category="A20" answer=""/>
+    <task id="20"   category="A21" answer=""/>
+    <task id="21"   category="A22" answer=""/>
+    <task id="22"   category="A23" answer=""/>
+    <task id="23"   category="A24" answer=""/>
+    <task id="24"   category="A25" answer=""/>
+    <task id="25"   category="A26" answer=""/>
+    <task id="26"   category="A27" answer=""/>
+    <task id="27"   category="A28" answer="" group="2"/>
+    <task id="28"   category="A29" answer="" group="2"/>
+    <task id="29"   category="A30" answer="" group="2"/>
+    <task id="30"   category="B1"  answer="" group="2"/>
+    <task id="31"   category="B2"  answer="" group="2"/>
+    <task id="32"   category="B3"  answer="" group="2"/>
+    <task id="33"   category="B4"  answer="" group="2"/>
+    <task id="34"   category="B5"  answer="" group="2"/>
+    <task id="35"   category="B6"  answer="" group="2"/>
+    <task id="36"   category="B7"  answer="" group="2"/>
+    <task id="37"   category="B8"  answer="" group="2" score="4" mistakes="true"/>
+    <task id="38"   category="C1"  answer="" group="2" self="true"/>
+    
+    <task id="39"   category="A1"  answer=""/>
+    <task id="40"   category="A2"  answer=""/>
+    <task id="41"   category="A3"  answer=""/>
+    <task id="42"   category="A4"  answer=""/>
+    <task id="43"   category="A5"  answer=""/>
+    <task id="44"   category="A6"  answer=""/>
+    <task id="45"   category="A7"  answer="" group="3"/>
+    <task id="46"   category="A8"  answer="" group="3"/>
+    <task id="47"   category="A9"  answer="" group="3"/>
+    <task id="48"   category="A10" answer="" group="3"/>
+    <task id="49"   category="A11" answer="" group="3"/>
+    <task id="50"   category="A12" answer="" group="3"/>
+    <task id="51"   category="A13" answer=""/>
+    <task id="52"   category="A14" answer=""/>
+    <task id="53"   category="A15" answer=""/>
+    <task id="54"   category="A16" answer=""/>
+    <task id="55"   category="A17" answer=""/>
+    <task id="56"   category="A18" answer=""/>
+    <task id="57"   category="A19" answer=""/>
+    <task id="58"   category="A20" answer=""/>
+    <task id="59"   category="A21" answer=""/>
+    <task id="60"   category="A22" answer=""/>
+    <task id="61"   category="A23" answer=""/>
+    <task id="62"   category="A24" answer=""/>
+    <task id="63"   category="A25" answer=""/>
+    <task id="64"   category="A26" answer=""/>
+    <task id="65"   category="A27" answer=""/>
+    <task id="66"   category="A28" answer="" group="4"/>
+    <task id="67"   category="A29" answer="" group="4"/>
+    <task id="68"   category="A30" answer="" group="4"/>
+    <task id="69"   category="B1"  answer="" group="4"/>
+    <task id="70"   category="B2"  answer="" group="4"/>
+    <task id="71"   category="B3"  answer="" group="4"/>
+    <task id="72"   category="B4"  answer="" group="4"/>
+    <task id="73"   category="B5"  answer="" group="4"/>
+    <task id="74"   category="B6"  answer="" group="4"/>
+    <task id="75"   category="B7"  answer="" group="4"/>
+    <task id="76"   category="B8"  answer="" group="4" score="4" mistakes="true"/>
+    <task id="77"   category="C1"  answer="" group="4" self="true"/>
+    
+    <task id="78"   category="A1"  answer=""/>
+    <task id="79"   category="A2"  answer=""/>
+    <task id="80"   category="A3"  answer=""/>
+    <task id="81"   category="A4"  answer=""/>
+    <task id="82"   category="A5"  answer=""/>
+    <task id="83"   category="A6"  answer=""/>
+    <task id="84"   category="A7"  answer="" group="5"/>
+    <task id="85"   category="A8"  answer="" group="5"/>
+    <task id="86"   category="A9"  answer="" group="5"/>
+    <task id="87"   category="A10" answer="" group="5"/>
+    <task id="88"   category="A11" answer="" group="5"/>
+    <task id="89"   category="A12" answer="" group="5"/>
+    <task id="90"   category="A13" answer=""/>
+    <task id="91"   category="A14" answer=""/>
+    <task id="92"   category="A15" answer=""/>
+    <task id="93"   category="A16" answer=""/>
+    <task id="94"   category="A17" answer=""/>
+    <task id="95"   category="A18" answer=""/>
+    <task id="96"   category="A19" answer=""/>
+    <task id="97"   category="A20" answer=""/>
+    <task id="98"   category="A21" answer=""/>
+    <task id="99"   category="A22" answer=""/>
+    <task id="100"  category="A23" answer=""/>
+    <task id="101"  category="A24" answer=""/>
+    <task id="102"  category="A25" answer=""/>
+    <task id="103"  category="A26" answer=""/>
+    <task id="104"  category="A27" answer=""/>
+    <task id="105"  category="A28" answer="" group="6"/>
+    <task id="106"  category="A29" answer="" group="6"/>
+    <task id="107"  category="A30" answer="" group="6"/>
+    <task id="108"  category="B1"  answer="" group="6"/>
+    <task id="109"  category="B2"  answer="" group="6"/>
+    <task id="110"  category="B3"  answer="" group="6"/>
+    <task id="111"  category="B4"  answer="" group="6"/>
+    <task id="112"  category="B5"  answer="" group="6"/>
+    <task id="113"  category="B6"  answer="" group="6"/>
+    <task id="114"  category="B7"  answer="" group="6"/>
+    <task id="115"  category="B8"  answer="" group="6" score="4" mistakes="true"/>
+    <task id="116"  category="C1"  answer="" group="6" self="true"/>
+    
+    <task id="117"  category="A1"  answer=""/>
+    <task id="118"  category="A2"  answer=""/>
+    <task id="119"  category="A3"  answer=""/>
+    <task id="120"  category="A4"  answer=""/>
+    <task id="121"  category="A5"  answer=""/>
+    <task id="122"  category="A6"  answer=""/>
+    <task id="123"  category="A7"  answer="" group="7"/>
+    <task id="124"  category="A8"  answer="" group="7"/>
+    <task id="125"  category="A9"  answer="" group="7"/>
+    <task id="126"  category="A10" answer="" group="7"/>
+    <task id="127"  category="A11" answer="" group="7"/>
+    <task id="128"  category="A12" answer="" group="7"/>
+    <task id="129"  category="A13" answer=""/>
+    <task id="130"  category="A14" answer=""/>
+    <task id="131"  category="A15" answer=""/>
+    <task id="132"  category="A16" answer=""/>
+    <task id="133"  category="A17" answer=""/>
+    <task id="134"  category="A18" answer=""/>
+    <task id="135"  category="A19" answer=""/>
+    <task id="136"  category="A20" answer=""/>
+    <task id="137"  category="A21" answer=""/>
+    <task id="138"  category="A22" answer=""/>
+    <task id="139"  category="A23" answer=""/>
+    <task id="140"  category="A24" answer=""/>
+    <task id="141"  category="A25" answer=""/>
+    <task id="142"  category="A26" answer=""/>
+    <task id="143"  category="A27" answer=""/>
+    <task id="144"  category="A28" answer="" group="8"/>
+    <task id="145"  category="A29" answer="" group="8"/>
+    <task id="146"  category="A30" answer="" group="8"/>
+    <task id="147"  category="B1"  answer="" group="8"/>
+    <task id="148"  category="B2"  answer="" group="8"/>
+    <task id="149"  category="B3"  answer="" group="8"/>
+    <task id="150"  category="B4"  answer="" group="8"/>
+    <task id="151"  category="B5"  answer="" group="8"/>
+    <task id="152"  category="B6"  answer="" group="8"/>
+    <task id="153"  category="B7"  answer="" group="8"/>
+    <task id="154"  category="B8"  answer="" group="8" score="4" mistakes="true"/>
+    <task id="155"  category="C1"  answer="" group="8" self="true"/>
+    
+    <task id="156"  category="A1"  answer=""/>
+    <task id="157"  category="A2"  answer=""/>
+    <task id="158"  category="A3"  answer=""/>
+    <task id="159"  category="A4"  answer=""/>
+    <task id="160"  category="A5"  answer=""/>
+    <task id="161"  category="A6"  answer=""/>
+    <task id="162"  category="A7"  answer="" group="9"/>
+    <task id="163"  category="A8"  answer="" group="9"/>
+    <task id="164"  category="A9"  answer="" group="9"/>
+    <task id="165"  category="A10" answer="" group="9"/>
+    <task id="166"  category="A11" answer="" group="9"/>
+    <task id="167"  category="A12" answer="" group="9"/>
+    <task id="168"  category="A13" answer=""/>
+    <task id="169"  category="A14" answer=""/>
+    <task id="170"  category="A15" answer=""/>
+    <task id="171"  category="A16" answer=""/>
+    <task id="172"  category="A17" answer=""/>
+    <task id="173"  category="A18" answer=""/>
+    <task id="174"  category="A19" answer=""/>
+    <task id="175"  category="A20" answer=""/>
+    <task id="176"  category="A21" answer=""/>
+    <task id="177"  category="A22" answer=""/>
+    <task id="178"  category="A23" answer=""/>
+    <task id="179"  category="A24" answer=""/>
+    <task id="180"  category="A25" answer=""/>
+    <task id="181"  category="A26" answer=""/>
+    <task id="182"  category="A27" answer=""/>
+    <task id="183"  category="A28" answer="" group="10"/>
+    <task id="184"  category="A29" answer="" group="10"/>
+    <task id="185"  category="A30" answer="" group="10"/>
+    <task id="186"  category="B1"  answer="" group="10"/>
+    <task id="187"  category="B2"  answer="" group="10"/>
+    <task id="188"  category="B3"  answer="" group="10"/>
+    <task id="189"  category="B4"  answer="" group="10"/>
+    <task id="190"  category="B5"  answer="" group="10"/>
+    <task id="191"  category="B6"  answer="" group="10"/>
+    <task id="192"  category="B7"  answer="" group="10"/>
+    <task id="154"  category="B8"  answer="" group="10" score="4" mistakes="true"/>
+    <task id="155"  category="C1"  answer="" group="10" self="true"/>
+</tasks>
