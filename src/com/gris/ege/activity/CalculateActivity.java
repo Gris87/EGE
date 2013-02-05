@@ -633,7 +633,8 @@ public class CalculateActivity extends FragmentActivity
     {
         if (Utils.checkWifiOrNet(this))
         {
-            new SendLogTask().execute();
+        	// TODO: Remove comment
+            //new SendLogTask().execute();
         }
     }
 
@@ -731,11 +732,13 @@ public class CalculateActivity extends FragmentActivity
             try
             {
             	String aLastSendedFile="";
+            	String aUserName="";
 
             	synchronized (mPreferenceMutex)
             	{
             		SharedPreferences aSettings = getSharedPreferences(GlobalData.PREFS_NAME, 0);
             		aLastSendedFile             = aSettings.getString(GlobalData.OPTION_LAST_SENDED_LOG, "");
+            		aUserName                   = aSettings.getString(GlobalData.OPTION_USER_NAME, "");
             	}
 
             	int aLogIndex=Log.getCurrentIndex();
@@ -787,7 +790,7 @@ public class CalculateActivity extends FragmentActivity
                             String[] toArr = {"betatest95@yandex.com"};
                             aMail.setFrom("betatest95@gmail.com");
                             aMail.setTo(toArr);
-                            aMail.setSubject("Log file for EGE v. "+getPackageManager().getPackageInfo(getPackageName(), 0).versionName);
+                            aMail.setSubject(aUserName+"Log file for EGE v. "+getPackageManager().getPackageInfo(getPackageName(), 0).versionName);
                             aMail.setBody("This mail contains logs. Please check.");
                             aMail.addAttachment(aFileName);
                             aMail.send();
