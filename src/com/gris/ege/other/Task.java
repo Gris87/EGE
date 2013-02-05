@@ -7,6 +7,7 @@ public class Task
     private String  mAnswer;
     private byte    mScore;
     private byte    mMaxScore;
+    private int     mGroup;
     private boolean mWithMistakes;
     private boolean mSelfRating;
 
@@ -19,28 +20,19 @@ public class Task
         mAnswer       = "";
         mScore        = 0;
         mMaxScore     = 0;
+        mGroup        = 0;
         mWithMistakes = false;
         mSelfRating   = false;
     }
 
-    public Task(int aId, String aCategory, String aAnswer, byte aMaxScore, boolean aWithMistakes, boolean aSelfRating)
+    public Task(int aId, String aCategory, String aAnswer, byte aMaxScore, int aGroup, boolean aWithMistakes, boolean aSelfRating)
     {
         mId           = aId;
         mCategory     = aCategory;
         mAnswer       = aAnswer;
         mScore        = 0;
         mMaxScore     = aMaxScore;
-        mWithMistakes = aWithMistakes;
-        mSelfRating   = aSelfRating;
-    }
-
-    public Task(int aId, String aCategory, String aAnswer, byte aScore, byte aMaxScore, boolean aWithMistakes, boolean aSelfRating)
-    {
-        mId           = aId;
-        mCategory     = aCategory;
-        mAnswer       = aAnswer;
-        mScore        = aScore;
-        mMaxScore     = aMaxScore;
+        mGroup        = aGroup;
         mWithMistakes = aWithMistakes;
         mSelfRating   = aSelfRating;
     }
@@ -100,6 +92,16 @@ public class Task
     public void setMaxScore(byte aMaxScore)
     {
         mMaxScore=aMaxScore;
+    }
+
+    public int getGroup()
+    {
+	    return mGroup;
+    }
+
+    public void setGroup(int aGroup)
+    {
+	    mGroup=aGroup;
     }
 
     public boolean isWithMistakes()

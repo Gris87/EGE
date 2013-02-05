@@ -122,15 +122,18 @@ public class TasksParser
         String aCategory = aParser.getAttributeValue(null, "category");
         String aAnswer   = aParser.getAttributeValue(null, "answer");
         String aScoreStr = aParser.getAttributeValue(null, "score");
+        String aGroupStr = aParser.getAttributeValue(null, "group");
         String aMistakes = aParser.getAttributeValue(null, "mistakes");
         String aSelf     = aParser.getAttributeValue(null, "self");
 
         aParser.nextTag();
         aParser.require(XmlPullParser.END_TAG, null, "task");
 
-        // ---------------------------------------------------------------------------
+        // ===========================================================================
 
         int aId=Integer.parseInt(aIdStr);
+
+        // ---------------------------------------------------------------------------
 
         byte aScore=0;
 
@@ -161,7 +164,18 @@ public class TasksParser
             }
         }
 
-        return new Task(aId, aCategory, aAnswer, aScore, aMistakes!=null, aSelf!=null);
+        // ---------------------------------------------------------------------------
+
+        int aGroup=0;
+
+        if (aGroupStr!=null)
+        {
+        	aGroup=Integer.parseInt(aGroupStr);
+        }
+
+        // ---------------------------------------------------------------------------
+
+        return new Task(aId, aCategory, aAnswer, aScore, aGroup, aMistakes!=null, aSelf!=null);
     }
 
     private void skip(XmlPullParser aParser) throws XmlPullParserException, IOException
