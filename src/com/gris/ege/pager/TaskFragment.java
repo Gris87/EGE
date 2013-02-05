@@ -439,7 +439,7 @@ public class TaskFragment extends Fragment implements OnClickListener
 
                 if (aDrawable!=null)
                 {
-                    return GlobalData.PATH_ON_SD_CARD+aFileName;
+                    return "file://"+GlobalData.PATH_ON_SD_CARD+aFileName;
                 }
                 else
                 {
@@ -512,7 +512,7 @@ public class TaskFragment extends Fragment implements OnClickListener
 
                     if (aDrawable!=null)
                     {
-                        return GlobalData.PATH_ON_SD_CARD+aFileName;
+                        return "file://"+GlobalData.PATH_ON_SD_CARD+aFileName;
                     }
                     else
                     {
@@ -529,7 +529,7 @@ public class TaskFragment extends Fragment implements OnClickListener
         {
             if (aResult!=null)
             {
-                mTaskWebView.loadUrl("file://"+aResult);
+                mTaskWebView.loadUrl(aResult);
                 mTaskViewAnimator.setDisplayedChild(PAGE_IMAGE);
             }
             else
