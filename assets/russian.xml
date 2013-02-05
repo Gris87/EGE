@@ -197,6 +197,6 @@
     <task id="190"  category="B5"  answer="" group="10"/>
     <task id="191"  category="B6"  answer="" group="10"/>
     <task id="192"  category="B7"  answer="" group="10"/>
-    <task id="154"  category="B8"  answer="" group="10" score="4" mistakes="true"/>
-    <task id="155"  category="C1"  answer="" group="10" self="true"/>
+    <task id="193"  category="B8"  answer="" group="10" score="4" mistakes="true"/>
+    <task id="194"  category="C1"  answer="" group="10" self="true"/>
 </tasks>
