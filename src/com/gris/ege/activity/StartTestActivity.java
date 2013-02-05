@@ -138,9 +138,10 @@ public class StartTestActivity extends Activity implements OnClickListener
         switch (v.getId())
         {
             case R.id.startButton:
+            	Random aRandom=new Random();
                 ArrayList<Task> aSelectedTasks=new ArrayList<Task>();
-                Random aRandom=new Random();
 
+                int aCurrentGroup=0;
                 String aCategories[]={"A", "B", "C"};
 
                 for (int i=0; i<aCategories.length; ++i)
@@ -154,9 +155,11 @@ public class StartTestActivity extends Activity implements OnClickListener
 
                         for (int j=0; j<GlobalData.tasks.size(); ++j)
                         {
-                            if (GlobalData.tasks.get(j).getCategory().equals(aCategories[i]+String.valueOf(aIndexInCategory)))
+                        	Task aTask=GlobalData.tasks.get(j);
+
+                            if (aTask.getCategory().equals(aCategories[i]+String.valueOf(aIndexInCategory)))
                             {
-                                aCategoryTasks.add(GlobalData.tasks.get(j));
+                                aCategoryTasks.add(aTask);
                             }
                         }
 
@@ -165,9 +168,73 @@ public class StartTestActivity extends Activity implements OnClickListener
                             break;
                         }
 
-                        aSelectedTasks.add(aCategoryTasks.get(aRandom.nextInt(aCategoryTasks.size())));
+                        Task aSelectedTask=null;
+
+                        if (aCurrentGroup==0)
+                        {
+                        	boolean good=true;
+
+                        	for (int j=0; j<aCategoryTasks.size(); ++j)
+                            {
+                                if (aCategoryTasks.get(j).getGroup()==0)
+                                {
+                                	good=false;
+                                	break;
+                                }
+                            }
+
+                        	aSelectedTask=aCategoryTasks.get(aRandom.nextInt(aCategoryTasks.size()));
+
+                        	if (good)
+                        	{
+                        		aCurrentGroup=aSelectedTask.getGroup();
+                        	}
+                        }
+                        else
+                        {
+                        	boolean good=true;
+
+                        	for (int j=0; j<aCategoryTasks.size(); ++j)
+                            {
+                                if (aCategoryTasks.get(j).getGroup()==0)
+                                {
+                                	good=false;
+                                	break;
+                                }
+                            }
+
+                        	if (good)
+                        	{
+                        		for (int j=0; j<aCategoryTasks.size(); ++j)
+                                {
+                                    if (aCategoryTasks.get(j).getGroup()!=aCurrentGroup)
+                                    {
+                                    	aCategoryTasks.remove(j);
+                                    	--j;
+                                    }
+                                }
+                        	}
+                        	else
+                        	{
+                        		aCurrentGroup=0;
+                        	}
+
+                        	aSelectedTask=aCategoryTasks.get(aRandom.nextInt(aCategoryTasks.size()));
+                        }
+
+
+
+                        if (aSelectedTask!=null)
+                        {
+                        	aSelectedTasks.add(aSelectedTask);
+                        }
+                        else
+                        {
+                        	Log.e(TAG, "Never come at this part of code");
+                        }
                     } while(true);
                 }
+
 
 
                 // Start calculation activity
