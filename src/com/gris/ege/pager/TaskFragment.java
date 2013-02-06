@@ -146,13 +146,24 @@ public class TaskFragment extends Fragment implements OnClickListener
         else
         if (mTask.getCategory().charAt(0)=='B')
         {
-            mAnswerEditText.setRawInputType(
-                                            InputType.TYPE_CLASS_NUMBER
-                                            |
-                                            InputType.TYPE_NUMBER_FLAG_SIGNED
-                                            |
-                                            InputType.TYPE_NUMBER_FLAG_DECIMAL
-                                           );
+            if (GlobalData.selectedLesson.getId().equals("russian"))
+            {
+                mAnswerEditText.setRawInputType(
+                                                InputType.TYPE_CLASS_TEXT
+                                                |
+                                                InputType.TYPE_TEXT_VARIATION_NORMAL
+                                               );
+            }
+            else
+            {
+                mAnswerEditText.setRawInputType(
+                                                InputType.TYPE_CLASS_NUMBER
+                                                |
+                                                InputType.TYPE_NUMBER_FLAG_SIGNED
+                                                |
+                                                InputType.TYPE_NUMBER_FLAG_DECIMAL
+                                               );
+            }
 
             mAnswerEditText.setSingleLine(true);
         }
@@ -252,117 +263,175 @@ public class TaskFragment extends Fragment implements OnClickListener
     }
 
     // Only allowed in MODE_VIEW_TASK and MODE_VERIFICATION
+    public void checkAnswerA()
+    {
+        checkAnswer(mTask.getAnswer().equalsIgnoreCase(getAnswer().trim()) ? mTask.getMaxScore() : (byte)0);
+    }
+
+    // Only allowed in MODE_VIEW_TASK and MODE_VERIFICATION
+    public void checkAnswerB()
+    {
+        String aAnswer=mTask.getAnswer();
+        String aMyAnswer=getAnswer().trim();
+
+        if (mTask.isWithMistakes())
+        {
+            if (aAnswer.contains(","))
+            {
+                aAnswer   = aAnswer  .replaceAll(",", "").replaceAll(";", "").replaceAll(" ", "");
+                aMyAnswer = aMyAnswer.replaceAll(",", "").replaceAll(";", "").replaceAll(" ", "");
+            }
+
+            if (aAnswer.length()==aMyAnswer.length() && aAnswer.length()>0)
+            {
+                int aCorrect=0;
+
+                for (int i=0; i<aAnswer.length(); ++i)
+                {
+                    if (aAnswer.charAt(i)==aMyAnswer.charAt(i))
+                    {
+                        ++aCorrect;
+                    }
+                }
+
+                checkAnswer((byte)(aCorrect*mTask.getMaxScore()/aAnswer.length()));
+                // TODO:
+            }
+            else
+            {
+                checkAnswer((byte)0);
+            }
+        }
+        else
+        {
+            if (aAnswer.contains(","))
+            {
+                aAnswer   = aAnswer  .replaceAll(",", "").replaceAll(";", "").replaceAll(" ", "");
+                aMyAnswer = aMyAnswer.replaceAll(",", "").replaceAll(";", "").replaceAll(" ", "");
+            }
+
+            checkAnswer(aAnswer.equalsIgnoreCase(aMyAnswer) ? mTask.getMaxScore() : (byte)0);
+        }
+    }
+
+    // Only allowed in MODE_VIEW_TASK and MODE_VERIFICATION
+    public void checkAnswerC()
+    {
+        final String aAnswer=mTask.getAnswer().trim();
+
+        getCalculateActivity().removeProgressDialog();
+
+        DialogFragment aCheckDialog;
+
+        if (mTask.isSelfRating())
+        {
+            aCheckDialog=new DialogFragment()
+            {
+                private SeekBar  mResultSeekBar;
+                private TextView mResultScores;
+                private TextView mText;
+                private Button   mOkButton;
+
+                public Dialog onCreateDialog(Bundle savedInstanceState)
+                {
+                    final Dialog aDialog = new Dialog(getCalculateActivity());
+                    aDialog.setContentView(R.layout.self_rating_dialog);
+                    aDialog.setTitle(R.string.self_rating);
+                    aDialog.setCancelable(getCalculateActivity().getMode()!=CalculateActivity.MODE_VERIFICATION);
+
+                    // Get controls
+                    mResultSeekBar = (SeekBar) aDialog.findViewById(R.id.resultSeekBar);
+                    mResultScores  = (TextView)aDialog.findViewById(R.id.resultScores);
+                    mText          = (TextView)aDialog.findViewById(R.id.dialogText);
+                    mOkButton      = (Button)  aDialog.findViewById(R.id.okButton);
+
+                    // Initialize controls
+                    mResultSeekBar.setMax(mTask.getMaxScore());
+                    mResultSeekBar.setProgress(mTask.getMaxScore());
+                    mResultScores.setText(String.valueOf(mResultSeekBar.getProgress())+"/"+String.valueOf(mResultSeekBar.getMax()));
+                    mText.setText(getString(R.string.is_it_correct, aAnswer));
+
+                    // Set listeners
+                    mResultSeekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener()
+                    {
+                        @Override
+                        public void onStartTrackingTouch(SeekBar aSeekBar)
+                        {}
+
+                        @Override
+                        public void onStopTrackingTouch(SeekBar aSeekBar)
+                        {}
+
+                        @Override
+                        public void onProgressChanged(SeekBar aSeekBar, int aProgress, boolean aFromUser)
+                        {
+                            mResultScores.setText(String.valueOf(mResultSeekBar.getProgress())+"/"+String.valueOf(mResultSeekBar.getMax()));
+                        }
+                    });
+
+                    mOkButton.setOnClickListener(new OnClickListener()
+                    {
+                        @Override
+                        public void onClick(View v)
+                        {
+                            checkAnswer((byte)mResultSeekBar.getProgress());
+                            dismiss();
+                        }
+                    });
+
+                    return aDialog;
+                }
+            };
+        }
+        else
+        {
+            aCheckDialog=new DialogFragment()
+            {
+                public Dialog onCreateDialog(Bundle savedInstanceState)
+                {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+                    builder.setMessage(getString(R.string.is_it_correct, aAnswer))
+                           .setPositiveButton(R.string.correct, new DialogInterface.OnClickListener()
+                           {
+                               public void onClick(DialogInterface dialog, int id)
+                               {
+                                   checkAnswer(mTask.getMaxScore());
+                               }
+                           })
+                           .setNegativeButton(R.string.not_correct, new DialogInterface.OnClickListener()
+                           {
+                               public void onClick(DialogInterface dialog, int id)
+                               {
+                                   checkAnswer((byte)0);
+                               }
+                           })
+                           .setCancelable(getCalculateActivity().getMode()!=CalculateActivity.MODE_VERIFICATION);
+
+                    return builder.create();
+                }
+            };
+        }
+
+        aCheckDialog.show(getFragmentManager(), "CheckDialog");
+    }
+
+    // Only allowed in MODE_VIEW_TASK and MODE_VERIFICATION
     public void checkAnswer()
     {
         if (mTask.getCategory().charAt(0)=='A')
         {
-            checkAnswer(mTask.getAnswer().equalsIgnoreCase(getAnswer().trim()) ? mTask.getMaxScore() : (byte)0);
+            checkAnswerA();
         }
         else
         if (mTask.getCategory().charAt(0)=='B')
         {
-            checkAnswer(mTask.getAnswer().equalsIgnoreCase(getAnswer().trim()) ? mTask.getMaxScore() : (byte)0);
+            checkAnswerB();
         }
         else
         if (mTask.getCategory().charAt(0)=='C')
         {
-            final String aAnswer=mTask.getAnswer().trim();
-
-            getCalculateActivity().removeProgressDialog();
-
-            DialogFragment aCheckDialog;
-
-            if (mTask.isSelfRating())
-            {
-                aCheckDialog=new DialogFragment()
-                {
-                    private SeekBar  mResultSeekBar;
-                    private TextView mResultScores;
-                    private TextView mText;
-                    private Button   mOkButton;
-
-                    public Dialog onCreateDialog(Bundle savedInstanceState)
-                    {
-                        final Dialog aDialog = new Dialog(getCalculateActivity());
-                        aDialog.setContentView(R.layout.self_rating_dialog);
-                        aDialog.setTitle(R.string.self_rating);
-                        aDialog.setCancelable(getCalculateActivity().getMode()!=CalculateActivity.MODE_VERIFICATION);
-
-                        // Get controls
-                        mResultSeekBar = (SeekBar) aDialog.findViewById(R.id.resultSeekBar);
-                        mResultScores  = (TextView)aDialog.findViewById(R.id.resultScores);
-                        mText          = (TextView)aDialog.findViewById(R.id.dialogText);
-                        mOkButton      = (Button)  aDialog.findViewById(R.id.okButton);
-
-                        // Initialize controls
-                        mResultSeekBar.setMax(mTask.getMaxScore());
-                        mResultSeekBar.setProgress(mTask.getMaxScore());
-                        mResultScores.setText(String.valueOf(mResultSeekBar.getProgress())+"/"+String.valueOf(mResultSeekBar.getMax()));
-                        mText.setText(getString(R.string.is_it_correct, aAnswer));
-
-                        // Set listeners
-                        mResultSeekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener()
-                        {
-                            @Override
-                            public void onStartTrackingTouch(SeekBar aSeekBar)
-                            {}
-
-                            @Override
-                            public void onStopTrackingTouch(SeekBar aSeekBar)
-                            {}
-
-                            @Override
-                            public void onProgressChanged(SeekBar aSeekBar, int aProgress, boolean aFromUser)
-                            {
-                                mResultScores.setText(String.valueOf(mResultSeekBar.getProgress())+"/"+String.valueOf(mResultSeekBar.getMax()));
-                            }
-                        });
-
-                        mOkButton.setOnClickListener(new OnClickListener()
-                        {
-                            @Override
-                            public void onClick(View v)
-                            {
-                                checkAnswer((byte)mResultSeekBar.getProgress());
-                                dismiss();
-                            }
-                        });
-
-                        return aDialog;
-                    }
-                };
-            }
-            else
-            {
-                aCheckDialog=new DialogFragment()
-                {
-                    public Dialog onCreateDialog(Bundle savedInstanceState)
-                    {
-                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
-                        builder.setMessage(getString(R.string.is_it_correct, aAnswer))
-                               .setPositiveButton(R.string.correct, new DialogInterface.OnClickListener()
-                               {
-                                   public void onClick(DialogInterface dialog, int id)
-                                   {
-                                       checkAnswer(mTask.getMaxScore());
-                                   }
-                               })
-                               .setNegativeButton(R.string.not_correct, new DialogInterface.OnClickListener()
-                               {
-                                   public void onClick(DialogInterface dialog, int id)
-                                   {
-                                       checkAnswer((byte)0);
-                                   }
-                               })
-                               .setCancelable(getCalculateActivity().getMode()!=CalculateActivity.MODE_VERIFICATION);
-
-                        return builder.create();
-                    }
-                };
-            }
-
-            aCheckDialog.show(getFragmentManager(), "CheckDialog");
+            checkAnswerC();
         }
         else
         {

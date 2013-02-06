@@ -106,7 +106,7 @@
     <task id="101"  category="C3"  answer="M ≈ 2 кг"/>
     <task id="102"  category="C4"  answer="A = 60 мкДж"/>
     <task id="103"  category="C5"  answer="Eк = 2×10^-15 Дж"/>
-    <task id="104"  category="C6"  answer="λ43 = 1,5×10^-6 м"/>
+    <task id="104"  category="C6"  answer="λ43 = 1.5×10^-6 м"/>
 
     <task id="105"  category="A1"  answer="1"/>
     <task id="106"  category="A2"  answer="1"/>
