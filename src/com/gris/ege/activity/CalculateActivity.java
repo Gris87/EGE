@@ -441,10 +441,10 @@ public class CalculateActivity extends FragmentActivity
 
         mTimeLeftTextView.setText(Utils.timeToString(getString(R.string.time_left), aTimeLeft));
 
-        if (aTimeLeft<1000)
+        if (aTimeLeft<=9000)
         {
         	Vibrator v = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
-        	v.vibrate(1000-aTimeLeft);
+        	v.vibrate(1000-aTimeLeft/10);
         }
 
         if (aTimeLeft==0)
