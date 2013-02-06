@@ -30,6 +30,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
+import android.os.Vibrator;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
@@ -44,6 +45,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -439,6 +441,12 @@ public class CalculateActivity extends FragmentActivity
 
         mTimeLeftTextView.setText(Utils.timeToString(getString(R.string.time_left), aTimeLeft));
 
+        if (aTimeLeft<1000)
+        {
+        	Vibrator v = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+        	v.vibrate(1000-aTimeLeft);
+        }
+
         if (aTimeLeft==0)
         {
             completeTest();
@@ -790,7 +798,7 @@ public class CalculateActivity extends FragmentActivity
                             String[] toArr = {"betatest95@yandex.com"};
                             aMail.setFrom("betatest95@gmail.com");
                             aMail.setTo(toArr);
-                            aMail.setSubject(aUserName+"Log file for EGE v. "+getPackageManager().getPackageInfo(getPackageName(), 0).versionName);
+                            aMail.setSubject(aUserName+": Log file for EGE v. "+getPackageManager().getPackageInfo(getPackageName(), 0).versionName);
                             aMail.setBody("This mail contains logs. Please check.");
                             aMail.addAttachment(aFileName);
                             aMail.send();
