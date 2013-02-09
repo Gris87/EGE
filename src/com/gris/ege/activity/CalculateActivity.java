@@ -412,6 +412,16 @@ public class CalculateActivity extends FragmentActivity
         }
     }
 
+    public void nextPage()
+    {
+    	int aPage=mTasksPager.getCurrentPage()+1;
+
+    	if (aPage<mTasksAdapter.getCount())
+    	{
+    		mTasksPager.setCurrentItem(aPage, true);
+    	}
+    }
+
     public void createProgressDialog()
     {
         if (mProgressDialog==null)

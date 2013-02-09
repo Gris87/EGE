@@ -25,6 +25,8 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.text.InputType;
 import com.gris.ege.other.Log;
+
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -236,23 +238,29 @@ public class TaskFragment extends Fragment implements OnClickListener
             updateStatus();
         }
 
-        if (getCalculateActivity().getMode()==CalculateActivity.MODE_VIEW_TASK)
+        if (aScore>=mTask.getMaxScore())
         {
-            Toast.makeText(getActivity(), mTask.isFinished()? R.string.correct : R.string.not_correct, Toast.LENGTH_SHORT).show();
-        }
-
-        if (mTask.isFinished())
-        {
-            new ResultsOpenHelper(getActivity()).setTaskFinished(
+        	new ResultsOpenHelper(getActivity()).setTaskFinished(
                                                                  getCalculateActivity().getUserId(),
                                                                  getCalculateActivity().getLessonId(),
                                                                  mTask.getId()
-                                                                );
+        														);
 
-            if (getCalculateActivity().getMode()==CalculateActivity.MODE_VIEW_TASK)
+        	if (getCalculateActivity().getMode()==CalculateActivity.MODE_VIEW_TASK)
             {
+                Toast.makeText(getActivity(), R.string.correct, Toast.LENGTH_SHORT).show();
+
                 InputMethodManager imm=(InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(mAnswerEditText.getWindowToken(), 0);
+
+                getCalculateActivity().nextPage();
+            }
+        }
+        else
+        {
+        	if (getCalculateActivity().getMode()==CalculateActivity.MODE_VIEW_TASK)
+            {
+        		Toast.makeText(getActivity(), R.string.not_correct, Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -592,12 +600,21 @@ public class TaskFragment extends Fragment implements OnClickListener
             return null;
         }
 
+        @SuppressWarnings("deprecation")
         @Override
         protected void onPostExecute(String aResult)
         {
             if (aResult!=null)
             {
-                mTaskWebView.loadUrl(aResult);
+            	int aWidth=getCalculateActivity().getWindowManager().getDefaultDisplay().getWidth();
+
+            	Log.v(TAG, String.valueOf(aWidth));
+            	String data="<img src=\""+aResult+"\"/>";
+            	mTaskWebView.loadData(data, "text/html", "utf-8");
+
+
+
+                //mTaskWebView.loadUrl(aResult);
                 mTaskViewAnimator.setDisplayedChild(PAGE_IMAGE);
             }
             else
