@@ -108,7 +108,7 @@ public class TaskFragment extends Fragment implements OnClickListener
         mTaskHeaderView.setText(getString(R.string.task_header, mTask.getCategory(), mTask.getId()+1));
         updateStatus();
 
-        mTaskWebView.setInitialScale(30);
+        // mTaskWebView.setInitialScale(30);
 
         WebSettings aSettings= mTaskWebView.getSettings();
         aSettings.setBuiltInZoomControls(true);
@@ -608,11 +608,8 @@ public class TaskFragment extends Fragment implements OnClickListener
             {
             	int aWidth=getCalculateActivity().getWindowManager().getDefaultDisplay().getWidth();
 
-            	Log.v(TAG, String.valueOf(aWidth));
-            	String data="<img src=\""+aResult+"\"/>";
+            	String data="<html><head></head><body><img src=\""+aResult+"\" width=\""+String.valueOf(aWidth)+"\"/></body></html>";
             	mTaskWebView.loadData(data, "text/html", "utf-8");
-
-
 
                 //mTaskWebView.loadUrl(aResult);
                 mTaskViewAnimator.setDisplayedChild(PAGE_IMAGE);
