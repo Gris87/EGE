@@ -11,6 +11,7 @@ import com.gris.ege.R;
 import com.gris.ege.activity.CalculateActivity;
 import com.gris.ege.db.ResultsOpenHelper;
 import com.gris.ege.other.GlobalData;
+import com.gris.ege.other.Log;
 import com.gris.ege.other.Task;
 import com.gris.ege.other.Utils;
 
@@ -24,9 +25,6 @@ import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.text.InputType;
-import com.gris.ege.other.Log;
-
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -108,7 +106,7 @@ public class TaskFragment extends Fragment implements OnClickListener
         mTaskHeaderView.setText(getString(R.string.task_header, mTask.getCategory(), mTask.getId()+1));
         updateStatus();
 
-        // mTaskWebView.setInitialScale(30);
+        mTaskWebView.setInitialScale(30);
 
         WebSettings aSettings= mTaskWebView.getSettings();
         aSettings.setBuiltInZoomControls(true);
@@ -600,18 +598,20 @@ public class TaskFragment extends Fragment implements OnClickListener
             return null;
         }
 
-        @SuppressWarnings("deprecation")
+        // @SuppressWarnings("deprecation")
         @Override
         protected void onPostExecute(String aResult)
         {
             if (aResult!=null)
             {
-            	int aWidth=getCalculateActivity().getWindowManager().getDefaultDisplay().getWidth();
+            	/*
+            	  int aWidth=getCalculateActivity().getWindowManager().getDefaultDisplay().getWidth();
 
-            	String data="<html><head></head><body><img src=\""+aResult+"\" width=\""+String.valueOf(aWidth)+"\"/></body></html>";
-            	mTaskWebView.loadData(data, "text/html", "utf-8");
+            	  String data="<html><head></head><body><img src=\""+aResult+"\" width=\""+String.valueOf(300)+"\"/></body></html>";
+            	  mTaskWebView.loadDataWithBaseURL("", data, "text/html", "utf-8", "");
+                */
 
-                //mTaskWebView.loadUrl(aResult);
+                mTaskWebView.loadUrl(aResult);
                 mTaskViewAnimator.setDisplayedChild(PAGE_IMAGE);
             }
             else
