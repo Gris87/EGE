@@ -295,7 +295,6 @@ public class TaskFragment extends Fragment implements OnClickListener
                 }
 
                 checkAnswer((byte)(aCorrect*mTask.getMaxScore()/aAnswer.length()));
-                // TODO:
             }
             else
             {

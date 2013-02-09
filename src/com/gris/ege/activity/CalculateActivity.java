@@ -641,8 +641,7 @@ public class CalculateActivity extends FragmentActivity
     {
         if (Utils.checkWifiOrNet(this))
         {
-        	// TODO: Remove comment
-            //new SendLogTask().execute();
+        	new SendLogTask().execute();
         }
     }
 
