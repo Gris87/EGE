@@ -209,4 +209,321 @@
     <task id="197"  category="C4"  answer="36 или 8×√19"                 score="3" self="true"/>
     <task id="198"  category="C5"  answer="1, 8, 2"                      score="4" self="true"/>
     <task id="199"  category="C6"  answer="а) 44 б) отрицательных в) 17" score="4" self="true"/>
+
+    <task id="200"  category="B1"  answer="9840"/>
+    <task id="201"  category="B2"  answer="16"/>
+    <task id="202"  category="B3"  answer="36"/>
+    <task id="203"  category="B4"  answer="11060"/>
+    <task id="204"  category="B5"  answer="19"/>
+    <task id="205"  category="B6"  answer="0.48"/>
+    <task id="206"  category="B7"  answer="200"/>
+    <task id="207"  category="B8"  answer="5"/>
+    <task id="208"  category="B9"  answer="9"/>
+    <task id="209"  category="B10" answer="0.95"/>
+    <task id="210"  category="B11" answer="450"/>
+    <task id="211"  category="B12" answer="1.8"/>
+    <task id="212"  category="B13" answer="1"/>
+    <task id="213"  category="B14" answer="-1"/>
+    <task id="214"  category="C1"  answer="2×pi/3, pi-arcsin(2/3), 4×pi/3" score="2" self="true"/>
+    <task id="215"  category="C2"  answer="2"                              score="2"/>
+    <task id="216"  category="C3"  answer="(0.4 ; 0.5) ; (1 ; 2]"          score="3" self="true"/>
+    <task id="217"  category="C4"  answer="91/17 или 221/7"                score="3" self="true"/>
+    <task id="218"  category="C5"  answer="a = -25/11, a = -25/9"          score="4" self="true"/>
+    <task id="219"  category="C6"  answer="3"                              score="4"/>
+
+    <task id="220"  category="B1"  answer="11520"/>
+    <task id="221"  category="B2"  answer="6"/>
+    <task id="222"  category="B3"  answer="36"/>
+    <task id="223"  category="B4"  answer="213750"/>
+    <task id="224"  category="B5"  answer="23"/>
+    <task id="225"  category="B6"  answer="0.31"/>
+    <task id="226"  category="B7"  answer="1.24"/>
+    <task id="227"  category="B8"  answer="0.5"/>
+    <task id="228"  category="B9"  answer="2"/>
+    <task id="229"  category="B10" answer="0.85"/>
+    <task id="230"  category="B11" answer="850"/>
+    <task id="231"  category="B12" answer="0.8"/>
+    <task id="232"  category="B13" answer="4"/>
+    <task id="233"  category="B14" answer="-1"/>
+    <task id="234"  category="C1"  answer="3×pi, 3×pi+arcsin(1/4)" score="2" self="true"/>
+    <task id="235"  category="C2"  answer="√7/2"                   score="2"/>
+    <task id="236"  category="C3"  answer="(1/4 ; 1/3) ; (1 ; 2]"  score="3" self="true"/>
+    <task id="237"  category="C4"  answer="119/23 или 391/7"       score="3" self="true"/>
+    <task id="238"  category="C5"  answer="2"                      score="4"/>
+    <task id="239"  category="C6"  answer="а) нет б) да в) 867"    score="4" self="true"/>
+
+    <task id="240"  category="B1"  answer="9500"/>
+    <task id="241"  category="B2"  answer="5"/>
+    <task id="242"  category="B3"  answer="33"/>
+    <task id="243"  category="B4"  answer="197850"/>
+    <task id="244"  category="B5"  answer="32"/>
+    <task id="245"  category="B6"  answer="0.55"/>
+    <task id="246"  category="B7"  answer="127"/>
+    <task id="247"  category="B8"  answer="-2"/>
+    <task id="248"  category="B9"  answer="7.5"/>
+    <task id="249"  category="B10" answer="0.8"/>
+    <task id="250"  category="B11" answer="2175"/>
+    <task id="251"  category="B12" answer="1"/>
+    <task id="252"  category="B13" answer="4"/>
+    <task id="253"  category="B14" answer="-1"/>
+    <task id="254"  category="C1"  answer="-11×pi/6, arccos(-1/3)-2×pi, -7×pi/6" score="2" self="true"/>
+    <task id="255"  category="C2"  answer="√(7/2)"                               score="2"/>
+    <task id="256"  category="C3"  answer="(4/9 ; 1/2) ; (1 ; 2]"                score="3" self="true"/>
+    <task id="257"  category="C4"  answer="425/31 или 775/17"                    score="3" self="true"/>
+    <task id="258"  category="C5"  answer="1"                                    score="4"/>
+    <task id="259"  category="C6"  answer="2/9"                                  score="4"/>
+
+    <task id="260"  category="B1"  answer="3960"/>
+    <task id="261"  category="B2"  answer="5"/>
+    <task id="262"  category="B3"  answer="42"/>
+    <task id="263"  category="B4"  answer="216000"/>
+    <task id="264"  category="B5"  answer="9"/>
+    <task id="265"  category="B6"  answer="0.24"/>
+    <task id="266"  category="B7"  answer="-8"/>
+    <task id="267"  category="B8"  answer="-1"/>
+    <task id="268"  category="B9"  answer="4.5"/>
+    <task id="269"  category="B10" answer="0.95"/>
+    <task id="270"  category="B11" answer="1500"/>
+    <task id="271"  category="B12" answer="1"/>
+    <task id="272"  category="B13" answer="2"/>
+    <task id="273"  category="B14" answer="1.5"/>
+    <task id="274"  category="C1"  answer="-2×pi-arccos(4/5), -13×pi/6, -2×pi+arccos(4/5)" score="2" self="true"/>
+    <task id="275"  category="C2"  answer="√(6/5)"                                         score="2"/>
+    <task id="276"  category="C3"  answer="(2/7 ; 1/3) ; (1 ; 2]"                          score="3" self="true"/>
+    <task id="277"  category="C4"  answer="1271/49 или 2009/31"                            score="3" self="true"/>
+    <task id="278"  category="C5"  answer="13/69 ; -77/123"                                score="4" self="true"/>
+    <task id="279"  category="C6"  answer="7/33"                                           score="4"/>
+
+    <task id="280"  category="B1"  answer="23"/>
+    <task id="281"  category="B2"  answer="18"/>
+    <task id="282"  category="B3"  answer="15"/>
+    <task id="283"  category="B4"  answer="158400"/>
+    <task id="284"  category="B5"  answer="12"/>
+    <task id="285"  category="B6"  answer="0.7"/>
+    <task id="286"  category="B7"  answer="294"/>
+    <task id="287"  category="B8"  answer="0.25"/>
+    <task id="288"  category="B9"  answer="17"/>
+    <task id="289"  category="B10" answer="0.8"/>
+    <task id="290"  category="B11" answer="39304"/>
+    <task id="291"  category="B12" answer="11"/>
+    <task id="292"  category="B13" answer="10"/>
+    <task id="293"  category="B14" answer="20"/>
+    <task id="294"  category="C1"  answer="pi-arctg(3/2), 5×pi/4" score="2" self="true"/>
+    <task id="295"  category="C2"  answer="arctg(7/48)"           score="2"/>
+    <task id="296"  category="C3"  answer="(-∞ ; -4) ; (4 ; +∞)"  score="3" self="true"/>
+    <task id="297"  category="C4"  answer="4.5 или 6"             score="3" self="true"/>
+    <task id="298"  category="C5"  answer="a ≤ -6 и a ≥ 6"        score="4" self="true"/>
+    <task id="299"  category="C6"  answer="1 и 1035"              score="4" self="true"/>
+
+    <task id="300"  category="B1"  answer=""/>
+    <task id="301"  category="B2"  answer=""/>
+    <task id="302"  category="B3"  answer=""/>
+    <task id="303"  category="B4"  answer=""/>
+    <task id="304"  category="B5"  answer=""/>
+    <task id="305"  category="B6"  answer=""/>
+    <task id="306"  category="B7"  answer=""/>
+    <task id="307"  category="B8"  answer=""/>
+    <task id="308"  category="B9"  answer=""/>
+    <task id="309"  category="B10" answer=""/>
+    <task id="310"  category="B11" answer=""/>
+    <task id="311"  category="B12" answer=""/>
+    <task id="312"  category="B13" answer=""/>
+    <task id="313"  category="B14" answer=""/>
+    <task id="314"  category="C1"  answer="" score="2" self="true"/>
+    <task id="315"  category="C2"  answer="" score="2" self="true"/>
+    <task id="316"  category="C3"  answer="" score="3" self="true"/>
+    <task id="317"  category="C4"  answer="" score="3" self="true"/>
+    <task id="318"  category="C5"  answer="" score="4" self="true"/>
+    <task id="319"  category="C6"  answer="" score="4" self="true"/>
+
+    <task id="320"  category="B1"  answer=""/>
+    <task id="321"  category="B2"  answer=""/>
+    <task id="322"  category="B3"  answer=""/>
+    <task id="323"  category="B4"  answer=""/>
+    <task id="324"  category="B5"  answer=""/>
+    <task id="325"  category="B6"  answer=""/>
+    <task id="326"  category="B7"  answer=""/>
+    <task id="327"  category="B8"  answer=""/>
+    <task id="328"  category="B9"  answer=""/>
+    <task id="329"  category="B10" answer=""/>
+    <task id="330"  category="B11" answer=""/>
+    <task id="331"  category="B12" answer=""/>
+    <task id="332"  category="B13" answer=""/>
+    <task id="333"  category="B14" answer=""/>
+    <task id="334"  category="C1"  answer="" score="2" self="true"/>
+    <task id="335"  category="C2"  answer="" score="2" self="true"/>
+    <task id="336"  category="C3"  answer="" score="3" self="true"/>
+    <task id="337"  category="C4"  answer="" score="3" self="true"/>
+    <task id="338"  category="C5"  answer="" score="4" self="true"/>
+    <task id="339"  category="C6"  answer="" score="4" self="true"/>
+
+    <task id="340"  category="B1"  answer=""/>
+    <task id="341"  category="B2"  answer=""/>
+    <task id="342"  category="B3"  answer=""/>
+    <task id="343"  category="B4"  answer=""/>
+    <task id="344"  category="B5"  answer=""/>
+    <task id="345"  category="B6"  answer=""/>
+    <task id="346"  category="B7"  answer=""/>
+    <task id="347"  category="B8"  answer=""/>
+    <task id="348"  category="B9"  answer=""/>
+    <task id="349"  category="B10" answer=""/>
+    <task id="350"  category="B11" answer=""/>
+    <task id="351"  category="B12" answer=""/>
+    <task id="352"  category="B13" answer=""/>
+    <task id="353"  category="B14" answer=""/>
+    <task id="354"  category="C1"  answer="" score="2" self="true"/>
+    <task id="355"  category="C2"  answer="" score="2" self="true"/>
+    <task id="356"  category="C3"  answer="" score="3" self="true"/>
+    <task id="357"  category="C4"  answer="" score="3" self="true"/>
+    <task id="358"  category="C5"  answer="" score="4" self="true"/>
+    <task id="359"  category="C6"  answer="" score="4" self="true"/>
+
+    <task id="360"  category="B1"  answer=""/>
+    <task id="361"  category="B2"  answer=""/>
+    <task id="362"  category="B3"  answer=""/>
+    <task id="363"  category="B4"  answer=""/>
+    <task id="364"  category="B5"  answer=""/>
+    <task id="365"  category="B6"  answer=""/>
+    <task id="366"  category="B7"  answer=""/>
+    <task id="367"  category="B8"  answer=""/>
+    <task id="368"  category="B9"  answer=""/>
+    <task id="369"  category="B10" answer=""/>
+    <task id="370"  category="B11" answer=""/>
+    <task id="371"  category="B12" answer=""/>
+    <task id="372"  category="B13" answer=""/>
+    <task id="373"  category="B14" answer=""/>
+    <task id="374"  category="C1"  answer="" score="2" self="true"/>
+    <task id="375"  category="C2"  answer="" score="2" self="true"/>
+    <task id="376"  category="C3"  answer="" score="3" self="true"/>
+    <task id="377"  category="C4"  answer="" score="3" self="true"/>
+    <task id="378"  category="C5"  answer="" score="4" self="true"/>
+    <task id="379"  category="C6"  answer="" score="4" self="true"/>
+
+    <task id="380"  category="B1"  answer="3960"/>
+    <task id="381"  category="B2"  answer="5"/>
+    <task id="382"  category="B3"  answer="42"/>
+    <task id="383"  category="B4"  answer="2084000"/>
+    <task id="384"  category="B5"  answer="3"/>
+    <task id="385"  category="B6"  answer="0.41"/>
+    <task id="386"  category="B7"  answer="-6.56"/>
+    <task id="387"  category="B8"  answer="-3"/>
+    <task id="388"  category="B9"  answer="6"/>
+    <task id="389"  category="B10" answer="0.9"/>
+    <task id="390"  category="B11" answer="1500"/>
+    <task id="391"  category="B12" answer="0.6"/>
+    <task id="392"  category="B13" answer="5"/>
+    <task id="393"  category="B14" answer="-1"/>
+    <task id="394"  category="C1"  answer="2×pi-arccos(-3/4), 5×pi/2" score="2" self="true"/>
+    <task id="395"  category="C2"  answer="√2"                        score="2"/>
+    <task id="396"  category="C3"  answer="(1/3 ; 1/2) ; (1 ; 3]"     score="3" self="true"/>
+    <task id="397"  category="C4"  answer="29/41 или 1189"            score="3" self="true"/>
+    <task id="398"  category="C5"  answer="-18/41"                    score="4"/>
+    <task id="399"  category="C6"  answer="а) нет б) да в) 647"       score="4" self="true"/>
+
+<!--
+    <task id="300"  category="B1"  answer=""/>
+    <task id="301"  category="B2"  answer=""/>
+    <task id="302"  category="B3"  answer=""/>
+    <task id="303"  category="B4"  answer=""/>
+    <task id="304"  category="B5"  answer=""/>
+    <task id="305"  category="B6"  answer=""/>
+    <task id="306"  category="B7"  answer=""/>
+    <task id="307"  category="B8"  answer=""/>
+    <task id="308"  category="B9"  answer=""/>
+    <task id="309"  category="B10" answer=""/>
+    <task id="310"  category="B11" answer=""/>
+    <task id="311"  category="B12" answer=""/>
+    <task id="312"  category="B13" answer=""/>
+    <task id="313"  category="B14" answer=""/>
+    <task id="314"  category="C1"  answer="" score="2" self="true"/>
+    <task id="315"  category="C2"  answer="" score="2" self="true"/>
+    <task id="316"  category="C3"  answer="" score="3" self="true"/>
+    <task id="317"  category="C4"  answer="" score="3" self="true"/>
+    <task id="318"  category="C5"  answer="" score="4" self="true"/>
+    <task id="319"  category="C6"  answer="" score="4" self="true"/>
+
+    <task id="320"  category="B1"  answer=""/>
+    <task id="321"  category="B2"  answer=""/>
+    <task id="322"  category="B3"  answer=""/>
+    <task id="323"  category="B4"  answer=""/>
+    <task id="324"  category="B5"  answer=""/>
+    <task id="325"  category="B6"  answer=""/>
+    <task id="326"  category="B7"  answer=""/>
+    <task id="327"  category="B8"  answer=""/>
+    <task id="328"  category="B9"  answer=""/>
+    <task id="329"  category="B10" answer=""/>
+    <task id="330"  category="B11" answer=""/>
+    <task id="331"  category="B12" answer=""/>
+    <task id="332"  category="B13" answer=""/>
+    <task id="333"  category="B14" answer=""/>
+    <task id="334"  category="C1"  answer="" score="2" self="true"/>
+    <task id="335"  category="C2"  answer="" score="2" self="true"/>
+    <task id="336"  category="C3"  answer="" score="3" self="true"/>
+    <task id="337"  category="C4"  answer="" score="3" self="true"/>
+    <task id="338"  category="C5"  answer="" score="4" self="true"/>
+    <task id="339"  category="C6"  answer="" score="4" self="true"/>
+
+    <task id="340"  category="B1"  answer=""/>
+    <task id="341"  category="B2"  answer=""/>
+    <task id="342"  category="B3"  answer=""/>
+    <task id="343"  category="B4"  answer=""/>
+    <task id="344"  category="B5"  answer=""/>
+    <task id="345"  category="B6"  answer=""/>
+    <task id="346"  category="B7"  answer=""/>
+    <task id="347"  category="B8"  answer=""/>
+    <task id="348"  category="B9"  answer=""/>
+    <task id="349"  category="B10" answer=""/>
+    <task id="350"  category="B11" answer=""/>
+    <task id="351"  category="B12" answer=""/>
+    <task id="352"  category="B13" answer=""/>
+    <task id="353"  category="B14" answer=""/>
+    <task id="354"  category="C1"  answer="" score="2" self="true"/>
+    <task id="355"  category="C2"  answer="" score="2" self="true"/>
+    <task id="356"  category="C3"  answer="" score="3" self="true"/>
+    <task id="357"  category="C4"  answer="" score="3" self="true"/>
+    <task id="358"  category="C5"  answer="" score="4" self="true"/>
+    <task id="359"  category="C6"  answer="" score="4" self="true"/>
+
+    <task id="360"  category="B1"  answer=""/>
+    <task id="361"  category="B2"  answer=""/>
+    <task id="362"  category="B3"  answer=""/>
+    <task id="363"  category="B4"  answer=""/>
+    <task id="364"  category="B5"  answer=""/>
+    <task id="365"  category="B6"  answer=""/>
+    <task id="366"  category="B7"  answer=""/>
+    <task id="367"  category="B8"  answer=""/>
+    <task id="368"  category="B9"  answer=""/>
+    <task id="369"  category="B10" answer=""/>
+    <task id="370"  category="B11" answer=""/>
+    <task id="371"  category="B12" answer=""/>
+    <task id="372"  category="B13" answer=""/>
+    <task id="373"  category="B14" answer=""/>
+    <task id="374"  category="C1"  answer="" score="2" self="true"/>
+    <task id="375"  category="C2"  answer="" score="2" self="true"/>
+    <task id="376"  category="C3"  answer="" score="3" self="true"/>
+    <task id="377"  category="C4"  answer="" score="3" self="true"/>
+    <task id="378"  category="C5"  answer="" score="4" self="true"/>
+    <task id="379"  category="C6"  answer="" score="4" self="true"/>
+
+    <task id="380"  category="B1"  answer=""/>
+    <task id="381"  category="B2"  answer=""/>
+    <task id="382"  category="B3"  answer=""/>
+    <task id="383"  category="B4"  answer=""/>
+    <task id="384"  category="B5"  answer=""/>
+    <task id="385"  category="B6"  answer=""/>
+    <task id="386"  category="B7"  answer=""/>
+    <task id="387"  category="B8"  answer=""/>
+    <task id="388"  category="B9"  answer=""/>
+    <task id="389"  category="B10" answer=""/>
+    <task id="390"  category="B11" answer=""/>
+    <task id="391"  category="B12" answer=""/>
+    <task id="392"  category="B13" answer=""/>
+    <task id="393"  category="B14" answer=""/>
+    <task id="394"  category="C1"  answer="" score="2" self="true"/>
+    <task id="395"  category="C2"  answer="" score="2" self="true"/>
+    <task id="396"  category="C3"  answer="" score="3" self="true"/>
+    <task id="397"  category="C4"  answer="" score="3" self="true"/>
+    <task id="398"  category="C5"  answer="" score="4" self="true"/>
+    <task id="399"  category="C6"  answer="" score="4" self="true"/>
+-->
 </tasks>
