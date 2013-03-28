@@ -632,110 +632,213 @@
     <task id="598"  category="C5"  answer="8^(-1/5) ; 8^(1/5)"                       score="4" self="true"/>
     <task id="599"  category="C6"  answer="а) нет б) да в) 867"                      score="4" self="true"/>
 
-<!--
-    <task id="300"  category="B1"  answer=""/>
-    <task id="301"  category="B2"  answer=""/>
-    <task id="302"  category="B3"  answer=""/>
-    <task id="303"  category="B4"  answer=""/>
-    <task id="304"  category="B5"  answer=""/>
-    <task id="305"  category="B6"  answer=""/>
-    <task id="306"  category="B7"  answer=""/>
-    <task id="307"  category="B8"  answer=""/>
-    <task id="308"  category="B9"  answer=""/>
-    <task id="309"  category="B10" answer=""/>
-    <task id="310"  category="B11" answer=""/>
-    <task id="311"  category="B12" answer=""/>
-    <task id="312"  category="B13" answer=""/>
-    <task id="313"  category="B14" answer=""/>
-    <task id="314"  category="C1"  answer="" score="2" self="true"/>
-    <task id="315"  category="C2"  answer="" score="2" self="true"/>
-    <task id="316"  category="C3"  answer="" score="3" self="true"/>
-    <task id="317"  category="C4"  answer="" score="3" self="true"/>
-    <task id="318"  category="C5"  answer="" score="4" self="true"/>
-    <task id="319"  category="C6"  answer="" score="4" self="true"/>
+    <task id="600"  category="B1"  answer="10"/>
+    <task id="601"  category="B2"  answer="-20"/>
+    <task id="602"  category="B3"  answer="13"/>
+    <task id="603"  category="B4"  answer="381"/>
+    <task id="604"  category="B5"  answer="5"/>
+    <task id="605"  category="B6"  answer="49"/>
+    <task id="606"  category="B7"  answer="-0.5"/>
+    <task id="607"  category="B8"  answer="0.25"/>
+    <task id="608"  category="B9"  answer="10"/>
+    <task id="609"  category="B10" answer="0.6"/>
+    <task id="610"  category="B11" answer="665.5"/>
+    <task id="611"  category="B12" answer="8"/>
+    <task id="612"  category="B13" answer="15"/>
+    <task id="613"  category="B14" answer="23"/>
+    <task id="614"  category="C1"  answer="pi×k, pi/3+2×pi×k, k ∈ Z"     score="2" self="true"/>
+    <task id="615"  category="C2"  answer="√7"                           score="2"/>
+    <task id="616"  category="C3"  answer="[-6 ; -2) ; (3 ; 12]"         score="3" self="true"/>
+    <task id="617"  category="C4"  answer="4 или 4.5"                    score="3" self="true"/>
+    <task id="618"  category="C5"  answer="3√2-2 или 2+√34"              score="4" self="true"/>
+    <task id="619"  category="C6"  answer="а) 42 б) положительных в) 24" score="4" self="true"/>
 
-    <task id="320"  category="B1"  answer=""/>
-    <task id="321"  category="B2"  answer=""/>
-    <task id="322"  category="B3"  answer=""/>
-    <task id="323"  category="B4"  answer=""/>
-    <task id="324"  category="B5"  answer=""/>
-    <task id="325"  category="B6"  answer=""/>
-    <task id="326"  category="B7"  answer=""/>
-    <task id="327"  category="B8"  answer=""/>
-    <task id="328"  category="B9"  answer=""/>
-    <task id="329"  category="B10" answer=""/>
-    <task id="330"  category="B11" answer=""/>
-    <task id="331"  category="B12" answer=""/>
-    <task id="332"  category="B13" answer=""/>
-    <task id="333"  category="B14" answer=""/>
-    <task id="334"  category="C1"  answer="" score="2" self="true"/>
-    <task id="335"  category="C2"  answer="" score="2" self="true"/>
-    <task id="336"  category="C3"  answer="" score="3" self="true"/>
-    <task id="337"  category="C4"  answer="" score="3" self="true"/>
-    <task id="338"  category="C5"  answer="" score="4" self="true"/>
-    <task id="339"  category="C6"  answer="" score="4" self="true"/>
+    <task id="620"  category="B1"  answer="9"/>
+    <task id="621"  category="B2"  answer="-4"/>
+    <task id="622"  category="B3"  answer="26"/>
+    <task id="623"  category="B4"  answer="352"/>
+    <task id="624"  category="B5"  answer="7"/>
+    <task id="625"  category="B6"  answer="59"/>
+    <task id="626"  category="B7"  answer="0.25"/>
+    <task id="627"  category="B8"  answer="-1.75"/>
+    <task id="628"  category="B9"  answer="45"/>
+    <task id="629"  category="B10" answer="0.5"/>
+    <task id="630"  category="B11" answer="29659.5"/>
+    <task id="631"  category="B12" answer="12"/>
+    <task id="632"  category="B13" answer="15"/>
+    <task id="633"  category="B14" answer="23"/>
+    <task id="634"  category="C1"  answer="pi/2+pi×k, -pi/6+2×pi×k, k ∈ Z" score="2" self="true"/>
+    <task id="635"  category="C2"  answer="4"                              score="2"/>
+    <task id="636"  category="C3"  answer="[-8 ; -1) ; (5 ; 18]"           score="3" self="true"/>
+    <task id="637"  category="C4"  answer="20 или 14.4"                    score="3" self="true"/>
+    <task id="638"  category="C5"  answer="7 или √45-2"                    score="4" self="true"/>
+    <task id="639"  category="C6"  answer="а) 48 б) отрицательных в) 12"   score="4" self="true"/>
 
-    <task id="340"  category="B1"  answer=""/>
-    <task id="341"  category="B2"  answer=""/>
-    <task id="342"  category="B3"  answer=""/>
-    <task id="343"  category="B4"  answer=""/>
-    <task id="344"  category="B5"  answer=""/>
-    <task id="345"  category="B6"  answer=""/>
-    <task id="346"  category="B7"  answer=""/>
-    <task id="347"  category="B8"  answer=""/>
-    <task id="348"  category="B9"  answer=""/>
-    <task id="349"  category="B10" answer=""/>
-    <task id="350"  category="B11" answer=""/>
-    <task id="351"  category="B12" answer=""/>
-    <task id="352"  category="B13" answer=""/>
-    <task id="353"  category="B14" answer=""/>
-    <task id="354"  category="C1"  answer="" score="2" self="true"/>
-    <task id="355"  category="C2"  answer="" score="2" self="true"/>
-    <task id="356"  category="C3"  answer="" score="3" self="true"/>
-    <task id="357"  category="C4"  answer="" score="3" self="true"/>
-    <task id="358"  category="C5"  answer="" score="4" self="true"/>
-    <task id="359"  category="C6"  answer="" score="4" self="true"/>
+    <task id="640"  category="B1"  answer="18"/>
+    <task id="641"  category="B2"  answer="12"/>
+    <task id="642"  category="B3"  answer="13"/>
+    <task id="643"  category="B4"  answer="328"/>
+    <task id="644"  category="B5"  answer="-2"/>
+    <task id="645"  category="B6"  answer="54"/>
+    <task id="646"  category="B7"  answer="-0.3"/>
+    <task id="647"  category="B8"  answer="0.25"/>
+    <task id="648"  category="B9"  answer="9"/>
+    <task id="649"  category="B10" answer="0.4"/>
+    <task id="650"  category="B11" answer="6083.5"/>
+    <task id="651"  category="B12" answer="15"/>
+    <task id="652"  category="B13" answer="10"/>
+    <task id="653"  category="B14" answer="54"/>
+    <task id="654"  category="C1"  answer="pi×k, pi/3+2×pi×k, k ∈ Z"     score="2" self="true"/>
+    <task id="655"  category="C2"  answer="2√7"                          score="2"/>
+    <task id="656"  category="C3"  answer="[-15 ; -5) ; (1 ; 17]"        score="3" self="true"/>
+    <task id="657"  category="C4"  answer="6.25 или 8"                   score="3" self="true"/>
+    <task id="658"  category="C5"  answer="2 или 3+√97"                  score="4" self="true"/>
+    <task id="659"  category="C6"  answer="а) 55 б) отрицательных в) 25" score="4" self="true"/>
 
-    <task id="360"  category="B1"  answer=""/>
-    <task id="361"  category="B2"  answer=""/>
-    <task id="362"  category="B3"  answer=""/>
-    <task id="363"  category="B4"  answer=""/>
-    <task id="364"  category="B5"  answer=""/>
-    <task id="365"  category="B6"  answer=""/>
-    <task id="366"  category="B7"  answer=""/>
-    <task id="367"  category="B8"  answer=""/>
-    <task id="368"  category="B9"  answer=""/>
-    <task id="369"  category="B10" answer=""/>
-    <task id="370"  category="B11" answer=""/>
-    <task id="371"  category="B12" answer=""/>
-    <task id="372"  category="B13" answer=""/>
-    <task id="373"  category="B14" answer=""/>
-    <task id="374"  category="C1"  answer="" score="2" self="true"/>
-    <task id="375"  category="C2"  answer="" score="2" self="true"/>
-    <task id="376"  category="C3"  answer="" score="3" self="true"/>
-    <task id="377"  category="C4"  answer="" score="3" self="true"/>
-    <task id="378"  category="C5"  answer="" score="4" self="true"/>
-    <task id="379"  category="C6"  answer="" score="4" self="true"/>
+    <task id="660"  category="B1"  answer="14"/>
+    <task id="661"  category="B2"  answer="-8"/>
+    <task id="662"  category="B3"  answer="28"/>
+    <task id="663"  category="B4"  answer="323"/>
+    <task id="664"  category="B5"  answer="3"/>
+    <task id="665"  category="B6"  answer="96"/>
+    <task id="666"  category="B7"  answer="0.5"/>
+    <task id="667"  category="B8"  answer="-1.25"/>
+    <task id="668"  category="B9"  answer="45"/>
+    <task id="669"  category="B10" answer="0.25"/>
+    <task id="670"  category="B11" answer="13.5"/>
+    <task id="671"  category="B12" answer="8"/>
+    <task id="672"  category="B13" answer="20"/>
+    <task id="673"  category="B14" answer="9"/>
+    <task id="674"  category="C1"  answer="pi/2+pi×k, -5×pi/6+2×pi×k, k ∈ Z" score="2" self="true"/>
+    <task id="675"  category="C2"  answer="6"                                score="2"/>
+    <task id="676"  category="C3"  answer="[-10 ; -3) ; (1 ; 12]"            score="3" self="true"/>
+    <task id="677"  category="C4"  answer="8/3 или 3"                        score="3" self="true"/>
+    <task id="678"  category="C5"  answer="7 или √65-2"                      score="4" self="true"/>
+    <task id="679"  category="C6"  answer="а) 60 б) положительных в) 36"     score="4" self="true"/>
 
-    <task id="380"  category="B1"  answer=""/>
-    <task id="381"  category="B2"  answer=""/>
-    <task id="382"  category="B3"  answer=""/>
-    <task id="383"  category="B4"  answer=""/>
-    <task id="384"  category="B5"  answer=""/>
-    <task id="385"  category="B6"  answer=""/>
-    <task id="386"  category="B7"  answer=""/>
-    <task id="387"  category="B8"  answer=""/>
-    <task id="388"  category="B9"  answer=""/>
-    <task id="389"  category="B10" answer=""/>
-    <task id="390"  category="B11" answer=""/>
-    <task id="391"  category="B12" answer=""/>
-    <task id="392"  category="B13" answer=""/>
-    <task id="393"  category="B14" answer=""/>
-    <task id="394"  category="C1"  answer="" score="2" self="true"/>
-    <task id="395"  category="C2"  answer="" score="2" self="true"/>
-    <task id="396"  category="C3"  answer="" score="3" self="true"/>
-    <task id="397"  category="C4"  answer="" score="3" self="true"/>
-    <task id="398"  category="C5"  answer="" score="4" self="true"/>
-    <task id="399"  category="C6"  answer="" score="4" self="true"/>
--->
+    <task id="680"  category="B1"  answer="13"/>
+    <task id="681"  category="B2"  answer="2"/>
+    <task id="682"  category="B3"  answer="14"/>
+    <task id="683"  category="B4"  answer="756"/>
+    <task id="684"  category="B5"  answer="-5"/>
+    <task id="685"  category="B6"  answer="94"/>
+    <task id="686"  category="B7"  answer="0.2"/>
+    <task id="687"  category="B8"  answer="0.25"/>
+    <task id="688"  category="B9"  answer="4"/>
+    <task id="689"  category="B10" answer="0.4"/>
+    <task id="690"  category="B11" answer="171.5"/>
+    <task id="691"  category="B12" answer="18"/>
+    <task id="692"  category="B13" answer="15"/>
+    <task id="693"  category="B14" answer="7"/>
+    <task id="694"  category="C1"  answer="pi×k, -2×pi/3+2×pi×k, k ∈ Z"  score="2" self="true"/>
+    <task id="695"  category="C2"  answer="3√7/2"                        score="2"/>
+    <task id="696"  category="C3"  answer="[-6 ; -4) ; (2 ; 10]"         score="3" self="true"/>
+    <task id="697"  category="C4"  answer="10 или 7.2"                   score="3" self="true"/>
+    <task id="698"  category="C5"  answer="8 или √41-3"                  score="4" self="true"/>
+    <task id="699"  category="C6"  answer="а) 54 б) положительных в) 28" score="4" self="true"/>
+
+    <task id="700"  category="B1"  answer="76"/>
+    <task id="701"  category="B2"  answer="28"/>
+    <task id="702"  category="B3"  answer="4"/>
+    <task id="703"  category="B4"  answer="3784"/>
+    <task id="704"  category="B5"  answer="-11"/>
+    <task id="705"  category="B6"  answer="28"/>
+    <task id="706"  category="B7"  answer="6"/>
+    <task id="707"  category="B8"  answer="4"/>
+    <task id="708"  category="B9"  answer="3"/>
+    <task id="709"  category="B10" answer="0.6"/>
+    <task id="710"  category="B11" answer="31.5"/>
+    <task id="711"  category="B12" answer="44"/>
+    <task id="712"  category="B13" answer="11"/>
+    <task id="713"  category="B14" answer="40"/>
+    <task id="714"  category="C1"  answer="0, 2×pi/3, 4×pi/3, 2×pi"                               score="2" self="true"/>
+    <task id="715"  category="C2"  answer="60°"                                                   score="2"/>
+    <task id="716"  category="C3"  answer="(9.3 ; 10)"                                            score="3"/>
+    <task id="717"  category="C4"  answer="4 или 24"                                              score="3" self="true"/>
+    <task id="718"  category="C5"  answer="(-1-2×k ; 3/4+2×n) ; (-1-2×k ; 5/4+2×n), k,n=0,1,2..." score="4" self="true"/>
+    <task id="719"  category="C6"  answer="1/9"                                                   score="4" self="true"/>
+
+    <task id="720"  category="B1"  answer="39"/>
+    <task id="721"  category="B2"  answer="20"/>
+    <task id="722"  category="B3"  answer="16"/>
+    <task id="723"  category="B4"  answer="3992"/>
+    <task id="724"  category="B5"  answer="70"/>
+    <task id="725"  category="B6"  answer="14"/>
+    <task id="726"  category="B7"  answer="4"/>
+    <task id="727"  category="B8"  answer="-21"/>
+    <task id="728"  category="B9"  answer="2"/>
+    <task id="729"  category="B10" answer="0.5"/>
+    <task id="730"  category="B11" answer="40.5"/>
+    <task id="731"  category="B12" answer="13.75"/>
+    <task id="732"  category="B13" answer="34"/>
+    <task id="733"  category="B14" answer="21"/>
+    <task id="734"  category="C1"  answer="-5×pi/6, -pi/2, -pi/6, pi/6"                           score="2" self="true"/>
+    <task id="735"  category="C2"  answer="arctg(5√2/4)"                                          score="2"/>
+    <task id="736"  category="C3"  answer="6.4, 7"                                                score="3" self="true"/>
+    <task id="737"  category="C4"  answer="12 или 112"                                            score="3" self="true"/>
+    <task id="738"  category="C5"  answer="(1+2×n ; -1.8-2×l) ; (1+2×n ; -0.2-2×l), n,l=0,1,2..." score="4" self="true"/>
+    <task id="739"  category="C6"  answer="а) нет б) да в) 753"                                   score="4" self="true"/>
+
+    <task id="740"  category="B1"  answer="60"/>
+    <task id="741"  category="B2"  answer="4"/>
+    <task id="742"  category="B3"  answer="5"/>
+    <task id="743"  category="B4"  answer="3984"/>
+    <task id="744"  category="B5"  answer="-6"/>
+    <task id="745"  category="B6"  answer="24"/>
+    <task id="746"  category="B7"  answer="2"/>
+    <task id="747"  category="B8"  answer="2"/>
+    <task id="748"  category="B9"  answer="7"/>
+    <task id="749"  category="B10" answer="0.5"/>
+    <task id="750"  category="B11" answer="112.5"/>
+    <task id="751"  category="B12" answer="11"/>
+    <task id="752"  category="B13" answer="30"/>
+    <task id="753"  category="B14" answer="14"/>
+    <task id="754"  category="C1"  answer="pi/6, 5×pi/6, 3×pi/2, 13×pi/6"                                                                      score="2" self="true"/>
+    <task id="755"  category="C2"  answer="1"                                                                                                  score="2"/>
+    <task id="756"  category="C3"  answer="4.4, 5"                                                                                             score="3" self="true"/>
+    <task id="757"  category="C4"  answer="12 или 80"                                                                                          score="3" self="true"/>
+    <task id="758"  category="C5"  answer="(0.6+2×l ; -1/15+2/3×(n-2×l)) ; (-0.6+2×m ; 11/15+2/3×(n-2×m)), l=0,1,2..., m,n-2×l,n-2×m=1,2,3..." score="4" self="true"/>
+    <task id="759"  category="C6"  answer="а) нет б) да в) 1119"                                                                               score="4" self="true"/>
+
+    <task id="760"  category="B1"  answer="57"/>
+    <task id="761"  category="B2"  answer="8"/>
+    <task id="762"  category="B3"  answer="5"/>
+    <task id="763"  category="B4"  answer="2604"/>
+    <task id="764"  category="B5"  answer="18"/>
+    <task id="765"  category="B6"  answer="21"/>
+    <task id="766"  category="B7"  answer="0.5"/>
+    <task id="767"  category="B8"  answer="-2"/>
+    <task id="768"  category="B9"  answer="3"/>
+    <task id="769"  category="B10" answer="0.5"/>
+    <task id="770"  category="B11" answer="9"/>
+    <task id="771"  category="B12" answer="25"/>
+    <task id="772"  category="B13" answer="28"/>
+    <task id="773"  category="B14" answer="4"/>
+    <task id="774"  category="C1"  answer="pi/12, 5×pi/12, 3×pi/4"                              score="2" self="true"/>
+    <task id="775"  category="C2"  answer="arccos(√6/4)"                                        score="2"/>
+    <task id="776"  category="C3"  answer="8.1, 9"                                              score="3" self="true"/>
+    <task id="777"  category="C4"  answer="24 или 140"                                          score="3" self="true"/>
+    <task id="778"  category="C5"  answer="(1+2×n ; 1/3+2×l) ; (1+2×n ; 5/3+2×l), n,l=0,1,2..." score="4" self="true"/>
+    <task id="779"  category="C6"  answer="6×(3^10-2^10)"                                       score="4" self="true"/>
+
+    <task id="780"  category="B1"  answer="75"/>
+    <task id="781"  category="B2"  answer="11"/>
+    <task id="782"  category="B3"  answer="6"/>
+    <task id="783"  category="B4"  answer="3777"/>
+    <task id="784"  category="B5"  answer="6"/>
+    <task id="785"  category="B6"  answer="29"/>
+    <task id="786"  category="B7"  answer="3"/>
+    <task id="787"  category="B8"  answer="2"/>
+    <task id="788"  category="B9"  answer="3"/>
+    <task id="789"  category="B10" answer="0.35"/>
+    <task id="790"  category="B11" answer="18"/>
+    <task id="791"  category="B12" answer="20"/>
+    <task id="792"  category="B13" answer="27"/>
+    <task id="793"  category="B14" answer="45"/>
+    <task id="794"  category="C1"  answer="0, 2×pi/9, 4×pi/9, 2×pi/3, 8×pi/9"                                score="2" self="true"/>
+    <task id="795"  category="C2"  answer="√7/4"                                                             score="2"/>
+    <task id="796"  category="C3"  answer="8.35, 9"                                                          score="3" self="true"/>
+    <task id="797"  category="C4"  answer="16 или 180"                                                       score="3" self="true"/>
+    <task id="798"  category="C5"  answer="(1+2×n ; 2/3+2×l) ; (1+2×n ; -2/3+2×m), n,l=0,1,2..., m=1,2,3..." score="4" self="true"/>
+    <task id="799"  category="C6"  answer="1/9"                                                              score="4" self="true"/>
 </tasks>
