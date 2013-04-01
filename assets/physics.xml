@@ -359,4 +359,364 @@
     <task id="347"  category="C4"  answer="4.5 Вт"/>
     <task id="348"  category="C5"  answer="≈ 1.1 Тл/с"/>
     <task id="349"  category="C6"  answer="1.46×10^6 м/с"/>
+
+    <task id="350"  category="A1"  answer="3"/>
+    <task id="351"  category="A2"  answer="4"/>
+    <task id="352"  category="A3"  answer="4"/>
+    <task id="353"  category="A4"  answer="2"/>
+    <task id="354"  category="A5"  answer="2"/>
+    <task id="355"  category="A6"  answer="1"/>
+    <task id="356"  category="A7"  answer="3"/>
+    <task id="357"  category="A8"  answer="1"/>
+    <task id="358"  category="A9"  answer="2"/>
+    <task id="359"  category="A10" answer="3"/>
+    <task id="360"  category="A11" answer="4"/>
+    <task id="361"  category="A12" answer="2"/>
+    <task id="362"  category="A13" answer="3"/>
+    <task id="363"  category="A14" answer="3"/>
+    <task id="364"  category="A15" answer="3"/>
+    <task id="365"  category="A16" answer="4"/>
+    <task id="366"  category="A17" answer="3"/>
+    <task id="367"  category="A18" answer="1"/>
+    <task id="368"  category="A19" answer="4"/>
+    <task id="369"  category="A20" answer="3"/>
+    <task id="370"  category="A21" answer="2"/>
+    <task id="371"  category="A22" answer="1"/>
+    <task id="372"  category="A23" answer="1"/>
+    <task id="373"  category="A24" answer="3"/>
+    <task id="374"  category="A25" answer="4"/>
+    <task id="375"  category="B1"  answer="369"/>
+    <task id="376"  category="B2"  answer="3214"/>
+    <task id="377"  category="B3"  answer="1311"/>
+    <task id="378"  category="B4"  answer="112"/>
+    <task id="379"  category="C1"  answer="Водяной пар в водздухе становится насыщенным при температуре 7°С, следовательно давление водяного пара в воздухе равно давлению насыщенного пара при температуре 7°С, из таблицы p=10гПа. p0 при 29°C равно 40гПа. Относительная влажность воздуха 25%. При повышении температуры и конденсации паров при температуре 7°C относительная влажность уменьшится, p останется неизменным, а p0 увеличивается" self="true"/>
+    <task id="380"  category="C2"  answer="8 м/с"/>
+    <task id="381"  category="C3"  answer="60000 Дж"/>
+    <task id="382"  category="C4"  answer="≈ 8000 м/с"/>
+    <task id="383"  category="C5"  answer="≈ 0.26 м"/>
+    <task id="384"  category="C6"  answer="≈ 5.5 МэВ"/>
+
+    <task id="385"  category="A1"  answer="3"/>
+    <task id="386"  category="A2"  answer="4"/>
+    <task id="387"  category="A3"  answer="3"/>
+    <task id="388"  category="A4"  answer="4"/>
+    <task id="389"  category="A5"  answer="2"/>
+    <task id="390"  category="A6"  answer="2"/>
+    <task id="391"  category="A7"  answer="2"/>
+    <task id="392"  category="A8"  answer="2"/>
+    <task id="393"  category="A9"  answer="3"/>
+    <task id="394"  category="A10" answer="4"/>
+    <task id="395"  category="A11" answer="2"/>
+    <task id="396"  category="A12" answer="3"/>
+    <task id="397"  category="A13" answer="2"/>
+    <task id="398"  category="A14" answer="4"/>
+    <task id="399"  category="A15" answer="4"/>
+    <task id="400"  category="A16" answer="2"/>
+    <task id="401"  category="A17" answer="2"/>
+    <task id="402"  category="A18" answer="3"/>
+    <task id="403"  category="A19" answer="1"/>
+    <task id="404"  category="A20" answer="1"/>
+    <task id="405"  category="A21" answer="1"/>
+    <task id="406"  category="A22" answer="4"/>
+    <task id="407"  category="A23" answer="3"/>
+    <task id="408"  category="A24" answer="1"/>
+    <task id="409"  category="A25" answer="3"/>
+    <task id="410"  category="B1"  answer="258"/>
+    <task id="411"  category="B2"  answer="2214"/>
+    <task id="412"  category="B3"  answer="3111"/>
+    <task id="413"  category="B4"  answer="21"/>
+    <task id="414"  category="C1"  answer="Водяной пар в водздухе становится насыщенным при температуре 7°С, следовательно давление водяного пара в воздухе равно давлению насыщенного пара при температуре 7°С, из таблицы p=10гПа. p0 при 21°C равно 25гПа. Относительная влажность воздуха 40%. При понижении температуры и конденсации паров при температуре 7°C относительная влажность увеличивается, p останется неизменным, а p0 уменьшается" self="true"/>
+    <task id="415"  category="C2"  answer="7 м/с"/>
+    <task id="416"  category="C3"  answer="180000 Дж"/>
+    <task id="417"  category="C4"  answer="ℰ=24 В, r=1 Ом"/>
+    <task id="418"  category="C5"  answer="2 дптр"/>
+    <task id="419"  category="C6"  answer="≈ -2.64 МэВ"/>
+
+    <task id="420"  category="A1"  answer="3"/>
+    <task id="421"  category="A2"  answer="4"/>
+    <task id="422"  category="A3"  answer="1"/>
+    <task id="423"  category="A4"  answer="3"/>
+    <task id="424"  category="A5"  answer="3"/>
+    <task id="425"  category="A6"  answer="2"/>
+    <task id="426"  category="A7"  answer="4"/>
+    <task id="427"  category="A8"  answer="3"/>
+    <task id="428"  category="A9"  answer="1"/>
+    <task id="429"  category="A10" answer="2"/>
+    <task id="430"  category="A11" answer="3"/>
+    <task id="431"  category="A12" answer="1"/>
+    <task id="432"  category="A13" answer="1"/>
+    <task id="493"  category="A14" answer="1"/>
+    <task id="434"  category="A15" answer="4"/>
+    <task id="435"  category="A16" answer="2"/>
+    <task id="436"  category="A17" answer="1"/>
+    <task id="437"  category="A18" answer="1"/>
+    <task id="438"  category="A19" answer="3"/>
+    <task id="439"  category="A20" answer="4"/>
+    <task id="440"  category="A21" answer="3"/>
+    <task id="441"  category="A22" answer="3"/>
+    <task id="442"  category="A23" answer="3"/>
+    <task id="443"  category="A24" answer="4"/>
+    <task id="444"  category="A25" answer="1"/>
+    <task id="445"  category="B1"  answer="44231"/>
+    <task id="446"  category="B2"  answer="231"/>
+    <task id="447"  category="B3"  answer="2322"/>
+    <task id="448"  category="B4"  answer="111"/>
+    <task id="449"  category="C1"  answer="Водяной пар в водздухе становится насыщенным при температуре 9°С, следовательно давление водяного пара в воздухе равно давлению насыщенного пара при температуре 9°С, из таблицы p=11гПа. p0 при 19°C равно 22гПа. Относительная влажность воздуха 50%. Конденсация происходит при равенстве p и p0 при данной температуре. p0 зависит от температуры, поэтому при разной плотности пара точка росы бывает различной" self="true"/>
+    <task id="450"  category="C2"  answer="5 м"/>
+    <task id="451"  category="C3"  answer="-140000 Дж"/>
+    <task id="452"  category="C4"  answer="1 Ом"/>
+    <task id="453"  category="C5"  answer="2 мм"/>
+    <task id="454"  category="C6"  answer="≈ 1.4 В"/>
+
+    <task id="455"  category="A1"  answer="3"/>
+    <task id="456"  category="A2"  answer="2"/>
+    <task id="457"  category="A3"  answer="3"/>
+    <task id="458"  category="A4"  answer="2"/>
+    <task id="459"  category="A5"  answer="3"/>
+    <task id="460"  category="A6"  answer="1"/>
+    <task id="461"  category="A7"  answer="2"/>
+    <task id="462"  category="A8"  answer="1"/>
+    <task id="463"  category="A9"  answer="4"/>
+    <task id="464"  category="A10" answer="4"/>
+    <task id="465"  category="A11" answer="2"/>
+    <task id="466"  category="A12" answer="3"/>
+    <task id="467"  category="A13" answer="1"/>
+    <task id="468"  category="A14" answer="4"/>
+    <task id="469"  category="A15" answer="4"/>
+    <task id="470"  category="A16" answer="2"/>
+    <task id="471"  category="A17" answer="4"/>
+    <task id="472"  category="A18" answer="2"/>
+    <task id="473"  category="A19" answer="3"/>
+    <task id="474"  category="A20" answer="4"/>
+    <task id="475"  category="A21" answer="3"/>
+    <task id="476"  category="A22" answer="4"/>
+    <task id="477"  category="A23" answer="4"/>
+    <task id="478"  category="A24" answer="2"/>
+    <task id="479"  category="A25" answer="2"/>
+    <task id="480"  category="B1"  answer="44231"/>
+    <task id="481"  category="B2"  answer="2133"/>
+    <task id="482"  category="B3"  answer="3222"/>
+    <task id="483"  category="B4"  answer="111"/>
+    <task id="484"  category="C1"  answer="Водяной пар в водздухе становится насыщенным при температуре 29°С, следовательно давление водяного пара в воздухе равно давлению насыщенного пара при температуре 29°С, из таблицы p=40гПа. p0 при 60°C равно 200гПа. Относительная влажность воздуха 20%. При повышении температуры и конденсации паров при температуре 29°C относительная влажность уменьшится, p останется неизменным, а p0 увеличивается" self="true"/>
+    <task id="485"  category="C2"  answer="10 м/с"/>
+    <task id="486"  category="C3"  answer="-20000 Дж"/>
+    <task id="487"  category="C4"  answer="≈ 5 м"/>
+    <task id="488"  category="C5"  answer="10^(-7) м"/>
+    <task id="489"  category="C6"  answer="≈ 0.9 кг"/>
+
+    <task id="490"  category="A1"  answer="1"/>
+    <task id="491"  category="A2"  answer="2"/>
+    <task id="492"  category="A3"  answer="1"/>
+    <task id="493"  category="A4"  answer="3"/>
+    <task id="494"  category="A5"  answer="1"/>
+    <task id="495"  category="A6"  answer="1"/>
+    <task id="496"  category="A7"  answer="1"/>
+    <task id="497"  category="A8"  answer="2"/>
+    <task id="498"  category="A9"  answer="1"/>
+    <task id="499"  category="A10" answer="4"/>
+    <task id="500"  category="A11" answer="4"/>
+    <task id="501"  category="A12" answer="3"/>
+    <task id="502"  category="A13" answer="2"/>
+    <task id="503"  category="A14" answer="4"/>
+    <task id="504"  category="A15" answer="2"/>
+    <task id="505"  category="A16" answer="3"/>
+    <task id="506"  category="A17" answer="4"/>
+    <task id="507"  category="A18" answer="3"/>
+    <task id="508"  category="A19" answer="2"/>
+    <task id="509"  category="A20" answer="3"/>
+    <task id="510"  category="A21" answer="1"/>
+    <task id="511"  category="A22" answer="4"/>
+    <task id="512"  category="A23" answer="3"/>
+    <task id="513"  category="A24" answer="1"/>
+    <task id="514"  category="A25" answer="1"/>
+    <task id="515"  category="B1"  answer="332"/>
+    <task id="516"  category="B2"  answer="2123"/>
+    <task id="517"  category="B3"  answer="1211"/>
+    <task id="518"  category="B4"  answer="333"/>
+    <task id="519"  category="C1"  answer="Водяной пар в водздухе становится насыщенным при температуре 14°С, следовательно давление водяного пара в воздухе равно давлению насыщенного пара при температуре 14°С, из таблицы p=16гПа. p0 при 25°C равно 32гПа. Относительная влажность воздуха 50%. При повышении температуры и конденсации паров при температуре 14°C относительная влажность уменьшится, p останется неизменным, а p0 увеличивается" self="true"/>
+    <task id="520"  category="C2"  answer="1800 Н"/>
+    <task id="521"  category="C3"  answer="2000 Дж"/>
+    <task id="522"  category="C4"  answer="5 мм"/>
+    <task id="523"  category="C5"  answer="≈ 3 м"/>
+    <task id="524"  category="C6"  answer="≈ 4.2*10^14 Дж"/>
+
+    <task id="525"  category="A1"  answer="2"/>
+    <task id="526"  category="A2"  answer="2"/>
+    <task id="527"  category="A3"  answer="2"/>
+    <task id="528"  category="A4"  answer="1"/>
+    <task id="529"  category="A5"  answer="1"/>
+    <task id="530"  category="A6"  answer="1"/>
+    <task id="531"  category="A7"  answer="2"/>
+    <task id="532"  category="A8"  answer="1"/>
+    <task id="533"  category="A9"  answer="1"/>
+    <task id="534"  category="A10" answer="2"/>
+    <task id="535"  category="A11" answer="1"/>
+    <task id="536"  category="A12" answer="1"/>
+    <task id="537"  category="A13" answer="3"/>
+    <task id="538"  category="A14" answer="4"/>
+    <task id="539"  category="A15" answer="4"/>
+    <task id="540"  category="A16" answer="4"/>
+    <task id="541"  category="A17" answer="2"/>
+    <task id="542"  category="A18" answer="2"/>
+    <task id="543"  category="A19" answer="2"/>
+    <task id="544"  category="A20" answer="1"/>
+    <task id="545"  category="A21" answer="2"/>
+    <task id="546"  category="A22" answer="1"/>
+    <task id="547"  category="A23" answer="3"/>
+    <task id="548"  category="A24" answer="3"/>
+    <task id="549"  category="A25" answer="4"/>
+    <task id="550"  category="B1"  answer="1323"/>
+    <task id="551"  category="B2"  answer="222"/>
+    <task id="552"  category="B3"  answer="2122"/>
+    <task id="553"  category="B4"  answer="333"/>
+    <task id="554"  category="C1"  answer="Водяной пар в водздухе становится насыщенным при температуре 25°С, следовательно давление водяного пара в воздухе равно давлению насыщенного пара при температуре 25°С, из таблицы p=32гПа. p0 при 29°C равно 40гПа. Относительная влажность воздуха 80%. При понижении температуры и конденсации паров при температуре 25°C относительная влажность увеличивается, p останется неизменным, а p0 уменьшается" self="true"/>
+    <task id="555"  category="C2"  answer="5 м"/>
+    <task id="556"  category="C3"  answer="-60000 Дж"/>
+    <task id="557"  category="C4"  answer="1 Ом"/>
+    <task id="558"  category="C5"  answer="7*10^5 м/с"/>
+    <task id="559"  category="C6"  answer="-2.6 МэВ"/>
+
+    <task id="560"  category="A1"  answer="3"/>
+    <task id="561"  category="A2"  answer="3"/>
+    <task id="562"  category="A3"  answer="2"/>
+    <task id="563"  category="A4"  answer="1"/>
+    <task id="564"  category="A5"  answer="3"/>
+    <task id="565"  category="A6"  answer="3"/>
+    <task id="566"  category="A7"  answer="4"/>
+    <task id="567"  category="A8"  answer="2"/>
+    <task id="568"  category="A9"  answer="1"/>
+    <task id="569"  category="A10" answer="4"/>
+    <task id="570"  category="A11" answer="4"/>
+    <task id="571"  category="A12" answer="2"/>
+    <task id="572"  category="A13" answer="2"/>
+    <task id="573"  category="A14" answer="1"/>
+    <task id="574"  category="A15" answer="2"/>
+    <task id="575"  category="A16" answer="1"/>
+    <task id="576"  category="A17" answer="4"/>
+    <task id="577"  category="A18" answer="1"/>
+    <task id="578"  category="A19" answer="2"/>
+    <task id="579"  category="A20" answer="2"/>
+    <task id="580"  category="A21" answer="4"/>
+    <task id="581"  category="A22" answer="1"/>
+    <task id="582"  category="A23" answer="3"/>
+    <task id="583"  category="A24" answer="3"/>
+    <task id="584"  category="A25" answer="2"/>
+    <task id="585"  category="B1"  answer="55321"/>
+    <task id="586"  category="B2"  answer="123"/>
+    <task id="587"  category="B3"  answer="111"/>
+    <task id="588"  category="B4"  answer="222"/>
+    <task id="589"  category="C1"  answer="Водяной пар в водздухе становится насыщенным при температуре 16°С, следовательно давление водяного пара в воздухе равно давлению насыщенного пара при температуре 16°С, из таблицы p=18гПа. p0 при 27°C равно 36гПа. Относительная влажность воздуха 50%. При понижении температуры и конденсации паров при температуре 16°C относительная влажность увеличивается, p останется неизменным, а p0 уменьшается" self="true"/>
+    <task id="590"  category="C2"  answer="10 м/с"/>
+    <task id="591"  category="C3"  answer="700 Дж"/>
+    <task id="592"  category="C4"  answer="2 В"/>
+    <task id="593"  category="C5"  answer="≈ 5 мм"/>
+    <task id="594"  category="C6"  answer="≈ 3.2 кг"/>
+
+    <task id="595"  category="A1"  answer="2"/>
+    <task id="596"  category="A2"  answer="1"/>
+    <task id="597"  category="A3"  answer="1"/>
+    <task id="598"  category="A4"  answer="4"/>
+    <task id="599"  category="A5"  answer="3"/>
+    <task id="600"  category="A6"  answer="3"/>
+    <task id="601"  category="A7"  answer="1"/>
+    <task id="602"  category="A8"  answer="3"/>
+    <task id="603"  category="A9"  answer="1"/>
+    <task id="604"  category="A10" answer="3"/>
+    <task id="605"  category="A11" answer="4"/>
+    <task id="606"  category="A12" answer="4"/>
+    <task id="607"  category="A13" answer="2"/>
+    <task id="608"  category="A14" answer="1"/>
+    <task id="609"  category="A15" answer="4"/>
+    <task id="610"  category="A16" answer="2"/>
+    <task id="611"  category="A17" answer="3"/>
+    <task id="612"  category="A18" answer="1"/>
+    <task id="613"  category="A19" answer="3"/>
+    <task id="614"  category="A20" answer="2"/>
+    <task id="615"  category="A21" answer="1"/>
+    <task id="616"  category="A22" answer="2"/>
+    <task id="617"  category="A23" answer="4"/>
+    <task id="618"  category="A24" answer="3"/>
+    <task id="619"  category="A25" answer="4"/>
+    <task id="620"  category="B1"  answer="54321"/>
+    <task id="621"  category="B2"  answer="231"/>
+    <task id="622"  category="B3"  answer="222"/>
+    <task id="623"  category="B4"  answer="222"/>
+    <task id="624"  category="C1"  answer="Водяной пар в водздухе становится насыщенным при температуре 27°С, следовательно давление водяного пара в воздухе равно давлению насыщенного пара при температуре 27°С, из таблицы p=36гПа. p0 при 29°C равно 40гПа. Относительная влажность воздуха 90%. Конденсация происходит при равенстве p и p0 при данной температуре. p0 зависит от температуры, поэтому при разной плотности пара точка росы бывает различной" self="true"/>
+    <task id="625"  category="C2"  answer="5 м"/>
+    <task id="626"  category="C3"  answer="-700 Дж"/>
+    <task id="627"  category="C4"  answer="≈ 16000 м/с"/>
+    <task id="628"  category="C5"  answer="≈ 4.39*10^(-7) м"/>
+    <task id="629"  category="C6"  answer="≈ 12 кг"/>
+
+    <task id="630"  category="A1"  answer="4"/>
+    <task id="631"  category="A2"  answer="2"/>
+    <task id="632"  category="A3"  answer="1"/>
+    <task id="633"  category="A4"  answer="4"/>
+    <task id="634"  category="A5"  answer="1"/>
+    <task id="635"  category="A6"  answer="2"/>
+    <task id="636"  category="A7"  answer="3"/>
+    <task id="637"  category="A8"  answer="1"/>
+    <task id="638"  category="A9"  answer="1"/>
+    <task id="639"  category="A10" answer="3"/>
+    <task id="640"  category="A11" answer="1"/>
+    <task id="641"  category="A12" answer="3"/>
+    <task id="642"  category="A13" answer="4"/>
+    <task id="643"  category="A14" answer="1"/>
+    <task id="644"  category="A15" answer="3"/>
+    <task id="645"  category="A16" answer="1"/>
+    <task id="646"  category="A17" answer="4"/>
+    <task id="647"  category="A18" answer="4"/>
+    <task id="648"  category="A19" answer="3"/>
+    <task id="649"  category="A20" answer="2"/>
+    <task id="650"  category="A21" answer="2"/>
+    <task id="651"  category="A22" answer="1"/>
+    <task id="652"  category="A23" answer="3"/>
+    <task id="653"  category="A24" answer="2"/>
+    <task id="654"  category="A25" answer="4"/>
+    <task id="655"  category="B1"  answer="331"/>
+    <task id="656"  category="B2"  answer="3132"/>
+    <task id="657"  category="B3"  answer="133"/>
+    <task id="658"  category="B4"  answer="212"/>
+    <task id="659"  category="C1"  answer="Водяной пар в водздухе становится насыщенным при температуре 12°С, следовательно давление водяного пара в воздухе равно давлению насыщенного пара при температуре 12°С, из таблицы p=14гПа. p0 при 23°C равно 28гПа. Относительная влажность воздуха 50%. Конденсация происходит при равенстве p и p0 при данной температуре. p0 зависит от температуры, поэтому при разной плотности пара точка росы бывает различной" self="true"/>
+    <task id="660"  category="C2"  answer="10 м/c"/>
+    <task id="661"  category="C3"  answer="140000 Дж"/>
+    <task id="662"  category="C4"  answer="12 В"/>
+    <task id="663"  category="C5"  answer="≈ 3 м"/>
+    <task id="664"  category="C6"  answer="≈ 1.33*10^15 Гц"/>
+
+    <task id="665"  category="A1"  answer="1"/>
+    <task id="666"  category="A2"  answer="3"/>
+    <task id="667"  category="A3"  answer="4"/>
+    <task id="668"  category="A4"  answer="1"/>
+    <task id="669"  category="A5"  answer="1"/>
+    <task id="670"  category="A6"  answer="1"/>
+    <task id="671"  category="A7"  answer="2"/>
+    <task id="672"  category="A8"  answer="2"/>
+    <task id="673"  category="A9"  answer="2"/>
+    <task id="674"  category="A10" answer="2"/>
+    <task id="675"  category="A11" answer="1"/>
+    <task id="676"  category="A12" answer="3"/>
+    <task id="677"  category="A13" answer="2"/>
+    <task id="678"  category="A14" answer="2"/>
+    <task id="679"  category="A15" answer="3"/>
+    <task id="680"  category="A16" answer="4"/>
+    <task id="681"  category="A17" answer="4"/>
+    <task id="682"  category="A18" answer="1"/>
+    <task id="683"  category="A19" answer="1"/>
+    <task id="684"  category="A20" answer="1"/>
+    <task id="685"  category="A21" answer="1"/>
+    <task id="686"  category="A22" answer="2"/>
+    <task id="687"  category="A23" answer="4"/>
+    <task id="688"  category="A24" answer="1"/>
+    <task id="689"  category="A25" answer="4"/>
+    <task id="690"  category="B1"  answer="1323"/>
+    <task id="691"  category="B2"  answer="333"/>
+    <task id="692"  category="B3"  answer="233"/>
+    <task id="693"  category="B4"  answer="122"/>
+    <task id="694"  category="C1"  answer="Водяной пар в водздухе становится насыщенным при температуре 14°С, следовательно давление водяного пара в воздухе равно давлению насыщенного пара при температуре 14°С, из таблицы p=16гПа. p0 при 25°C равно 32гПа. Относительная влажность воздуха 50%. Конденсация происходит при равенстве p и p0 при данной температуре. p0 зависит от температуры, поэтому при разной плотности пара точка росы бывает различной" self="true"/>
+    <task id="695"  category="C2"  answer="4.5 м/с"/>
+    <task id="696"  category="C3"  answer="-180000 Дж"/>
+    <task id="697"  category="C4"  answer="ℰ=12 В, r=0.6 Ом"/>
+    <task id="698"  category="C5"  answer="≈ 3.4 м"/>
+    <task id="699"  category="C6"  answer="≈ 12.9 МэВ"/>
 </tasks>
